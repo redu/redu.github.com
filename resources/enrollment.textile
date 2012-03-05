@@ -1,0 +1,76 @@
+---
+layout: page
+title: "Matrícula"
+group: navigation
+---
+{% include JB/setup %}
+
+h2. Descrição
+
+Recurso que representa a matrícula de usuários em cursos. Foi desenvolvido de tal forma que abstrai o fato do usuário estar presente ou não no Redu. Caso o e-mail não esteja registrado na plataforma um convite será enviado dando a possibilidade de registro e posterior convite para o curso. Possui uma máquina de estado como definida abaixo (propriedade @state@):
+
+!../assets/images/enrollment-sm.png!
+
+*Estados:*
+
+table(table table-bordered).
+|_.Estado|_.Descrição|
+|waiting|Nenhuma ação foi realizada|
+|redu_invited|Quando o e-mail não está cadastrado no Redu e uma mensagem de convite foi enviada|
+|invited|Quando o e-mail está cadastrado no Redu e o usuário recebe o convite para o curso. Notificação aparecerá na home do usuário|
+|approved|Usuário aceitou o convite|
+|rejected|Usuário recusou o convite|
+
+h2. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*email*|E-mail do usuário que será convidado |Máximo 40 caracteres; deve ser único|
+
+h2. Ações
+
+table(table table-bordered table-striped).
+|_.Recurso|_.Ação|
+|GET /api/enrollments/:id | Visualiza matrícula |
+|POST /api/courses/:course_id/enrollments | Cria matrícula |
+|GET /api/courses/:course_id/enrollments | Lista matrículas do curso |
+|DELETE /api/enrollments/:id | Remove matrícula |
+
+h2. Exemplo
+
+table(table table-bordered).
+|*POST*|/api/courses/foo/enrollments|
+
+*Payload:*
+
+<pre>
+  {
+    enrollment : {
+      email : 'foo@bar.com'
+    }
+  }
+</pre>
+
+*Resposta:*
+
+<pre>
+  {
+      "created_at": "2012-03-05T07:38:06-03:00",
+      "token": "18EM2oxY37g",
+      "id": 4,
+      "links": [{
+          "href": "http://127.0.0.1:3000/api/enrollments/4",
+          "rel": "self"
+      }, {
+          "href": "http://127.0.0.1:3000/api/courses/course-name",
+          "rel": "course"
+      }, {
+          "href": "http://127.0.0.1:3000/api/courses/environment-name",
+          "rel": "environment"
+      }, {
+          "rel": "user"
+      }],
+      "state": "redu_invited",
+      "email": "foo@bar.com"
+  }
+</pre>

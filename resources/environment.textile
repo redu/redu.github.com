@@ -1,0 +1,60 @@
+---
+layout: page
+title: "AVA"
+group: navigation
+---
+{% include JB/setup %}
+
+h2. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*name*|Nome do ambiente|Máximo 40 caracteres; deve ser único|
+|*path*|Nome que aparecerá na barra de endereço|Deve respeitar a seguinte regex: @^[-_A-Za-z0-9]*$@ |
+|*initials*|Abreviação (usado em alguns lugares da interface)|Deve ser único; Máximo de 10 caracteres|
+|description|Descrição do ambiente|Máximo de 400 caracteres|
+
+h2. Ações
+
+table(table table-bordered table-striped).
+|_.Recurso|_.Ação|
+|GET /api/environments/:id | Visualiza Environment |
+|PUT /api/environments/:id | Atualiza Environment |
+|POST /api/environments | Cria Environment |
+|DELETE /api/environments/:id | Remove Environment |
+
+h2. Exemplo
+
+table(table table-bordered).
+|*POST*|/api/environments/23|
+
+*Payload:*
+
+<pre>
+  {
+    name : "Foo",
+    path : "foo",
+    initials : "bar"
+  }
+</pre>
+
+*Resposta:*
+
+<pre>
+  {
+    name: "Foo",
+    created_at: "2010-12-17T16:37:40-02:00",
+    initials: "bar",
+    path: "foo",
+    links: [
+      {
+        href: "http://127.0.0.1:3000/api/environments/foo",
+        rel: "self"
+      },
+      {
+        href: "http://127.0.0.1:3000/api/environments/foo/courses",
+        rel: "courses"
+      }
+    ]
+  }
+</pre>
