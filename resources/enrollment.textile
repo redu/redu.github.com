@@ -7,7 +7,7 @@ group: navigation
 
 h2. Descrição
 
-Recurso que representa a matrícula de usuários em cursos. Foi desenvolvido de tal forma que abstrai o fato do usuário estar presente ou não no Redu. Caso o e-mail não esteja registrado na plataforma um convite será enviado dando a possibilidade de registro e posterior convite para o curso. Possui uma máquina de estado como definida abaixo (propriedade @state@):
+Recurso que representa a matrícula de usuários em cursos. Foi desenvolvido de tal forma que abstrai o fato do usuário estar presente ou não no "Redu":http://www.redu.com.br. Caso o e-mail não esteja registrado na plataforma um convite será enviado dando a possibilidade de registro e posterior convite para o curso. Possui uma máquina de estado como definida abaixo (propriedade @state@):
 
 !../assets/images/enrollment-sm.png!
 
@@ -16,8 +16,8 @@ Recurso que representa a matrícula de usuários em cursos. Foi desenvolvido de 
 table(table table-bordered).
 |_.Estado|_.Descrição|
 |waiting|Nenhuma ação foi realizada|
-|redu_invited|Quando o e-mail não está cadastrado no Redu e uma mensagem de convite foi enviada|
-|invited|Quando o e-mail está cadastrado no Redu e o usuário recebe o convite para o curso. Notificação aparecerá na home do usuário|
+|redu_invited|Quando o e-mail não está cadastrado no "Redu":http://www.redu.com.br e uma mensagem de convite foi enviada|
+|invited|Quando o e-mail está cadastrado no "Redu":http://www.redu.com.br e o usuário recebe o convite para o curso. Notificação aparecerá na home do usuário|
 |approved|Usuário aceitou o convite|
 |rejected|Usuário recusou o convite|
 

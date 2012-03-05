@@ -1,0 +1,20 @@
+---
+layout: page
+title: Redu para desenvolvedores
+tagline: "Documentação da API REST do Redu"
+---
+{% include JB/setup %}
+
+h2. Introdução
+
+O "Redu":http://www.redu.com.br é uma plataforma de ensino a distância construida sobre uma rede social. O seu objetivo principal é potencializar o talento das pessoas oferecendo ferramentas que proporcionam uma aprendizagem mais efetiva.
+
+Através da API HTTP REST do "Redu":http://www.redu.com.br é possível construir aplicações que acessam os dados dos "usuários":resources/user.html e "cursos":resources/course.html da plataforma.
+
+h2. Autenticação
+
+_TODO_
+
+h2. Como os dados do "Redu":http://www.redu.com.br estão organizados?
+
+!assets/images/hierarchy.001.png!
