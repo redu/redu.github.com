@@ -5,27 +5,42 @@ group: navigation
 ---
 {% include JB/setup %}
 
-h2. Parâmetros
+h2. "GET /api/spaces/:id":#get-spaces
+
+Retorna a disiplipla em questão.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*id*|ID da disciplina|N/A|
+
+h2. "PUT /api/spaces/:id":#put-spaces
+
+Atualiza as informações da disciplina.
+
+h4. Parâmetros
 
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*name*|Nome do curso|Máximo 40 caracteres; deve ser único|
 |description|Descrição do curso|Máximo de 400 caracteres|
 
-h2. Ações
+h2. "POST /api/courses/:course_id/spaces":#post-course-spaces
+
+Cria uma disciplina no contexto do course especificado por @course_id@.
+
+h4. Parâmetros
 
 table(table table-bordered table-striped).
-|_.Recurso|_.Ação|
-|GET /api/spaces/:id | Visualiza disciplina |
-|PUT /api/spaces/:id | Atualiza disciplina |
-|POST /api/courses/:course_id/spaces | Cria disciplina |
-|GET /api/courses/:course_id/spaces | Lista disciplinas do curso |
-|DELETE /api/spaces/:id | Remove disciplina |
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*course_id*|ID ou path do curso|N/A|
+|*name*|Nome do curso|Máximo 40 caracteres; deve ser único|
+|description|Descrição do curso|Máximo de 400 caracteres|
 
-h2. Exemplo
+h4. Exemplo
 
-table(table table-bordered).
-|*POST*|/api/courses/foo/spaces|
+@POST /api/courses/foo/spaces@
 
 *Payload:*
 
@@ -61,3 +76,23 @@ table(table table-bordered).
 }
 </pre>
 
+
+h2. "GET /api/courses/:course_id/spaces":#get-course-spaces
+
+Retorna uma lista com as disciplinas do curso especificado.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*course_id*|ID ou path do curso|N/A|
+
+h2. "DELETE /api/spaces/:id":#delete-spaces
+
+Remove uma disciplina. Os que fazem parte do curso ao qual a disciplina faz parte não terão mais acesso aos módulos e aulas.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*id*|ID da disciplina|N/A|
