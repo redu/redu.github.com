@@ -13,7 +13,7 @@ Através da API HTTP REST do "Redu":http://www.redu.com.br é possível construi
 
 h3. Hypertext enabled
 
-Seguindo a sugestão do Roy Fieldling, pai do REST, todos os recursos retornados pela API do Redu possuem metainformações (hyperlinks) para outros recursos importantes no estado atual da aplicação. Isso faz com que a API possua um único ponto de entrada, por exemplo o AVA.
+Seguindo a "sugestão":http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven do "Roy Fielding":http://en.wikipedia.org/wiki/Roy_Fielding, pai do REST, todos os recursos retornados pela API do Redu possuem metainformações (hyperlinks) para outros recursos importantes no estado atual da aplicação. Isso faz com que a API possua um único ponto de entrada, por exemplo o AVA.
 
 Exemplificando o dito acima, ao realizar uma requisição HTTP com o método GET para a URL @/api/environments/foo@ o recurso retornado seria como o descrito abaixo:
 

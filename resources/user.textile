@@ -45,7 +45,7 @@ h4. Exemplo
 
 h2. "GET /api/spaces/:space_id/users":#get-space-users
 
-Retorna todos os com "matrícula":resourses/enrollment.html com o estado @approved@ no "curso":resources/course.html ao qual a disciplina está associada. Opcionalmente é possível filtrar os usuários por papeis.
+Retorna todos os usuários com "matrícula":resourses/enrollment.html com o estado @approved@ no "curso":resources/course.html ao qual a disciplina está associada. Opcionalmente é possível filtrar os usuários por papeis.
 
 h4. Parâmetros
 
