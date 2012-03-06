@@ -5,6 +5,8 @@ group: navigation
 ---
 {% include JB/setup %}
 
+O AVA (Ambiente Virtual de Aprendizagem) no contexto da API é chamado simplesmente de @environment@. Ele serve como um organizador de cursos e representa a instituição ou empresa que detém estes. Além de uma forma de organizar cursos o AVA detém opções administrativas que fazem sentido ao Gestor de conhecimento ou Gestor de EAD. Por si só não detém conteúdo (aulas, arquivos e posts) nem usuários. Estes estão dentro das disciplinas e cursos, respectivamente.
+
 h2. "GET /api/environments/:id":#get-environments
 
 Retorna o AVA especificado. Tanto o ID quanto o path podem ser utilizados aqui, porém o path é passível de modificações pelo usuário, portanto pode não servir como um identificador único.
