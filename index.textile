@@ -11,10 +11,52 @@ O "Redu":http://www.redu.com.br é uma plataforma de ensino a distância constru
 
 Através da API HTTP REST do "Redu":http://www.redu.com.br é possível construir aplicações que acessam os dados dos "usuários":resources/user.html e "cursos":resources/course.html da plataforma.
 
+h3. Hypertext enabled
+
+Seguindo a sugestão do Roy Fieldling, pai do REST, todos os recursos retornados pela API do Redu possuem metainformações (hyperlinks) para outros recursos importantes no estado atual da aplicação. Isso faz com que a API possua um único ponto de entrada, por exemplo o AVA.
+
+Exemplificando o dito acima, ao realizar uma requisição HTTP com o método GET para a URL @/api/environments/foo@ o recurso retornado seria como o descrito abaixo:
+
+<pre>
+{
+  name: "Foo",
+  created_at: "2010-12-17T16:37:40-02:00",
+  initials: "bar",
+  path: "foo",
+  links: [
+    { href: "http://127.0.0.1:3000/api/environments/foo", rel: "self" },
+    { href: "http://127.0.0.1:3000/api/environments/foo/courses", rel: "courses" }
+    { href: "http://127.0.0.1:3000/api/environments/foo/users", rel: "users" }
+  ]
+}
+</pre>
+
+Note que o JSON retornado possui uma propriedade links que denota as URLs que a aplicação cliente precisa conhecer no contexto atual (visualização de curso). Isso quer dizer que, por exemplo, quisessemos visualizar os cursos do AVA em questão, poderíamos faze-lo sem conhecer a priori a URL apropriada.
+
+Uma aplicação cliente em JavaScript + jQuery poderia listar os cursos deste ambiente da seguinte forma:
+
+{% highlight javascript %}
+$(document).ready(function(){
+  $.getJSON('/api/environments', { id : 'foo' }, function(data){
+      var links = data['links'];
+      var courses;
+      for(var i = 0; i < data['links'].length; i++) {
+        if(links[i]['rel'] === 'courses') { courses = links['href']; break; }
+      }
+
+      $.getJSON(courses, function(data){
+        console.log(data)
+      });
+  });
+});
+{% endhighlight %}
+
+
 h2. Autenticação
 
 _TODO_
 
 h2. Como os dados do "Redu":http://www.redu.com.br estão organizados?
 
+!assets/images/entities.png!
 !assets/images/hierarchy.001.png!
