@@ -1,0 +1,96 @@
+---
+layout: page
+title: "Usuário"
+group: navigation
+---
+{% include JB/setup %}
+
+h2. "GET /api/users/:id":#get-users
+
+Retorna um único usuário com o ID ou login especificado. Tanto o login quanto o ID servem como identificadores únicos para os usuários, por isso podem ser passados como parâmetro aqui.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*id*| ID ou login do usuário em questão|N/A|
+
+h4. Exemplo
+
+*Requisição:*
+
+@GET /api/users/test_user@
+
+*Resposta:*
+
+<pre>
+  {
+      "id": 1,
+      "last_name": "User",
+      "birthday": "1992-02-29",
+      "links": [{
+          "href": "http://127.0.0.1:3000/api/users/test_user",
+          "rel": "self"
+      }, {
+          "href": "http://127.0.0.1:3000/api/users/test_user/enrollments",
+          "rel": "enrollments"
+      }],
+      "login": "test_user",
+      "friends_count": 0,
+      "email": "test_user@example.com",
+      "first_name": "Test"
+  }
+</pre>
+
+
+h2. "GET /api/spaces/:space_id/users":#get-space-users
+
+Retorna todos os com "matrícula":resourses/enrollment.html com o estado @approved@ no "curso":resources/course.html ao qual a disciplina está associada. Opcionalmente é possível filtrar os usuários por papeis.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*role*| Papel do usuário no curso. | Pode ser um dos seguintes papéis: @member@, @teacher@, @administrator@, @tutor@|
+
+h4. Exemplo
+
+*Requisição:*
+
+@GET /api/space/1/users?role=member@
+
+*Resposta:*
+
+<pre>
+[{
+    "id": 1,
+    "last_name": "User",
+    "birthday": "1992-02-29",
+    "links": [{
+        "href": "http://127.0.0.1:3000/api/users/test_user",
+        "rel": "self"
+    }, {
+        "href": "http://127.0.0.1:3000/api/users/test_user/enrollments",
+        "rel": "enrollments"
+    }],
+    "login": "test_user",
+    "friends_count": 0,
+    "email": "test_user@example.com",
+    "first_name": "Test"
+}, {
+    "id": 3,
+    "last_name": "Cavalcanti",
+    "birthday": "1987-03-06",
+    "links": [{
+        "href": "http://127.0.0.1:3000/api/users/guiocavalcanti",
+        "rel": "self"
+    }, {
+        "href": "http://127.0.0.1:3000/api/users/guiocavalcanti/enrollments",
+        "rel": "enrollments"
+    }],
+    "login": "guiocavalcanti",
+    "friends_count": 0,
+    "email": "guiocavalcanti@gmail.com",
+    "first_name": "Guilherme"
+}]
+</pre>

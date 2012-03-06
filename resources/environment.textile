@@ -5,7 +5,21 @@ group: navigation
 ---
 {% include JB/setup %}
 
-h2. Parâmetros
+h2. "GET /api/environments/:id":#get-environments
+
+Retorna o AVA especificado. Tanto o ID quanto o path podem ser utilizados aqui, porém o path é passível de modificações pelo usuário, portanto pode não servir como um identificador único.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*id*|ID ou path do AVA|N/A|
+
+h2. "POST /api/environments":#post-environments
+
+Cria AVA. Por si só o AVA é apenas uma maneira de organizar um conjunto de cursos dentro do contexto de uma instituição.
+
+h4. Parâmetros
 
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
@@ -14,19 +28,9 @@ table(table table-bordered table-striped).
 |*initials*|Abreviação (usado em alguns lugares da interface)|Deve ser único; Máximo de 10 caracteres|
 |description|Descrição do ambiente|Máximo de 400 caracteres|
 
-h2. Ações
+h4. Exemplo
 
-table(table table-bordered table-striped).
-|_.Recurso|_.Ação|
-|GET /api/environments/:id | Visualiza Environment |
-|PUT /api/environments/:id | Atualiza Environment |
-|POST /api/environments | Cria Environment |
-|DELETE /api/environments/:id | Remove Environment |
-
-h2. Exemplo
-
-table(table table-bordered).
-|*POST*|/api/environments/23|
+@POST /api/environments/23@
 
 *Payload:*
 
@@ -58,3 +62,27 @@ table(table table-bordered).
     ]
   }
 </pre>
+
+h2. "PUT /api/environments/:id":#put-environments
+
+Atualiza informações do AVA em questão.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*name*|Nome do ambiente|Máximo 40 caracteres; deve ser único|
+|*path*|Nome que aparecerá na barra de endereço|Deve respeitar a seguinte regex: @^[-_A-Za-z0-9]*$@ |
+|*initials*|Abreviação (usado em alguns lugares da interface)|Deve ser único; Máximo de 10 caracteres|
+|description|Descrição do ambiente|Máximo de 400 caracteres|
+
+h2. "DELETE /api/environments/:id":#delete-environments
+
+Remove o AVA em questão. Todos os cursos, disciplinas, módulos e aulas insteridos neste ambiente serão perdidos e não estarão mais acessíveis aos usuários.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*id*|ID ou path do AVA|N/A|
+

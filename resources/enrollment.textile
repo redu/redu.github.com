@@ -5,8 +5,6 @@ group: navigation
 ---
 {% include JB/setup %}
 
-h2. Descrição
-
 Recurso que representa a matrícula de usuários em cursos. Foi desenvolvido de tal forma que abstrai o fato do usuário estar presente ou não no "Redu":http://www.redu.com.br. Caso o e-mail não esteja registrado na plataforma um convite será enviado dando a possibilidade de registro e posterior convite para o curso. Possui uma máquina de estado como definida abaixo (propriedade @state@):
 
 !../assets/images/enrollment-sm.png!
@@ -21,25 +19,30 @@ table(table table-bordered).
 |approved|Usuário aceitou o convite|
 |rejected|Usuário recusou o convite|
 
-h2. Parâmetros
+h2. "GET /api/enrollments/:id":#get-enrollments
+
+Retorna a matrícula em questão.
+
+h4. Parâmetros
 
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
-|*email*|E-mail do usuário que será convidado |Máximo 40 caracteres; deve ser único|
+|*id*|ID da matrícula|N/A|
 
-h2. Ações
+h2. "POST /api/courses/:course_id/enrollments":#post-course-enrollments
+
+Cria uma matrícula no curso em questão. Caso o usuário faça parte do Redu a matrícula irá para o estado @invited@ e uma notificação aparecerá em sua home perguntando se deseja participar do curso. Caso o usuário não faça parte do Redu, antes de ir para o estado @invited@ a matrícula passará para um estado @redu_invited@. Isso significa que um e-mail de convite foi enviado.
+
+h4. Parâmetros
 
 table(table table-bordered table-striped).
-|_.Recurso|_.Ação|
-|GET /api/enrollments/:id | Visualiza matrícula |
-|POST /api/courses/:course_id/enrollments | Cria matrícula |
-|GET /api/courses/:course_id/enrollments | Lista matrículas do curso |
-|DELETE /api/enrollments/:id | Remove matrícula |
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*id*|ID ou path do curso|N/A|
+|*email*|E-mail do usuário que será convidado |Máximo 40 caracteres; deve ser único|
 
-h2. Exemplo
+h4. Exemplo
 
-table(table table-bordered).
-|*POST*|/api/courses/foo/enrollments|
+@POST /api/courses/foo/enrollments@
 
 *Payload:*
 
@@ -74,3 +77,24 @@ table(table table-bordered).
       "email": "foo@bar.com"
   }
 </pre>
+
+
+h2. "GET /api/courses/:course_id/enrollments":#get-course-enrollments
+
+Listagem de matrículas de um curso. É importante perceber que podem existir mais matrículas do que usuários efetivamente cadastrados no curso (estado @redu_invited@ ou @invited@).
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*id*|ID ou path do curso|N/A|
+
+h2. "DELETE /api/enrollments/:id":#delete-enrollments
+
+Remove a matrícula especificada bem como o usuário associado a mesma (caso exista). O usuário perderá acesso ao curso e às suas disciplinas.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*id*|ID ou path do curso|N/A|
