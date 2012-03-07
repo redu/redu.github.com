@@ -51,7 +51,7 @@ h4. Parâmetros
 
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
-|*role*| Papel do usuário no curso. | Pode ser um dos seguintes papéis: @member@, @teacher@, @administrator@, @tutor@|
+|*role*| Papel do usuário no curso. | Pode ser um dos seguintes papéis: @member@, @teacher@, @environment_admin@, @tutor@|
 
 h4. Exemplo
 
