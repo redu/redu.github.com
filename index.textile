@@ -60,3 +60,27 @@ h2. Como os dados do "Redu":http://www.redu.com.br estão organizados?
 
 !assets/images/entities.png!
 !assets/images/hierarchy.001.png!
+
+h2. Aplicação de exemplo
+
+Para melhor exemplificar como a API do Redu pode ser usada, foi criado uma "aplicação de exemplo":https://github.com/redu/qt-example em "Python":http://python.org/. Nesta aplicação foi utilizado todos os métodos descritos para AVA, Usuário, Matrícula, Disciplina e Curso, de forma que, todos os dados foram extraídos da API do Redu.
+
+Simulamos um sistema Desktop com as seguintes descrições: Coligados, Cursos, Disciplinas e Turmas.
+
+h4. Mapeamento
+
+table(table table-bordered table-striped).
+|_.API Redu|_.API Exemplo|
+|Environments|Coligados|
+|Courses|Cursos|
+|Spaces|Disciplinas|
+|Environments|Turmas|
+
+h4. Tela da Aplicação de Exemplo
+
+
+!assets/images/Window_qt_example.png!
+
+
+
+
