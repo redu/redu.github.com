@@ -11,3 +11,5 @@ Thumbs.db
 
 *.swp
 *.swo
+.bundle
+bin
