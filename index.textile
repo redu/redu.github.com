@@ -54,7 +54,30 @@ $(document).ready(function(){
 
 h2. Autenticação
 
-_TODO_
+h3. OAuth
+
+p. O Redu utiliza o protocolo "OAuth":http://oauth.net para autenticação de applicações externas à sua API. O OAuth é um padrão de mercado para autenticação com APIs, utilizado por grande parte dos serviços web (Twitter, Facebook, Foursquare etc)
+
+p. Para conhecer o protocolo uma ótima referência é o "tutorial da hueniverse":http://hueniverse.com/oauth/guide
+
+h4. Fluxo de Requisições para Autenticação
+
+p. Esse é um fluxo básico do processo de autenticação utilizando OAuth, lembrando que normalmente você utilizará bibliotecas que realizam todo este processo
+
+!assets/images/oauth-workflow.png!
+
+h3. Bibliotecas
+
+p. Já existem bibliotecas prontas que implementam o protocolo OAuth em diversas linguagens, você pode encontrar algumas delas no "repositório oficial":http://code.google.com/p/oauth
+
+p. Além disso diversos Frameworks de desenvolvimento também possuem implementações próprias, como o "Zend Framework":http://framework.zend.com/manual/en/zend.oauth.html
+
+h3. Exemplos
+
+p. Alguns exemplos de clientes realizando a negociação dos tokens e fazendo requisições para a API do Redu
+
+1. "Python":https://gist.github.com/2161545
+2. "PHP":https://gist.github.com/2161583
 
 h2. Como os dados do "Redu":http://www.redu.com.br estão organizados?
 
