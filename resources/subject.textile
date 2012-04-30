@@ -1,0 +1,103 @@
+---
+layout: page
+title: "Módulo"
+group: navigation
+---
+{% include JB/setup %}
+
+No contexto da API, o módulo é referido como @suject@. É um agrupamento de diversas aulas (conteúdos) em um contexto.
+
+h2. "GET /api/spaces/:space_id/subjects":#get-space-subjects
+
+Retorna os módulos de uma disciplina.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*space_id*|ID da disciplina|N/A|
+
+h2. "GET /api/sujects/:id":#get-subjects
+
+Retorna o módulo em questão.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*id*|ID do módulo|N/A|
+
+h2. "POST /api/spaces/:space_id/subjects":#post-space-subjects
+
+Cria um módulo no contexto da disciplina especificada por @space_id@.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*space_id*|ID da disciplina|N/A|
+|*title*|Título do módulo|Máximo 40 caracteres|
+|description|Descrição do módulo|Máximo 250 caracteres|
+
+h4. Exemplo
+
+@POST /api/spaces/1/subjects@
+
+*Payload:*
+
+<pre>
+  {
+    subject : {
+      name : "Novo módulo",
+      description : "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
+    }
+  }
+</pre>
+
+*Resposta:*
+
+<pre>
+  {
+    "id": 1,
+    "title": "Novo módulo",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+    "created_at": "2012-04-27T13:07:21-03:00"
+    "links": [{
+        "rel": "self",
+        "href": "http://127.0.0.1:3000/api/subjects/1"
+    }, {
+        "rel": "lectures",
+        "href": "http://127.0.0.1:3000/api/subjects/1/lectures"
+    }, {
+        "rel": "space",
+        "href": "http://127.0.0.1:3000/api/spaces/1"
+    }, {
+        "rel": "course",
+        "href": "http://127.0.0.1:3000/api/courses/course-name"
+    }, {
+        "rel": "environment",
+        "href": "http://127.0.0.1:3000/api/environments/environment-name"
+    }],
+  }
+</pre>
+
+h2. "PUT /api/subjects/:id":#put-subjects
+
+Atualiza as informações do módulo.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*title*|Título do módulo|Máximo 40 caracteres|
+|description|Descrição do módulo|Máximo 250 caracteres|
+
+h2. "DELETE /api/subjects/:id":#delete-subjects
+
+Remove um módulo. Os que fazem parte do módulo não terão mais acesso às aulas.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*id*|ID do módulo|N/A|
