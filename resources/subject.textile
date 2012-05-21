@@ -77,6 +77,9 @@ h4. Exemplo
     }, {
         "rel": "environment",
         "href": "http://127.0.0.1:3000/api/environments/environment-name"
+    }, {
+        "rel"=>"users",
+        "href"=>"http://127.0.0.1:3000/api/subjects/347/users"
     }],
   }
 </pre>
