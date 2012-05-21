@@ -1,0 +1,188 @@
+---
+layout: page
+title: "Mural"
+group: navigation
+---
+{% include JB/setup %}
+
+O Mural "Feeds de notícias" é o local onde é mostrado notícias, comentários, pedidos de ajuda, recados ou respostas aos pedidos de ajuda, ou seja, são os @status@. Há três tipos de murais a depender do contexto: o Mural do Usuário, Mural da Disciplina @space@ e o Mural de uma Aula @lecture@.
+
+h2. "Statuses":#get-statuses
+
+Antes vamos conhecer os possíveis statuses mostrados no Mural.
+
+*Activity:*
+
+table(table table-bordered table-striped).
+|O status do tipo Activity, define uma atividade feita uma nóticia, comentário ou recado postado dentro de um contexto.|
+
+*Help:*
+
+table(table table-bordered table-striped).
+|O status Help, é uma atividade específica para pedir ajuda, somente pode ser criado dentro de uma aula.|
+
+*Answer:*
+
+table(table table-bordered table-striped).
+|É um status resposta a um Activity ou Help (pedido de ajuda).|
+
+*Log:*
+
+table(table table-bordered table-striped).
+|Log é um status específico criado somente pelo sistema, tal como atualizou o perfil, adicionou uma nova formação, adicionou uma nova experiência no currículo, criou o curso, adicionou a sua rede de contatos, publicou a aula, publicou o módulo e criou a disciplina.|
+
+h2. "GET /api/statuses/:status_id":#get-status
+
+Retorna um @status@ com o ID especifico que pode ser de qualquer tipo: Activity, Help ou Log.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*:status_id*| ID do status|N/A|
+
+h3. Status tipo Answer
+
+h2. "GET /api/statuses/:status_id/answers":#get-status
+
+Retorna um @status@ tipo Answer.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*:status_id*| ID do status|N/A|
+
+h2. "POST /api/statuses/:status_id/answers":#get-status
+
+Cria um status do tipo Answer em resposta a um comentário ou um pedido de ajuda.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*:status_id*| ID do status em questão|Somente do tipo Activity ou Help|
+|*text*| É uma resposta a um comentário ou um pedido de ajuda|Máximo 800 caracteres|
+|*type*| Answer|Somente criada em resposta a um comentário ou um pedido de ajuda|
+
+
+h3. Mural do Usuário
+
+h2. "GET /api/users/:user_id/statuses":#get-status
+
+Retorna todos os @status@ do mural do usuário. Opcionalmente pode se filtrar os status do usuário pelo tipo.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*:user_id*| ID do usuário em questão|Pode ser do tipo @Activity@, @Help@ ou @Log@|
+
+h4. Exemplo
+
+*Requisição:*
+
+@GET /api/users/:user_id/statuses?type=Activity@
+
+*Resposta:*
+
+<pre>
+[{
+  "text"=>
+    "Lorem ipsum dolor sit amet, consectetur magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation",
+    "type"=>"Activity",
+    "id"=>149,
+    "links"=>
+      [{"rel"=>"self", "href"=>"http://127.0.0.1:3000/api/statuses/149"},
+        {"rel"=>"statusable",
+       "href"=>"http://127.0.0.1:3000/api/users/usuario277"},
+      {"rel"=>"user", "href"=>"http://127.0.0.1:3000/api/users/usuario275"},
+      {"rel"=>"answers",
+       "href"=>"http://127.0.0.1:3000/api/statuses/149/answers"}],
+    "created_at"=>Thu May 03 10:24:01 -0300 2012
+    },{
+    "text"=>
+     "Lorem ipsum dolor sit amet, consectetur magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation",
+     "type"=>"Activity",
+     "id"=>152,
+     "links"=>
+     [{"rel"=>"self", "href"=>"http://127.0.0.1:3000/api/statuses/152"},
+      {"rel"=>"statusable",
+       "href"=>"http://127.0.0.1:3000/api/users/usuario281"},
+      {"rel"=>"user", "href"=>"http://127.0.0.1:3000/api/users/usuario275"},
+      {"rel"=>"answers",
+       "href"=>"http://127.0.0.1:3000/api/statuses/152/answers"}],
+    "created_at"=>Thu May 03 10:24:02 -0300 2012
+}]
+</pre>
+Obs: Caso @:type@ não seja informado é retornado os status do tipo Activity e Help do usuário.
+
+h2. "POST /api/users/:user_id/statuses":#get-status
+
+Cria um status no Mural do usuário.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*:user_id*| ID do usuário em questão|N/A|
+|*text*| Pode ser um comentário, um recado ou uma notícia|Máximo 800 caracteres|
+|*type*| Activity|No mural do usuário somente pode ser criado status do tipo activity|
+
+h3. Mural da Disciplina
+
+h2. "GET /api/spaces/:space_id/statuses":#get-status
+
+Retorna todos os @status@ do mural de uma disciplina. Há possibilidade de filtrar os status da disciplina pelo tipo.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*:space_id*| ID do space|Pode ser do tipo @Activity@, @Help@ ou @Log@|
+
+h2. "POST /api/users/:user_id/statuses":#get-status
+
+Cria um status no Mural da disciplina.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*:space_id*| ID do space em questão|N/A|
+|*text*| Pode ser um comentário, um recado ou uma notícia|Máximo 800 caracteres|
+|*type*| Activity|No mural da disciplina somente pode ser criado status do tipo activity|
+
+h3. Mural de uma Aula
+
+h2. "GET /api/lectures/:lecture_id/statuses":#get-status
+
+Retorna todos os @status@ do mural de uma aula. Pode se filtrar os status de uma aula pelo tipo.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*:lecture_id*| ID da lecture em questão|Pode ser do tipo @Activity@, @Help@ ou @Log@|
+
+h2. "POST /api/lectures/:lecture_id/statuses":#get-status
+
+Cria um status no Mural da aula.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*:lecture_id*| ID da lecture em questão|N/A|
+|*text*| Pode ser um comentário, um recado ou um pedido de ajuda|Máximo 800 caracteres|
+|*type*| Activity, Help|No mural da aula pode ser criado status do tipo activity ou help|
+
+h2. "DELETE /api/statuses/:status_id":#delete-status
+
+Remove um status.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*:status_id*|ID do status|N/A|
