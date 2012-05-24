@@ -5,35 +5,58 @@ group: navigation
 ---
 {% include JB/setup %}
 
-O Mural "Feeds de notícias" é o local onde é mostrado notícias, comentários, pedidos de ajuda, recados ou respostas aos pedidos de ajuda, ou seja, são os @status@. Há três tipos de murais a depender do contexto: o Mural do Usuário, Mural da Disciplina @space@ e o Mural de uma Aula @lecture@.
+O Mural é o cerne da comunicação dentro do Redu. Através dele os usuários podem postar comentários, respostas e pedidos de ajuda. Além disso o Mural é o meio pelo qual as movimentações do sistema são mostradas. No contexto da API, qualquer elemento mostrado no Mural é chamado de @status@.
 
-h2. "Statuses":#get-statuses
+div(thumbnail){width:610px; margin: 0 auto}. !/assets/images/mural-example.png!
 
-Antes vamos conhecer os possíveis statuses mostrados no Mural.
+h2. "Tipos de status":#get-statuses
 
-*Activity:*
+div(thumbnail){width:329px; float:left; margin: 0 20px 20px 0}. !/assets/images/status-classes.png!
 
-table(table table-bordered table-striped).
-|O status do tipo Activity, define uma atividade feita uma nóticia, comentário ou recado postado dentro de um contexto.|
+Existem 4 especializações básicas do status: Activity, Log, Answer e Help. Cada uma servindo a um propósito diferente. Na interface Web do Redu cada status é representado de uma forma diferente no mural.
 
-*Help:*
+table(table table-bordered table-striped){clear: both;}.
+|_.Tipo|_.Descrição|_.Restrições|
+|Activity|Post criado pelo usuário. É o tipo mais comum de status.|N/A|
+|Help|Representa um pedido de ajuda.|Só pode ser criado no Mural da "Aula":lecture.html|
+|Answer|Resposta a um Activity ou Help.|N/A|
+|Log|Criado automoaticamente pelo sistema, representa uma movimentação importante. Exemplo: cricação de aula.|Não pode ser criado pelo usuário.|
 
-table(table table-bordered table-striped).
-|O status Help, é uma atividade específica para pedir ajuda, somente pode ser criado dentro de uma aula.|
+h3. Activity e Help
 
-*Answer:*
+Os status do tipo Activity e Help são essencialmente iguais. Abaixo a relação de links presentes na representação de ambos:
 
-table(table table-bordered table-striped).
-|É um status resposta a um Activity ou Help (pedido de ajuda).|
+table(table table-bordered table-striped){clear: both;}.
+|_.Link|_.Descrição|
+|id|Identificador único do status|
+|statusable|Mural onde o status foi criado. Exemplo: Disciplina|
+|user|Autor do status|
+|answers|Respostas ao status|
 
-*Log:*
+h3. Answer
 
-table(table table-bordered table-striped).
-|Log é um status específico criado somente pelo sistema, tal como atualizou o perfil, adicionou uma nova formação, adicionou uma nova experiência no currículo, criou o curso, adicionou a sua rede de contatos, publicou a aula, publicou o módulo e criou a disciplina.|
+Abaixo a relação de links presentes na representação de um status tipo Answer:
+
+table(table table-bordered table-striped){clear: both;}.
+|_.Link|_.Descrição|
+|id|Identificador único do status.|
+|statusable|Mural onde o status foi criado. Exemplo: Disciplina.|
+|user|Autor do status.|
+|logeable|O que gerou a movimentação. Por exemplo: aula que foi criada.|
+
+h3. Answer
+
+Abaixo a relação de links presentes na representação de um status tipo Answer:
+
+table(table table-bordered table-striped){clear: both;}.
+|_.Link|_.Descrição|
+|id|Identificador único do status.|
+|user|Autor do status.|
+|in_response_to|Activity ou Help respondido pela Answer|
 
 h2. "GET /api/statuses/:status_id":#get-status
 
-Retorna um @status@ com o ID especifico que pode ser de qualquer tipo: Activity, Help ou Log.
+Retorna um @status@ com o ID especificado.
 
 h4. Parâmetros
 
@@ -41,11 +64,9 @@ table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*:status_id*| ID do status|N/A|
 
-h3. Status tipo Answer
+h2. "GET /api/statuses/:status_id/answers":#get-answers
 
-h2. "GET /api/statuses/:status_id/answers":#get-status
-
-Retorna um @status@ tipo Answer.
+Retorna as respostas de um status. É aplicado aos tipos Help e Activity.
 
 h4. Parâmetros
 
@@ -53,9 +74,9 @@ table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*:status_id*| ID do status|N/A|
 
-h2. "POST /api/statuses/:status_id/answers":#get-status
+h2. "POST /api/statuses/:status_id/answers":#post-answer
 
-Cria um status do tipo Answer em resposta a um comentário ou um pedido de ajuda.
+Cria um status do tipo Answer em resposta a um Activity ou Help.
 
 h4. Parâmetros
 
@@ -63,20 +84,17 @@ table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*:status_id*| ID do status em questão|Somente do tipo Activity ou Help|
 |*text*| É uma resposta a um comentário ou um pedido de ajuda|Máximo 800 caracteres|
-|*type*| Answer|Somente criada em resposta a um comentário ou um pedido de ajuda|
 
+h2. "GET /api/users/:user_id/statuses":#get-user-status
 
-h3. Mural do Usuário
-
-h2. "GET /api/users/:user_id/statuses":#get-status
-
-Retorna todos os @status@ do mural do usuário. Opcionalmente pode se filtrar os status do usuário pelo tipo.
+Retorna todos os @status@ do usuário. Também é possível filtrar pelo tipo. Caso @:type@ não seja informado é retornado os status do tipo Activity e Help do usuário.
 
 h4. Parâmetros
 
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
-|*:user_id*| ID do usuário em questão|Pode ser do tipo @Activity@, @Help@ ou @Log@|
+|*:user_id*| ID do usuário em questão| N/A |
+|*:type*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
 
 h4. Exemplo
 
@@ -115,23 +133,19 @@ h4. Exemplo
     "created_at"=>Thu May 03 10:24:02 -0300 2012
 }]
 </pre>
-Obs: Caso @:type@ não seja informado é retornado os status do tipo Activity e Help do usuário.
 
-h2. "POST /api/users/:user_id/statuses":#get-status
+h2. "POST /api/users/:user_id/statuses":#post-user-status
 
-Cria um status no Mural do usuário.
+Cria um status do tipo Activity no Mural do usuário.
 
 h4. Parâmetros
 
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*:user_id*| ID do usuário em questão|N/A|
-|*text*| Pode ser um comentário, um recado ou uma notícia|Máximo 800 caracteres|
-|*type*| Activity|No mural do usuário somente pode ser criado status do tipo activity|
+|*text*| Conteúdo do status |Máximo 800 caracteres|
 
-h3. Mural da Disciplina
-
-h2. "GET /api/spaces/:space_id/statuses":#get-status
+h2. "GET /api/spaces/:space_id/statuses":#get-space-status
 
 Retorna todos os @status@ do mural de uma disciplina. Há possibilidade de filtrar os status da disciplina pelo tipo.
 
@@ -139,9 +153,10 @@ h4. Parâmetros
 
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
-|*:space_id*| ID do space|Pode ser do tipo @Activity@, @Help@ ou @Log@|
+|*:space_id*| ID do space| N/A |
+|*:type*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
 
-h2. "POST /api/users/:user_id/statuses":#get-status
+h2. "POST /api/users/:space_id/statuses":#post-space-status
 
 Cria um status no Mural da disciplina.
 
@@ -150,12 +165,11 @@ h4. Parâmetros
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*:space_id*| ID do space em questão|N/A|
-|*text*| Pode ser um comentário, um recado ou uma notícia|Máximo 800 caracteres|
-|*type*| Activity|No mural da disciplina somente pode ser criado status do tipo activity|
+|*text*| Conteúdo do status |Máximo 800 caracteres|
 
 h3. Mural de uma Aula
 
-h2. "GET /api/lectures/:lecture_id/statuses":#get-status
+h2. "GET /api/lectures/:lecture_id/statuses":#get-lecture-status
 
 Retorna todos os @status@ do mural de uma aula. Pode se filtrar os status de uma aula pelo tipo.
 
@@ -163,23 +177,24 @@ h4. Parâmetros
 
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
-|*:lecture_id*| ID da lecture em questão|Pode ser do tipo @Activity@, @Help@ ou @Log@|
+|*:lecture_id*| ID da lecture em questão|N/A|
+|*:type*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
 
-h2. "POST /api/lectures/:lecture_id/statuses":#get-status
+h2. "POST /api/lectures/:lecture_id/statuses":#post-lecture-status
 
-Cria um status no Mural da aula.
+Cria um status no Mural da aula. Somente neste caso é permitido criar um Help (pedido de ajuda).
 
 h4. Parâmetros
 
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*:lecture_id*| ID da lecture em questão|N/A|
-|*text*| Pode ser um comentário, um recado ou um pedido de ajuda|Máximo 800 caracteres|
-|*type*| Activity, Help|No mural da aula pode ser criado status do tipo activity ou help|
+|*text*| Conteúdo do status |Máximo 800 caracteres|
+|*:type*| Tipo do status | Activity ou Help |
 
 h2. "DELETE /api/statuses/:status_id":#delete-status
 
-Remove um status.
+Remove o status.
 
 h4. Parâmetros
 
