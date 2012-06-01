@@ -76,8 +76,11 @@ h3. Exemplos
 
 p. Alguns exemplos de clientes realizando a negociação dos tokens e fazendo requisições para a API do Redu
 
-1. "Python":https://gist.github.com/2161545
+1. "Python":https://github.com/redu/oauth-consumers/tree/master/python-native
 2. "PHP":https://gist.github.com/2161583
+3. "Ruby":https://github.com/redu/oauth-consumers/tree/master/ruby-native
+4. "Rails":https://github.com/redu/oauth-consumers/tree/master/rails-server
+5. "Java":https://github.com/redu/oauth-consumers/tree/master/java-native
 
 h2. Como os dados do "Redu":http://www.redu.com.br estão organizados?
 
