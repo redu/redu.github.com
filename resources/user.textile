@@ -42,6 +42,34 @@ h4. Exemplo
   }
 </pre>
 
+h2. "GET /api/me":#get-me
+
+Retorna uma representação do resource owner. Resource owner é usuário que autorizou a aplicação a utilizar seus dados.
+
+*Requisição:*
+
+@GET /api/me@
+
+*Resposta:*
+
+<pre>
+  {
+      "id": 1,
+      "last_name": "User",
+      "birthday": "1992-02-29",
+      "links": [{
+          "href": "http://www.redu.com.br/api/users/test_user",
+          "rel": "self"
+      }, {
+          "href": "http://www.redu.com.br/api/users/test_user/enrollments",
+          "rel": "enrollments"
+      }],
+      "login": "test_user",
+      "friends_count": 0,
+      "email": "test_user@example.com",
+      "first_name": "Test"
+  }
+</pre>
 
 h2. "GET /api/spaces/:space_id/users":#get-space-users
 
