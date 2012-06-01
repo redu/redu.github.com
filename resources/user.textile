@@ -29,10 +29,10 @@ h4. Exemplo
       "last_name": "User",
       "birthday": "1992-02-29",
       "links": [{
-          "href": "http://127.0.0.1:3000/api/users/test_user",
+          "href": "http://www.redu.com.br/api/users/test_user",
           "rel": "self"
       }, {
-          "href": "http://127.0.0.1:3000/api/users/test_user/enrollments",
+          "href": "http://www.redu.com.br/api/users/test_user/enrollments",
           "rel": "enrollments"
       }],
       "login": "test_user",
@@ -67,10 +67,10 @@ h4. Exemplo
     "last_name": "User",
     "birthday": "1992-02-29",
     "links": [{
-        "href": "http://127.0.0.1:3000/api/users/test_user",
+        "href": "http://www.redu.com.br/api/users/test_user",
         "rel": "self"
     }, {
-        "href": "http://127.0.0.1:3000/api/users/test_user/enrollments",
+        "href": "http://www.redu.com.br/api/users/test_user/enrollments",
         "rel": "enrollments"
     }],
     "login": "test_user",
@@ -82,10 +82,10 @@ h4. Exemplo
     "last_name": "Cavalcanti",
     "birthday": "1987-03-06",
     "links": [{
-        "href": "http://127.0.0.1:3000/api/users/guiocavalcanti",
+        "href": "http://www.redu.com.br/api/users/guiocavalcanti",
         "rel": "self"
     }, {
-        "href": "http://127.0.0.1:3000/api/users/guiocavalcanti/enrollments",
+        "href": "http://www.redu.com.br/api/users/guiocavalcanti/enrollments",
         "rel": "enrollments"
     }],
     "login": "guiocavalcanti",

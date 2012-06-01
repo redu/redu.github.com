@@ -43,16 +43,16 @@ h4. Exemplo
     workload: 10,
     path: "novo-curso",
     links : [{
-      href : "http://127.0.0.1:3000/api/courses/novo-curso",
+      href : "http://www.redu.com.br/api/courses/novo-curso",
       rel : "self"
     }, {
-      href : "http://127.0.0.1:3000/api/courses/novo-curso/spaces",
+      href : "http://www.redu.com.br/api/courses/novo-curso/spaces",
       rel : "spaces"
     }, {
-      href : "http://127.0.0.1:3000/api/environments/environment-name",
+      href : "http://www.redu.com.br/api/environments/environment-name",
       rel : "environment"
     }, {
-      href : "http://127.0.0.1:3000/api/courses/novo-curso/enrollments",
+      href : "http://www.redu.com.br/api/courses/novo-curso/enrollments",
       rel : "enrollments"
     }
     ]

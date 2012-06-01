@@ -62,13 +62,13 @@ h4. Exemplo
       "token": "18EM2oxY37g",
       "id": 4,
       "links": [{
-          "href": "http://127.0.0.1:3000/api/enrollments/4",
+          "href": "http://www.redu.com.br/api/enrollments/4",
           "rel": "self"
       }, {
-          "href": "http://127.0.0.1:3000/api/courses/course-name",
+          "href": "http://www.redu.com.br/api/courses/course-name",
           "rel": "course"
       }, {
-          "href": "http://127.0.0.1:3000/api/courses/environment-name",
+          "href": "http://www.redu.com.br/api/courses/environment-name",
           "rel": "environment"
       }, {
           "rel": "user"

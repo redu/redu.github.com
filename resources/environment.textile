@@ -54,15 +54,15 @@ h4. Exemplo
     path: "foo",
     links: [
       {
-        href: "http://127.0.0.1:3000/api/environments/foo",
+        href: "http://www.redu.com.br/api/environments/foo",
         rel: "self"
       },
       {
-        href: "http://127.0.0.1:3000/api/environments/foo/courses",
+        href: "http://www.redu.com.br/api/environments/foo/courses",
         rel: "courses"
       },
       {
-        href: "http://127.0.0.1:3000/api/users/andre",
+        href: "http://www.redu.com.br/api/users/andre",
         rel: "user"
       }
     ]
