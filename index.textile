@@ -24,9 +24,9 @@ Exemplificando o dito acima, ao realizar uma requisição HTTP com o método GET
   initials: "bar",
   path: "foo",
   links: [
-    { href: "http://127.0.0.1:3000/api/environments/foo", rel: "self" },
-    { href: "http://127.0.0.1:3000/api/environments/foo/courses", rel: "courses" }
-    { href: "http://127.0.0.1:3000/api/environments/foo/users", rel: "users" }
+    { href: "http://redu.com.br/api/environments/foo", rel: "self" },
+    { href: "http://redu.com.br/api/environments/foo/courses", rel: "courses" }
+    { href: "http://redu.com.br/api/environments/foo/users", rel: "users" }
   ]
 }
 </pre>
