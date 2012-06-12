@@ -36,8 +36,8 @@ h4. Parâmetros
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*space_id*|ID da disciplina|N/A|
-|*title*|Título do módulo|Máximo 40 caracteres|
-|description|Descrição do módulo|Máximo 250 caracteres|
+|*subject[title]*|Título do módulo|Máximo 40 caracteres|
+|subject[description]|Descrição do módulo|Máximo 250 caracteres|
 
 h4. Exemplo
 
@@ -92,8 +92,8 @@ h4. Parâmetros
 
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
-|*title*|Título do módulo|Máximo 40 caracteres|
-|description|Descrição do módulo|Máximo 250 caracteres|
+|*subject[title]*|Título do módulo|Máximo 40 caracteres|
+|subject[description]|Descrição do módulo|Máximo 250 caracteres|
 
 h2. "DELETE /api/subjects/:id":#delete-subjects
 

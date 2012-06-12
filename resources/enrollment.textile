@@ -5,13 +5,17 @@ group: navigation
 ---
 {% include JB/setup %}
 
-Recurso que representa a matrícula de usuários em cursos. Foi desenvolvido de tal forma que abstrai o fato do usuário estar presente ou não no "Redu":http://www.redu.com.br. Caso o e-mail não esteja registrado na plataforma um convite será enviado dando a possibilidade de registro e posterior convite para o curso. Possui uma máquina de estado como definida abaixo (propriedade @state@):
 
-!../assets/images/enrollment-sm.png!
+Recurso que representa a matrícula de usuários em cursos. Foi desenvolvido de tal forma que abstrai o fato do usuário estar presente ou não no "Redu":http://www.redu.com.br.
+
+
+Caso o e-mail não esteja registrado na plataforma um convite será enviado dando a possibilidade de registro e posterior convite para o curso. Possui uma máquina de estado como definida abaixo (propriedade @state@):
+
+div(thumbnail){float: right; margin: 15px 0 20px 20px;}. !../assets/images/enrollment-sm.png!
 
 *Estados:*
 
-table(table table-bordered).
+table(table table-bordered){width: 500px;}.
 |_.Estado|_.Descrição|
 |waiting|Nenhuma ação foi realizada|
 |redu_invited|Quando o e-mail não está cadastrado no "Redu":http://www.redu.com.br e uma mensagem de convite foi enviada|
@@ -38,7 +42,7 @@ h4. Parâmetros
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*id*|ID ou path do curso|N/A|
-|*email*|E-mail do usuário que será convidado |Máximo 40 caracteres; deve ser único|
+|*enrollment[email]*|E-mail do usuário que será convidado |Máximo 40 caracteres; deve ser único|
 
 h4. Exemplo
 

@@ -82,8 +82,8 @@ h4. Parâmetros
 
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
-|*:status_id*| ID do status em questão|Somente do tipo Activity ou Help|
-|*text*| É uma resposta a um comentário ou um pedido de ajuda|Máximo 800 caracteres|
+|*status_id*| ID do status em questão|Somente do tipo Activity ou Help|
+|*status[text]*| É uma resposta a um comentário ou um pedido de ajuda|Máximo 800 caracteres|
 
 h2. "GET /api/users/:user_id/statuses":#get-user-status
 
@@ -93,8 +93,8 @@ h4. Parâmetros
 
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
-|*:user_id*| ID do usuário em questão| N/A |
-|*:type*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
+|*user_id*| ID do usuário em questão| N/A |
+|*status[type]*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
 
 h4. Exemplo
 
@@ -142,8 +142,8 @@ h4. Parâmetros
 
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
-|*:user_id*| ID do usuário em questão|N/A|
-|*text*| Conteúdo do status |Máximo 800 caracteres|
+|*user_id*| ID do usuário em questão|N/A|
+|*status[text]*| Conteúdo do status |Máximo 800 caracteres|
 
 h2. "GET /api/spaces/:space_id/statuses":#get-space-status
 
@@ -153,8 +153,8 @@ h4. Parâmetros
 
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
-|*:space_id*| ID do space| N/A |
-|*:type*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
+|*space_id*| ID do space| N/A |
+|*status[type]*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
 
 h2. "POST /api/users/:space_id/statuses":#post-space-status
 
@@ -164,8 +164,8 @@ h4. Parâmetros
 
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
-|*:space_id*| ID do space em questão|N/A|
-|*text*| Conteúdo do status |Máximo 800 caracteres|
+|*space_id*| ID do space em questão|N/A|
+|*status[text]*| Conteúdo do status |Máximo 800 caracteres|
 
 h3. Mural de uma Aula
 
@@ -177,8 +177,8 @@ h4. Parâmetros
 
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
-|*:lecture_id*| ID da lecture em questão|N/A|
-|*:type*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
+|*lecture_id*| ID da lecture em questão|N/A|
+|*status[type]*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
 
 h2. "POST /api/lectures/:lecture_id/statuses":#post-lecture-status
 
@@ -189,8 +189,8 @@ h4. Parâmetros
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*:lecture_id*| ID da lecture em questão|N/A|
-|*text*| Conteúdo do status |Máximo 800 caracteres|
-|*:type*| Tipo do status | Activity ou Help |
+|*status[text]*| Conteúdo do status |Máximo 800 caracteres|
+|*status[type]*| Tipo do status | Activity ou Help |
 
 h2. "DELETE /api/statuses/:status_id":#delete-status
 

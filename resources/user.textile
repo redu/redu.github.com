@@ -25,6 +25,7 @@ h4. Exemplo
 
 <pre>
   {
+    user : {
       "id": 1,
       "last_name": "User",
       "birthday": "1992-02-29",
@@ -39,6 +40,7 @@ h4. Exemplo
       "friends_count": 0,
       "email": "test_user@example.com",
       "first_name": "Test"
+    }
   }
 </pre>
 
@@ -54,6 +56,7 @@ Retorna uma representação do resource owner. Resource owner é usuário que au
 
 <pre>
   {
+    user : {
       "id": 1,
       "last_name": "User",
       "birthday": "1992-02-29",
@@ -68,6 +71,7 @@ Retorna uma representação do resource owner. Resource owner é usuário que au
       "friends_count": 0,
       "email": "test_user@example.com",
       "first_name": "Test"
+    }
   }
 </pre>
 

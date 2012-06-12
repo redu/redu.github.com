@@ -25,22 +25,24 @@ h4. Parâmetros
 
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
-|*name*|Nome do ambiente|Máximo 40 caracteres; deve ser único|
-|*path*|Nome que aparecerá na barra de endereço|Deve respeitar a seguinte regex: @^[-_A-Za-z0-9]*$@ |
-|*initials*|Abreviação (usado em alguns lugares da interface)|Deve ser único; Máximo de 10 caracteres|
-|description|Descrição do ambiente|Máximo de 400 caracteres|
+|*environment[name]*|Nome do ambiente|Máximo 40 caracteres; deve ser único|
+|*environment[path]*|Nome que aparecerá na barra de endereço|Deve respeitar a seguinte regex: @^[-_A-Za-z0-9]*$@ |
+|*environment[initials]*|Abreviação (usado em alguns lugares da interface)|Deve ser único; Máximo de 10 caracteres|
+|environment[description]|Descrição do ambiente|Máximo de 400 caracteres|
 
 h4. Exemplo
 
 @POST /api/environments/23@
 
-*Payload:*
+*Payload (JSON):*
 
 <pre>
   {
-    name : "Foo",
-    path : "foo",
-    initials : "bar"
+    environment : {
+      name : "Foo",
+      path : "foo",
+      initials : "bar"
+    }
   }
 </pre>
 
@@ -48,24 +50,26 @@ h4. Exemplo
 
 <pre>
   {
-    name: "Foo",
-    created_at: "2010-12-17T16:37:40-02:00",
-    initials: "bar",
-    path: "foo",
-    links: [
-      {
-        href: "http://www.redu.com.br/api/environments/foo",
-        rel: "self"
-      },
-      {
-        href: "http://www.redu.com.br/api/environments/foo/courses",
-        rel: "courses"
-      },
-      {
-        href: "http://www.redu.com.br/api/users/andre",
-        rel: "user"
-      }
-    ]
+    environment : {
+        name: "Foo",
+        created_at: "2010-12-17T16:37:40-02:00",
+        initials: "bar",
+        path: "foo",
+        links: [
+          {
+            href: "http://www.redu.com.br/api/environments/foo",
+            rel: "self"
+          },
+          {
+            href: "http://www.redu.com.br/api/environments/foo/courses",
+            rel: "courses"
+          },
+          {
+            href: "http://www.redu.com.br/api/users/andre",
+            rel: "user"
+          }
+        ]
+    }
   }
 </pre>
 
@@ -77,10 +81,10 @@ h4. Parâmetros
 
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
-|*name*|Nome do ambiente|Máximo 40 caracteres; deve ser único|
-|*path*|Nome que aparecerá na barra de endereço|Deve respeitar a seguinte regex: @^[-_A-Za-z0-9]*$@ |
-|*initials*|Abreviação (usado em alguns lugares da interface)|Deve ser único; Máximo de 10 caracteres|
-|description|Descrição do ambiente|Máximo de 400 caracteres|
+|*environment[name]*|Nome do ambiente|Máximo 40 caracteres; deve ser único|
+|*environment[path]*|Nome que aparecerá na barra de endereço|Deve respeitar a seguinte regex: @^[-_A-Za-z0-9]*$@ |
+|*environment[initials]*|Abreviação (usado em alguns lugares da interface)|Deve ser único; Máximo de 10 caracteres|
+|environment[description]|Descrição do ambiente|Máximo de 400 caracteres|
 
 h2. "DELETE /api/environments/:id":#delete-environments
 

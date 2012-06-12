@@ -25,8 +25,8 @@ h4. Parâmetros
 
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
-|*name*|Nome do curso|Máximo 40 caracteres; deve ser único|
-|description|Descrição do curso|Máximo de 400 caracteres|
+|*space[name]*|Nome do curso|Máximo 40 caracteres; deve ser único|
+|space[description]|Descrição do curso|Máximo de 400 caracteres|
 
 h2. "POST /api/courses/:course_id/spaces":#post-course-spaces
 
@@ -37,8 +37,8 @@ h4. Parâmetros
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*course_id*|ID ou path do curso|N/A|
-|*name*|Nome do curso|Máximo 40 caracteres; deve ser único|
-|description|Descrição do curso|Máximo de 400 caracteres|
+|*space[name]*|Nome do curso|Máximo 40 caracteres; deve ser único|
+|space[description]|Descrição do curso|Máximo de 400 caracteres|
 
 h4. Exemplo
 
@@ -59,23 +59,25 @@ h4. Exemplo
 
 <pre>
   {
-    "name": "Novo curso",
-    "created_at": "2012-03-02T17:50:32-03:00",
-    "links": [{
-        "href": "http://www.redu.com.br/api/spaces/1",
-        "rel": "self"
-    }, {
-        "href": "http://www.redu.com.br/api/courses/course-name",
-        "rel": "course"
-    }, {
-        "href": "http://www.redu.com.br/api/environments/environment-name",
-        "rel": "environment"
-    }, {
-        "href": "http://www.redu.com.br/api/spaces/1/users",
-        "rel": "users"
-    }],
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
-}
+    space : {
+      "name": "Novo curso",
+      "created_at": "2012-03-02T17:50:32-03:00",
+      "links": [{
+          "href": "http://www.redu.com.br/api/spaces/1",
+          "rel": "self"
+      }, {
+          "href": "http://www.redu.com.br/api/courses/course-name",
+          "rel": "course"
+      }, {
+          "href": "http://www.redu.com.br/api/environments/environment-name",
+          "rel": "environment"
+      }, {
+          "href": "http://www.redu.com.br/api/spaces/1/users",
+          "rel": "users"
+      }],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
+    }
+  }
 </pre>
 
 
