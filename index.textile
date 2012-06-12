@@ -56,7 +56,7 @@ h2. Autenticação
 
 h3. OAuth
 
-p. O Redu utiliza o protocolo "OAuth":http://oauth.net para autenticação de applicações externas à sua API. O OAuth é um padrão de mercado para autenticação com APIs, utilizado por grande parte dos serviços web (Twitter, Facebook, Foursquare etc)
+p. O Redu utiliza o protocolo "OAuth":http://oauth.net para autenticação de applicações externas à sua API. O OAuth um protocolo para autenticação de clientes em WebServices, utilizado por grande parte dos serviços web (Twitter, Facebook, Foursquare etc)
 
 p. Para conhecer o protocolo uma ótima referência é o "tutorial da hueniverse":http://hueniverse.com/oauth/guide
 
@@ -84,10 +84,9 @@ p. Alguns exemplos de clientes realizando a negociação dos tokens e fazendo re
 
 h2. Como os dados do "Redu":http://www.redu.com.br estão organizados?
 
-!assets/images/entities.png!
 !assets/images/hierarchy.001.png!
 
-h2. Aplicação de exemplo
+h2. Aplicação de exemplo em Python
 
 p. Para melhor exemplificar como a API do Redu pode ser usada, foi criado uma "aplicação de exemplo":https://github.com/redu/qt-example em "Python":http://python.org/. Nesta aplicação foram utilizado todos os recursos descritos para AVA, Usuário, Matrícula, Disciplina e Curso.
 
@@ -98,7 +97,7 @@ A aplicação é um sistema Desktop com as seguintes funcionalidades:
 3. Listagem e cadastro Disciplinas e Turmas.
 4. Matrícula
 
-h4. Mapeamento
+h3. Mapeamento
 
 Parte do desafio na construção desta aplicação foi realizar o mapeamento dos recursos disponibilizados através da API com as entidades especifícas do domínio da aplicação. Abaixo são exemplificados o mapeamento realizado.
 
@@ -108,8 +107,3 @@ table(table table-bordered table-striped).
 |Courses|Cursos|
 |Spaces|Disciplinas|
 |Environments|Turmas|
-
-
-
-
-
