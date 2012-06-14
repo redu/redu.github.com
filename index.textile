@@ -31,7 +31,7 @@ Exemplificando o dito acima, ao realizar uma requisição HTTP com o método GET
 }
 </pre>
 
-Note que o JSON retornado possui uma propriedade links que denota as URLs que a aplicação cliente precisa conhecer no contexto atual (visualização de curso). Isso quer dizer que, por exemplo, quisessemos visualizar os cursos do AVA em questão, poderíamos faze-lo sem conhecer a priori a URL apropriada.
+Note que o JSON retornado possui uma propriedade links que denota as URLs que a aplicação cliente precisa conhecer no contexto atual (visualização do ambiente virtual de aprendizagem). Isso quer dizer que, por exemplo, quisessemos visualizar os cursos do AVA em questão, poderíamos faze-lo sem conhecer a priori a URL apropriada.
 
 Uma aplicação cliente em JavaScript + jQuery poderia listar os cursos deste ambiente da seguinte forma:
 
@@ -56,9 +56,7 @@ h2. Autenticação
 
 h3. OAuth
 
-p. O Redu utiliza o protocolo "OAuth":http://oauth.net para autenticação de applicações externas à sua API. O OAuth um protocolo para autenticação de clientes em WebServices, utilizado por grande parte dos serviços web (Twitter, Facebook, Foursquare etc)
-
-p. Para conhecer o protocolo uma ótima referência é o "tutorial da hueniverse":http://hueniverse.com/oauth/guide
+p. O Redu utiliza o protocolo "OAuth":http://oauth.net, versão 2, para autenticação de applicações externas à sua API. O OAuth um protocolo para autenticação de clientes em WebServices, utilizado por grande parte dos serviços Web (Twitter, Facebook, Foursquare). Para conhecer o protocolo uma ótima referência é o "tutorial da hueniverse":http://oauth.net/2/
 
 h4. Fluxo de Requisições para Autenticação
 
