@@ -60,7 +60,9 @@ p. O Redu utiliza o protocolo "OAuth":http://oauth.net, versão 2, para autentic
 
 h4. Fluxo de Requisições para Autenticação
 
-p. Esse é um fluxo básico do processo de autenticação utilizando OAuth, lembrando que normalmente você utilizará bibliotecas que realizam todo este processo
+p. O protocolo OAuth prevê vários fluxos de autenticação dependendo do tipo aplicação. Por exemplo, existem contextos onde a aplicação cliente não é capaz de invocar um navegador Web que redirecionaria o resource owner para o Redu. Nesses casos é possível usar um fluxo onde o Redu gera um código único (PIN) que pode ser copiado para a aplicação cliente.
+
+p. O fluxo mais comumente utilizado é o de aplicações Web. No diagrama abaixo são mostradas a sequência de passos necessárias para a autenticação desse tipo de aplicação. Para um fluxo mais detalhado consulte "este":assets/images/oauth-workflow-detailed.png diagrama de sequência.
 
 !assets/images/oauth-workflow.png!
 
