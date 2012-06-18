@@ -124,3 +124,15 @@ table(table table-bordered table-striped).
 |Spaces|Disciplinas|
 |Environments|Turmas|
 
+
+h2. Registro de aplicação
+
+p. Para cadastrar seu aplicativo envie um e-mail para contato@redu.com.br com as seguintes informações:
+
+1. Tipo de aplicativo (mobile, canvas, externo, etc)
+2. Resumo da aplicação
+3. URL principal e de callback (se houver)
+4. URL da disciplina (para aplicativos tipo canvas)
+
+p. Lembre-se de usar o e-mail que você cadastrou no Redu para podermos saber quem você é. Geralmente a análise a aprovação da aplicação dura menos de 1 dia.
+
