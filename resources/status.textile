@@ -95,6 +95,7 @@ table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*user_id*| ID do usuário em questão| N/A |
 |*status[type]*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
+|*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
 
 h4. Exemplo
 
@@ -134,6 +135,19 @@ h4. Exemplo
 }]
 </pre>
 
+h2. "GET /api/users/:user_id/statuses/timeline":#get-user-timeline
+
+Retorna todos os @status@ do usuário. Também é possível filtrar pelo tipo. Caso @:type@ não seja informado é retornado os status do tipo Activity e Help do usuário.
+Retorna todos os @status@ do usuário e dos cursos que o usuário faz parte. Diferente do anterior, aqui são mostradas todas as movimentações que interessam ao usuário. É igual ao que se vê na página inicial do Redu.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*user_id*| ID do usuário em questão| N/A |
+|*status[type]*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
+|*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
+
 h2. "POST /api/users/:user_id/statuses":#post-user-status
 
 Cria um status do tipo Activity no Mural do usuário.
@@ -144,10 +158,11 @@ table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*user_id*| ID do usuário em questão|N/A|
 |*status[text]*| Conteúdo do status |Máximo 800 caracteres|
+|*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
 
-h2. "GET /api/spaces/:space_id/statuses":#get-space-status
+h2. "GET /api/spaces/:space_id/statuses/timeline":#get-space-timeline
 
-Retorna todos os @status@ do mural de uma disciplina. Há possibilidade de filtrar os status da disciplina pelo tipo.
+Retorna todos os @status@ da disciplina e das suas aulas. Diferente do anterior, aqui são agregados tanto as postagens da disciplina quanto as das suas aulas. É igual ao que se vê no mural da disciplina.
 
 h4. Parâmetros
 
@@ -155,6 +170,19 @@ table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*space_id*| ID do space| N/A |
 |*status[type]*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
+|*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
+
+h2. "GET /api/spaces/:space_id/statuses":#get-space-status
+
+Retorna todos os @status@ do mural de uma disciplina. Há possibilidade de filtrar os status da disciplina pelo tipo. É importante preceber que os posts listados aqui se limitam àqueles postado diretamente na disciplina.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*space_id*| ID do space| N/A |
+|*status[type]*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
+|*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
 
 h2. "POST /api/users/:space_id/statuses":#post-space-status
 
@@ -191,6 +219,7 @@ table(table table-bordered table-striped).
 |*:lecture_id*| ID da lecture em questão|N/A|
 |*status[text]*| Conteúdo do status |Máximo 800 caracteres|
 |*status[type]*| Tipo do status | Activity ou Help |
+|*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
 
 h2. "DELETE /api/statuses/:status_id":#delete-status
 
@@ -201,3 +230,4 @@ h4. Parâmetros
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*:status_id*|ID do status|N/A|
+|*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
