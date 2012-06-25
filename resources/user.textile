@@ -24,24 +24,44 @@ h4. Exemplo
 *Resposta:*
 
 <pre>
-  {
-    user : {
-      "id": 1,
-      "last_name": "User",
-      "birthday": "1992-02-29",
-      "links": [{
-          "href": "http://www.redu.com.br/api/users/test_user",
-          "rel": "self"
-      }, {
-          "href": "http://www.redu.com.br/api/users/test_user/enrollments",
-          "rel": "enrollments"
-      }],
-      "login": "test_user",
-      "friends_count": 0,
-      "email": "test_user@example.com",
-      "first_name": "Test"
-    }
-  }
+{
+    "login":"guiocavalcanti",
+    "mobile":"+55 (81) 5555-5555",
+    "email":"guilhermec@redu.com.br",
+    "localization":"Recife, Brasil",
+    "friends_count":95,
+    "links":[
+        {
+            "href":"http://www.redu.com.br/api/users/guiocavalcanti",
+            "rel":"self"
+        },
+        {
+            "href":"http://www.redu.com.br/api/users/guiocavalcanti/enrollments",
+            "rel":"enrollments"
+        },
+        {
+            "href":"http://www.redu.com.br/api/users/guiocavalcanti/statuses",
+            "rel":"statuses"
+        },
+        {
+            "href":"http://www.redu.com.br/api/users/guiocavalcanti/statuses/timeline",
+            "rel":"timeline"
+        },
+        {
+            "href":"http://www.redu.com.br/api/users/guiocavalcanti/contacts",
+            "rel":"contacts"
+        }
+    ],
+    "id":4,
+    "last_name":"Cavalcanti",
+    "first_name":"Guilherme",
+    "birthday":"1987-11-24",
+    "birth_localization":"Recife, Brasil",
+    "social_networks" : [
+      { "name" : "facebook", "profile" : "http://www.facebook.com/guiocavalcanti"},
+      { "name" : "twitter", "profile" : "http://www.twitter.com/guiocavalcanti"}
+    ]
+}
 </pre>
 
 h2. "GET /api/me":#get-me
@@ -55,24 +75,44 @@ Retorna uma representação do resource owner. Resource owner é usuário que au
 *Resposta:*
 
 <pre>
-  {
-    user : {
-      "id": 1,
-      "last_name": "User",
-      "birthday": "1992-02-29",
-      "links": [{
-          "href": "http://www.redu.com.br/api/users/test_user",
-          "rel": "self"
-      }, {
-          "href": "http://www.redu.com.br/api/users/test_user/enrollments",
-          "rel": "enrollments"
-      }],
-      "login": "test_user",
-      "friends_count": 0,
-      "email": "test_user@example.com",
-      "first_name": "Test"
-    }
-  }
+{
+    "login":"guiocavalcanti",
+    "mobile":"+55 (81) 5555-5555",
+    "email":"guilhermec@redu.com.br",
+    "localization":"Recife, Brasil",
+    "friends_count":95,
+    "links":[
+        {
+            "href":"http://www.redu.com.br/api/users/guiocavalcanti",
+            "rel":"self"
+        },
+        {
+            "href":"http://www.redu.com.br/api/users/guiocavalcanti/enrollments",
+            "rel":"enrollments"
+        },
+        {
+            "href":"http://www.redu.com.br/api/users/guiocavalcanti/statuses",
+            "rel":"statuses"
+        },
+        {
+            "href":"http://www.redu.com.br/api/users/guiocavalcanti/statuses/timeline",
+            "rel":"timeline"
+        },
+        {
+            "href":"http://www.redu.com.br/api/users/guiocavalcanti/contacts",
+            "rel":"contacts"
+        }
+    ],
+    "id":4,
+    "last_name":"Cavalcanti",
+    "first_name":"Guilherme",
+    "birthday":"1987-11-24",
+    "birth_localization":"Recife, Brasil",
+    "social_networks" : [
+      { "name" : "facebook", "profile" : "http://www.facebook.com/guiocavalcanti"},
+      { "name" : "twitter", "profile" : "http://www.twitter.com/guiocavalcanti"}
+    ]
+}
 </pre>
 
 h2. "GET /api/spaces/:space_id/users":#get-space-users
