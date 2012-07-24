@@ -239,7 +239,7 @@ table(table table-bordered table-striped).
 |*status[type]*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
 |*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
 
-h2. "POST /api/users/:space_id/statuses":#post-space-status
+h2. "POST /api/users/:user_id/statuses":#post-space-status
 
 Cria um status no Mural da disciplina.
 
