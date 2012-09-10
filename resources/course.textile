@@ -134,7 +134,6 @@ Para criar um Curso é necessário ter papel administrativo no "AVA":environment
 
 h4. Parâmetros
 
-course[workload]|Carga horária do curso em horas|Deve ser numérico|
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*course[name]*|Nome do curso|Máximo 40 caracteres; deve ser único|
