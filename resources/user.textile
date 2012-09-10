@@ -9,6 +9,10 @@ h2. "GET /api/users/:id":#get-users
 
 Retorna um único usuário com o ID ou login especificado. Tanto o login quanto o ID servem como identificadores únicos para os usuários, por isso podem ser passados como parâmetro aqui.
 
+h4. Autorização
+
+Para visualizar este recurso é necessário ser contato do usuário em questão.
+
 h4. Parâmetros
 
 table(table table-bordered table-striped).
@@ -25,48 +29,70 @@ h4. Exemplo
 
 <pre>
 {
-    "login":"guiocavalcanti",
-    "mobile":"+55 (81) 5555-5555",
-    "email":"guilhermec@redu.com.br",
-    "localization":"Recife, Brasil",
-    "friends_count":95,
-    "links":[
+    "login": "guiocavalcanti",
+    "first_name": "Guilherme",
+    "links": [
         {
-            "href":"http://www.redu.com.br/api/users/guiocavalcanti",
-            "rel":"self"
+            "href": "http://www.redu.com.br/api/users/guiocavalcanti",
+            "rel": "self"
         },
         {
-            "href":"http://www.redu.com.br/api/users/guiocavalcanti/enrollments",
-            "rel":"enrollments"
+            "href": "http://www.redu.com.br/api/users/guiocavalcanti/enrollments",
+            "rel": "enrollments"
         },
         {
-            "href":"http://www.redu.com.br/api/users/guiocavalcanti/statuses",
-            "rel":"statuses"
+            "href": "http://www.redu.com.br/api/users/guiocavalcanti/statuses",
+            "rel": "statuses"
         },
         {
-            "href":"http://www.redu.com.br/api/users/guiocavalcanti/statuses/timeline",
-            "rel":"timeline"
+            "href": "http://www.redu.com.br/api/users/guiocavalcanti/statuses/timeline",
+            "rel": "timeline"
         },
         {
-            "href":"http://www.redu.com.br/api/users/guiocavalcanti/contacts",
-            "rel":"contacts"
+            "href": "http://www.redu.com.br/api/users/guiocavalcanti/contacts",
+            "rel": "contacts"
         }
     ],
-    "id":4,
-    "last_name":"Cavalcanti",
-    "first_name":"Guilherme",
-    "birthday":"1987-11-24",
-    "birth_localization":"Recife, Brasil",
-    "social_networks" : [
-      { "name" : "facebook", "profile" : "http://www.facebook.com/guiocavalcanti"},
-      { "name" : "twitter", "profile" : "http://www.twitter.com/guiocavalcanti"}
-    ]
+    "email": "contato@redu.com.br",
+    "birthday": "1987-11-24",
+    "last_name": "Cavalcanti",
+    "friends_count": 132,
+    "id": 4,
+    "mobile": "+55 (81) 3224-2994",
+    "thumbnails": [
+        {
+            "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/4/thumb_32/Guilherme3x4%20copy.jpg?1323711306",
+            "size": "32x32"
+        },
+        {
+            "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/4/thumb_110/Guilherme3x4%20copy.jpg?1323711306",
+            "size": "110x110"
+        }
+    ],
+    "social_networks": [
+        {
+            "profile": "www.facebook.com/guiocavalcanti",
+            "name": "facebook"
+        },
+        {
+            "profile": "br.linkedin.com/in/guiocavalcanti",
+            "name": "linkedin"
+        },
+        {
+            "profile": "www.twitter.com/guiocavalcanti",
+            "name": "twitter"
+        }
+    ],
+    "localization": "Recife, Brasil",
+    "birth_localization": "Recife, Brasil"
 }
 </pre>
 
 h2. "GET /api/me":#get-me
 
 Retorna uma representação do resource owner. Resource owner é usuário que autorizou a aplicação a utilizar seus dados.
+
+h4. Exemplo
 
 *Requisição:*
 
@@ -76,53 +102,79 @@ Retorna uma representação do resource owner. Resource owner é usuário que au
 
 <pre>
 {
-    "login":"guiocavalcanti",
-    "mobile":"+55 (81) 5555-5555",
-    "email":"guilhermec@redu.com.br",
-    "localization":"Recife, Brasil",
-    "friends_count":95,
-    "links":[
+    "login": "guiocavalcanti",
+    "first_name": "Guilherme",
+    "links": [
         {
-            "href":"http://www.redu.com.br/api/users/guiocavalcanti",
-            "rel":"self"
+            "href": "http://www.redu.com.br/api/users/guiocavalcanti",
+            "rel": "self"
         },
         {
-            "href":"http://www.redu.com.br/api/users/guiocavalcanti/enrollments",
-            "rel":"enrollments"
+            "href": "http://www.redu.com.br/api/users/guiocavalcanti/enrollments",
+            "rel": "enrollments"
         },
         {
-            "href":"http://www.redu.com.br/api/users/guiocavalcanti/statuses",
-            "rel":"statuses"
+            "href": "http://www.redu.com.br/api/users/guiocavalcanti/statuses",
+            "rel": "statuses"
         },
         {
-            "href":"http://www.redu.com.br/api/users/guiocavalcanti/statuses/timeline",
-            "rel":"timeline"
+            "href": "http://www.redu.com.br/api/users/guiocavalcanti/statuses/timeline",
+            "rel": "timeline"
         },
         {
-            "href":"http://www.redu.com.br/api/users/guiocavalcanti/contacts",
-            "rel":"contacts"
+            "href": "http://www.redu.com.br/api/users/guiocavalcanti/contacts",
+            "rel": "contacts"
         }
     ],
-    "id":4,
-    "last_name":"Cavalcanti",
-    "first_name":"Guilherme",
-    "birthday":"1987-11-24",
-    "birth_localization":"Recife, Brasil",
-    "social_networks" : [
-      { "name" : "facebook", "profile" : "http://www.facebook.com/guiocavalcanti"},
-      { "name" : "twitter", "profile" : "http://www.twitter.com/guiocavalcanti"}
-    ]
+    "email": "contato@redu.com.br",
+    "birthday": "1987-11-24",
+    "last_name": "Cavalcanti",
+    "friends_count": 132,
+    "id": 4,
+    "mobile": "+55 (81) 3224-2994",
+    "thumbnails": [
+        {
+            "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/4/thumb_32/Guilherme3x4%20copy.jpg?1323711306",
+            "size": "32x32"
+        },
+        {
+            "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/4/thumb_110/Guilherme3x4%20copy.jpg?1323711306",
+            "size": "110x110"
+        }
+    ],
+    "social_networks": [
+        {
+            "profile": "www.facebook.com/guiocavalcanti",
+            "name": "facebook"
+        },
+        {
+            "profile": "br.linkedin.com/in/guiocavalcanti",
+            "name": "linkedin"
+        },
+        {
+            "profile": "www.twitter.com/guiocavalcanti",
+            "name": "twitter"
+        }
+    ],
+    "localization": "Recife, Brasil",
+    "birth_localization": "Recife, Brasil"
 }
 </pre>
 
 h2. "GET /api/spaces/:space_id/users":#get-space-users
 
-Retorna todos os usuários com "matrícula":resourses/enrollment.html com o estado @approved@ no "curso":resources/course.html ao qual a disciplina está associada. Opcionalmente é possível filtrar os usuários por papeis.
+Retorna todos os usuários cuja "matrícula":resourses/enrollment.html tem o estado @approved@ no "curso":resources/course.html ao qual a disciplina está associada. Opcionalmente é possível filtrar os usuários por papeis.
+
+
+h4. Autorização
+
+É necessário estar matriculado no "curso":resources/course.htm.
 
 h4. Parâmetros
 
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
+|*space_id*| ID da Disciplina | N/A |
 |*role*| Papel do usuário no curso. | Pode ser um dos seguintes papéis: @member@, @teacher@, @environment_admin@, @tutor@|
 
 h4. Exemplo
@@ -134,35 +186,176 @@ h4. Exemplo
 *Resposta:*
 
 <pre>
-[{
-    "id": 1,
-    "last_name": "User",
-    "birthday": "1992-02-29",
-    "links": [{
-        "href": "http://www.redu.com.br/api/users/test_user",
-        "rel": "self"
-    }, {
-        "href": "http://www.redu.com.br/api/users/test_user/enrollments",
-        "rel": "enrollments"
-    }],
-    "login": "test_user",
-    "friends_count": 0,
-    "email": "test_user@example.com",
-    "first_name": "Test"
-}, {
-    "id": 3,
-    "last_name": "Cavalcanti",
-    "birthday": "1987-03-06",
-    "links": [{
-        "href": "http://www.redu.com.br/api/users/guiocavalcanti",
-        "rel": "self"
-    }, {
-        "href": "http://www.redu.com.br/api/users/guiocavalcanti/enrollments",
-        "rel": "enrollments"
-    }],
-    "login": "guiocavalcanti",
-    "friends_count": 0,
-    "email": "guiocavalcanti@gmail.com",
-    "first_name": "Guilherme"
-}]
+[
+    {
+        "login": "guiocavalcanti",
+        "first_name": "Guilherme",
+        "links": [
+            {
+                "href": "http://www.redu.com.br/api/users/guiocavalcanti",
+                "rel": "self"
+            },
+            {
+                "href": "http://www.redu.com.br/api/users/guiocavalcanti/enrollments",
+                "rel": "enrollments"
+            },
+            {
+                "href": "http://www.redu.com.br/api/users/guiocavalcanti/statuses",
+                "rel": "statuses"
+            },
+            {
+                "href": "http://www.redu.com.br/api/users/guiocavalcanti/statuses/timeline",
+                "rel": "timeline"
+            },
+            {
+                "href": "http://www.redu.com.br/api/users/guiocavalcanti/contacts",
+                "rel": "contacts"
+            }
+        ],
+        "email": "guilhermec@redu.com.br",
+        "birthday": "1987-11-24",
+        "last_name": "Cavalcanti",
+        "friends_count": 132,
+        "id": 4,
+        "mobile": "+55 (81) 3224-2994",
+        "thumbnails": [
+            {
+                "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/4/thumb_32/Guilherme3x4%20copy.jpg?1323711306",
+                "size": "32x32"
+            },
+            {
+                "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/4/thumb_110/Guilherme3x4%20copy.jpg?1323711306",
+                "size": "110x110"
+            }
+        ],
+        "social_networks": [
+            {
+                "profile": "www.facebook.com/guiocavalcanti",
+                "name": "facebook"
+            },
+            {
+                "profile": "br.linkedin.com/in/guiocavalcanti",
+                "name": "linkedin"
+            },
+            {
+                "profile": "www.twitter.com/guiocavalcanti",
+                "name": "twitter"
+            }
+        ],
+        "localization": "Recife, Brasil",
+        "birth_localization": "Recife, Brasil"
+    },
+    {
+        "login": "julianalucena",
+        "first_name": "Juliana",
+        "links": [
+            {
+                "href": "http://www.redu.com.br/api/users/julianalucena",
+                "rel": "self"
+            },
+            {
+                "href": "http://www.redu.com.br/api/users/julianalucena/enrollments",
+                "rel": "enrollments"
+            },
+            {
+                "href": "http://www.redu.com.br/api/users/julianalucena/statuses",
+                "rel": "statuses"
+            },
+            {
+                "href": "http://www.redu.com.br/api/users/julianalucena/statuses/timeline",
+                "rel": "timeline"
+            },
+            {
+                "href": "http://www.redu.com.br/api/users/julianalucena/contacts",
+                "rel": "contacts"
+            }
+        ],
+        "email": "juliana@redu.com.br",
+        "birthday": "1989-05-29",
+        "last_name": "Lucena",
+        "friends_count": 84,
+        "id": 8,
+        "mobile": "",
+        "thumbnails": [
+            {
+                "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/8/thumb_32/twitter2_bigger.png?1297096068",
+                "size": "32x32"
+            },
+            {
+                "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/8/thumb_110/twitter2_bigger.png?1297096068",
+                "size": "110x110"
+            }
+        ],
+        "social_networks": [
+            {
+                "profile": "facebook.com/julianamlucena",
+                "name": "facebook"
+            },
+            {
+                "profile": "linkedin.com/in/julianalucena",
+                "name": "linkedin"
+            },
+            {
+                "profile": "twitter.com/#!/julianalucenaa",
+                "name": "twitter"
+            }
+        ],
+        "localization": "Recife, Pernambuco",
+        "birth_localization": "Recife, Pernambuco"
+    },
+    {
+        "login": "jessicab",
+        "first_name": "Jéssica",
+        "links": [
+            {
+                "href": "http://www.redu.com.br/api/users/jessicab",
+                "rel": "self"
+            },
+            {
+                "href": "http://www.redu.com.br/api/users/jessicab/enrollments",
+                "rel": "enrollments"
+            },
+            {
+                "href": "http://www.redu.com.br/api/users/jessicab/statuses",
+                "rel": "statuses"
+            },
+            {
+                "href": "http://www.redu.com.br/api/users/jessicab/statuses/timeline",
+                "rel": "timeline"
+            },
+            {
+                "href": "http://www.redu.com.br/api/users/jessicab/contacts",
+                "rel": "contacts"
+            }
+        ],
+        "email": "jessica@redu.com.br",
+        "birthday": "1991-01-10",
+        "last_name": "Barbalho",
+        "friends_count": 18,
+        "id": 443,
+        "mobile": "",
+        "thumbnails": [
+            {
+                "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/443/thumb_32/J%C3%A9ssica.jpg?1334865750",
+                "size": "32x32"
+            },
+            {
+                "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/443/thumb_110/J%C3%A9ssica.jpg?1334865750",
+                "size": "110x110"
+            }
+        ],
+        "social_networks": [
+            {
+                "profile": "http://www.facebook.com/jessicabarbalho1",
+                "name": "facebook"
+            },
+            {
+                "profile": "https://twitter.com/#!/jessicabarbalho",
+                "name": "twitter"
+            }
+        ],
+        "localization": "Recife, PE",
+        "birth_localization": "Recife, PE"
+    }
+]
 </pre>
