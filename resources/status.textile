@@ -213,7 +213,6 @@ table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*user_id*| ID do usuário em questão|N/A|
 |*status[text]*| Conteúdo do status |Máximo 800 caracteres|
-|*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
 
 h2. "GET /api/spaces/:space_id/statuses/timeline":#get-space-timeline
 
@@ -274,7 +273,6 @@ table(table table-bordered table-striped).
 |*:lecture_id*| ID da lecture em questão|N/A|
 |*status[text]*| Conteúdo do status |Máximo 800 caracteres|
 |*status[type]*| Tipo do status | Activity ou Help |
-|*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
 
 h2. "DELETE /api/statuses/:status_id":#delete-status
 
@@ -285,4 +283,3 @@ h4. Parâmetros
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*:status_id*|ID do status|N/A|
-|*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
