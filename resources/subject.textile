@@ -48,7 +48,7 @@ h4. Exemplo
 <pre>
   {
     subject : {
-      name : "Novo módulo",
+      title : "Novo módulo",
       description : "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
     }
   }
