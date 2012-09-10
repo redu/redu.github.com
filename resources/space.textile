@@ -44,8 +44,8 @@ h4. Parâmetros
 
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
-|*course_id*|ID ou path do curso|N/A|
-|*space[name]*|Nome do curso|Máximo 40 caracteres; deve ser único|
+|*course_id*|ID do curso|N/A|
+|*space[name]*|Nome da disciplina |Máximo 40 caracteres|
 |space[description]|Descrição do curso|Máximo de 400 caracteres|
 
 h4. Exemplo
