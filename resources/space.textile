@@ -11,6 +11,10 @@ h2. "GET /api/spaces/:id":#get-spaces
 
 Retorna a disiplipla em questão.
 
+h4. Autorização
+
+Deve estar matriculado no "Curso":course.html ao qual a disciplina pertence.
+
 h4. Parâmetros
 
 table(table table-bordered table-striped).
@@ -32,6 +36,10 @@ h2. "POST /api/courses/:course_id/spaces":#post-course-spaces
 
 Cria uma disciplina no contexto do course especificado por @course_id@.
 
+h4. Autorização
+
+Deve ser @teacher@ ou @environment_admin@ no curso.
+
 h4. Parâmetros
 
 table(table table-bordered table-striped).
@@ -49,8 +57,7 @@ h4. Exemplo
 <pre>
   {
     space : {
-      name : "Novo curso",
-      description : "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
+      name : "minha nova disciplina"
     }
   }
 </pre>
@@ -58,32 +65,51 @@ h4. Exemplo
 *Resposta:*
 
 <pre>
-  {
-    space : {
-      "name": "Novo curso",
-      "created_at": "2012-03-02T17:50:32-03:00",
-      "links": [{
-          "href": "http://www.redu.com.br/api/spaces/1",
-          "rel": "self"
-      }, {
-          "href": "http://www.redu.com.br/api/courses/course-name",
-          "rel": "course"
-      }, {
-          "href": "http://www.redu.com.br/api/environments/environment-name",
-          "rel": "environment"
-      }, {
-          "href": "http://www.redu.com.br/api/spaces/1/users",
-          "rel": "users"
-      }],
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
-    }
-  }
+{
+    "links": [
+        {
+            "href": "http://www.redu.com.br/api/spaces/1626",
+            "rel": "self"
+        },
+        {
+            "href": "http://www.redu.com.br/api/courses/meu-novo-curso",
+            "rel": "course"
+        },
+        {
+            "href": "http://www.redu.com.br/api/environments/www",
+            "rel": "environment"
+        },
+        {
+            "href": "http://www.redu.com.br/api/spaces/1626/users",
+            "rel": "users"
+        },
+        {
+            "href": "http://www.redu.com.br/api/spaces/1626/subjects",
+            "rel": "subjects"
+        },
+        {
+            "href": "http://www.redu.com.br/api/spaces/1626/statuses",
+            "rel": "statuses"
+        },
+        {
+            "href": "http://www.redu.com.br/api/spaces/1626/statuses/timeline",
+            "rel": "timeline"
+        }
+    ],
+    "name": "minha nova disciplina",
+    "created_at": "2012-09-10T09:51:23-03:00",
+    "id": 1626
+}
 </pre>
 
 
 h2. "GET /api/courses/:course_id/spaces":#get-course-spaces
 
 Retorna uma lista com as disciplinas do curso especificado.
+
+h4. Autorização
+
+Deve estar matriculado no curso.
 
 h4. Parâmetros
 
@@ -94,6 +120,10 @@ table(table table-bordered table-striped).
 h2. "DELETE /api/spaces/:id":#delete-spaces
 
 Remove uma disciplina. Os que fazem parte do curso ao qual a disciplina faz parte não terão mais acesso aos módulos e aulas.
+
+h4. Autorização
+
+Deve ser @teacher@ ou @environment_admin@ no curso.
 
 h4. Parâmetros
 
