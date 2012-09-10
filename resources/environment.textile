@@ -11,6 +11,10 @@ h2. "GET /api/environments/:id":#get-environments
 
 Retorna o AVA especificado. Tanto o ID quanto o path podem ser utilizados aqui, porém o path é passível de modificações pelo usuário, portanto pode não servir como um identificador único.
 
+h4. Autorização
+
+O usuário deve fazer parte de pelo menos um curso do AVA ou ser o dono do mesmo.
+
 h4. Parâmetros
 
 table(table table-bordered table-striped).
@@ -39,9 +43,9 @@ h4. Exemplo
 <pre>
   {
     environment : {
-      name : "Foo",
-      path : "foo",
-      initials : "bar"
+      name : "meu novo ambiente",
+      path : "meu-novo-ambiente",
+      initials : "mna"
     }
   }
 </pre>
@@ -49,33 +53,36 @@ h4. Exemplo
 *Resposta:*
 
 <pre>
-  {
-    environment : {
-        name: "Foo",
-        created_at: "2010-12-17T16:37:40-02:00",
-        initials: "bar",
-        path: "foo",
-        links: [
-          {
-            href: "http://www.redu.com.br/api/environments/foo",
-            rel: "self"
-          },
-          {
-            href: "http://www.redu.com.br/api/environments/foo/courses",
-            rel: "courses"
-          },
-          {
-            href: "http://www.redu.com.br/api/users/andre",
-            rel: "user"
-          }
-        ]
-    }
-  }
+{
+    "initials": "mna",
+    "links": [
+        {
+            "href": "http://www.redu.com.br/api/environments/meu-novo-ambiente",
+            "rel": "self"
+        },
+        {
+            "href": "http://www.redu.com.br/api/environments/meu-novo-ambiente/courses",
+            "rel": "courses"
+        },
+        {
+            "href": "http://www.redu.com.br/api/users/guiocavalcanti",
+            "rel": "user"
+        }
+    ],
+    "name": "meu novo ambiente",
+    "created_at": "2012-09-10T09:42:00-03:00",
+    "path": "meu-novo-ambiente",
+    "id": 909
+}
 </pre>
 
 h2. "PUT /api/environments/:id":#put-environments
 
 Atualiza informações do AVA em questão.
+
+h4. Autorização
+
+O usuário deve ser administrador do AVA.
 
 h4. Parâmetros
 
@@ -90,9 +97,12 @@ h2. "DELETE /api/environments/:id":#delete-environments
 
 Remove o AVA em questão. Todos os cursos, disciplinas, módulos e aulas insteridos neste ambiente serão perdidos e não estarão mais acessíveis aos usuários.
 
+h4. Autorização
+
+O usuário deve ser administrador do AVA.
+
 h4. Parâmetros
 
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*id*|ID ou path do AVA|N/A|
-
