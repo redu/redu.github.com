@@ -9,7 +9,7 @@ O curso, no contexto da API referenciado como @course@ é a entidade principal d
 
 h2. "GET /api/courses/:id":#get-courses
 
-Retorna o curso em questão. Tanto o ID quanto o path podem ser utilizados aqui, porém o path é passível de modificações pelo usuário, portanto pode não servir como um identificador único.
+Retorna o curso em questão.
 
 h4. Autorização
 
@@ -65,7 +65,7 @@ Cria um novo curso no "AVA":environment.html especificado. No "Redu":http://www.
 
 h4. Autorização
 
-Para criar um Curso é necessáriot ter papel administrativo no "AVA":environment.html.
+Para criar um Curso é necessário ter papel administrativo no "AVA":environment.html.
 
 h4. Parâmetros
 
