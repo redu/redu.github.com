@@ -7,13 +7,13 @@ tagline: "Documentação da API REST do Redu"
 
 h2. Introdução
 
-O "Redu":http://www.redu.com.br é uma plataforma de ensino a distância construida sobre uma rede social. O seu objetivo principal é potencializar o talento das pessoas oferecendo ferramentas que proporcionam uma aprendizagem mais efetiva.
+O "Redu":http://www.redu.com.br é uma plataforma de ensino a distância construída sobre uma rede social. O seu objetivo principal é potencializar o talento das pessoas oferecendo ferramentas que proporcionam uma aprendizagem mais efetiva.
 
 Através da API HTTP REST do "Redu":http://www.redu.com.br é possível construir aplicações que acessam os dados dos "usuários":resources/user.html e "cursos":resources/course.html da plataforma.
 
 h3. Hypertext enabled
 
-Seguindo a "sugestão":http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven do "Roy Fielding":http://en.wikipedia.org/wiki/Roy_Fielding, pai do REST, todos os recursos retornados pela API do Redu possuem metainformações (hyperlinks) para outros recursos importantes no estado atual da aplicação. Isso faz com que a API possua um único ponto de entrada, por exemplo o AVA.
+Seguindo a "sugestão":http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven do "Roy Fielding":http://en.wikipedia.org/wiki/Roy_Fielding, pai do REST, todos os recursos retornados pela API do Redu possuem metainformações (hyperlinks) para outros recursos importantes no estado atual da aplicação. Isso faz com que a API possua um único ponto de entrada, por exemplo, o AVA.
 
 Exemplificando o dito acima, ao realizar uma requisição HTTP com o método GET para a URL @/api/environments/foo@ o recurso retornado seria como o descrito abaixo:
 
@@ -31,7 +31,7 @@ Exemplificando o dito acima, ao realizar uma requisição HTTP com o método GET
 }
 </pre>
 
-Note que o JSON retornado possui uma propriedade links que denota as URLs que a aplicação cliente precisa conhecer no contexto atual (visualização do ambiente virtual de aprendizagem). Isso quer dizer que, por exemplo, quisessemos visualizar os cursos do AVA em questão, poderíamos faze-lo sem conhecer a priori a URL apropriada.
+Note que o JSON retornado possui uma propriedade links que denota as URLs que a aplicação cliente precisa conhecer no contexto atual (visualização do ambiente virtual de aprendizagem). Isso quer dizer que se, por exemplo, quiséssemos visualizar os cursos do AVA em questão, poderíamos fazê-lo sem conhecer a priori a URL apropriada.
 
 Uma aplicação cliente em JavaScript + jQuery poderia listar os cursos deste ambiente da seguinte forma:
 
@@ -56,13 +56,13 @@ h2. Autenticação
 
 h3. OAuth
 
-p. O Redu utiliza o protocolo "OAuth":http://oauth.net, versão 2, para autenticação de applicações externas à sua API. O OAuth um protocolo para autenticação de clientes em WebServices, utilizado por grande parte dos serviços Web (Twitter, Facebook, Foursquare). Para conhecer o protocolo uma ótima referência é o "tutorial da hueniverse":http://oauth.net/2/
+p. O Redu utiliza o protocolo "OAuth":http://oauth.net, versão 2, para autenticação de applicações externas à sua API. O OAuth é um protocolo para autenticação de clientes em WebServices, utilizado por grande parte dos serviços Web (Twitter, Facebook, Foursquare). Para conhecer o protocolo uma ótima referência é o "tutorial da hueniverse":http://oauth.net/2/
 
 h4. Fluxo de Requisições para Autenticação
 
 p. O protocolo OAuth prevê vários fluxos de autenticação dependendo do tipo aplicação. Por exemplo, existem contextos onde a aplicação cliente não é capaz de invocar um navegador Web que redirecionaria o resource owner para o Redu. Nesses casos é possível usar um fluxo onde o Redu gera um código único (PIN) que pode ser copiado para a aplicação cliente.
 
-p. O fluxo mais comumente utilizado é o de aplicações Web. No diagrama abaixo são mostradas a sequência de passos necessárias para a autenticação desse tipo de aplicação. Para um fluxo mais detalhado consulte "este":assets/images/oauth-workflow-detailed.png diagrama de sequência.
+p. O fluxo mais comumente utilizado é o de aplicações Web. No diagrama abaixo é mostrada a sequência de passos necessários para a autenticação desse tipo de aplicação. Para um fluxo mais detalhado consulte "este":assets/images/oauth-workflow-detailed.png diagrama de sequência.
 
 !assets/images/oauth-workflow.png!
 
@@ -70,7 +70,7 @@ h3. Bibliotecas
 
 p. Já existem bibliotecas prontas que implementam o protocolo OAuth em diversas linguagens, você pode encontrar algumas delas no "repositório oficial":http://code.google.com/p/oauth
 
-p. Além disso diversos Frameworks de desenvolvimento também possuem implementações próprias, como o "Zend Framework":http://framework.zend.com/manual/en/zend.oauth.html
+p. Além disso, diversos Frameworks de desenvolvimento também possuem implementações próprias, como o "Zend Framework":http://framework.zend.com/manual/en/zend.oauth.html
 
 h3. Exemplos
 
@@ -92,9 +92,9 @@ p. Aplicações tipo canvas são um tipo especial de aplicativos que são execut
 
 div(thumbnail){width: 400px; float: left; margin: 10px 20px 20px 0;}. !assets/images/canvas-example.png!
 
-p. Uma vez que estes aplicativos são integrados a interface do Redu, existem alguma limitações a respeito das dimensões do mesmo. Atualmente é possível inserir aplicações de até @720px@ de largura.
+p. Uma vez que estes aplicativos são integrados à interface do Redu, existem algumas limitações a respeito das dimensões do mesmo. Atualmente é possível inserir aplicações de até @720px@ de largura.
 
-p. Em relação a altura só é necessária que ela seja fixa, ou seja, que se mantenha a mesma durante desde o momento em que ela é carregada.
+p. Em relação à altura só é necessário que ela seja fixa, ou seja, que se mantenha a mesma desde o momento em que ela é carregada.
 
 p. Aplicativos tipo canvas precisam estar acessíveis através da internet. Ou seja, precisam estar hospedados em servidores terceiros.
 
@@ -102,13 +102,13 @@ p. O canvas propriamente dito é um @<iframe>@ que tem como fonte um endereço e
 
 h3{clear: left;}. Autenticação via JavaScript
 
-p. O Redu implementa o "fluxo implícito":http://tools.ietf.org/html/draft-ietf-oauth-v2-26#section-1.3.2 do OAuth. Este fluxo é autenticar aplicações com código público, como as que são feitas em JavaScript e funcionam dentro do browser. Dessa forma é possível realizar a autenticação sem necessáriamente possuir lógica server-side.
+p. O Redu implementa o "fluxo implícito":http://tools.ietf.org/html/draft-ietf-oauth-v2-26#section-1.3.2 do OAuth. Trata-se de autenticar aplicações com código público, como as que são feitas em JavaScript e funcionam dentro do browser. Dessa forma é possível realizar a autenticação sem necessariamente possuir lógica server-side.
 
-p. A aplicação "palavras":http://github.com/redu/canvas-example realiza implementa esse tipo de autenticação. Para tornar isso possível foi utilizada a biblioteca JavaScript "JSO":https://github.com/andreassolberg/jso .
+p. A aplicação "palavras":http://github.com/redu/canvas-example implementa esse tipo de autenticação. Para tornar isso possível foi utilizada a biblioteca JavaScript "JSO":https://github.com/andreassolberg/jso .
 
 h2. Aplicação de exemplo em Python
 
-p. Para melhor exemplificar como a API do Redu pode ser usada, foi criado uma "aplicação de exemplo":https://github.com/redu/qt-example em "Python":http://python.org/. Nesta aplicação foram utilizado todos os recursos descritos para AVA, Usuário, Matrícula, Disciplina e Curso.
+p. Para melhor exemplificar como a API do Redu pode ser usada, foi criada uma "aplicação de exemplo":https://github.com/redu/qt-example em "Python":http://python.org/. Nesta aplicação foram utilizados todos os recursos descritos para AVA, Usuário, Matrícula, Disciplina e Curso.
 
 A aplicação é um sistema Desktop com as seguintes funcionalidades:
 
@@ -124,7 +124,7 @@ table(table table-bordered table-striped).
 |Environments|Coligados|
 |Courses|Cursos|
 |Spaces|Disciplinas|
-|Environments|Turmas|
+|Subjects|Turmas|
 
 
 h2. Registro de aplicação
@@ -136,7 +136,7 @@ p. Para cadastrar seu aplicativo envie um e-mail para contato@redu.com.br com as
 3. URL principal e de callback (se houver)
 4. URL da disciplina (para aplicativos tipo canvas)
 
-p. Lembre-se de usar o e-mail que você cadastrou no Redu para podermos saber quem você é. Geralmente a análise a aprovação da aplicação dura menos de 1 dia.
+p. Lembre-se de usar o e-mail que você cadastrou no Redu para podermos saber quem você é. Geralmente, a análise da aprovação da aplicação dura menos de 1 dia.
 
 h2. Mais informações
 
