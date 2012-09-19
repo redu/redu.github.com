@@ -1,0 +1,270 @@
+---
+layout: page
+title: "Chat"
+group: navigation
+---
+{% include JB/setup %}
+
+O Chat e ChatMessages representam, respectivament, uma conversa entre dois usuários e suas mensagens. Atualmente é possível, apenas, visualizar estes recursos através da API. A possibilidade de criação e remoção de mensagens de chat, bem como streaming das mesmas está disponível em breve.
+
+h1. Chat
+
+h2. "GET /api/users/:id/chats":#get-chats
+
+Retorna todos os chats do usuário em questão.
+
+h4. Autorização
+
+É necessário ter poder de gerenciamento do usuário.
+
+h4. Parâmentros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*id*|ID ou login do usuário|N/A|
+
+h4. Exemplo
+
+Requisição:
+
+@GET /api/users/guiocavalcanti/chats12@
+
+Resposta:
+
+<pre>
+[
+    {
+        "links": [
+            {
+                "rel": "self",
+                "href": "http://127.0.0.1:3000/api/chats/1475"
+            },
+            {
+                "rel": "user",
+                "href": "http://127.0.0.1:3000/api/users/guiocavalcanti"
+            },
+            {
+                "rel": "contact",
+                "href": "http://127.0.0.1:3000/api/users/tiago"
+            },
+            {
+                "rel": "chat_messages",
+                "href": "http://127.0.0.1:3000/api/chats/1475/chat_messages"
+            }
+        ],
+        "id": 1475,
+        "created_at": "2012-09-19T15:29:13-03:00",
+        "updated_at": "2012-09-19T15:29:13-03:00"
+    },
+    {
+        "links": [
+            {
+                "rel": "self",
+                "href": "http://127.0.0.1:3000/api/chats/1477"
+            },
+            {
+                "rel": "user",
+                "href": "http://127.0.0.1:3000/api/users/guiocavalcanti"
+            },
+            {
+                "rel": "contact",
+                "href": "http://127.0.0.1:3000/api/users/test_user"
+            },
+            {
+                "rel": "chat_messages",
+                "href": "http://127.0.0.1:3000/api/chats/1477/chat_messages"
+            }
+        ],
+        "id": 1477,
+        "created_at": "2012-09-19T15:29:13-03:00",
+        "updated_at": "2012-09-19T15:29:13-03:00"
+    }
+]
+</pre>
+
+h2. "GET /api/chats/:id":#get-chats
+
+Retorna o chat em questão. O recurso Chat contém todas as mensagens trocadas entre dois usuários utilizando o sistema de chat do Redu.
+
+h4. Autorização
+
+É necessário ser participante do chat para visualizar este recurso.
+
+h4. Parâmentros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*id*|ID do chat|N/A|
+
+h4. Exemplo
+
+Requisição:
+
+@GET /api/chats/1475@
+
+Resposta:
+
+<pre>
+{
+    "links": [
+        {
+            "rel": "self",
+            "href": "http://127.0.0.1:3000/api/chats/1475"
+        },
+        {
+            "rel": "user",
+            "href": "http://127.0.0.1:3000/api/users/guiocavalcanti"
+        },
+        {
+            "rel": "contact",
+            "href": "http://127.0.0.1:3000/api/users/tiago"
+        },
+        {
+            "rel": "chat_messages",
+            "href": "http://127.0.0.1:3000/api/chats/1475/chat_messages"
+        }
+    ],
+    "id": 1475,
+    "created_at": "2012-09-19T15:29:13-03:00",
+    "updated_at": "2012-09-19T15:29:13-03:00"
+}
+</pre>
+
+
+h1. Chat message
+
+h2. "GET /api/chats/:id/chat_messages":#index-chat-messages
+
+Retorna todas as mensagens contidas num chat.
+
+h4. Autorização
+
+É necessário ser participante do chat para visualizar este recurso.
+
+h4. Parâmentros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*id*|ID do chat|N/A|
+
+h4. Exemplo
+
+Requisição:
+
+@GET /api/chats/1475/chat_messages@
+
+Resposta:
+
+<pre>
+[
+    {
+        "links": [
+            {
+                "rel": "self",
+                "href": "http://127.0.0.1:3000/api/chat_messages/16"
+            },
+            {
+                "rel": "user",
+                "href": "http://127.0.0.1:3000/api/users/guiocavalcanti"
+            },
+            {
+                "rel": "contact",
+                "href": "http://127.0.0.1:3000/api/users/tiago"
+            },
+            {
+                "rel": "sender_chat",
+                "href": "http://127.0.0.1:3000/api/chats/1475"
+            },
+            {
+                "rel": "receiver_chat",
+                "href": "http://127.0.0.1:3000/api/chats/1476"
+            }
+        ],
+        "id": 16,
+        "created_at": "2011-06-29T13:15:18-03:00",
+        "message": "Opa!",
+        "updated_at": "2011-06-29T13:15:18-03:00"
+    },
+    {
+        "links": [
+            {
+                "rel": "self",
+                "href": "http://127.0.0.1:3000/api/chat_messages/34"
+            },
+            {
+                "rel": "user",
+                "href": "http://127.0.0.1:3000/api/users/guiocavalcanti"
+            },
+            {
+                "rel": "contact",
+                "href": "http://127.0.0.1:3000/api/users/tiago"
+            },
+            {
+                "rel": "sender_chat",
+                "href": "http://127.0.0.1:3000/api/chats/1475"
+            },
+            {
+                "rel": "receiver_chat",
+                "href": "http://127.0.0.1:3000/api/chats/1476"
+            }
+        ],
+        "id": 34,
+        "created_at": "2011-06-29T13:55:35-03:00",
+        "message": "Todo mundo com foto",
+        "updated_at": "2011-06-29T13:55:35-03:00"
+    }
+]
+</pre>
+
+h2. "GET /api/chat_messages/:id":#get-chat-messages
+
+Retorna uma mensagem do chat.
+
+h4. Autorização
+
+É necessário ser participante do chat para visualizar este recurso.
+
+h4. Parâmentros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*id*|ID da mensagem|N/A|
+
+h4. Exemplo
+
+Requisição:
+
+@GET /api/chat_messages/169@
+
+Resposta:
+
+<pre>
+{
+    "links": [
+        {
+            "rel": "self",
+            "href": "http://127.0.0.1:3000/api/chat_messages/16"
+        },
+        {
+            "rel": "user",
+            "href": "http://127.0.0.1:3000/api/users/guiocavalcanti"
+        },
+        {
+            "rel": "contact",
+            "href": "http://127.0.0.1:3000/api/users/tiago"
+        },
+        {
+            "rel": "sender_chat",
+            "href": "http://127.0.0.1:3000/api/chats/1475"
+        },
+        {
+            "rel": "receiver_chat",
+            "href": "http://127.0.0.1:3000/api/chats/1476"
+        }
+    ],
+    "id": 16,
+    "created_at": "2011-06-29T13:15:18-03:00",
+    "message": "Opa!",
+    "updated_at": "2011-06-29T13:15:18-03:00"
+}
+</pre>
