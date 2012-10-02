@@ -87,14 +87,14 @@ table(table table-bordered table-striped).
 
 h2. "GET /api/users/:user_id/statuses":#get-user-status
 
-Retorna todos os @status@ do usuário. Também é possível filtrar pelo tipo. Caso @:type@ não seja informado é retornado os status do tipo Activity e Help do usuário.
+Retorna todos os @status@ do usuário. Também é possível filtrar pelo tipo. Caso @:type@ não seja informado é retornado os status do tipo Activity, Help e Log do usuário.
 
 h4. Parâmetros
 
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*user_id*| ID do usuário em questão| N/A |
-|*status[type]*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
+|*type*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
 |*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
 
 h4. Exemplo
@@ -192,7 +192,7 @@ h4. Exemplo
 
 h2. "GET /api/users/:user_id/statuses/timeline":#get-user-timeline
 
-Retorna todos os @status@ do usuário. Também é possível filtrar pelo tipo. Caso @:type@ não seja informado é retornado os status do tipo Activity e Help do usuário.
+Retorna todos os @status@ do usuário. Também é possível filtrar pelo tipo. Caso @:type@ não seja informado é retornado os status do tipo Activity, Help e Log do usuário.
 Retorna todos os @status@ do usuário e dos cursos que o usuário faz parte. Diferente do anterior, aqui são mostradas todas as movimentações que interessam ao usuário. É igual ao que se vê na página inicial do Redu.
 
 h4. Parâmetros
@@ -200,7 +200,7 @@ h4. Parâmetros
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*user_id*| ID do usuário em questão| N/A |
-|*status[type]*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
+|*type*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
 |*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
 
 h2. "POST /api/users/:user_id/statuses":#post-user-status
@@ -223,7 +223,7 @@ h4. Parâmetros
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*space_id*| ID do space| N/A |
-|*status[type]*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
+|*type*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
 |*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
 
 h2. "GET /api/spaces/:space_id/statuses":#get-space-status
@@ -235,7 +235,7 @@ h4. Parâmetros
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*space_id*| ID do space| N/A |
-|*status[type]*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
+|*type*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
 |*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
 
 h2. "POST /api/spaces/:space_id/statuses":#post-space-status
@@ -260,7 +260,7 @@ h4. Parâmetros
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*lecture_id*| ID da lecture em questão|N/A|
-|*status[type]*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
+|*type*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
 
 h2. "POST /api/lectures/:lecture_id/statuses":#post-lecture-status
 
