@@ -8,6 +8,7 @@ group: navigation
 h2. "GET /api/users/:id":#get-users
 
 Retorna um único usuário com o ID ou login especificado. Tanto o login quanto o ID servem como identificadores únicos para os usuários, por isso podem ser passados como parâmetro aqui.
+Note que atributos de requisições em negrito são obrigatórios.
 
 h4. Autorização
 

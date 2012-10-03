@@ -23,6 +23,8 @@ table(table table-bordered){width: 500px;}.
 |approved|Usuário aceitou o convite|
 |rejected|Usuário recusou o convite|
 
+Note que atributos de requisições em negrito são obrigatórios.
+
 h2. "GET /api/enrollments/:id":#get-enrollments
 
 Retorna a matrícula em questão.
