@@ -72,6 +72,14 @@ p. Já existem bibliotecas prontas que implementam o protocolo OAuth em diversas
 
 p. Além disso diversos Frameworks de desenvolvimento também possuem implementações próprias, como o "Zend Framework":http://framework.zend.com/manual/en/zend.oauth.html
 
+
+h2. Encapsuladores (wrappers) da API
+
+Para facilitar a interação com a API REST, foram desenvolvido encapsuladores. Estes encapsuladores abstraem o HTTP e permitem que exista uma interação com a API apenas lidando com classes e objetos. O Redu possui os seguintes encapsuladores:
+
+1. "Python":http://github.com/redu/redupy
+2. "Java":http://github.com/redu/jredu
+
 h3. Exemplos
 
 p. Alguns exemplos de clientes realizando a negociação dos tokens e fazendo requisições para a API do Redu
@@ -106,26 +114,7 @@ p. O Redu implementa o "fluxo implícito":http://tools.ietf.org/html/draft-ietf-
 
 p. A aplicação "palavras":http://github.com/redu/canvas-example realiza implementa esse tipo de autenticação. Para tornar isso possível foi utilizada a biblioteca JavaScript "JSO":https://github.com/andreassolberg/jso .
 
-h2. Aplicação de exemplo em Python
-
-p. Para melhor exemplificar como a API do Redu pode ser usada, foi criado uma "aplicação de exemplo":https://github.com/redu/qt-example em "Python":http://python.org/. Nesta aplicação foram utilizado todos os recursos descritos para AVA, Usuário, Matrícula, Disciplina e Curso.
-
-A aplicação é um sistema Desktop com as seguintes funcionalidades:
-
-1. Listagem e cadastro de Coligados
-2. Listagem e cadastro de cursos de um coligado
-3. Listagem e cadastro Disciplinas e Turmas.
-4. Matrícula
-
-Parte do desafio na construção desta aplicação foi realizar o mapeamento dos recursos disponibilizados através da API com as entidades especifícas do domínio da aplicação. Abaixo são exemplificados o mapeamento realizado.
-
-table(table table-bordered table-striped).
-|_.API Redu|_.API Exemplo|
-|Environments|Coligados|
-|Courses|Cursos|
-|Spaces|Disciplinas|
-|Environments|Turmas|
-
+Ambos estão em desenvolvimento ativo e aberto para contribuições.
 
 h2. Registro de aplicação
 
