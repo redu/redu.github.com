@@ -1,0 +1,150 @@
+---
+layout: page
+title: "Aula"
+group: navigation
+---
+{% include JB/setup %}
+
+No contexto da API, a aula é referenciada como @lecture@. Uma aula representa um conteúdo mínimo, como um texto ou vídeo, que possui interações sociais (ver Mural). Várias aulas podem ser agrupadas e ordenadas em um módulo.
+
+
+h2. "Tipos de Lecture":#lectures-types
+
+Existem cinco tipos de aula, são estas:
+
+* *Canvas:* Aplicativo.
+* *Documento:* Arquivo de texto (_txt_, _pdf_, _doc_, _docx_, _ppt_, _pptx_, etc).
+* *Exercício:* Possui questões a serem respondidas.
+* *Página:* Conteúdo em "_Rich Text Format_":http://en.wikipedia.org/wiki/Rich_Text_Format.
+* *Vídeo:* Arquivo de vídeo (_mov_, _avi_, _mpeg_, _mp4_, etc) ou vídeo hospedado no "Youtube":http://www.youtube.com.
+
+div(thumbnail){width:450px; margin: 20px}. !/assets/images/lecture-classes.png!
+
+h3. Atributos
+
+Abaixo são descritos os atributos de uma aula:
+
+table(table table-bordered table-striped){clear: both;}.
+|_.Atributo|_.Descrição|
+|created_at|Data de criação.|
+|name|Nome (título).|
+|position|Posição na ordenação dentro módulo.|
+|lectureable|Recurso da aula (varia a estrutura de acordo com o tipo).|
+|type|Tipo (_Canvas, Document, Exercise, Page, Seminar_).|
+|id|Identificador.|
+|rating|Avaliação feita pelos usuários|
+|view_count|Quantidade de vezes que foi visualizada|
+|updated_at|Data da última atualização.|
+
+h3. Links
+
+Abaixo são descritos os links presentes na representação de uma aula:
+
+table(table table-bordered table-striped){clear: both;}.
+|_.Link|_.Descrição|
+|self|Aula em questão.|
+|self_link|Aula no Redu (HTML).|
+|subject|Módulo onde a aula se encontra.|
+|space|Disciplina onde a aula se encontra.|
+|course|Curso onde a aula se encontra.|
+|environment|Ambiente onde a aula se encontra.|
+
+h3. Estrutura de @lectureable@
+
+Nesta seção é descrita a estrutura de @lectureable@ para cada tipo de aula.
+
+h4. Canvas
+
+O recurso @client_application@ vem embutido no Canvas, ele representa o aplicativo.
+
+table(table table-bordered table-striped).
+|_.Chave|_.Descrição|
+|current_url|URL do Canvas.|
+|client_application[name]|Nome do aplicativo.|
+|client_application[url]|URL do aplicativo.|
+|client_application[support_url]|URL para suporte do aplicativo.|
+|client_application[id]|ID do aplicativo no Redu.|
+
+h4. Document
+
+h4. Exercise
+
+h4. Page
+
+h4. Seminar
+
+h2. "GET /api/lectures/:id":#get-lectures
+
+Retorna a aula em questão.
+
+h4. Autorização
+
+Deve estar matriculado no "Curso":course.html ao qual o módulo pertence (no caso, o curso ao qual a disciplina pertence).
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*id*|ID da aula|N/A|
+
+h4. Exemplo
+
+@GET /api/lectures/1@
+
+*Resposta:*
+* Canvas (@Canvas@)
+
+<div style="margin-left: 20px;">
+<pre>
+{
+    "created_at": "2013-01-16T10:28:23-02:00",
+    "name": "novo",
+    "links": [
+        {
+            "href": "http://www.redu.com.br/api/lectures/4877-novo",
+            "rel": "self"
+        },
+        {
+            "href": "http://www.redu.com.br/espacos/1412/modulos/3111/aulas/4877-novo",
+            "rel": "self_link"
+        },
+        {
+            "href": "http://www.redu.com.br/api/subjects/3111",
+            "rel": "subject"
+        },
+        {
+            "href": "http://www.redu.com.br/api/spaces/1412",
+            "rel": "space"
+        },
+        {
+            "href": "http://www.redu.com.br/api/courses/curso-de-exemplo",
+            "rel": "course"
+        },
+        {
+            "href": "http://www.redu.com.br/api/environments/ambiente-de-exemplo-api",
+            "rel": "environment"
+        }
+    ],
+    "position": 1,
+    "lectureable": {
+        "current_url": "http://www.manualdigital.pt/inglesRedu/",
+        "client_application": {
+            "name": "My Body",
+            "url": "http://www.manualdigital.pt/inglesRedu/",
+            "support_url": "",
+            "id": 653
+        }
+    },
+    "type": "Api::Canvas",
+    "id": 4877,
+    "rating": 0,
+    "view_count": 1,
+    "updated_at": "2013-01-16T10:28:23-02:00"
+}
+</pre>
+<div>
+* Documento (@Document@)
+* Exercício (@Exercise@)
+* Página (@Page@)
+* Video (@Seminar@)
+
