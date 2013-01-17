@@ -56,6 +56,13 @@ Nesta seção é descrita a estrutura de @lectureable@ para cada tipo de Aula.
 
 h4. Page
 
+Esta aula é simplesmente um conteúdo baseado em "_Rich Text Format_":http://en.wikipedia.org/wiki/Rich_Text_Format , originado pelo "_CKEditor_":http://ckeditor.com/.
+
+table(table table-bordered table-striped).
+|_.Chave|_.Descrição|
+|content|Conteúdo gerado pelo CKEditor. Inclui formatação HTML e CSS.|
+|raw|Contéudo cru da aula, nem um tipo de formatação e estilo é adicionado.|
+
 h4. Document
 
 Este tipo de aula é composto basicamente por um documento, o qual pode ter o formato _txt, pdf, doc, docx, ppt, pptx_, etc.
@@ -108,6 +115,54 @@ h4. Exemplo
 *Resposta:*
 
 * Página (@Page@)
+
+<pre style="margin-left: 20px;">
+{
+  "created_at": "2013-01-16T10:28:23-02:00",
+  "name": "Nome da aula",
+  "links": [
+    {
+      "href": "http://www.redu.com.br/api/lectures/4877-novo",
+      "rel": "self"
+    },
+    {
+      "href": "http://www.redu.com.br/espacos/1412/modulos/3111/aulas/4877-novo",
+      "rel": "self_link"
+    },
+    {
+      "href": "http://www.redu.com.br/api/subjects/3111",
+      "rel": "subject"
+    },
+    {
+      "href": "http://www.redu.com.br/api/spaces/1412",
+      "rel": "space"
+    },
+    {
+      "href": "http://www.redu.com.br/api/courses/curso-de-exemplo",
+      "rel": "course"
+    },
+    {
+      "href": "http://www.redu.com.br/api/environments/ambiente-de-exemplo-api",
+      "rel": "environment"
+    },
+    {
+      "href": "http://www.redu.com.br/api/lectures/4877/statuses",
+      "rel": "statuses"
+    }
+  ],
+  "position": 1,
+  "lectureable": {
+    "content" : "<html></html>",
+    "raw" : "lorem lipsum" // conteúdo crú
+  },
+  "type": "Page",
+  "id": 4877,
+  "rating": 0,
+  "view_count": 1,
+  "updated_at": "2013-01-16T10:28:23-02:00"
+}
+</pre>
+
 * Documento (@Document@)
 
 <pre style="margin-left: 20px;">
@@ -206,7 +261,7 @@ h4. Exemplo
       "id": 653
     }
   },
-  "type": "Api::Canvas",
+  "type": "Canvas",
   "id": 4877,
   "rating": 0,
   "view_count": 1,
