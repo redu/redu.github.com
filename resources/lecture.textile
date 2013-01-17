@@ -13,11 +13,11 @@ h2. "Tipos de Lecture":#lectures-types
 
 Existem cinco tipos de Aula, são estas:
 
-* *Canvas:* Aplicativo.
-* *Documento:* Arquivo de texto (_txt_, _pdf_, _doc_, _docx_, _ppt_, _pptx_, etc).
-* *Exercício:* Possui questões a serem respondidas.
 * *Página:* Conteúdo em "_Rich Text Format_":http://en.wikipedia.org/wiki/Rich_Text_Format.
-* *Vídeo:* Arquivo de vídeo (_mov_, _avi_, _mpeg_, _mp4_, etc) ou vídeo hospedado no "Youtube":http://www.youtube.com.
+* *Documento:* Arquivo de texto (_txt_, _pdf_, _doc_, _docx_, _ppt_, _pptx_, etc).
+* *Mídia:* Arquivo de vídeo (_mov_, _avi_, _mpeg_, _mp4_, etc) ou vídeo hospedado no "Youtube":http://www.youtube.com.
+* *Exercício:* Possui questões a serem respondidas.
+* *Canvas:* Aplicativo.
 
 div(thumbnail){width:450px; margin: 20px}. !/assets/images/lecture-classes.png!
 
@@ -31,7 +31,7 @@ table(table table-bordered table-striped){clear: both;}.
 |name|Nome (título).|
 |position|Posição na ordenação dentro módulo.|
 |lectureable|Recurso da Aula (varia a estrutura de acordo com o tipo).|
-|type|Tipo (_Canvas, Document, Exercise, Page, Seminar_).|
+|type|Tipo (_Canvas, Document, Exercise, Page, Media_).|
 |id|Identificador.|
 |rating|Avaliação feita pelos usuários|
 |view_count|Quantidade de vezes que foi visualizada|
@@ -54,6 +54,15 @@ h3. Estrutura de @lectureable@
 
 Nesta seção é descrita a estrutura de @lectureable@ para cada tipo de Aula.
 
+
+h4. Document
+
+h4. Media
+
+h4. Page
+
+h4. Exercise
+
 h4. Canvas
 
 O recurso @client_application@ vem embutido no Canvas, ele representa o aplicativo.
@@ -66,13 +75,6 @@ table(table table-bordered table-striped).
 |client_application[support_url]|URL para suporte do aplicativo.|
 |client_application[id]|ID do aplicativo no Redu.|
 
-h4. Document
-
-h4. Exercise
-
-h4. Page
-
-h4. Seminar
 
 h2. "GET /api/lectures/:id":#get-lectures
 
@@ -147,5 +149,5 @@ h4. Exemplo
 * Documento (@Document@)
 * Exercício (@Exercise@)
 * Página (@Page@)
-* Video (@Seminar@)
+* Video (@Media@)
 
