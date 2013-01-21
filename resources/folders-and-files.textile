@@ -1,0 +1,207 @@
+---
+layout: page
+title: "Pastas e Arquivos"
+group: navigation
+---
+{% include JB/setup %}
+
+Pasta e Arquivo são referenciados, respectivamente, como: @folder@ e @file@. Estes compõem a seção de Arquivos de Apoio dispostos em uma "Disciplina":/resources/space.html, onde é possível guardar, organizar e baixar arquivos.
+
+div(thumbnail){width:678px; height: 380px; margin: 0 auto;}. !/assets/images/folders-and-files-example.png!
+
+h1. Folder
+
+Representa uma pasta no sistema de arquivos, a qual pode estar contida em uma pasta e conter várias pastas e arquivos. Uma "disciplina":/resources/space.html pode possuir várias pastas.
+
+h3. Atributos
+
+table(table table-bordered table-striped).
+|_.Atributo|_.Descrição|
+|name|Nome.|
+|created_at|Data de criação.|
+
+h3. Links
+
+table(table table-bordered table-striped).
+|_.Link|_.Descrição|
+|self|Pasta em questão.|
+|folder|Pasta na qual a pasta em questão está contida (pasta pai).|
+|files|Arquivos contidos.|
+|folders|Pastas contidas.|
+|space|Disciplina onde a pasta se encontra.|
+|user| Usuário criador.|
+
+h2. "GET /api/folders/:id":#folder-get
+
+Retorna a pasta em questão.
+
+h4. Autorização
+
+É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual a pasta pertence (no caso, o curso da disciplina).
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Atributo|_.Descrição|_.Restrições|
+|*id*|ID da pasta.|N/A|
+
+h4. Exemplo
+
+Requisição:
+@GET /api/folders/4@
+
+Resposta:
+
+<pre>
+{
+    "name" : "My Folder",
+    "created_at" "2012-01-13T12:11:22-02:00…",
+    "links" : [
+        {
+            "href" : "http://www.redu.com.br/api/folders/4",
+            "rel" : "self"
+        },
+	    {
+            "href" : "http://www.redu.com.br/api/folders/2",
+            "rel" : "folder"
+        },
+	    {
+            "href" : "http://www.redu.com.br/api/folders/4/files",
+            "rel" : "files"
+        },
+	    {
+            "href" : "http://www.redu.com.br/api/folders/4/folders",
+            "rel" : "folders"
+        },
+	    {
+            "href" : "http://www.redu.com.br/api/spaces/1626",
+            "rel" : "space"
+        },
+	    {
+            "href" : "http://www.redu.com.br/api/users/julianalucena",
+            "rel" : "user"
+        },
+    ]
+}
+</pre>
+
+
+h2. "GET /api/folders/:folder_id/folders":#folders-get
+
+Retorna as pastas contidas na pasta em questão.
+
+h4. Autorização
+
+É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual a pasta pertence (no caso, o curso da disciplina).
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Atributo|_.Descrição|_.Restrições|
+|*id*|ID da pasta pai.|N/A|
+
+h2. "GET /api/spaces/:space_id/folders":#space-folders-get
+
+Retorna as pastas contidas na disciplina informada.
+
+h4. Autorização
+
+É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual a disciplina pertence.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Atributo|_.Descrição|_.Restrições|
+|*id*|ID da disciplina.|N/A|
+
+h1. File
+
+Representa um arquivo no sistema de arquivos, o qual está contido em uma pasta.
+
+h3. Atributos
+
+table(table table-bordered table-striped).
+|_.Atributo|_.Descrição|
+|name|Nome.|
+|mimetype|Formato do arquivo.|
+|size|Tamanho em _megabytes_.|
+|byte|Tamanho em _bytes_.|
+|created_at|Data de criação.|
+
+h3. Links
+
+table(table table-bordered table-striped).
+|_.Link|_.Descrição|
+|self|Arquivo em questão.|
+|folder|Pasta na qual o arquivo está contido (pasta pai).|
+|space|Disciplina onde a pasta se encontra.|
+|user| Usuário criador.|
+|raw| Endereço do arquivo bruto para download.|
+
+h2. "GET /api/files/:id":#file-get
+
+Retorna o arquivo em questão.
+
+h4. Autorização
+
+É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual o arquivo pertence (no caso, o curso da disciplina).
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Atributo|_.Descrição|_.Restrições|
+|*id*|ID do arquivo.|N/A|
+
+h4. Exemplo
+
+Requisição:
+@GET /api/files/4@
+
+Resposta:
+
+<pre>
+{
+    "name" : "My File",
+    "mimetype" : "application/pdf",
+    "size" : "132Mb",
+    "byte" : "12213",
+    "created_at" "2012-01-13T12:11:22-02:00…",
+    "links" : [
+        {
+            "href" : "http://www.redu.com.br/api/files/4",
+            "rel" : "self"
+        },
+	    {
+            "href" : "http://www.redu.com.br/api/folders/2",
+            "rel" : "folder"
+        },
+	    {
+            "href" : "http://www.redu.com.br/api/spaces/1626",
+            "rel" : "space"
+        },
+	    {
+            "href" : "http://www.redu.com.br/api/users/julianalucena",
+            "rel" : "user"
+        },
+	    {
+            "href" : "http://s3.amazonaws.com/redu_files/myfiles/attachments/309/original/01_intro.pdf?AWSAccessKeyId=AKIAIRKVQDTWT2NN4J4Q&Expires=1358789646&Signature=AoV34rkOyu9PFNxMxxAqQlDTBzA%3D",
+            "rel" : "raw"
+        },
+    ]
+}
+</pre>
+
+
+h2. "GET /api/folders/:folder_id/files":#files-get
+
+Retorna os arquivos contidos na pasta em questão.
+
+h4. Autorização
+
+É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual a pasta / o arquivo pertence (no caso, o curso da disciplina).
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Atributo|_.Descrição|_.Restrições|
+|*id*|ID da pasta.|N/A|
