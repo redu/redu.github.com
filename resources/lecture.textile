@@ -30,7 +30,6 @@ table(table table-bordered table-striped){clear: both;}.
 |created_at|Data de criação.|
 |name|Nome (título).|
 |position|Posição na ordenação dentro módulo.|
-|lectureable|Recurso da Aula (varia a estrutura de acordo com o tipo).|
 |type|Tipo (_Canvas, Document, Exercise, Page, Media_).|
 |id|Identificador.|
 |rating|Avaliação feita pelos usuários|
@@ -50,9 +49,7 @@ table(table table-bordered table-striped){clear: both;}.
 |course|Curso onde a Aula se encontra.|
 |environment|Ambiente onde a Aula se encontra.|
 
-h3. Estrutura de @lectureable@
-
-Nesta seção é descrita a estrutura de @lectureable@ para cada tipo de Aula.
+h3. Tipos de aulas
 
 h4. Page
 
@@ -91,13 +88,6 @@ table(table table-bordered table-striped).
 |raw|Endereço para download do arquivo|
 
 Para casos de vídeos do Youtube, o MimeType retornado será @video/x-youtube@. Por exemplo:
-
-<pre>
-"lectureable": {
-  "mimetype" : "video/x-youtube",
-    "links" : [ { "href" : "http://www.youtube.com/watch?v=zm5GcMjPFOU", "rel" : "raw" } ]
-}
-</pre>
 
 h4. Exercise
 
@@ -170,10 +160,8 @@ h4. Exemplo
     }
   ],
   "position": 1,
-  "lectureable": {
-    "content" : "<html></html>",
-    "raw" : "lorem lipsum" // conteúdo crú
-  },
+  "content" : "<html></html>",
+  "raw" : "lorem lipsum",
   "type": "Page",
   "id": 4877,
   "rating": 0,
@@ -216,16 +204,18 @@ h4. Exemplo
       {
           "href": "http://www.redu.com.br/api/lectures/4877/statuses",
           "rel": "statuses"
-      }
+      },
+      {
+        "href" : "http://s3.amazonaws.com/redu_uploads/documents/attachments/1837/original/04-platform-101.pdf?1358254757",
+        "rel" : "raw"
+      },
+      {
+        "href" : "http://www.scribd.com/embeds/120454644/content?start_page=1&view_mode=list&access_key=key-1k5p2ziz2wckhlhjsm9n",
+        "rel" : "scribd"
+      },
   ],
+  "mimetype" : "application/pdf",
   "position": 1,
-  "lectureable": {
-    "mimetype" : "application/pdf",
-    "links" : [
-      { "href" : "http://s3.amazonaws.com/redu_uploads/documents/attachments/1837/original/04-platform-101.pdf?1358254757", "rel" : "raw" },
-      { "href" : "http://www.scribd.com/embeds/120454644/content?start_page=1&view_mode=list&access_key=key-1k5p2ziz2wckhlhjsm9n", "rel" : "scribd" },
-    ]
-  },
   "type": "Document",
   "id": 4877,
   "rating": 0,
@@ -278,14 +268,12 @@ h4. Exemplo
           "rel": "statuses"
       }
   ],
-  "lectureable": {
-    "current_url": "http://www.manualdigital.pt/inglesRedu/",
-    "client_application": {
-      "name": "My Body",
-      "url": "http://www.manualdigital.pt/inglesRedu/",
-      "support_url": "",
-      "id": 653
-    }
+  "current_url": "http://www.manualdigital.pt/inglesRedu/",
+  "client_application": {
+    "name": "My Body",
+    "url": "http://www.manualdigital.pt/inglesRedu/",
+    "support_url": "",
+    "id": 653
   }
 }
 </pre>
@@ -322,19 +310,17 @@ h4. Exemplo
     {
       "href": "http://www.redu.com.br/api/environments/ambiente-de-exemplo-api",
       "rel": "environment"
-    }
-  ],
+    },
     {
       "href": "http://www.redu.com.br/api/lectures/4877/statuses",
       "rel": "statuses"
     },
-    "position": 1,
-    "lectureable": {
-      "mimetype" : "video/x-youtube",
-      "links" : [
-      { "href" : "http://www.youtube.com/watch?v=zm5GcMjPFOU", "rel" : "raw" },
-      ]
+    {
+      "href" : "http://www.youtube.com/watch?v=zm5GcMjPFOU",
+      "rel" : "raw"
     },
+    "position": 1,
+    "mimetype" : "video/x-youtube",
     "type": "Media",
     "id": 4877,
     "rating": 0,
@@ -377,19 +363,18 @@ h4. Exemplo
     {
       "href": "http://www.redu.com.br/api/lectures/4877/statuses",
       "rel": "statuses"
+    },
+    {
+      "href" : "http://s3.amazonaws.com/redu/video-name.mpg",
+      "rel" : "raw"
     }
   ],
-    "position": 1,
-    "lectureable": {
-      "mimetype" : "video/mpeg",
-      "links" : [
-      { "href" : "http://s3.amazonaws.com/redu/video-name.mpg", "rel" : "raw" },
-      ]
-    },
-    "type": "Media",
-    "id": 4877,
-    "rating": 0,
-    "view_count": 1,
-    "updated_at": "2013-01-16T10:28:23-02:00"
+  "position": 1,
+  "mimetype" : "video/mpeg",
+  "type": "Media",
+  "id": 4877,
+  "rating": 0,
+  "view_count": 1,
+  "updated_at": "2013-01-16T10:28:23-02:00"
 }
 </pre>
