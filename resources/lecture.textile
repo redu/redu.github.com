@@ -103,6 +103,50 @@ table(table table-bordered table-striped).
 |client_application[support_url]|URL para suporte do aplicativo.|
 |client_application[id]|ID do aplicativo no Redu.|
 
+h2. "GET /api/subjects/:id/lectures":#index-lectures
+
+Lista todas a Lectures presentes no Subject.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Atributo|_.Descrição|_.Restrições|
+|*id*|ID do Subject.|N/A|
+
+h4. Autorização
+
+É necessário estar matriculado no "Course":/resources/course.html do qual o "Subject":/resources/subject.html faz parte.
+
+h4. Exemplo
+
+Requisição: @GET /api/spaces/12/lectures @
+
+Resposta:
+
+<pre>
+[{
+  "name": "Aula youtube",
+    "position": 1,
+    "rating": 0,
+    "type": "Media",
+    "links": [
+    { "rel": "next_lecture", "href": "http://www.redu.com.br/api/lectures/105-conheca-o-seu-cliente" },
+    { "rel": "course", "href": "http://www.redu.com.br/api/courses/recife" },
+    { "rel": "environment", "href": "http://www.redu.com.br/api/environments/www" },
+    { "rel": "subject", "href": "http://www.redu.com.br/api/subjects/114" },
+    { "rel": "self", "href": "http://www.redu.com.br/api/lectures/107-aula-youtube" },
+    { "rel": "raw", "href": "http://www.youtube.com/watch?v=GrV2SZuRPv0" },
+    { "rel": "self_link", "href": "http://www.redu.com.br/espacos/27/modulos/114/aulas/107-aula-youtube" },
+    { "rel": "space", "href": "http://www.redu.com.br/api/spaces/27" }
+  ],
+    "view_count": 6,
+    "mimetype": "video/x-youtube",
+    "updated_at": "2011-11-22T22:56:59-02:00",
+    "id": 107,
+    "created_at": "2011-02-21T10:11:05-03:00"
+}]
+</pre>
+
 h2. "GET /api/lectures/:id":#get-lectures
 
 Retorna a Aula em questão.
