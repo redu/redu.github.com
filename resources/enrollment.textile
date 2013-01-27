@@ -11,6 +11,16 @@ Recurso que representa a matrícula de usuários em cursos. Foi desenvolvido de 
 
 Caso o e-mail não esteja registrado na plataforma um convite será enviado dando a possibilidade de registro e posterior convite para o curso. Possui uma máquina de estado como definida abaixo (propriedade @state@):
 
+*Atributos:*
+
+table(table table-bordered).
+|_.Atributo|_.Descrição|
+|ID| Identificador da matrícula|
+|state| Estado atual da matrícula. Exemplo: @waiting@|
+|email| E-mail do usuário a ser convidado. Apenas utilizado quando o usuário ainda não faz parte do Redu|
+|token| Token de convite do usuário.|
+|role| Papel do usuário no Curso. Apenas disponível se o usuário já aceitou o convite. Os estados possíveis são: @member@, @teacher@, @environment_admin@ e @tutor@|
+
 div(thumbnail){float: right; margin: 15px 0 20px 20px;}. !../assets/images/enrollment-sm.png!
 
 *Estados:*
