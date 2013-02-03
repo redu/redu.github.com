@@ -1,42 +1,51 @@
-# Jekyll-Bootstrap
+# developers.redu.com.br
 
-The quickest way to start and publish your Jekyll powered blog. 100% compatible with GitHub pages
+Este é o código fonte da documentação da [API REST do Redu](http://developers.redu.com.br).
 
-## Usage
+## Pré-requisitos
 
-For all usage and documentation please see: <http://jekyllbootstrap.com>
+Esta documentação foi feita utilizando o [Jekyll](https://github.com/mojombo/jekyll). Para utiliza-lo você precisa ter o [interpretador Ruby](http://rvm.io/) instalado bem como o [Bundler](http://gembundler.com/#getting-started).
 
-## Version
+## Instalação
 
-0.2.8 - stable and versioned using [semantic versioning](http://semver.org/).
+Clone o repositório:
 
-## Contributing 
+    $ git clone git@github.com:redu/redu.github.com.git
 
-This repository tracks 2 projects:
+Dentro do diretório, instale as dependências:
 
-- **Jekyll-Bootstrap Framework.**  
-  The framework for which users should clone and build their blog on top of is available in the master branch.
-  
-  To contribute to the framework please make sure to checkout your branch based on `jb-development`!!
-  This is very important as it allows me to accept your pull request without having to publish a public version release.
-  
-  Small, atomic Features, bugs, etc.   
-  Use the `jb-development` branch but note it will likely change fast as pull requests are accepted.   
-  Please rebase as often as possible when working.   
-  Work on small, atomic features/bugs to avoid upstream commits affecting/breaking your development work.
-  
-  For Big Features or major API extensions/edits:   
-  This is the one case where I'll accept pull-requests based off the master branch.
-  This allows you to work in isolation but it means I'll have to manually merge your work into the next public release.
-  Translation : it might take a bit longer so please be patient! (but sincerely thank you).
- 
-- **Jekyll-Bootstrap Documentation Website.**    
-  The documentation website at <http://jekyllbootstrap.com> is maintained in the gh-pages branch.
-  Please fork and contribute documentation additions to this branch only.
+    $ bundle install
 
-The master and gh-pages branch do not share the same ancestry. Please treat them as completely separate git repositories!
+Inicialize o servidor:
 
+    $ bundle exec jekyll --server
+    
+Pronto, basta visitar [http://0.0.0.0:4000](http://0.0.0.0:4000) através do navegador para ter acesso a documentação.
 
-## License
+## Uso
 
-[Creative Commons](http://creativecommons.org/licenses/by-nc-sa/3.0/)
+A documentação é escrita utilizando a linguagem de marcação [Textile](http://textile.thresholdstate.com/). 
+
+Para cada link da navegação global há um arquivo correspondente dentro do diretório ``resources``. Arquivos estáticos devem ficar na pasta ``assets``.
+
+## Contribuindo
+
+1. Faça fork do projeto
+2. Crie um novo branch (`git checkout -b my-new-feature`)
+3. Realize seus commits (`git commit -am 'Add some feature'`)
+4. Dê push nas modificações (`git push origin my-new-feature`)
+5. Envie um pull request
+
+<img src="https://github.com/downloads/redu/redupy/redutech-marca.png" alt="Redu Educational Technologies" width="300">
+
+Este projeto é financiado e mantido pelo [Redu Educational Techologies](http://tech.redu.com.br).
+
+## Copyright
+
+Copyright (c) 2012 Redu Educational Technologies
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
