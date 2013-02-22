@@ -17,6 +17,7 @@ h3. Atributos
 
 table(table table-bordered table-striped).
 |_.Atributo|_.Descrição|
+|ID|Identificador único do Folder.|
 |name|Nome.|
 |created_at|Data de criação.|
 
@@ -54,6 +55,7 @@ Resposta:
 
 <pre>
 {
+    "id" : 4,
     "name" : "My Folder",
     "created_at" "2012-01-13T12:11:22-02:00…",
     "links" : [
@@ -122,6 +124,7 @@ h3. Atributos
 
 table(table table-bordered table-striped).
 |_.Atributo|_.Descrição|
+|id|Identificador único do File.|
 |name|Nome.|
 |mimetype|Formato do arquivo.|
 |size|Tamanho em _megabytes_.|
@@ -161,6 +164,7 @@ Resposta:
 
 <pre>
 {
+    "id" : 4,
     "name" : "My File",
     "mimetype" : "application/pdf",
     "size" : "132Mb",
