@@ -68,6 +68,7 @@ Resposta:
     "position": 1,
     "rating": 0,
     "type": "Canvas",
+    "current_url": "http://meu-app.com.br/recurso",
     "links": [
     { "rel": "next_lecture", "href": "http://www.redu.com.br/api/lectures/105-conheca-o-seu-cliente" },
     { "rel": "course", "href": "http://www.redu.com.br/api/courses/recife" },
@@ -100,6 +101,7 @@ Resposta:
     "position": 1,
     "rating": 0,
     "type": "Canvas",
+    "current_url": "http://meu-app.com.br/recurso",
     "links": [
     { "rel": "next_lecture", "href": "http://www.redu.com.br/api/lectures/105-conheca-o-seu-cliente" },
     { "rel": "course", "href": "http://www.redu.com.br/api/courses/recife" },
