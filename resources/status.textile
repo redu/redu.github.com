@@ -105,78 +105,78 @@ h4. Exemplo
 
 *Resposta:*
 
-<pre>
+{% highlight json %}
 [{
-    "type": "Activity",
+  "type": "Activity",
     "links": [
-        {
-            "rel": "self",
-            "href": "http://www.redu.com.br/api/statuses/34676"
-        },
-        {
-            "rel": "statusable",
-            "href": "http://www.redu.com.br/api/spaces/521"
-        },
-        {
-            "rel": "user",
-            "href": "http://www.redu.com.br/api/users/guiocavalcanti"
-        },
-        {
-            "rel": "answers",
-            "href": "http://www.redu.com.br/api/statuses/34676/answers"
-        }
-    ],
+    {
+      "rel": "self",
+      "href": "http://www.redu.com.br/api/statuses/34676"
+    },
+    {
+      "rel": "statusable",
+      "href": "http://www.redu.com.br/api/spaces/521"
+    },
+    {
+      "rel": "user",
+      "href": "http://www.redu.com.br/api/users/guiocavalcanti"
+    },
+    {
+      "rel": "answers",
+      "href": "http://www.redu.com.br/api/statuses/34676/answers"
+    }
+  ],
     "user": {
-        "social_networks": [
-            {
-                "name": "facebook",
-                "profile": "www.facebook.com/guiocavalcanti"
-            },
-            {
-                "name": "linkedin",
-                "profile": "br.linkedin.com/in/guiocavalcanti"
-            },
-            {
-                "name": "twitter",
-                "profile": "www.twitter.com/guiocavalcanti"
-            }
-        ],
+      "social_networks": [
+      {
+        "name": "facebook",
+        "profile": "www.facebook.com/guiocavalcanti"
+      },
+      {
+        "name": "linkedin",
+        "profile": "br.linkedin.com/in/guiocavalcanti"
+      },
+      {
+        "name": "twitter",
+        "profile": "www.twitter.com/guiocavalcanti"
+      }
+      ],
         "thumbnails": [
-            {
-                "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/4/thumb_32/Guilherme3x4%20copy.jpg?1323711306",
-                "size": "32x32"
-            },
-            {
-                "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/4/thumb_110/Guilherme3x4%20copy.jpg?1323711306",
-                "size": "110x110"
-            }
-        ],
+        {
+          "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/4/thumb_32/Guilherme3x4%20copy.jpg?1323711306",
+          "size": "32x32"
+        },
+        {
+          "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/4/thumb_110/Guilherme3x4%20copy.jpg?1323711306",
+          "size": "110x110"
+        }
+      ],
         "birthday": "1987-11-24",
         "localization": "Recife, Brasil",
         "first_name": "Guilherme",
         "email": "guilhermec@redu.com.br",
         "links": [
-            {
-                "rel": "self",
-                "href": "http://www.redu.com.br/api/users/guiocavalcanti"
-            },
-            {
-                "rel": "enrollments",
-                "href": "http://www.redu.com.br/api/users/guiocavalcanti/enrollments"
-            },
-            {
-                "rel": "statuses",
-                "href": "http://www.redu.com.br/api/users/guiocavalcanti/statuses"
-            },
-            {
-                "rel": "timeline",
-                "href": "http://www.redu.com.br/api/users/guiocavalcanti/statuses/timeline"
-            },
-            {
-                "rel": "contacts",
-                "href": "http://www.redu.com.br/api/users/guiocavalcanti/contacts"
-            }
-        ],
+        {
+          "rel": "self",
+          "href": "http://www.redu.com.br/api/users/guiocavalcanti"
+        },
+        {
+          "rel": "enrollments",
+          "href": "http://www.redu.com.br/api/users/guiocavalcanti/enrollments"
+        },
+        {
+          "rel": "statuses",
+          "href": "http://www.redu.com.br/api/users/guiocavalcanti/statuses"
+        },
+        {
+          "rel": "timeline",
+          "href": "http://www.redu.com.br/api/users/guiocavalcanti/statuses/timeline"
+        },
+        {
+          "rel": "contacts",
+          "href": "http://www.redu.com.br/api/users/guiocavalcanti/contacts"
+        }
+      ],
         "mobile": "+55 (81) 3333-3333",
         "friends_count": 98,
         "last_name": "Cavalcanti",
@@ -188,7 +188,7 @@ h4. Exemplo
     "created_at": "2012-07-02T13:53:50-03:00",
     "text": "Todos os componentes da interface do Redu agora são opensource!\r\n\r\nVocês são livres para utilizar os CSS e JavaScript dentro nas suas aplicações. Para incluir e utilizar basta ir em: http://developers.redu.com.br/ui-components\r\n\r\nNo canto superior direito tem um índice de todos os elementos e sobre como cria-los."
 }]
-</pre>
+{% endhighlight %}
 
 h2. "GET /api/users/:user_id/statuses/timeline":#get-user-timeline
 

@@ -40,41 +40,41 @@ h4. Exemplo
 
 *Payload (JSON):*
 
-<pre>
-  {
-    environment : {
-      name : "meu novo ambiente",
-      path : "meu-novo-ambiente",
-      initials : "mna"
-    }
+{% highlight json %}
+{
+  "environment" : {
+    "name" : "meu novo ambiente",
+      "path" : "meu-novo-ambiente",
+      "initials" : "mna"
   }
-</pre>
+}
+{% endhighlight %}
 
 *Resposta:*
 
-<pre>
+{% highlight json %}
 {
-    "initials": "mna",
+  "initials": "mna",
     "links": [
-        {
-            "href": "http://www.redu.com.br/api/environments/meu-novo-ambiente",
-            "rel": "self"
-        },
-        {
-            "href": "http://www.redu.com.br/api/environments/meu-novo-ambiente/courses",
-            "rel": "courses"
-        },
-        {
-            "href": "http://www.redu.com.br/api/users/guiocavalcanti",
-            "rel": "user"
-        }
-    ],
+    {
+      "href": "http://www.redu.com.br/api/environments/meu-novo-ambiente",
+      "rel": "self"
+    },
+    {
+      "href": "http://www.redu.com.br/api/environments/meu-novo-ambiente/courses",
+      "rel": "courses"
+    },
+    {
+      "href": "http://www.redu.com.br/api/users/guiocavalcanti",
+      "rel": "user"
+    }
+  ],
     "name": "meu novo ambiente",
     "created_at": "2012-09-10T09:42:00-03:00",
     "path": "meu-novo-ambiente",
     "id": 909
 }
-</pre>
+{% endhighlight %}
 
 h2. "PUT /api/environments/:id":#put-environments
 

@@ -45,44 +45,44 @@ h4. Exemplo
 
 *Payload:*
 
-<pre>
-  {
-    subject : {
-      name : "Novo módulo",
-      description : "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
-    }
+{% highlight json %}
+{
+  "subject": {
+    "name": "Novo módulo",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
   }
-</pre>
+}
+{% endhighlight %}
 
 *Resposta:*
 
-<pre>
-  {
-    "id": 1,
+{% highlight json %}
+{
+  "id": 1,
     "title": "Novo módulo",
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
     "created_at": "2012-04-27T13:07:21-03:00"
-    "links": [{
+      "links": [{
         "rel": "self",
         "href": "http://www.redu.com.br/api/subjects/1"
-    }, {
+      }, {
         "rel": "lectures",
         "href": "http://www.redu.com.br/api/subjects/1/lectures"
-    }, {
+      }, {
         "rel": "space",
         "href": "http://www.redu.com.br/api/spaces/1"
-    }, {
+      }, {
         "rel": "course",
         "href": "http://www.redu.com.br/api/courses/course-name"
-    }, {
+      }, {
         "rel": "environment",
         "href": "http://www.redu.com.br/api/environments/environment-name"
-    }, {
-        "rel"=>"users",
-        "href"=>"http://www.redu.com.br/api/subjects/347/users"
-    }],
-  }
-</pre>
+      }, {
+        "rel": "users",
+        "href": "http://www.redu.com.br/api/subjects/347/users"
+      }]
+}
+{% endhighlight %}
 
 h2. "PUT /api/subjects/:id":#put-subjects
 

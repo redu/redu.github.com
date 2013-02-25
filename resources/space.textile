@@ -54,53 +54,53 @@ h4. Exemplo
 
 *Payload:*
 
-<pre>
-  {
-    space : {
-      name : "minha nova disciplina"
-    }
+{% highlight json %}
+{
+  "space" : {
+    "name" : "minha nova disciplina"
   }
-</pre>
+}
+{% endhighlight %}
 
 *Resposta:*
 
-<pre>
+{% highlight json %}
 {
-    "links": [
-        {
-            "href": "http://www.redu.com.br/api/spaces/1626",
-            "rel": "self"
-        },
-        {
-            "href": "http://www.redu.com.br/api/courses/meu-novo-curso",
-            "rel": "course"
-        },
-        {
-            "href": "http://www.redu.com.br/api/environments/www",
-            "rel": "environment"
-        },
-        {
-            "href": "http://www.redu.com.br/api/spaces/1626/users",
-            "rel": "users"
-        },
-        {
-            "href": "http://www.redu.com.br/api/spaces/1626/subjects",
-            "rel": "subjects"
-        },
-        {
-            "href": "http://www.redu.com.br/api/spaces/1626/statuses",
-            "rel": "statuses"
-        },
-        {
-            "href": "http://www.redu.com.br/api/spaces/1626/statuses/timeline",
-            "rel": "timeline"
-        }
-    ],
+  "links": [
+  {
+    "href": "http://www.redu.com.br/api/spaces/1626",
+      "rel": "self"
+  },
+  {
+    "href": "http://www.redu.com.br/api/courses/meu-novo-curso",
+    "rel": "course"
+  },
+  {
+    "href": "http://www.redu.com.br/api/environments/www",
+    "rel": "environment"
+  },
+  {
+    "href": "http://www.redu.com.br/api/spaces/1626/users",
+    "rel": "users"
+  },
+  {
+    "href": "http://www.redu.com.br/api/spaces/1626/subjects",
+    "rel": "subjects"
+  },
+  {
+    "href": "http://www.redu.com.br/api/spaces/1626/statuses",
+    "rel": "statuses"
+  },
+  {
+    "href": "http://www.redu.com.br/api/spaces/1626/statuses/timeline",
+    "rel": "timeline"
+  }
+  ],
     "name": "minha nova disciplina",
     "created_at": "2012-09-10T09:51:23-03:00",
     "id": 1626
 }
-</pre>
+{% endhighlight %}
 
 
 h2. "GET /api/courses/:course_id/spaces":#get-course-spaces

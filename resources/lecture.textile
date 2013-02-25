@@ -123,7 +123,7 @@ Requisição: @GET /api/spaces/12/lectures @
 
 Resposta:
 
-<pre>
+{% highlight json %}
 [{
   "name": "Aula youtube",
     "position": 1,
@@ -145,7 +145,7 @@ Resposta:
     "id": 107,
     "created_at": "2011-02-21T10:11:05-03:00"
 }]
-</pre>
+{% endhighlight %}
 
 h2. "GET /api/lectures/:id":#get-lectures
 
@@ -169,11 +169,11 @@ h4. Exemplo
 
 * Página (@Page@)
 
-<pre style="margin-left: 20px;">
+{% highlight json %}
 {
   "created_at": "2013-01-16T10:28:23-02:00",
-  "name": "Nome da aula",
-  "links": [
+    "name": "Nome da aula",
+    "links": [
     {
       "href": "http://www.redu.com.br/api/lectures/4877-novo",
       "rel": "self"
@@ -203,130 +203,130 @@ h4. Exemplo
       "rel": "statuses"
     }
   ],
-  "position": 1,
-  "content" : "<html></html>",
-  "raw" : "lorem lipsum",
-  "type": "Page",
-  "id": 4877,
-  "rating": 0,
-  "view_count": 1,
-  "updated_at": "2013-01-16T10:28:23-02:00"
+    "position": 1,
+    "content" : "<html></html>",
+    "raw" : "lorem lipsum",
+    "type": "Page",
+    "id": 4877,
+    "rating": 0,
+    "view_count": 1,
+    "updated_at": "2013-01-16T10:28:23-02:00"
 }
-</pre>
+{% endhighlight %}
 
 * Documento (@Document@)
 
-<pre style="margin-left: 20px;">
+{% highlight json %}
 {
- "created_at": "2013-01-16T10:28:23-02:00",
- "name": "Nome da aula",
-  "links": [
-      {
-          "href": "http://www.redu.com.br/api/lectures/4877-novo",
-          "rel": "self"
-      },
-      {
-          "href": "http://www.redu.com.br/espacos/1412/modulos/3111/aulas/4877-novo",
-          "rel": "self_link"
-      },
-      {
-          "href": "http://www.redu.com.br/api/subjects/3111",
-          "rel": "subject"
-      },
-      {
-          "href": "http://www.redu.com.br/api/spaces/1412",
-          "rel": "space"
-      },
-      {
-          "href": "http://www.redu.com.br/api/courses/curso-de-exemplo",
-          "rel": "course"
-      },
-      {
-          "href": "http://www.redu.com.br/api/environments/ambiente-de-exemplo-api",
-          "rel": "environment"
-      },
-      {
-          "href": "http://www.redu.com.br/api/lectures/4877/statuses",
-          "rel": "statuses"
-      },
-      {
-        "href" : "http://s3.amazonaws.com/redu_uploads/documents/attachments/1837/original/04-platform-101.pdf?1358254757",
-        "rel" : "raw"
-      },
-      {
-        "href" : "http://www.scribd.com/embeds/120454644/content?start_page=1&view_mode=list&access_key=key-1k5p2ziz2wckhlhjsm9n",
-        "rel" : "scribd"
-      },
-  ],
-  "mimetype" : "application/pdf",
-  "position": 1,
-  "type": "Document",
-  "id": 4877,
-  "rating": 0,
-  "view_count": 1,
-  "updated_at": "2013-01-16T10:28:23-02:00"
+  "created_at": "2013-01-16T10:28:23-02:00",
+    "name": "Nome da aula",
+    "links": [
+    {
+      "href": "http://www.redu.com.br/api/lectures/4877-novo",
+      "rel": "self"
+    },
+    {
+      "href": "http://www.redu.com.br/espacos/1412/modulos/3111/aulas/4877-novo",
+      "rel": "self_link"
+    },
+    {
+      "href": "http://www.redu.com.br/api/subjects/3111",
+      "rel": "subject"
+    },
+    {
+      "href": "http://www.redu.com.br/api/spaces/1412",
+      "rel": "space"
+    },
+    {
+      "href": "http://www.redu.com.br/api/courses/curso-de-exemplo",
+      "rel": "course"
+    },
+    {
+      "href": "http://www.redu.com.br/api/environments/ambiente-de-exemplo-api",
+      "rel": "environment"
+    },
+    {
+      "href": "http://www.redu.com.br/api/lectures/4877/statuses",
+      "rel": "statuses"
+    },
+    {
+      "href" : "http://s3.amazonaws.com/redu_uploads/documents/attachments/1837/original/04-platform-101.pdf?1358254757",
+      "rel" : "raw"
+    },
+    {
+      "href" : "http://www.scribd.com/embeds/120454644/content?start_page=1&view_mode=list&access_key=key-1k5p2ziz2wckhlhjsm9n",
+      "rel" : "scribd"
+    },
+    ],
+    "mimetype" : "application/pdf",
+    "position": 1,
+    "type": "Document",
+    "id": 4877,
+    "rating": 0,
+    "view_count": 1,
+    "updated_at": "2013-01-16T10:28:23-02:00"
 }
-</pre>
+{% endhighlight %}
 
 
 * Exercício (@Exercise@)
 
 * Canvas (@Canvas@)
 
-<pre style="margin-left: 20px;">
+{% highlight json %}
 {
   "created_at": "2013-01-16T10:28:23-02:00",
-  "name": "Nome da aula",
-  "type": "Canvas",
-  "id": 4877,
-  "rating": 0,
-  "view_count": 1,
-  "updated_at": "2013-01-16T10:28:23-02:00"
-  "links": [
+    "name": "Nome da aula",
+    "type": "Canvas",
+    "id": 4877,
+    "rating": 0,
+    "view_count": 1,
+    "updated_at": "2013-01-16T10:28:23-02:00"
+      "links": [
       {
-          "href": "http://www.redu.com.br/api/lectures/4877-novo",
-          "rel": "self"
+        "href": "http://www.redu.com.br/api/lectures/4877-novo",
+        "rel": "self"
       },
       {
-          "href": "http://www.redu.com.br/espacos/1412/modulos/3111/aulas/4877-novo",
-          "rel": "self_link"
+        "href": "http://www.redu.com.br/espacos/1412/modulos/3111/aulas/4877-novo",
+        "rel": "self_link"
       },
       {
-          "href": "http://www.redu.com.br/api/subjects/3111",
-          "rel": "subject"
+        "href": "http://www.redu.com.br/api/subjects/3111",
+        "rel": "subject"
       },
       {
-          "href": "http://www.redu.com.br/api/spaces/1412",
-          "rel": "space"
+        "href": "http://www.redu.com.br/api/spaces/1412",
+        "rel": "space"
       },
       {
-          "href": "http://www.redu.com.br/api/courses/curso-de-exemplo",
-          "rel": "course"
+        "href": "http://www.redu.com.br/api/courses/curso-de-exemplo",
+        "rel": "course"
       },
       {
-          "href": "http://www.redu.com.br/api/environments/ambiente-de-exemplo-api",
-          "rel": "environment"
+        "href": "http://www.redu.com.br/api/environments/ambiente-de-exemplo-api",
+        "rel": "environment"
       },
       {
-          "href": "http://www.redu.com.br/api/lectures/4877/statuses",
-          "rel": "statuses"
+        "href": "http://www.redu.com.br/api/lectures/4877/statuses",
+        "rel": "statuses"
       }
   ],
-  "current_url": "http://www.manualdigital.pt/inglesRedu/",
-  "client_application": {
-    "name": "My Body",
-    "url": "http://www.manualdigital.pt/inglesRedu/",
-    "support_url": "",
-    "id": 653
-  }
+    "current_url": "http://www.manualdigital.pt/inglesRedu/",
+    "client_application": {
+      "name": "My Body",
+      "url": "http://www.manualdigital.pt/inglesRedu/",
+      "support_url": "",
+      "id": 653
+    }
 }
-</pre>
+{% endhighlight %}
 
 * Mídia (@Media@)
 
 **Para vídeos do YouTube**:
 
-<pre style="margin-left: 20px;">
+{% highlight json %}
 {
   "created_at": "2013-01-16T10:28:23-02:00",
     "name": "Nome da aula",
@@ -371,11 +371,11 @@ h4. Exemplo
     "view_count": 1,
     "updated_at": "2013-01-16T10:28:23-02:00"
 }
-</pre>
+{% endhighlight %}
 
 **Para vídeos hospedados no Redu**:
 
-<pre style="margin-left: 20px;">
+{% highlight json %}
 {
   "created_at": "2013-01-16T10:28:23-02:00",
     "name": "Nome da aula",
@@ -413,12 +413,12 @@ h4. Exemplo
       "rel" : "raw"
     }
   ],
-  "position": 1,
-  "mimetype" : "video/mpeg",
-  "type": "Media",
-  "id": 4877,
-  "rating": 0,
-  "view_count": 1,
-  "updated_at": "2013-01-16T10:28:23-02:00"
+    "position": 1,
+    "mimetype" : "video/mpeg",
+    "type": "Media",
+    "id": 4877,
+    "rating": 0,
+    "view_count": 1,
+    "updated_at": "2013-01-16T10:28:23-02:00"
 }
-</pre>
+{% endhighlight %}

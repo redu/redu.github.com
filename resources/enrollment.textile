@@ -8,7 +8,6 @@ group: navigation
 
 Recurso que representa a matrícula de usuários em cursos. Foi desenvolvido de tal forma que abstrai o fato do usuário estar presente ou não no "Redu":http://www.redu.com.br.
 
-
 Caso o e-mail não esteja registrado na plataforma um convite será enviado dando a possibilidade de registro e posterior convite para o curso. Possui uma máquina de estado como definida abaixo (propriedade @state@):
 
 *Atributos:*
@@ -21,7 +20,7 @@ table(table table-bordered).
 |token| Token de convite do usuário.|
 |role| Papel do usuário no Curso. Apenas disponível se o usuário já aceitou o convite. Os estados possíveis são: @member@, @teacher@, @environment_admin@ e @tutor@|
 
-div(thumbnail){float: right; margin: 15px 0 20px 20px;}. !../assets/images/enrollment-sm.png!
+div(thumbnail). !../assets/images/enrollment-sm.png!
 
 *Estados:*
 
@@ -60,37 +59,37 @@ h4. Exemplo
 
 *Payload:*
 
-<pre>
-  {
-    enrollment : {
-      email : 'foo@bar.com'
-    }
+{% highlight json %}
+{
+  "enrollment" : {
+    "email" : "foo@bar.com"
   }
-</pre>
+}
+{% endhighlight %}
 
 *Resposta:*
 
-<pre>
-  {
-      "created_at": "2012-03-05T07:38:06-03:00",
-      "token": "18EM2oxY37g",
-      "id": 4,
-      "links": [{
-          "href": "http://www.redu.com.br/api/enrollments/4",
-          "rel": "self"
-      }, {
-          "href": "http://www.redu.com.br/api/courses/course-name",
-          "rel": "course"
-      }, {
-          "href": "http://www.redu.com.br/api/courses/environment-name",
-          "rel": "environment"
-      }, {
-          "rel": "user"
-      }],
-      "state": "redu_invited",
-      "email": "foo@bar.com"
-  }
-</pre>
+{% highlight json %}
+{
+  "created_at": "2012-03-05T07:38:06-03:00",
+    "token": "18EM2oxY37g",
+    "id": 4,
+    "links": [{
+      "href": "http://www.redu.com.br/api/enrollments/4",
+      "rel": "self"
+    }, {
+      "href": "http://www.redu.com.br/api/courses/course-name",
+      "rel": "course"
+    }, {
+      "href": "http://www.redu.com.br/api/courses/environment-name",
+      "rel": "environment"
+    }, {
+      "rel": "user"
+    }],
+    "state": "redu_invited",
+    "email": "foo@bar.com"
+}
+{% endhighlight %}
 
 
 h2. "GET /api/courses/:course_id/enrollments":#get-course-enrollments

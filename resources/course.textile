@@ -29,34 +29,34 @@ Requisição:
 
 Resposta:
 
-<pre>
+{% highlight json %}
 {
-    "workload": 40,
+  "workload": 40,
     "links": [
-        {
-            "href": "http://www.redu.com.br/api/courses/pacote-web",
-            "rel": "self"
-        },
-        {
-            "href": "http://www.redu.com.br/api/courses/pacote-web/spaces",
-            "rel": "spaces"
-        },
-        {
-            "href": "http://www.redu.com.br/api/environments/guiocavalcanti",
-            "rel": "environment"
-        },
-        {
-            "href": "http://www.redu.com.br/api/courses/pacote-web/enrollments",
-            "rel": "enrollments"
-        }
-    ],
+    {
+      "href": "http://www.redu.com.br/api/courses/pacote-web",
+      "rel": "self"
+    },
+    {
+      "href": "http://www.redu.com.br/api/courses/pacote-web/spaces",
+      "rel": "spaces"
+    },
+    {
+      "href": "http://www.redu.com.br/api/environments/guiocavalcanti",
+      "rel": "environment"
+    },
+    {
+      "href": "http://www.redu.com.br/api/courses/pacote-web/enrollments",
+      "rel": "enrollments"
+    }
+  ],
     "name": "Pacote Web",
     "description": "O foco é estudar os conceitos e tecnologias utilizadas no desenvolvimento da parte da Web que funciona dentro do navegador.",
     "created_at": "2012-01-13T12:11:22-02:00",
     "id": 462,
     "path": "pacote-web"
 }
-</pre>
+{% endhighlight %}
 
 
 h2. "POST /api/environments/:environment_id/courses":#post-environment-courses
@@ -85,44 +85,44 @@ h4. Exemplo
 
 *Payload:*
 
-<pre>
+{% highlight json %}
+{
+  "course" :
   {
-    course :
-      {
-        name : "meu novo curso",
-        path : "meu-novo-curso",
-      }
+    "name" : "meu novo curso",
+      "path" : "meu-novo-curso",
   }
-</pre>
+}
+{% endhighlight %}
 
 *Resposta:*
 
-<pre>
+{% highlight json %}
 {
-    "links": [
-        {
-            "href": "http://www.redu.com.br/api/courses/meu-novo-curso",
-            "rel": "self"
-        },
-        {
-            "href": "http://www.redu.com.br/api/courses/meu-novo-curso/spaces",
-            "rel": "spaces"
-        },
-        {
-            "href": "http://www.redu.com.br/api/environments/www",
-            "rel": "environment"
-        },
-        {
-            "href": "http://www.redu.com.br/api/courses/meu-novo-curso/enrollments",
-            "rel": "enrollments"
-        }
-    ],
+  "links": [
+  {
+    "href": "http://www.redu.com.br/api/courses/meu-novo-curso",
+      "rel": "self"
+  },
+  {
+    "href": "http://www.redu.com.br/api/courses/meu-novo-curso/spaces",
+    "rel": "spaces"
+  },
+  {
+    "href": "http://www.redu.com.br/api/environments/www",
+    "rel": "environment"
+  },
+  {
+    "href": "http://www.redu.com.br/api/courses/meu-novo-curso/enrollments",
+    "rel": "enrollments"
+  }
+  ],
     "name": "meu novo curso",
     "created_at": "2012-09-10T09:28:09-03:00",
     "id": 1137,
     "path": "meu-novo-curso"
 }
-</pre>
+{% endhighlight %}
 
 h2. "PUT /api/courses/:id":#put-courses
 
@@ -161,62 +161,62 @@ Requisição: @GET /api/environments/guiocavalcanti/courses@
 
 Resposta:
 
-<pre>
+{% highlight json %}
 [
+{
+  "workload": 40,
+    "links": [
     {
-        "workload": 40,
-        "links": [
-            {
-                "href": "http://www.redu.com.br/api/courses/pacote-web",
-                "rel": "self"
-            },
-            {
-                "href": "http://www.redu.com.br/api/courses/pacote-web/spaces",
-                "rel": "spaces"
-            },
-            {
-                "href": "http://www.redu.com.br/api/environments/guiocavalcanti",
-                "rel": "environment"
-            },
-            {
-                "href": "http://www.redu.com.br/api/courses/pacote-web/enrollments",
-                "rel": "enrollments"
-            }
-        ],
-        "name": "Pacote Web",
-        "description": "O foco é estudar os conceitos e tecnologias utilizadas no desenvolvimento da parte da Web que funciona dentro do navegador.",
-        "created_at": "2012-01-13T12:11:22-02:00",
-        "id": 462,
-        "path": "pacote-web"
+      "href": "http://www.redu.com.br/api/courses/pacote-web",
+      "rel": "self"
     },
     {
-        "workload": 40,
-        "links": [
-            {
-                "href": "http://www.redu.com.br/api/courses/pacote-web-2012-2",
-                "rel": "self"
-            },
-            {
-                "href": "http://www.redu.com.br/api/courses/pacote-web-2012-2/spaces",
-                "rel": "spaces"
-            },
-            {
-                "href": "http://www.redu.com.br/api/environments/guiocavalcanti",
-                "rel": "environment"
-            },
-            {
-                "href": "http://www.redu.com.br/api/courses/pacote-web-2012-2/enrollments",
-                "rel": "enrollments"
-            }
-        ],
-        "name": "Pacote Web 2012-2",
-        "description": "O foco é estudar os conceitos e tecnologias utilizadas no desenvolvimento da parte da Web que funciona dentro do navegador.",
-        "created_at": "2012-07-16T21:39:02-03:00",
-        "id": 968,
-        "path": "pacote-web-2012-2"
+      "href": "http://www.redu.com.br/api/courses/pacote-web/spaces",
+      "rel": "spaces"
+    },
+    {
+      "href": "http://www.redu.com.br/api/environments/guiocavalcanti",
+      "rel": "environment"
+    },
+    {
+      "href": "http://www.redu.com.br/api/courses/pacote-web/enrollments",
+      "rel": "enrollments"
     }
+  ],
+    "name": "Pacote Web",
+    "description": "O foco é estudar os conceitos e tecnologias utilizadas no desenvolvimento da parte da Web que funciona dentro do navegador.",
+    "created_at": "2012-01-13T12:11:22-02:00",
+    "id": 462,
+    "path": "pacote-web"
+},
+{
+  "workload": 40,
+  "links": [
+  {
+    "href": "http://www.redu.com.br/api/courses/pacote-web-2012-2",
+    "rel": "self"
+  },
+  {
+    "href": "http://www.redu.com.br/api/courses/pacote-web-2012-2/spaces",
+    "rel": "spaces"
+  },
+  {
+    "href": "http://www.redu.com.br/api/environments/guiocavalcanti",
+    "rel": "environment"
+  },
+  {
+    "href": "http://www.redu.com.br/api/courses/pacote-web-2012-2/enrollments",
+    "rel": "enrollments"
+  }
+  ],
+    "name": "Pacote Web 2012-2",
+    "description": "O foco é estudar os conceitos e tecnologias utilizadas no desenvolvimento da parte da Web que funciona dentro do navegador.",
+    "created_at": "2012-07-16T21:39:02-03:00",
+    "id": 968,
+    "path": "pacote-web-2012-2"
+}
 ]
-</pre>
+{% endhighlight %}
 
 h2. "DELETE /api/courses/:id":#delete-courses
 

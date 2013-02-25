@@ -17,7 +17,7 @@ Seguindo a "sugestão":http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hype
 
 Exemplificando o dito acima, ao realizar uma requisição HTTP com o método GET para a URL @/api/environments/foo@ o recurso retornado seria como o descrito abaixo:
 
-<pre>
+{% highlight javascript %}
 {
   name: "Foo",
   created_at: "2010-12-17T16:37:40-02:00",
@@ -29,7 +29,7 @@ Exemplificando o dito acima, ao realizar uma requisição HTTP com o método GET
     { href: "http://redu.com.br/api/environments/foo/users", rel: "users" }
   ]
 }
-</pre>
+{% endhighlight %}
 
 Note que o JSON retornado possui uma propriedade links que denota as URLs que a aplicação cliente precisa conhecer no contexto atual (visualização do ambiente virtual de aprendizagem). Isso quer dizer que, por exemplo, quisessemos visualizar os cursos do AVA em questão, poderíamos faze-lo sem conhecer a priori a URL apropriada.
 
