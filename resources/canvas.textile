@@ -43,4 +43,77 @@ h2. Disciplina
 
 h2. Aula
 
-@TODO@
+h3. "POST /api/subject/:subject_id/lectures":#post-lectures
+
+Cria uma nova aula com um canvas dentro do módulo especificado.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Chave|_.Descrição|Restrições|
+|nome|Nome de aula|Obrigatório|
+|current_url|URL que será exibida no canvas.|Não é obrigatório. Deve ser uma URL válida|
+
+O @current_url@ é opcional e, caso omitido, a URL principal da aplicação será mostrada.
+
+h4. Exemplo
+
+Requisição: @POST /api/subject/12/lectures@
+
+Resposta:
+
+{% highlight json %}
+{
+  "name": "Minha aula",
+    "position": 1,
+    "rating": 0,
+    "type": "Canvas",
+    "links": [
+    { "rel": "next_lecture", "href": "http://www.redu.com.br/api/lectures/105-conheca-o-seu-cliente" },
+    { "rel": "course", "href": "http://www.redu.com.br/api/courses/recife" },
+    { "rel": "environment", "href": "http://www.redu.com.br/api/environments/www" },
+    { "rel": "subject", "href": "http://www.redu.com.br/api/subjects/114" },
+    { "rel": "self", "href": "http://www.redu.com.br/api/lectures/107-aula-youtube" },
+    { "rel": "raw", "href": "http://meu-app.com.br/recurso" },
+    { "rel": "self_link", "href": "http://www.redu.com.br/espacos/27/modulos/114/aulas/107-minha-aula" },
+    { "rel": "space", "href": "http://www.redu.com.br/api/spaces/27" }
+  ],
+    "view_count": 6,
+    "mimetype": "application/x-canvas",
+    "updated_at": "2011-11-22T22:56:59-02:00",
+    "id": 107,
+    "created_at": "2011-02-21T10:11:05-03:00"
+}
+{% endhighlight %}
+
+h3. "GET /api/lectures/:id":#get-lectures
+
+Caso seja uma aula tipo Canvas, uma representação da mesma é retornada.
+
+Requisição: @GET /api/lectures/107@
+
+Resposta:
+
+{% highlight json %}
+{
+  "name": "Minha aula",
+    "position": 1,
+    "rating": 0,
+    "type": "Canvas",
+    "links": [
+    { "rel": "next_lecture", "href": "http://www.redu.com.br/api/lectures/105-conheca-o-seu-cliente" },
+    { "rel": "course", "href": "http://www.redu.com.br/api/courses/recife" },
+    { "rel": "environment", "href": "http://www.redu.com.br/api/environments/www" },
+    { "rel": "subject", "href": "http://www.redu.com.br/api/subjects/114" },
+    { "rel": "self", "href": "http://www.redu.com.br/api/lectures/107-aula-canvas" },
+    { "rel": "raw", "href": "http://meu-app.com.br/recurso" },
+    { "rel": "self_link", "href": "http://www.redu.com.br/espacos/27/modulos/114/aulas/107-aula-canvas" },
+    { "rel": "space", "href": "http://www.redu.com.br/api/spaces/27" }
+  ],
+    "view_count": 6,
+    "mimetype": "application/x-canvas",
+    "updated_at": "2011-11-22T22:56:59-02:00",
+    "id": 107,
+    "created_at": "2011-02-21T10:11:05-03:00"
+}
+{% endhighlight %}

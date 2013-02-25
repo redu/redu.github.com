@@ -93,15 +93,7 @@ h4. Exercise
 
 h4. Canvas
 
-O recurso @client_application@ vem embutido no Canvas, ele representa o aplicativo.
-
-table(table table-bordered table-striped).
-|_.Chave|_.Descrição|
-|current_url|URL do Canvas.|
-|client_application[name]|Nome do aplicativo.|
-|client_application[url]|URL do aplicativo.|
-|client_application[support_url]|URL para suporte do aplicativo.|
-|client_application[id]|ID do aplicativo no Redu.|
+Mais informações podem ser encontradas na "documentação do Canvas":/resources/canvas.html.
 
 h2. "GET /api/subjects/:id/lectures":#index-lectures
 
@@ -271,56 +263,7 @@ h4. Exemplo
 
 * Exercício (@Exercise@)
 
-* Canvas (@Canvas@)
-
-{% highlight json %}
-{
-  "created_at": "2013-01-16T10:28:23-02:00",
-    "name": "Nome da aula",
-    "type": "Canvas",
-    "id": 4877,
-    "rating": 0,
-    "view_count": 1,
-    "updated_at": "2013-01-16T10:28:23-02:00"
-      "links": [
-      {
-        "href": "http://www.redu.com.br/api/lectures/4877-novo",
-        "rel": "self"
-      },
-      {
-        "href": "http://www.redu.com.br/espacos/1412/modulos/3111/aulas/4877-novo",
-        "rel": "self_link"
-      },
-      {
-        "href": "http://www.redu.com.br/api/subjects/3111",
-        "rel": "subject"
-      },
-      {
-        "href": "http://www.redu.com.br/api/spaces/1412",
-        "rel": "space"
-      },
-      {
-        "href": "http://www.redu.com.br/api/courses/curso-de-exemplo",
-        "rel": "course"
-      },
-      {
-        "href": "http://www.redu.com.br/api/environments/ambiente-de-exemplo-api",
-        "rel": "environment"
-      },
-      {
-        "href": "http://www.redu.com.br/api/lectures/4877/statuses",
-        "rel": "statuses"
-      }
-  ],
-    "current_url": "http://www.manualdigital.pt/inglesRedu/",
-    "client_application": {
-      "name": "My Body",
-      "url": "http://www.manualdigital.pt/inglesRedu/",
-      "support_url": "",
-      "id": 653
-    }
-}
-{% endhighlight %}
+* Canvas (@Canvas@). "Ver documentação do Canvas":/resources/canvas.html.
 
 * Mídia (@Media@)
 
