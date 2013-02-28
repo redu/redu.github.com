@@ -49,9 +49,8 @@ table(table table-bordered table-striped).
 |_.Link|_.Descrição|
 |self|Canvas em questão|
 |self_link|Link da interface Web para o canvas|
-|space|Disciplina onde o canvas se encontra.|
-|course|Curso onde o canvas se encontra.|
-|environment|AVA onde o canvas se encontra.|
+|container|Link para o container do canvas|
+|raw|Link para a URL exibida no canvas|
 
 h3. POST /api/spaces/:id/canvas
 
@@ -61,8 +60,8 @@ h4. Parâmetros
 
 table(table table-bordered table-striped).
 |_.Chave|_.Descrição|Restrições|
-|current_url|URL que será exibida no canvas.|Não é obrigatório. Deve ser uma URL válida|
-|name|Nome mostrado nos links para o Canvas|Obrigatório|
+|canvas[current_url]|URL que será exibida no canvas.|Não é obrigatório. Deve ser uma URL válida|
+|canvas[name]|Nome mostrado nos links para o Canvas|Obrigatório|
 
 h3. GET /api/canvas/:id
 
@@ -74,13 +73,13 @@ h4. Exemplo de resposta
 {
   "id": 107,
   "name": "Minha aula",
+  "container_type": "Space",
   "current_url": "http://meu-app.com.br/recurso",
   "links": [
-    { "rel": "course", "href": "http://www.redu.com.br/api/courses/recife" },
-    { "rel": "environment", "href": "http://www.redu.com.br/api/environments/www" },
-    { "rel": "self", "href": "http://www.redu.com.br/api/canvas/107" },
-    { "rel": "self_link", "href": "http://www.redu.com.br/espacos/27/canvas/107" },
-    { "rel": "space", "href": "http://www.redu.com.br/api/spaces/27" }
+    { "href": "http://google.com", "rel": "raw" },
+    { "href": "http://www.redu.com.br/api/spaces/27", "rel": "container" },
+    { "href": "http://www.redu.com.br/api/canvas/359", "rel": "self" },
+    { "href": "http://www.redu.com.br/espacos/27/canvas/359", "rel": "self_link" }
   ],
   "updated_at": "2011-11-22T22:56:59-02:00",
   "created_at": "2011-02-21T10:11:05-03:00"
@@ -105,8 +104,9 @@ h4. Parâmetros
 
 table(table table-bordered table-striped).
 |_.Chave|_.Descrição|Restrições|
-|nome|Nome de aula|Obrigatório|
-|current_url|URL que será exibida no canvas.|Não é obrigatório. Deve ser uma URL válida|
+|lecture[type]|Tipo da Aula. Nesta caso queremos criar com o tipo @Canvas@|Obrigatório|
+|lecture[name]|Nome de aula|Obrigatório|
+|lecture[current_url]|URL que será exibida no canvas.|Não é obrigatório. Deve ser uma URL válida|
 
 O @current_url@ é opcional e, caso omitido, a URL principal da aplicação será mostrada.
 
@@ -132,7 +132,9 @@ Resposta:
     { "rel": "raw", "href": "http://meu-app.com.br/recurso" },
     { "rel": "self_link", "href": "http://www.redu.com.br/espacos/27/modulos/114/aulas/107-minha-aula" },
     { "rel": "space", "href": "http://www.redu.com.br/api/spaces/27" }
+    { "href": "http://www.redu.com.br/api/spaces/27", "rel": "container" },
   ],
+    "container_type": "Lecture",
     "view_count": 6,
     "mimetype": "application/x-canvas",
     "updated_at": "2011-11-22T22:56:59-02:00",
