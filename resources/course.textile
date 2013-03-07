@@ -5,7 +5,7 @@ group: navigation
 ---
 {% include JB/setup %}
 
-O curso, no contexto da API referenciado como @course@ é a entidade principal da hierarquia do Redu. Ele é uma entidade autocontida de conteúdo e usuários. Ou seja, usuários que têm acesso a um determinado curso terão permissão para visualizar todas suas disciplinas, módulos e aulas.
+O curso, no contexto da API referenciado como @course@ é a entidade principal da hierarquia do Redu. Ele é uma entidade autocontida de conteúdo e usuários. Ou seja, usuários que têm acesso a um determinado curso terão permissão para visualizar todas suas disciplinas, módulos e aulas. Note que atributos de requisições em negrito são obrigatórios.
 
 h2. "GET /api/courses/:id":#get-courses
 

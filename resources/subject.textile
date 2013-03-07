@@ -5,7 +5,7 @@ group: navigation
 ---
 {% include JB/setup %}
 
-No contexto da API, o módulo é referido como @suject@. É um agrupamento de diversas aulas (conteúdos) em um contexto.
+No contexto da API, o módulo é referido como @suject@. É um agrupamento de diversas aulas (conteúdos) em um contexto. Note que atributos de requisições em negrito são obrigatórios.
 
 h2. "GET /api/spaces/:space_id/subjects":#get-space-subjects
 

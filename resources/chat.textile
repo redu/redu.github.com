@@ -5,7 +5,7 @@ group: navigation
 ---
 {% include JB/setup %}
 
-O Chat e ChatMessages representam, respectivament, uma conversa entre dois usuários e suas mensagens. Atualmente é possível, apenas, visualizar estes recursos através da API. A possibilidade de criação e remoção de mensagens de chat, bem como streaming das mesmas está disponível em breve.
+O Chat e ChatMessages representam, respectivament, uma conversa entre dois usuários e suas mensagens. Atualmente é possível, apenas, visualizar estes recursos através da API. A possibilidade de criação e remoção de mensagens de chat, bem como streaming das mesmas estará disponível em breve. Note que atributos de requisições em negrito são obrigatórios.
 
 h1. Chat
 

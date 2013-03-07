@@ -5,7 +5,7 @@ group: navigation
 ---
 {% include JB/setup %}
 
-No contexto da API disciplina é referida como @space@. É na disciplina que as interações sociais (ver mural) acontecem e o conteúdo (ver módulo) são postados.
+No contexto da API disciplina é referida como @space@. É na disciplina que as interações sociais (ver mural) acontecem e o conteúdo (ver módulo) são postados. Note que atributos de requisições em negrito são obrigatórios.
 
 h2. "GET /api/spaces/:id":#get-spaces
 

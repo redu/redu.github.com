@@ -5,7 +5,7 @@ group: navigation
 ---
 {% include JB/setup %}
 
-O Mural é o cerne da comunicação dentro do Redu. Através dele os usuários podem postar comentários, respostas e pedidos de ajuda. Além disso o Mural é o meio pelo qual as movimentações do sistema são mostradas. No contexto da API, qualquer elemento mostrado no Mural é chamado de @status@.
+O Mural é o cerne da comunicação dentro do Redu. Através dele os usuários podem postar comentários, respostas e pedidos de ajuda. Além disso o Mural é o meio pelo qual as movimentações do sistema são mostradas. No contexto da API, qualquer elemento mostrado no Mural é chamado de @status@. Note que atributos de requisições em negrito são obrigatórios.
 
 div(thumbnail){width:610px; margin: 0 auto}. !/assets/images/mural-example.png!
 
@@ -94,8 +94,8 @@ h4. Parâmetros
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*user_id*| ID do usuário em questão| N/A |
-|*type*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
-|*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
+|type| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
+|page| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
 
 h4. Exemplo
 
@@ -200,8 +200,8 @@ h4. Parâmetros
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*user_id*| ID do usuário em questão| N/A |
-|*type*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
-|*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
+|type| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
+|page| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
 
 h2. "POST /api/users/:user_id/statuses":#post-user-status
 
@@ -223,8 +223,8 @@ h4. Parâmetros
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*space_id*| ID do space| N/A |
-|*type*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
-|*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
+|type| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
+|page| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
 
 h2. "GET /api/spaces/:space_id/statuses":#get-space-status
 
@@ -235,8 +235,8 @@ h4. Parâmetros
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*space_id*| ID do space| N/A |
-|*type*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
-|*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
+|type| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
+|page| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
 
 h2. "POST /api/spaces/:space_id/statuses":#post-space-status
 
@@ -260,7 +260,8 @@ h4. Parâmetros
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*lecture_id*| ID da lecture em questão|N/A|
-|*type*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
+|type| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
+|page| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
 
 h2. "POST /api/lectures/:lecture_id/statuses":#post-lecture-status
 
