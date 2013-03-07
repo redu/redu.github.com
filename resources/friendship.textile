@@ -150,3 +150,25 @@ h4. Exemplo
   }
 }]
 {% endhighlight %}
+
+h2. "POST /api/users/:user_id/connection":#post-user-connection
+
+Cria uma nova conexão com o usuário.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*:user_id*| ID do usuário em questão|N/A|
+|*contact_id*| ID do novo contato |N/A|
+
+h2. "DELETE /api/users/:user_id/connections/:connection_id":#delete-status
+
+Remove uma conexão.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*:user_id*| ID do usuário em questão|N/A|
+|*:connection_id*| ID da conexão |N/A|
