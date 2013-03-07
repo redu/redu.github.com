@@ -1,0 +1,152 @@
+---
+layout: page
+title: "Conexão"
+group: navigation
+---
+{% include JB/setup %}
+
+O Redu é uma rede social, onde seus usuários estão relacionados entre si através de uma Conexão. Um usuário pode ser contato de outro, através de uma solicitação de conexão, que pode ser aceita ou rejeitada. No contexto da API o relacionamento entre usuários será chamado de @connection@.
+
+h4. Atributos:
+
+table(table table-bordered table-striped){clear: both;}.
+|_.Link|_.Descrição|
+|id|Identificador único do contato|
+|status|Estado atual da conexão. Exemplo: @requested@|
+|user|Usuário do qual está sendo requisitado as conexões|
+|contact|Contato do usuário|
+
+h4. Estados:
+
+table(table table-bordered table-striped){clear: both;}.
+|_.Estado|_.Descrição|
+|accepted|Os usuários são contatos|
+|requested|O usuário requisitou o pedido de conexão|
+|pending|O usuário tem um requisição pendente para a conexão|
+
+h2. "GET api/users/:user_id/connections":#get-connections
+
+Retorna uma lista com todas os @connections@ de um usuário específico.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*:user_id*| ID do usuário|N/A|
+|*type*| Filtragem pelos estados da conexão|N/A|
+
+h2. "GET api/users/:user_id/connections/:id":#get-connection
+
+Retorna a conexão em questão.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*:user_id*| ID do usuário|N/A|
+|*:id*| ID da conexão|N/A|
+
+
+h4. Exemplo
+
+*Requisição*
+
+@GET /api/users/jessicab/connections/12@
+
+*Resposta*
+{% highlight json %}
+[{
+  "id": 12,
+  "status": "accepetd",
+  "links": [
+    {
+      "rel": "self",
+      "href": "http://www.redu.com.br/api/users/jessicab/connections/12"
+    },
+    {
+      "rel": "contact",
+      "href": "http://www.redu.com.br/api/users/guiocavalcanti"
+    },
+    {
+      "rel": "user",
+      "href": "http://www.redu.com.br/api/api/users/jessicab"
+    }
+  ],
+  "contact": {
+    "first_name": "Guilherme",
+    "last_name": "Cavalcanti",
+    "login": "guiocavalcanti",
+    "id": 4,
+    "thumbnails": [
+      {
+        "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/4/thumb_32/Guilherme3x4%20copy.jpg?1323711306",
+        "size": "32x32"
+      },
+      {
+        "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/4/thumb_110/Guilherme3x4%20copy.jpg?1323711306",
+        "size": "110x110"
+      }
+    ],
+    "links": [
+      {
+        "rel": "self",
+        "href": "http://www.redu.com.br/api/users/guiocavalcanti"
+      },
+      {
+        "rel": "enrollments",
+        "href": "http://www.redu.com.br/api/users/guiocavalcanti/enrollments"
+      },
+      {
+        "rel": "statuses",
+        "href": "http://www.redu.com.br/api/users/guiocavalcanti/statuses"
+      },
+      {
+        "rel": "timeline",
+        "href": "http://www.redu.com.br/api/users/guiocavalcanti/statuses/timeline"
+      },
+      {
+        "rel": "contacts",
+        "href": "http://www.redu.com.br/api/users/guiocavalcanti/contacts"
+      }
+    ]
+  },
+  "user": {
+    "first_name": "Jéssica",
+    "last_name": "Barbalho",
+    "login": "jessicab",
+    "id": 143,
+    "thumbnails": [
+      {
+        "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/4/thumb_32/Jéssica.jpg?1334865750",
+        "size": "32x32"
+      },
+      {
+        "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/4/thumb_110/Jéssica.jpg?1334865750",
+        "size": "110x110"
+      }
+    ],
+    "links": [
+      {
+        "rel": "self",
+        "href": "http://www.redu.com.br/api/users/jessicab"
+      },
+      {
+        "rel": "enrollments",
+        "href": "http://www.redu.com.br/api/users/jessicab/enrollments"
+      },
+      {
+        "rel": "statuses",
+        "href": "http://www.redu.com.br/api/users/jessicab/statuses"
+      },
+      {
+        "rel": "timeline",
+        "href": "http://www.redu.com.br/api/users/jessicab/statuses/timeline"
+      },
+      {
+        "rel": "contacts",
+        "href": "http://www.redu.com.br/api/users/jessicab/contacts"
+      }
+    ]
+  }
+}]
+{% endhighlight %}
