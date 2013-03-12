@@ -7,6 +7,10 @@ group: navigation
 
 Os aplicativos de tipo canvas representam o maior nível de integração com o Redu. Neste tipo de integração não há a necessidade de deixar a plataforma para utilizar o aplicativo, por isso a experiência para o usuário é, em geral, mais completa.
 
+Uma vez que estes aplicativos são integrados a interface do Redu, existem alguma limitações a respeito das dimensões do mesmo. Atualmente é possível inserir aplicações de até @720px@ de largura. Em relação a altura só é necessária que ela seja fixa, ou seja, que se mantenha a mesma durante desde o momento em que ela é carregada.
+
+O canvas propriamente dito é um @<iframe>@ que tem como fonte um endereço em outro servidor. Este modelo já é bem estabelecido e utilizado em outras plataformas de aplicativos, como o Facebook.
+
 Entrando em detalhes, o canvas é uma tag "@<iframe>@":https://developer.mozilla.org/en-US/docs/HTML/Element/iframe que pode ser mostrada em diversos pontos da interface do Redu. O @<iframe>@ é inicializado com uma URL da sua aplicação e receve diversas informações sobre o contexto de onde o canvas será mostrado.
 
 Atualmente o canvas pode ser mostrado na Disciplina e na Aula.
