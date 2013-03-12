@@ -7,15 +7,45 @@ tagline: "Documentação da API REST do Redu"
 
 h2. Introdução
 
-O "Redu":http://www.redu.com.br é uma plataforma de ensino a distância construida sobre uma rede social. O seu objetivo principal é potencializar o talento das pessoas oferecendo ferramentas que proporcionam uma aprendizagem mais efetiva.
+O "Redu":http://www.redu.com.br é uma plataforma de ensino a distância construida sobre uma rede social. Através da API "HTTP":http://en.wikipedia.org/wiki/HTTP "REST":http://en.wikipedia.org/wiki/REST do "Redu":http://www.redu.com.br é possível construir aplicações que acessam os dados dos "usuários":resources/user.html da plataforma.
 
-Através da API HTTP REST do "Redu":http://www.redu.com.br é possível construir aplicações que acessam os dados dos "usuários":resources/user.html e "cursos":resources/course.html da plataforma.
+Dizer que uma API pode ser utilizada via "HTTP":http://en.wikipedia.org/wiki/HTTP implica dizer que não há restrições quanto a linguagem ou tecnologias utilizadas na integração de aplicativos. Por se tratar do protocolo de aplicação da internet, qualquer linguagem moderna é capaz de enviar requisições HTTP.
 
-h3. Hypertext enabled
+h2. Primeiros passos
 
-Seguindo a "sugestão":http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven do "Roy Fielding":http://en.wikipedia.org/wiki/Roy_Fielding, pai do REST, todos os recursos retornados pela API do Redu possuem metainformações (hyperlinks) para outros recursos importantes no estado atual da aplicação. Isso faz com que a API possua um único ponto de entrada, por exemplo o AVA.
+h3. 1. Criação de credenciais
 
-Exemplificando o dito acima, ao realizar uma requisição HTTP com o método GET para a URL @/api/environments/foo@ o recurso retornado seria como o descrito abaixo:
+Antes de consumir a API é necessário cadastrar o aplicativo. Para cadastrar vá na opção "Aplicativos":http://redu.com.br/aplicativos/criar na sua página incial do Redu. Você precisa informar Nome e URL do seu aplicativo. O nome será mostrado para o usuário quando o aplicativo estiver pedindo autorização para o acesso a dados. A URL também é obrigatória e pode ser ou a página incial do seu aplicativo ou uma página explicativa do mesmo.
+
+div(thumbnail){width: 705px; margin: 0 10px 10px 0;}. !assets/images/new-app-local.png!
+
+Após informar nome e URL do aplicativo, serão mostrada as credênciais do mesmo. Existem dois tipos de credenciais a chave do **consumer** e o segredo do **consumer**. A chave do consumer é um identificador único do seu aplicativo que é utilizada para pedir autorização para o usuário ceder seus dados para o aplicativo. Já o segredo do **consumer** é um identificador privado que o Redu utiliza identificar o aplicativo que realiza a requisição da API.
+
+div(thumbnail){width: 705px; margin: 10px 0;}. !assets/images/app-credentials.png!
+
+h3. 2. Autenticação
+
+O Redu não cede dados do usuários sem a expressa autenticação do mesmo. Para que os aplicativos acessem as informações do usuário é necessário que ele autorize explicitamente este acesso. Para isso, o aplicativo precisa implementar o processo de autenticação do usuário. No Redu utilizamos o protocolo OAuth 2.0 para este fim. Tal protocolo é muito difundido e utilizado pelas APIs Twitter, Facebook e Google.
+
+div(thumbnail){width: 705px; margin: 10px 0;}. !assets/images/oauth-workflow.png!
+
+No fim do processo de autenticação do OAuth 2.0 é gerado mais uma credencial chamada de *aceess token*. Esta credencial identifica unicamente sua aplicação e o usuário que autorizou acesso. Portanto é necessário enviar o *access token* em todas as requisições feitas em nome do usuário que autorizou. O *access token* pode ser enviado via querystring (@?access_token=TOKEN@) ou pelo cabeçalho @Authorization@ (@Authorization: OAuth TOKEN@) da requisição HTTP.
+
+Este guia não entra em detalhes sobre a implementação da autenticação via OAuth 2.0. Porém temos exemplos em "várias linguagens":https://github.com/redu/oauth-consumers sobre como realizar esta tarefa. Uma lista com clientes OAuth 2 sugeridos é mostrada abaixo:
+
+table(table table-bordered table-striped){clear: both;}.
+|_.Linguagem/Framework|_.Projeto|_.Suporte Oficial?|
+|Ruby On Rails|"omniauth-redu":https://github.com/redu/omniauth-redu |Sim|
+|Python|"ReduPy":https://github.com/redu/redupy |Sim|
+|Java|"jRedu":https://github.com/redu/jredu |Sim|
+|Python|"rauth":https://github.com/litl/rauth |Não|
+|Django|"django-social-auth":https://github.com/omab/django-social-auth |Não|
+|Play!|"play-pack4j":https://github.com/leleuj/play-pac4j |Não|
+| .NET|".NET Open Auth":http://www.dotnetopenauth.net/ |Não|
+
+h3. 3. Consumindo a API REST
+
+Após cadastrar o aplicativo e pedir autorização para o usuário, será possível utilizar a API REST. Por exemplo, ao realizar uma requisição HTTP com o método GET para a URL @/api/environments/foo@ o recurso retornado seria como o descrito abaixo:
 
 {% highlight javascript %}
 {
@@ -31,102 +61,12 @@ Exemplificando o dito acima, ao realizar uma requisição HTTP com o método GET
 }
 {% endhighlight %}
 
-Note que o JSON retornado possui uma propriedade links que denota as URLs que a aplicação cliente precisa conhecer no contexto atual (visualização do ambiente virtual de aprendizagem). Isso quer dizer que, por exemplo, quisessemos visualizar os cursos do AVA em questão, poderíamos faze-lo sem conhecer a priori a URL apropriada.
+h4. Hypertext enabled
 
-Uma aplicação cliente em JavaScript + jQuery poderia listar os cursos deste ambiente da seguinte forma:
+Seguindo a "sugestão":http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven do "Roy Fielding":http://en.wikipedia.org/wiki/Roy_Fielding, pai do REST, todos os recursos retornados pela API do Redu possuem metainformações (hyperlinks) para outros recursos importantes no estado atual da aplicação. Isso faz com que a API possua um único ponto de entrada, por exemplo o AVA.
 
-{% highlight javascript %}
-$(document).ready(function(){
-  $.getJSON('/api/environments', { id : 'foo' }, function(data){
-      var links = data['links'];
-      var courses;
-      for(var i = 0; i < data['links'].length; i++) {
-        if(links[i]['rel'] === 'courses') { courses = links['href']; break; }
-      }
-
-      $.getJSON(courses, function(data){
-        console.log(data)
-      });
-  });
-});
-{% endhighlight %}
-
-
-h2. Autenticação
-
-h3. OAuth
-
-p. O Redu utiliza o protocolo "OAuth":http://oauth.net, versão 2, para autenticação de applicações externas à sua API. O OAuth um protocolo para autenticação de clientes em WebServices, utilizado por grande parte dos serviços Web (Twitter, Facebook, Foursquare). Para conhecer o protocolo uma ótima referência é o "tutorial da hueniverse":http://oauth.net/2/
-
-h4. Fluxo de Requisições para Autenticação
-
-p. O protocolo OAuth prevê vários fluxos de autenticação dependendo do tipo aplicação. Por exemplo, existem contextos onde a aplicação cliente não é capaz de invocar um navegador Web que redirecionaria o resource owner para o Redu. Nesses casos é possível usar um fluxo onde o Redu gera um código único (PIN) que pode ser copiado para a aplicação cliente.
-
-p. O fluxo mais comumente utilizado é o de aplicações Web. No diagrama abaixo são mostradas a sequência de passos necessárias para a autenticação desse tipo de aplicação. Para um fluxo mais detalhado consulte "este":assets/images/oauth-workflow-detailed.png diagrama de sequência.
-
-!assets/images/oauth-workflow.png!
-
-h3. Bibliotecas
-
-p. Já existem bibliotecas prontas que implementam o protocolo OAuth em diversas linguagens, você pode encontrar algumas delas no "repositório oficial":http://code.google.com/p/oauth
-
-p. Além disso diversos Frameworks de desenvolvimento também possuem implementações próprias, como o "Zend Framework":http://framework.zend.com/manual/en/zend.oauth.html
-
-
-h2. Encapsuladores (wrappers) da API
-
-Para facilitar a interação com a API REST, foram desenvolvido encapsuladores. Estes encapsuladores abstraem o HTTP e permitem que exista uma interação com a API apenas lidando com classes e objetos. O Redu possui os seguintes encapsuladores:
-
-1. "Python":http://github.com/redu/redupy
-2. "Java":http://github.com/redu/jredu
-
-h3. Exemplos
-
-p. Alguns exemplos de clientes realizando a negociação dos tokens e fazendo requisições para a API do Redu
-
-1. "Python":https://github.com/redu/oauth-consumers/tree/master/python-native
-2. "PHP":https://gist.github.com/2161583
-3. "Ruby":https://github.com/redu/oauth-consumers/tree/master/ruby-native
-4. "Rails":https://github.com/redu/oauth-consumers/tree/master/rails-server
-5. "Java":https://github.com/redu/oauth-consumers/tree/master/java-native
-
-h2. Como os dados do "Redu":http://www.redu.com.br estão organizados?
-
-!assets/images/hierarchy.001.png!
-
-h2. Aplicação tipo canvas em JavaScript
-
-p. Aplicações tipo canvas são um tipo especial de aplicativos que são executados dentro da interface gráfica do Redu. Para o usuário final estes aplicativos fazem parte da plataforma, por isso é importante que estes ofereçam uma experiência uniforme.
-
-div(thumbnail){width: 400px; float: left; margin: 10px 20px 20px 0;}. !assets/images/canvas-example.png!
-
-p. Uma vez que estes aplicativos são integrados a interface do Redu, existem alguma limitações a respeito das dimensões do mesmo. Atualmente é possível inserir aplicações de até @720px@ de largura.
-
-p. Em relação a altura só é necessária que ela seja fixa, ou seja, que se mantenha a mesma durante desde o momento em que ela é carregada.
-
-p. Aplicativos tipo canvas precisam estar acessíveis através da internet. Ou seja, precisam estar hospedados em servidores terceiros.
-
-p. O canvas propriamente dito é um @<iframe>@ que tem como fonte um endereço em outro servidor. Este modelo já é bem estabelecido e utilizado em outras plataformas de aplicativos, como o Facebook.
-
-h3{clear: left;}. Autenticação via JavaScript
-
-p. O Redu implementa o "fluxo implícito":http://tools.ietf.org/html/draft-ietf-oauth-v2-26#section-1.3.2 do OAuth. Este fluxo é autenticar aplicações com código público, como as que são feitas em JavaScript e funcionam dentro do browser. Dessa forma é possível realizar a autenticação sem necessáriamente possuir lógica server-side.
-
-p. A aplicação "palavras":http://github.com/redu/canvas-example realiza implementa esse tipo de autenticação. Para tornar isso possível foi utilizada a biblioteca JavaScript "JSO":https://github.com/andreassolberg/jso .
-
-Ambos estão em desenvolvimento ativo e aberto para contribuições.
-
-h2. Registro de aplicação
-
-p. Para cadastrar seu aplicativo envie um e-mail para contato@redu.com.br com as seguintes informações:
-
-1. Tipo de aplicativo (mobile, canvas, externo, etc)
-2. Resumo da aplicação
-3. URL principal e de callback (se houver)
-4. URL da disciplina (para aplicativos tipo canvas)
-
-p. Lembre-se de usar o e-mail que você cadastrou no Redu para podermos saber quem você é. Geralmente a análise a aprovação da aplicação dura menos de 1 dia.
+Note que a representação retornada possui uma propriedade links que denota as URLs que a aplicação cliente precisa conhecer no contexto atual (visualização do ambiente virtual de aprendizagem). Isso quer dizer que, por exemplo, quisessemos visualizar os cursos do AVA em questão, poderíamos faze-lo sem conhecer a priori a URL apropriada.
 
 h2. Mais informações
 
-<div style="width:595px" id="__ss_13160601"> <strong style="display:block;margin:12px 0 4px"><a href="http://www.slideshare.net/guiocavalcanti/introduo-a-plataforma-de-aplicativos-redu" title="Introdução a plataforma de aplicativos Redu" target="_blank">Introdução a plataforma de aplicativos Redu</a></strong> <object id="__sse13160601" width="595" height="497"> <param name="movie" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=platform-101-120601061122-phpapp02&rel=0&stripped_title=introduo-a-plataforma-de-aplicativos-redu&userName=guiocavalcanti" /> <param name="allowFullScreen" value="true"/> <param name="allowScriptAccess" value="always"/> <param name="wmode" value="transparent"/> <embed name="__sse13160601" src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=platform-101-120601061122-phpapp02&rel=0&stripped_title=introduo-a-plataforma-de-aplicativos-redu&userName=guiocavalcanti" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="transparent" width="595" height="497"></embed> </object> <div style="padding:5px 0 12px"> View more <a href="http://www.slideshare.net/" target="_blank">presentations</a> from <a href="http://www.slideshare.net/guiocavalcanti" target="_blank">Guilherme</a> </div> </div>
+<div style="width:705px" id="__ss_13160601"> <strong style="display:block;margin:12px 0 4px"><a href="http://www.slideshare.net/guiocavalcanti/introduo-a-plataforma-de-aplicativos-redu" title="Introdução a plataforma de aplicativos Redu" target="_blank">Introdução a plataforma de aplicativos Redu</a></strong> <object id="__sse13160601" width="705px" height="600px"> <param name="movie" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=platform-101-120601061122-phpapp02&rel=0&stripped_title=introduo-a-plataforma-de-aplicativos-redu&userName=guiocavalcanti" /> <param name="allowFullScreen" value="true"/> <param name="allowScriptAccess" value="always"/> <param name="wmode" value="transparent"/> <embed name="__sse13160601" src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=platform-101-120601061122-phpapp02&rel=0&stripped_title=introduo-a-plataforma-de-aplicativos-redu&userName=guiocavalcanti" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="transparent" width="595" height="497"></embed> </object> <div style="padding:5px 0 12px"> View more <a href="http://www.slideshare.net/" target="_blank">presentations</a> from <a href="http://www.slideshare.net/guiocavalcanti" target="_blank">Guilherme</a> </div> </div>
