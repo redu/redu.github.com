@@ -36,19 +36,19 @@ Resposta:
 "links": [
 {
   "rel": "self",
-    "href": "http://127.0.0.1:3000/api/chats/1475"
+    "href": "http://redu.com.br/api/chats/1475"
 },
 {
   "rel": "user",
-  "href": "http://127.0.0.1:3000/api/users/guiocavalcanti"
+  "href": "http://redu.com.br/api/users/guiocavalcanti"
 },
 {
   "rel": "contact",
-  "href": "http://127.0.0.1:3000/api/users/tiago"
+  "href": "http://redu.com.br/api/users/tiago"
 },
 {
   "rel": "chat_messages",
-  "href": "http://127.0.0.1:3000/api/chats/1475/chat_messages"
+  "href": "http://redu.com.br/api/chats/1475/chat_messages"
 }
 ],
   "id": 1475,
@@ -59,19 +59,19 @@ Resposta:
 "links": [
 {
   "rel": "self",
-  "href": "http://127.0.0.1:3000/api/chats/1477"
+  "href": "http://redu.com.br/api/chats/1477"
 },
 {
   "rel": "user",
-  "href": "http://127.0.0.1:3000/api/users/guiocavalcanti"
+  "href": "http://redu.com.br/api/users/guiocavalcanti"
 },
 {
   "rel": "contact",
-  "href": "http://127.0.0.1:3000/api/users/test_user"
+  "href": "http://redu.com.br/api/users/test_user"
 },
 {
   "rel": "chat_messages",
-  "href": "http://127.0.0.1:3000/api/chats/1477/chat_messages"
+  "href": "http://redu.com.br/api/chats/1477/chat_messages"
 }
 ],
   "id": 1477,
@@ -107,11 +107,11 @@ Resposta:
   "links": [
       {
           "rel": "self",
-          "href": "http://127.0.0.1:3000/api/chats/1475"
+          "href": "http://redu.com.br/api/chats/1475"
       },
       {
           "rel": "user",
-          "href": "http://127.0.0.1:3000/api/users/guiocavalcanti"
+          "href": "http://redu.com.br/api/users/guiocavalcanti"
       },
       {
           "rel": "contact",
