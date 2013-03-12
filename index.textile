@@ -7,7 +7,7 @@ tagline: "Documentação da API REST do Redu"
 
 h2. Introdução
 
-O "Redu":http://www.redu.com.br é uma plataforma de ensino a distância construida sobre uma rede social. Através da API "HTTP":http://en.wikipedia.org/wiki/HTTP "REST":http://en.wikipedia.org/wiki/REST do "Redu":http://www.redu.com.br é possível construir aplicações que acessam os dados dos "usuários":resources/user.html da plataforma.
+O "Redu":http://www.redu.com.br é uma plataforma de ensino a distância construída sobre uma rede social. Através da API "HTTP":http://en.wikipedia.org/wiki/HTTP "REST":http://en.wikipedia.org/wiki/REST do "Redu":http://www.redu.com.br é possível construir aplicações que acessam os dados dos "usuários":resources/user.html da plataforma.
 
 Dizer que uma API pode ser utilizada via "HTTP":http://en.wikipedia.org/wiki/HTTP implica dizer que não há restrições quanto a linguagem ou tecnologias utilizadas na integração de aplicativos. Por se tratar do protocolo de aplicação da internet, qualquer linguagem moderna é capaz de enviar requisições HTTP.
 
@@ -29,7 +29,7 @@ O Redu não cede dados do usuários sem a expressa autenticação do mesmo. Para
 
 div(thumbnail){width: 705px; margin: 10px 0;}. !assets/images/oauth-workflow.png!
 
-No fim do processo de autenticação do OAuth 2.0 é gerado mais uma credencial chamada de *aceess token*. Esta credencial identifica unicamente sua aplicação e o usuário que autorizou acesso. Portanto é necessário enviar o *access token* em todas as requisições feitas em nome do usuário que autorizou. O *access token* pode ser enviado via querystring (@?access_token=TOKEN@) ou pelo cabeçalho @Authorization@ (@Authorization: OAuth TOKEN@) da requisição HTTP.
+No fim do processo de autenticação do OAuth 2.0 é gerado mais uma credencial chamada de *aceess token*. Esta credencial identifica unicamente sua aplicação e o usuário que autorizou acesso. Portanto, é necessário enviar o *access token* em todas as requisições feitas em nome do usuário que autorizou. O *access token* pode ser enviado via querystring (@?access_token=TOKEN@) ou pelo cabeçalho @Authorization@ (@Authorization: OAuth TOKEN@) da requisição HTTP.
 
 Este guia não entra em detalhes sobre a implementação da autenticação via OAuth 2.0. Porém temos exemplos em "várias linguagens":https://github.com/redu/oauth-consumers sobre como realizar esta tarefa. Uma lista com clientes OAuth 2 sugeridos é mostrada abaixo:
 
