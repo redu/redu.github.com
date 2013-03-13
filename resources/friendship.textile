@@ -162,7 +162,18 @@ table(table table-bordered table-striped).
 |*:user_id*| ID do usuário em questão|N/A|
 |*contact_id*| ID do novo contato |N/A|
 
-h2. "DELETE /api/users/:user_id/connections/:connection_id":#delete-status
+h2. "PUT /api/users/:user_id/connections/:connection_id":#update-connection
+
+Aceita um pedido de conexão que está no estado @pending@ transformando-o em @accepted@.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*:user_id*| ID do usuário em questão|N/A|
+|*:connection_id*| ID da conexão |N/A|
+
+h2. "DELETE /api/users/:user_id/connections/:connection_id":#delete-connection
 
 Remove uma conexão.
 
