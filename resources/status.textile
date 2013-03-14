@@ -11,48 +11,79 @@ div(thumbnail){width:610px; margin: 0 auto}. !/assets/images/mural-example.png!
 
 h2. "Tipos de status":#get-statuses
 
-div(thumbnail){width:329px; float:left; margin: 0 20px 20px 0}. !/assets/images/status-classes.png!
+O recurso de representa uma movimentação no Redu é o status. Dependendo do tipo de movimentação, o status possui um tipo (diferenciado através do @type@) diferente.
 
-Existem 4 especializações básicas do status: Activity, Log, Answer e Help. Cada uma servindo a um propósito diferente. Na interface Web do Redu cada status é representado de uma forma diferente no mural.
-
-table(table table-bordered table-striped){clear: both;}.
-|_.Tipo|_.Descrição|_.Restrições|
-|Activity|Post criado pelo usuário. É o tipo mais comum de status.|N/A|
-|Help|Representa um pedido de ajuda.|Só pode ser criado no Mural da "Aula":lecture.html|
-|Answer|Resposta a um Activity ou Help.|N/A|
-|Log|Criado automoaticamente pelo sistema, representa uma movimentação importante. Exemplo: cricação de aula.|Não pode ser criado pelo usuário.|
-
-h3. Activity e Help
-
-Os status do tipo Activity e Help são essencialmente iguais. Abaixo a relação de links presentes na representação de ambos:
+Todos os tipos de Status possuem as seguintes propriedades:
 
 table(table table-bordered table-striped){clear: both;}.
-|_.Link|_.Descrição|
-|id|Identificador único do status|
-|statusable|Mural onde o status foi criado. Exemplo: Disciplina|
-|user|Autor do status|
-|answers|Respostas ao status|
+|_.Atributo|_.Descrição|_.Exemplo|
+|id|Identificador único do Status|1|
+|type|Tipo do status.| @Activity@, @Help@, @Answer@ e @Log@|
+|created_at|Data de criação do Status|@2013-03-13T23:47:25-03:00@|
+|user|Representação do User que criou o status|Ver "User":/resources/usuario.html |
+|text|Texto escrito pelo usuário ou mensagem do sitema|@"adicionou a sua rede de contatos"@|
 
-h3. Answer
+h3. Tipo Activity
 
-Abaixo a relação de links presentes na representação de um status tipo Answer:
+Status com o tipo Activity são um tipo de movimentação explicitamente criada pelo usuário. Por exemplo, um post no mural da disciplina ou do usuário cria um status do tipo Activity. Este é o tipo mais comum de status.
 
-table(table table-bordered table-striped){clear: both;}.
-|_.Link|_.Descrição|
-|id|Identificador único do status.|
-|statusable|Mural onde o status foi criado. Exemplo: Disciplina.|
-|user|Autor do status.|
-|logeable|O que gerou a movimentação. Por exemplo: aula que foi criada.|
-
-h3. Answer
-
-Abaixo a relação de links presentes na representação de um status tipo Answer:
+O Status do tipo Activity pode ser respondido por outras pessoas. Tais respostas estão acessíveis através do link @answers@. Além disso, o Activity se relaciona com @user@ e @statusable@. Ver exemplos abaixo:
 
 table(table table-bordered table-striped){clear: both;}.
-|_.Link|_.Descrição|
-|id|Identificador único do status.|
-|user|Autor do status.|
-|in_response_to|Activity ou Help respondido pela Answer|
+|_.Link|_.Descrição|Exemplo|
+|user|Link para o usuário que criou o status|http://www.redu.com.br/api/users/guiocavalcanti|
+|answers|Link apra respostas do Activity|http://www.redu.com.br/api/statuses/107070/answers|
+|statusable|Link para o recurso onde o Activity foi criado.|http://www.redu.com.br/api/lectures/5874-apresentacao. Pode ser @User@, @Space@ ou @Lecture@|
+|self|Link para o Activity sendo visualizado|http://www.redu.com.br/api/statuses/1212|
+
+h3. Tipo Help
+
+div(thumbnail). !/assets/images/status-help.png!
+
+Bem parecido com o Activity, Status do tipo Help representam pedidos de ajuda ou perguntas dos usuários. Eles só podem ser criados nos murais das aulas (lecture). No fim do dia, Status com o tipo Help têm a mesma função do Activity, só há uma restrição dos locais onde eles podem ser criados e a representaçõa na interface (ver figura).
+
+O Status do tipo Help também pode ser respondido por outras pessoas. Tais respostas estão acessíveis através do link @answers@. Além disso, o Help se relaciona com @user@ e @statusable@ através de link. Ver exemplos abaixo:
+
+table(table table-bordered table-striped){clear: both;}.
+|_.Link|_.Descrição|Exemplo|
+|user|Link para o usuário que criou o status|http://www.redu.com.br/api/users/guiocavalcanti|
+|answers|Link apra respostas do Help|http://www.redu.com.br/api/statuses/107070/answers|
+|statusable|Link para o recurso onde o Help foi criado.|http://www.redu.com.br/api/lectures/5874-apresentacao. Pode ser apenas uma @Lecture@|
+|self|Link para o Help sendo visualizado|http://www.redu.com.br/api/statuses/1212|
+
+h3. Tipo Answer
+
+Como dito acima, os Activity e Help podem ser respondidos por outros usuários. É aí que precisamos do Status do tipo Answer. Eles se relacionam com um Status através do link @in_response_to@. Diferente dos Activity e Help, os Answer não podem ser respondidos.
+
+table(table table-bordered table-striped){clear: both;}.
+|_.Link|_.Descrição|Exemplo|
+|user|Link para o usuário que criou o status|http://www.redu.com.br/api/users/guiocavalcanti|
+|in_response_to|Link do Activity ou Help que originou esta resposta|http://www.redu.com.br/api/statuses/107070/answers|
+|self|Link para o Answer sendo visualizado|http://www.redu.com.br/api/statuses/1212|
+
+table(table table-bordered table-striped){clear: both;}.
+|_.Atributo|_.Descrição|_.Exemplo|
+|id|Identificador único do Status|1|
+|type|Tipo do status.| @Activity@, @Help@, @Answer@ e @Log@|
+|created_at|Data de criação do Status|@2013-03-13T23:47:25-03:00@|
+|user|Representação do User que criou o status|Ver "User":/resources/usuario.html |
+|text|Texto escrito pelo usuário ou mensagem do sitema|@"adicionou a sua rede de contatos"@|
+
+h3. Tipo Log
+
+Este é o único tipo de Status que independe da ação do usuário para serem criados. O Status tipo Log são gerados automáticamente pelo Redu quando certos tipos de ações ocorrem. Por exemplo, quando o usuário atualiza seu perfil no Redu, um Log é criado representando esta ação.
+
+Em geral Logs são utilizados para representar as alterações dos usuários no Redu. As ações que criam Logs são:
+
+* Atualização do "perfil":/resources/user.html
+* Atualização do currículo
+* Adição de "Aulas":/resources/lecture.html num Módulo
+* Criação de "Módulo":/resources/subject.html
+* Criação de "Curso":/resources/course.html
+* Adição de contato
+* "Matrícula":/resources/enrollment.html no Curso
+
+Além dos atributos que o Activity, Help e Answer possuem, o Log possui um atributo @logeable_type@ que representa o tipo do objeto ao qual o Log está associado. Por exemplo, a criação de uma aula gera um Log cujo o @logeable_type@ é Lecture. Além disso, o Log tem associado a sí um link para o @logeable@. No exemplo dado anteriormente o link @logeable@ conteria o endereço para a aula criada.
 
 h2. "GET /api/statuses/:status_id":#get-status
 
@@ -95,6 +126,7 @@ table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*user_id*| ID do usuário em questão| N/A |
 |*type*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
+|*logeable_type*| Deve ser usado em conjunto com o @type@. Permite filtrar Logs baseados no atributo @logeable_type@ |@User@, @Friendship@, @CourseEnrollment@|
 |*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
 
 h4. Exemplo
@@ -201,6 +233,7 @@ table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*user_id*| ID do usuário em questão| N/A |
 |*type*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
+|*logeable_type*| Deve ser usado em conjunto com o @type@. Permite filtrar Logs baseados no atributo @logeable_type@ |@User@, @Friendship@, @CourseEnrollment@|
 |*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
 
 h2. "POST /api/users/:user_id/statuses":#post-user-status
@@ -224,6 +257,7 @@ table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*space_id*| ID do space| N/A |
 |*type*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
+|*logeable_type*| Deve ser usado em conjunto com o @type@. Permite filtrar Logs baseados no atributo @logeable_type@ |@User@, @Friendship@, @CourseEnrollment@|
 |*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
 
 h2. "GET /api/spaces/:space_id/statuses":#get-space-status
@@ -236,6 +270,7 @@ table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*space_id*| ID do space| N/A |
 |*type*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
+|*logeable_type*| Deve ser usado em conjunto com o @type@. Permite filtrar Logs baseados no atributo @logeable_type@ |@User@, @Friendship@, @CourseEnrollment@|
 |*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
 
 h2. "POST /api/spaces/:space_id/statuses":#post-space-status
@@ -261,6 +296,7 @@ table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*lecture_id*| ID da lecture em questão|N/A|
 |*type*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
+|*logeable_type*| Deve ser usado em conjunto com o @type@. Permite filtrar Logs baseados no atributo @logeable_type@ |@User@, @Friendship@, @CourseEnrollment@|
 
 h2. "POST /api/lectures/:lecture_id/statuses":#post-lecture-status
 
