@@ -33,9 +33,9 @@ h4. Parâmetros
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*:user_id*| ID do usuário|N/A|
-|*type*| Filtragem pelos estados da conexão|N/A|
+|*state*| Filtragem pelos estados da conexão|N/A|
 
-h2. "GET api/users/:user_id/connections/:id":#get-connection
+h2. "GET api/connections/:id":#get-connection
 
 Retorna a conexão em questão.
 
@@ -151,7 +151,7 @@ h4. Exemplo
 }]
 {% endhighlight %}
 
-h2. "POST /api/users/:user_id/connection":#post-user-connection
+h2. "POST /api/users/:user_id/connections":#post-user-connection
 
 Cria uma nova conexão com o usuário.
 
@@ -160,7 +160,7 @@ h4. Parâmetros
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*:user_id*| ID do usuário em questão|N/A|
-|*contact_id*| ID do novo contato |N/A|
+|*connection[contact_id]*| ID do novo contato |N/A|
 
 h2. "PUT /api/users/:user_id/connections/:connection_id":#update-connection
 
@@ -173,7 +173,7 @@ table(table table-bordered table-striped).
 |*:user_id*| ID do usuário em questão|N/A|
 |*:connection_id*| ID da conexão |N/A|
 
-h2. "DELETE /api/users/:user_id/connections/:connection_id":#delete-connection
+h2. "DELETE /api/connections/:connection_id":#delete-connection
 
 Remove uma conexão.
 
