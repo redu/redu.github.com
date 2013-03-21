@@ -123,7 +123,7 @@ table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*user_id*| ID do usuário em questão| N/A |
 |*type*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
-|*logeable_type*| Deve ser usado em conjunto com o @type@. Permite filtrar Logs baseados no atributo @logeable_type@ |@User@, @Friendship@, @CourseEnrollment@|
+|*logeable_type*| Deve ser usado em conjunto com o @type@. Permite filtrar Logs baseados no atributo @logeable_type@ |@User@, @Friendship@, @Enrollment@|
 |*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
 
 h4. Exemplo
