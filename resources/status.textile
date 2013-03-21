@@ -75,13 +75,10 @@ Este é o único tipo de Status que independe da ação do usuário para serem c
 
 Em geral Logs são utilizados para representar as alterações dos usuários no Redu. As ações que criam Logs são:
 
-* Atualização do "perfil":/resources/user.html
-* Atualização do currículo
-* Adição de "Aulas":/resources/lecture.html num Módulo
-* Criação de "Módulo":/resources/subject.html
-* Criação de "Curso":/resources/course.html
-* Adição de contato
-* "Matrícula":/resources/enrollment.html no Curso
+* Adição de "Aulas":/resources/lecture.html num Módulo (logeable_type @Lecture@)
+* Criação de "Módulo":/resources/subject.html (logeable_type @Subject@)
+* Criação de "Curso":/resources/course.html (logeable_type @Course@)
+* "Matrícula":/resources/enrollment.html no Curso (logeable_type @CourseEnrollment@)
 
 Além dos atributos que o Activity, Help e Answer possuem, o Log possui um atributo @logeable_type@ que representa o tipo do objeto ao qual o Log está associado. Por exemplo, a criação de uma aula gera um Log cujo o @logeable_type@ é Lecture. Além disso, o Log tem associado a sí um link para o @logeable@. No exemplo dado anteriormente o link @logeable@ conteria o endereço para a aula criada.
 
