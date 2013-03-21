@@ -1,0 +1,220 @@
+---
+layout: page
+title: "Progresso"
+group: navigation
+---
+{% include JB/setup %}
+
+O recurso de Progresso refere-se ao progresso de um usuário em relação a uma "Aula":/resources/lecture.html. Este recurso indica se a aula foi finalizada pelo aluno.
+
+div(thumbnail){width:318px; margin: 0 auto;}. !/assets/images/progress-example.png!
+
+h3. Atributos
+
+table(table table-bordered table-striped).
+|_.Atributo|_.Descrição|
+|id|ID do progresso.|
+|finalized|Indica se a aula foi finalizada.|
+|updated_at|Indica quando a aula foi finalizada (se @finalized = true@).|
+
+h3. Links
+
+table(table table-bordered table-striped).
+|_.Link|_.Descrição|
+|self|Progresso em questão.|
+|user|Usuário responsável pelo progresso na aula.|
+|lecture|Aula à ser finalizada.|
+|subject|Módulo ao qual a aula pertence.|
+
+h2. "GET /api/progress/:id":#progress-get
+
+Retorna um progresso com  o ID especificado.
+
+h4. Autorização
+
+É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual a aula pertence e ser o @user@ da entidade Progresso.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Atributo|_.Descrição|_.Restrições|
+|*id*|ID do progresso.|N/A|
+
+h4. Exemplo
+
+Requisição:
+@GET /api/progress/4@
+
+Resposta:
+
+<pre>
+{
+  "id" : 4,
+  "finalized" : false,
+  "updated_at" : "2012-01-13T12:11:22-02:00",
+  "links" : [
+    { "rel" : "self", "href" : "http://www.redu.com.br/api/progress/1" },
+    { "rel" : "user", "href" : "http://www.redu.com.br/api/users/4" },
+    { "rel" : "lecture", "href" : "http://www.redu.com.br/api/lectures/8" },
+    { "rel" : "subject", "href" : "http://www.redu.com.br/api/subjects/5" }
+  ]
+}
+</pre>
+
+h2. "PUT /api/progress/:id":#progress-put
+
+Atualiza o progresso do usuário logado em relação a uma aula.
+
+h4. Autorização
+
+É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual a aula pertence e ser o @user@ da entidade Progresso.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Atributo|_.Descrição|_.Restrições|
+|*id*|ID do progresso.|N/A|
+|*progress[done]*|Indicativo de que a aula foi finalizada|Deve ser @true@|
+
+h4. Exemplo
+
+Requisição:
+@PUT /api/progress/4@
+
+Resposta:
+
+<pre>
+{
+  "id" : 4,
+  "finalized" : true,
+  "updated_at" : "2012-01-15T12:11:22-02:00",
+  "links" : [
+    { "rel" : "self", "href" : "http://www.redu.com.br/api/progress/1" },
+    { "rel" : "user", "href" : "http://www.redu.com.br/api/users/4" },
+    { "rel" : "lecture", "href" : "http://www.redu.com.br/api/lectures/8" },
+    { "rel" : "subject", "href" : "http://www.redu.com.br/api/subjects/5" }
+  ]
+}
+</pre>
+
+
+h2. "GET /api/lectures/:lecture_id/progress/":#progress-lectures-get
+
+Retorna todos os progressos de uma "aula":/resources/lecture.html, ou seja, de todos os usuários relacionados à aula. Pode-se filtrar os progressos de uma aula pelo(s) usuário(s).
+
+h4. Autorização
+
+É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual a aula pertence como @teacher@ ou @environment_admin@.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Atributo|_.Descrição|_.Restrições|
+|*lecture_id*|ID da aula.|N/A|
+|*user_id[]*|ID do usuário. Permite filtrar os progressos baseado no(s) usuário(s).|Precisa ser um usuário matriculado no curso ao qual a aula pertence.|
+
+h4. Exemplo
+
+Requisição:
+@GET /api/lectures/25/progress@
+
+Resposta:
+
+<pre>
+[
+  {
+    "id" : 1,
+    "finalized" : true,
+    "updated_at" : "2012-01-15T12:11:22-02:00",
+    "links" : [
+      { "rel" : "self", "href" : "http://www.redu.com.br/api/progress/1" },
+      { "rel" : "user", "href" : "http://www.redu.com.br/api/users/4" },
+      { "rel" : "lecture", "href" : "http://www.redu.com.br/api/lectures/25" },
+      { "rel" : "subject", "href" : "http://www.redu.com.br/api/subjects/5" }
+    ]
+  },
+  {
+    "id" : 9,
+    "finalized" : false,
+    "updated_at" : "2012-01-07T12:11:22-02:00",
+    "links" : [
+      { "rel" : "self", "href" : "http://www.redu.com.br/api/progress/9" },
+      { "rel" : "user", "href" : "http://www.redu.com.br/api/users/23" },
+      { "rel" : "lecture", "href" : "http://www.redu.com.br/api/lectures/25" },
+      { "rel" : "subject", "href" : "http://www.redu.com.br/api/subjects/5" }
+    ]
+  },
+]
+</pre>
+
+
+h2. "GET /api/subjects/:subject_id/progress/":#progress-subjects-get
+
+Retorna todos os progressos de um "módulo":/resources/subject.html, ou seja, de todos os usuários relacionados ao módulo. Pode-se filtrar os progressos de um módulo pelo(s) usuário(s).
+
+h4. Autorização
+
+É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual o módulo pertence como @teacher@ ou @environment_admin@.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Atributo|_.Descrição|_.Restrições|
+|*subject_id*|ID da módulo.|N/A|
+|*user_id[]*|ID do usuário. Permite filtrar os progressos baseado no(s) usuário(s).|Precisa ser um usuário matriculado no curso ao qual o módulo pertence.|
+
+h4. Exemplo
+
+Requisição:
+@GET /api/subjects/74/progress@
+
+Resposta:
+
+<pre>
+[
+  {
+    "id" : 1,
+    "finalized" : true,
+    "updated_at" : "2012-01-15T12:11:22-02:00",
+    "links" : [
+      { "rel" : "self", "href" : "http://www.redu.com.br/api/progress/1" },
+      { "rel" : "user", "href" : "http://www.redu.com.br/api/users/4" },
+      { "rel" : "lecture", "href" : "http://www.redu.com.br/api/lectures/25" },
+      { "rel" : "subject", "href" : "http://www.redu.com.br/api/subjects/5" }
+    ]
+  },
+  {
+    "id" : 9,
+    "finalized" : false,
+    "updated_at" : "2012-01-07T12:11:22-02:00",
+    "links" : [
+      { "rel" : "self", "href" : "http://www.redu.com.br/api/progress/9" },
+      { "rel" : "user", "href" : "http://www.redu.com.br/api/users/23" },
+      { "rel" : "lecture", "href" : "http://www.redu.com.br/api/lectures/25" },
+      { "rel" : "subject", "href" : "http://www.redu.com.br/api/subjects/5" }
+    ]
+  },
+  {
+    "id" : 2,
+    "finalized" : true,
+    "updated_at" : "2012-01-15T12:11:22-02:00",
+    "links" : [
+      { "rel" : "self", "href" : "http://www.redu.com.br/api/progress/2" },
+      { "rel" : "user", "href" : "http://www.redu.com.br/api/users/4" },
+      { "rel" : "lecture", "href" : "http://www.redu.com.br/api/lectures/48" },
+      { "rel" : "subject", "href" : "http://www.redu.com.br/api/subjects/7" }
+    ]
+  },
+  {
+    "id" : 10,
+    "finalized" : true,
+    "updated_at" : "2012-01-07T12:11:22-02:00",
+    "links" : [
+      { "rel" : "self", "href" : "http://www.redu.com.br/api/progress/10" },
+      { "rel" : "user", "href" : "http://www.redu.com.br/api/users/23" },
+      { "rel" : "lecture", "href" : "http://www.redu.com.br/api/lectures/48" },
+      { "rel" : "subject", "href" : "http://www.redu.com.br/api/subjects/7" }
+    ]
+  },
+]
+</pre>
