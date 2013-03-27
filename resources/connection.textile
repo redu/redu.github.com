@@ -5,7 +5,7 @@ group: navigation
 ---
 {% include JB/setup %}
 
-O Redu é uma rede social, onde seus usuários estão relacionados entre si através de uma Conexão. Um usuário pode ser contato de outro, através de uma solicitação de conexão, que pode ser aceita ou rejeitada. No contexto da API o relacionamento entre usuários será chamado de @connection@.
+O "Redu":http://www.redu.com.br é uma rede social, onde seus usuários estão relacionados entre si através de uma Conexão. Um usuário pode ser contato de outro, através de uma solicitação de conexão, que pode ser aceita ou rejeitada. No contexto da API o relacionamento entre usuários será chamado de @connection@.
 
 h4. Atributos:
 
@@ -16,13 +16,17 @@ table(table table-bordered table-striped){clear: both;}.
 |user|Usuário do qual está sendo requisitado as conexões|
 |contact|Contato do usuário|
 
+div(thumbnail). !../assets/images/connection-states.png!
+
 h4. Estados:
+
+Usuário requisita uma conexão para um contato, a conexão fica em estado @requested@ para o usuário e @pending@ para o contato. Quando a conexão é aceita os dois passam para o estado de @accepted@
 
 table(table table-bordered table-striped){clear: both;}.
 |_.Estado|_.Descrição|
-|accepted|Os usuários são contatos|
 |requested|O usuário requisitou o pedido de conexão|
 |pending|O usuário tem um requisição pendente para a conexão|
+|accepted|Os usuários são contatos|
 
 h2. "GET api/users/:user_id/connections":#get-connections
 
@@ -33,7 +37,7 @@ h4. Parâmetros
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*:user_id*| ID do usuário|N/A|
-|*state*| Filtragem pelos estados da conexão|N/A|
+|*status*| Filtragem pelo estado da conexão|N/A|
 
 h2. "GET api/connections/:id":#get-connection
 
@@ -43,9 +47,7 @@ h4. Parâmetros
 
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
-|*:user_id*| ID do usuário|N/A|
 |*:id*| ID da conexão|N/A|
-
 
 h4. Exemplo
 
@@ -55,100 +57,48 @@ h4. Exemplo
 
 *Resposta*
 {% highlight json %}
-[{
-  "id": 12,
-  "status": "accepetd",
-  "links": [
-    {
-      "rel": "self",
-      "href": "http://www.redu.com.br/api/users/jessicab/connections/12"
-    },
-    {
-      "rel": "contact",
-      "href": "http://www.redu.com.br/api/users/guiocavalcanti"
-    },
-    {
-      "rel": "user",
-      "href": "http://www.redu.com.br/api/api/users/jessicab"
-    }
-  ],
-  "contact": {
-    "first_name": "Guilherme",
-    "last_name": "Cavalcanti",
-    "login": "guiocavalcanti",
-    "id": 4,
-    "thumbnails": [
-      {
-        "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/4/thumb_32/Guilherme3x4%20copy.jpg?1323711306",
-        "size": "32x32"
-      },
-      {
-        "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/4/thumb_110/Guilherme3x4%20copy.jpg?1323711306",
-        "size": "110x110"
-      }
-    ],
+{
     "links": [
-      {
-        "rel": "self",
-        "href": "http://www.redu.com.br/api/users/guiocavalcanti"
-      },
-      {
-        "rel": "enrollments",
-        "href": "http://www.redu.com.br/api/users/guiocavalcanti/enrollments"
-      },
-      {
-        "rel": "statuses",
-        "href": "http://www.redu.com.br/api/users/guiocavalcanti/statuses"
-      },
-      {
-        "rel": "timeline",
-        "href": "http://www.redu.com.br/api/users/guiocavalcanti/statuses/timeline"
-      },
-      {
-        "rel": "contacts",
-        "href": "http://www.redu.com.br/api/users/guiocavalcanti/contacts"
-      }
-    ]
-  },
-  "user": {
-    "first_name": "Jéssica",
-    "last_name": "Barbalho",
-    "login": "jessicab",
-    "id": 143,
-    "thumbnails": [
-      {
-        "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/4/thumb_32/Jéssica.jpg?1334865750",
-        "size": "32x32"
-      },
-      {
-        "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/4/thumb_110/Jéssica.jpg?1334865750",
-        "size": "110x110"
-      }
-    ],
-    "links": [
-      {
-        "rel": "self",
-        "href": "http://www.redu.com.br/api/users/jessicab"
-      },
-      {
-        "rel": "enrollments",
-        "href": "http://www.redu.com.br/api/users/jessicab/enrollments"
-      },
-      {
-        "rel": "statuses",
-        "href": "http://www.redu.com.br/api/users/jessicab/statuses"
-      },
-      {
-        "rel": "timeline",
-        "href": "http://www.redu.com.br/api/users/jessicab/statuses/timeline"
-      },
-      {
-        "rel": "contacts",
-        "href": "http://www.redu.com.br/api/users/jessicab/contacts"
-      }
-    ]
-  }
-}]
+    { "rel": "self", "href": "http://redu.com.br0/api/connections/6501" },
+    { "rel": "user", "href": "http://redu.com.br0/api/users/jessicab" },
+    { "rel": "contact", "href": "http://redu.com.br0/api/users/julianalucena" }],
+    "id": 6501,
+    "contact": {
+        "links": [
+        { "rel": "chats","href": "http://redu.com.br0/api/users/julianalucena/chats" },
+        { "rel": "connections", "href": "http://redu.com.br0/api/users/julianalucena/connections" },
+        { "rel": "contacts", "href": "http://redu.com.br0/api/users/julianalucena/contacts" },
+        { "rel": "self", "href": "http://redu.com.br0/api/users/julianalucena" },
+        { "rel": "statuses", "href": "http://redu.com.br0/api/users/julianalucena/statuses" },
+        { "rel": "timeline", "href": "http://redu.com.br0/api/users/julianalucena/statuses/timeline" },
+        { "rel": "enrollments", "href": "http://redu.com.br0/api/users/julianalucena/enrollments" }],
+        "thumbnails": [
+        { "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/8/thumb_32/2012-10-14_14.09.33.jpg?1355925772", "size": "32x32" },
+        { "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/8/thumb_110/2012-10-14_14.09.33.jpg?1355925772", "size": "110x110" }],
+        "id": 8,
+        "last_name": "Lucena",
+        "login": "julianalucena",
+        "first_name": "Juliana"
+    },
+    "user": {
+        "links": [
+        { "rel": "chats","href": "http://redu.com.br0/api/users/jessicab/chats" },
+        { "rel": "connections", "href": "http://redu.com.br0/api/users/jessicab/connections" },
+        { "rel": "contacts", "href": "http://redu.com.br0/api/users/jessicab/contacts" },
+        { "rel": "self", "href": "http://redu.com.br0/api/users/jessicab" },
+        { "rel": "statuses", "href": "http://redu.com.br0/api/users/jessicab/statuses" },
+        { "rel": "timeline", "href": "http://redu.com.br0/api/users/jessicab/statuses/timeline" },
+        { "rel": "enrollments", "href": "http://redu.com.br0/api/users/jessicab/enrollments" }],
+        "thumbnails": [
+        { "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/443/thumb_32/J%C3%A9ssica.jpg?1334865750", "size": "32x32" },
+        { "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/443/thumb_110/J%C3%A9ssica.jpg?1334865750", "size": "110x110" }],
+        "id": 443,
+        "last_name": "Barbalho",
+        "login": "jessicab",
+        "first_name": "Jéssica"
+    },
+    "status": "accepted"
+}
 {% endhighlight %}
 
 h2. "POST /api/users/:user_id/connections":#post-user-connection
@@ -162,7 +112,7 @@ table(table table-bordered table-striped).
 |*:user_id*| ID do usuário em questão|N/A|
 |*connection[contact_id]*| ID do novo contato |N/A|
 
-h2. "PUT /api/users/:user_id/connections/:connection_id":#update-connection
+h2. "PUT /api/connections/:connection_id":#update-connection
 
 Aceita um pedido de conexão que está no estado @pending@ transformando-o em @accepted@.
 
@@ -170,7 +120,6 @@ h4. Parâmetros
 
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
-|*:user_id*| ID do usuário em questão|N/A|
 |*:connection_id*| ID da conexão |N/A|
 
 h2. "DELETE /api/connections/:connection_id":#delete-connection
@@ -181,5 +130,4 @@ h4. Parâmetros
 
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
-|*:user_id*| ID do usuário em questão|N/A|
 |*:connection_id*| ID da conexão |N/A|
