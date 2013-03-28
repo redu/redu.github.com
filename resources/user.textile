@@ -5,6 +5,133 @@ group: navigation
 ---
 {% include JB/setup %}
 
+Representa um usuário cadastrado no Redu.
+
+h2. Atributos
+
+table(table table-bordered table-striped).
+|_.Atributo|_.Descrição|
+|*ID*|Identificador do usuário.|
+|*login*|Login do usuário.|
+|*email*|Email cadastrado no Redu.|
+|*first_name*|Primeiro nome.|
+|*last_name*|Último nome.|
+|localization|Onde mora.|
+|mobile|Telefone celular.|
+|birthday|Data de nascimento.|
+|birth_localization|Onde nasceu.|
+|friends_count|Quantidade de contatos.|
+|created_at|Data de criação.|
+|updated_at|Data de atualização.|
+|social_networks|Redes sociais cadastradas.|
+|thumbnails|Thumbnails do usuário. Tamanhos disponíveis: 24x24, 32x32, 48x48, 90x90, 96x96, 110x110 e 160x160.|
+
+h2. Links
+
+table(table table-bordered table-striped).
+|_.Link|_.Descrição|
+|self|Usuário em questão.|
+|enrollments|Matrículas.|
+|statuses|Postagens feitas no mural do usuário.|
+|timeline|_Feed_ de atualizações de todos os murais que tem acesso.|
+|contacts|Contatos.|
+|chats| Conversas com seus contatos.|
+|connections| Conexões com seus contatos.|
+
+h2. Representação
+
+
+{% highlight json %}
+{
+    "last_name": "Lucena",
+    "first_name": "Juliana",
+    "birth_localization": "Recife, Pernambuco",
+    "social_networks": [
+        {
+            "profile": "facebook.com/julianamlucena",
+            "name": "facebook"
+        },
+        {
+            "profile": "linkedin.com/in/julianalucena",
+            "name": "linkedin"
+        },
+        {
+            "profile": "twitter.com/#!/julianalucenaa",
+            "name": "twitter"
+        }
+    ],
+    "links": [
+        {
+            "href": "http://www.redu.com.br/api/users/julianalucena/enrollments",
+            "rel": "enrollments"
+        },
+        {
+            "href": "http://www.redu.com.br/api/users/julianalucena/statuses",
+            "rel": "statuses"
+        },
+        {
+            "href": "http://www.redu.com.br/api/users/julianalucena",
+            "rel": "self"
+        },
+        {
+            "href": "http://www.redu.com.br/api/users/julianalucena/chats",
+            "rel": "chats"
+        },
+        {
+            "href": "http://www.redu.com.br/api/users/julianalucena/statuses/timeline",
+            "rel": "timeline"
+        },
+        {
+            "href": "http://www.redu.com.br/api/users/julianalucena/contacts",
+            "rel": "contacts"
+        },
+        {
+            "href": "http://www.redu.com.br/api/users/julianalucena/connections",
+            "rel": "connections"
+        }
+    ],
+    "created_at": "2010-09-14T19:25:17-03:00",
+    "friends_count": 118,
+    "birthday": "1989-05-29",
+    "localization": "Recife, Pernambuco",
+    "login": "julianalucena",
+    "thumbnails": [
+        {
+            "size": "24x24",
+            "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/8/thumb_24/juliana2.png?1351618261"
+        },
+        {
+            "size": "110x110",
+            "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/8/thumb_110/juliana2.png?1351618261"
+        },
+        {
+            "size": "32x32",
+            "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/8/thumb_32/juliana2.png?1351618261"
+        },
+        {
+            "size": "160x160",
+            "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/8/thumb_160/juliana2.png?1351618261"
+        },
+        {
+            "size": "90x90",
+            "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/8/thumb_90/juliana2.png?1351618261"
+        },
+        {
+            "size": "48x48",
+            "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/8/thumb_48/juliana2.png?1351618261"
+        },
+        {
+            "size": "96x96",
+            "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/8/thumb_96/juliana2.png?1351618261"
+        }
+    ],
+    "email": "julianalucenaa@gmail.com",
+    "updated_at": "2013-03-26T15:57:57-03:00",
+    "id": 8,
+    "mobile": ""
+}
+{% endhighlight %}
+
 h2. "GET /api/users/:id":#get-users
 
 Retorna um único usuário com o ID ou login especificado. Tanto o login quanto o ID servem como identificadores únicos para os usuários, por isso podem ser passados como parâmetro aqui.
