@@ -59,19 +59,19 @@ h4. Exemplo
 {% highlight json %}
 {
     "links": [
-    { "rel": "self", "href": "http://redu.com.br0/api/connections/6501" },
-    { "rel": "user", "href": "http://redu.com.br0/api/users/jessicab" },
-    { "rel": "contact", "href": "http://redu.com.br0/api/users/julianalucena" }],
+    { "rel": "self", "href": "http://redu.com.br/api/connections/6501" },
+    { "rel": "user", "href": "http://redu.com.br/api/users/jessicab" },
+    { "rel": "contact", "href": "http://redu.com.br/api/users/julianalucena" }],
     "id": 6501,
     "contact": {
         "links": [
-        { "rel": "chats","href": "http://redu.com.br0/api/users/julianalucena/chats" },
-        { "rel": "connections", "href": "http://redu.com.br0/api/users/julianalucena/connections" },
-        { "rel": "contacts", "href": "http://redu.com.br0/api/users/julianalucena/contacts" },
-        { "rel": "self", "href": "http://redu.com.br0/api/users/julianalucena" },
-        { "rel": "statuses", "href": "http://redu.com.br0/api/users/julianalucena/statuses" },
-        { "rel": "timeline", "href": "http://redu.com.br0/api/users/julianalucena/statuses/timeline" },
-        { "rel": "enrollments", "href": "http://redu.com.br0/api/users/julianalucena/enrollments" }],
+        { "rel": "chats","href": "http://redu.com.br/api/users/julianalucena/chats" },
+        { "rel": "connections", "href": "http://redu.com.br/api/users/julianalucena/connections" },
+        { "rel": "contacts", "href": "http://redu.com.br/api/users/julianalucena/contacts" },
+        { "rel": "self", "href": "http://redu.com.br/api/users/julianalucena" },
+        { "rel": "statuses", "href": "http://redu.com.br/api/users/julianalucena/statuses" },
+        { "rel": "timeline", "href": "http://redu.com.br/api/users/julianalucena/statuses/timeline" },
+        { "rel": "enrollments", "href": "http://redu.com.br/api/users/julianalucena/enrollments" }],
         "thumbnails": [
         { "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/8/thumb_32/2012-10-14_14.09.33.jpg?1355925772", "size": "32x32" },
         { "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/8/thumb_110/2012-10-14_14.09.33.jpg?1355925772", "size": "110x110" }],
@@ -82,13 +82,13 @@ h4. Exemplo
     },
     "user": {
         "links": [
-        { "rel": "chats","href": "http://redu.com.br0/api/users/jessicab/chats" },
-        { "rel": "connections", "href": "http://redu.com.br0/api/users/jessicab/connections" },
-        { "rel": "contacts", "href": "http://redu.com.br0/api/users/jessicab/contacts" },
-        { "rel": "self", "href": "http://redu.com.br0/api/users/jessicab" },
-        { "rel": "statuses", "href": "http://redu.com.br0/api/users/jessicab/statuses" },
-        { "rel": "timeline", "href": "http://redu.com.br0/api/users/jessicab/statuses/timeline" },
-        { "rel": "enrollments", "href": "http://redu.com.br0/api/users/jessicab/enrollments" }],
+        { "rel": "chats","href": "http://redu.com.br/api/users/jessicab/chats" },
+        { "rel": "connections", "href": "http://redu.com.br/api/users/jessicab/connections" },
+        { "rel": "contacts", "href": "http://redu.com.br/api/users/jessicab/contacts" },
+        { "rel": "self", "href": "http://redu.com.br/api/users/jessicab" },
+        { "rel": "statuses", "href": "http://redu.com.br/api/users/jessicab/statuses" },
+        { "rel": "timeline", "href": "http://redu.com.br/api/users/jessicab/statuses/timeline" },
+        { "rel": "enrollments", "href": "http://redu.com.br/api/users/jessicab/enrollments" }],
         "thumbnails": [
         { "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/443/thumb_32/J%C3%A9ssica.jpg?1334865750", "size": "32x32" },
         { "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/443/thumb_110/J%C3%A9ssica.jpg?1334865750", "size": "110x110" }],
