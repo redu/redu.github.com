@@ -164,8 +164,8 @@ h4. Exemplo
 {% highlight json %}
 {
   "created_at": "2013-01-16T10:28:23-02:00",
-    "name": "Nome da aula",
-    "links": [
+  "name": "Nome da aula",
+  "links": [
     {
       "href": "http://www.redu.com.br/api/lectures/4877-novo",
       "rel": "self"
@@ -193,16 +193,17 @@ h4. Exemplo
     {
       "href": "http://www.redu.com.br/api/lectures/4877/statuses",
       "rel": "statuses"
-    }
+    },
   ],
-    "position": 1,
-    "content" : "<html></html>",
-    "raw" : "lorem lipsum",
-    "type": "Page",
-    "id": 4877,
-    "rating": 0,
-    "view_count": 1,
-    "updated_at": "2013-01-16T10:28:23-02:00"
+  "position": 1,
+  "content": "<html></html>",
+  "raw": "lorem lipsum",
+  "type": "Page",
+  "mimetype": "text/html",
+  "id": 4877,
+  "rating": 0,
+  "view_count": 1,
+  "updated_at": "2013-01-16T10:28:23-02:00"
 }
 {% endhighlight %}
 
