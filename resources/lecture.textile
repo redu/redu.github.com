@@ -271,3 +271,57 @@ h4. Exemplo
   "updated_at": "2013-01-16T10:28:23-02:00"
 }
 {% endhighlight %}
+
+h2. "POST /api/subjects/:subject_id/lectures":#post-lectures
+
+Cria uma aula.
+
+h4. Autorização
+
+Deve estar matriculado no "Curso":course.html ao qual o módulo pertence (no caso, o curso ao qual a disciplina pertence) e ter o papel de @environment_admin@ ou @teacher@.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Atributo|_.Descrição|_.Restrições|
+|*lecture[name]*|Nome|N/A|
+|*lecture[type]*|Tipo|Deve ser @media@, @document@ ou @page@.|
+|*lecture[media]*|Arquivo ou URL do youtube|Apenas para aulas do tipo @media@ e @document@.|
+|*lecture[content]*|Conteúdo em texto|Apenas para aulas do tipo @page@.|
+
+Em casos casos em que há o upload de arquivos, são necessários os seguintes cabeçalhos HTTP:
+
+1. @Content-Type: multipart/form-data@
+2. @Content-Length: 13951@ (em bytes)
+
+h4. Exemplo
+
+* Documento (@Document@)
+
+{% highlight sh %}
+curl \
+  -H 'Authorization: OAuth AJOBibdmecfKxOpEeRWbdmVVCGujGRU3JKA0jyQM' \
+  -F 'lecture[media]=@spec/fixtures/api/pdf_example.pdf;type=application/pdf' \
+  -F 'lecture[name]=My lecture' \
+  -F 'lecture[type]=Document' \
+  http://www.redu.com.br/api/subjects/117/lectures -vv
+{% endhighlight %}
+
+* Página (@Page@)
+
+{% highlight sh %}
+curl \
+  -H 'Authorization: OAuth AJOBibdmecfKxOpEeRWbdmVVCGujGRU3JKA0jyQM' \
+  -F 'lecture[content]=My <strong>lecture</strong> content.' \
+  -F 'lecture[name]=My lecture' \
+  -F 'lecture[type]=Page' \
+  http://www.redu.com.br/api/subjects/117/lectures -vv
+{% endhighlight %}
+
+h2. "DELETE /api/lectures/:id":#delete-lecture
+
+Deleta uma aula.
+
+h4. Autorização
+
+Deve estar matriculado no "Curso":course.html ao qual o módulo pertence (no caso, o curso ao qual a disciplina pertence) e ter o papel de @environment_admin@ ou @teacher@.
