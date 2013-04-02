@@ -36,9 +36,13 @@ table(table table-bordered table-striped){clear: both;}.
 |statusable|Link para o recurso onde o Activity foi criado.|http://www.redu.com.br/api/lectures/5874-apresentacao. Pode ser @User@, @Space@ ou @Lecture@|
 |self|Link para o Activity sendo visualizado|http://www.redu.com.br/api/statuses/1212|
 
+table(table table-bordered table-striped){clear: both;}.
+|_.Atributo|_.Descrição|_.Exemplo|
+|answers_count|Quantidade de respostas|3|
+
 h3. Tipo Help
 
-div(thumbnail). !/assets/images/status-help.png!
+div(thumbnail){margin:10px 0 15px 0;}. !/assets/images/status-help.png!
 
 Bem parecido com o Activity, Status do tipo Help representam pedidos de ajuda ou perguntas dos usuários. Eles só podem ser criados nos murais das aulas (lecture). No fim do dia, Status com o tipo Help têm a mesma função do Activity, só há uma restrição dos locais onde eles podem ser criados e a representaçõa na interface (ver figura).
 
@@ -50,6 +54,10 @@ table(table table-bordered table-striped){clear: both;}.
 |answers|Link apra respostas do Help|http://www.redu.com.br/api/statuses/107070/answers|
 |statusable|Link para o recurso onde o Help foi criado.|http://www.redu.com.br/api/lectures/5874-apresentacao. Pode ser apenas uma @Lecture@|
 |self|Link para o Help sendo visualizado|http://www.redu.com.br/api/statuses/1212|
+
+table(table table-bordered table-striped){clear: both;}.
+|_.Atributo|_.Descrição|_.Exemplo|
+|answers_count|Quantidade de respostas|7|
 
 h3. Tipo Answer
 
@@ -215,7 +223,8 @@ h4. Exemplo
     },
     "id": 34676,
     "created_at": "2012-07-02T13:53:50-03:00",
-    "text": "Todos os componentes da interface do Redu agora são opensource!\r\n\r\nVocês são livres para utilizar os CSS e JavaScript dentro nas suas aplicações. Para incluir e utilizar basta ir em: http://developers.redu.com.br/ui-components\r\n\r\nNo canto superior direito tem um índice de todos os elementos e sobre como cria-los."
+    "text": "Todos os componentes da interface do Redu agora são opensource!\r\n\r\nVocês são livres para utilizar os CSS e JavaScript dentro nas suas aplicações. Para incluir e utilizar basta ir em: http://developers.redu.com.br/ui-components\r\n\r\nNo canto superior direito tem um índice de todos os elementos e sobre como cria-los.",
+    "answers_count": 6
 }]
 {% endhighlight %}
 
