@@ -111,7 +111,7 @@ h4. Autorização
 
 h4. Exemplo
 
-Requisição: @GET /api/spaces/12/lectures @
+Requisição: @GET /api/spaces/12/lectures@
 
 Resposta:
 
