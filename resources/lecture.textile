@@ -320,7 +320,7 @@ Neste exemplo, uma aula com o type @Media@ será criada a partir do arquivo @vid
 {% highlight sh %}
 curl \
   -H 'Authorization: OAuth AJOBibdmecfKxOpEeRWbdmVVCGujGRU3JKA0jyQM' \
-  -F 'lecture[media]=@video.avit;type=application/pdf' \
+  -F 'lecture[media]=@video.avi;type=video/mpeg' \
   -F 'lecture[name]=My lecture' \
   -F 'lecture[type]=Media' \
   http://www.redu.com.br/api/subjects/117/lectures -vv
