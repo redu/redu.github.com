@@ -296,6 +296,29 @@ Em casos casos em que há o upload de arquivos, são necessários os seguintes c
 1. @Content-Type: multipart/form-data@
 2. @Content-Length: 13951@ (tamanho do arquivo em bytes)
 
+O uso do @Content-type@ @multipart/form-data@ torna possível que o corpo da requisição HTTP seja composto vários conjuntos de dados, cada qual possuindo seu próprio Content-type. Com isso podemos enviar, além do @name@ e @type@, os dados binários que compõem uma imagem ou um PDF.
+
+O Redu é capaz de detectar automaticamente o Content-type para imagens. Porém, ao fazer upload de outros tipos de mídia, é necessário informar o seu Content-type. A maior parte das bibliotecas HTTP possuem esta funcionalidade implementada. Abaixo pode ser visto um exemplo de corpo de uma requisição HTTP para o upload de vídeo com o formato MPEG:
+
+{% highlight sh %}
+------------------------------17c3f87d4b40
+Content-Disposition: form-data; name="lecture[media]"; filename=
+"video_example.avi"
+Content-Type: video/mpeg
+
+<dados binários>
+------------------------------17c3f87d4b40
+Content-Disposition: form-data; name="lecture[name]"
+
+testando_upload_de_aula
+------------------------------17c3f87d4b40
+Content-Disposition: form-data; name="lecture[type]"
+
+Media
+{% endhighlight %}
+
+Este comportamento é descrito em detalhes no "RFC 2388":http://www.ietf.org/rfc/rfc2388.txt
+
 h4. Exemplo
 
 Em todos os exemplos é utilizado "cURL":http://curl.haxx.se/docs/manpage.html para testar a criação de Lecture.
