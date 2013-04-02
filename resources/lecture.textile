@@ -284,27 +284,58 @@ h4. Parâmetros
 
 table(table table-bordered table-striped).
 |_.Atributo|_.Descrição|_.Restrições|
-|*lecture[name]*|Nome|N/A|
-|*lecture[type]*|Tipo|Deve ser @media@, @document@ ou @page@.|
-|*lecture[media]*|Arquivo ou URL do youtube|Apenas para aulas do tipo @media@ e @document@.|
-|*lecture[content]*|Conteúdo em texto|Apenas para aulas do tipo @page@.|
+|*lecture[name]*|Nome da aula|N/A|
+|*lecture[type]*|Tipo|Deve ser @Media@, @Document@ ou @Page@.|
+|*lecture[media]*|Arquivo ou URL do youtube|Apenas para aulas do tipo @Pedia@ e @Socument@.|
+|*lecture[content]*|Conteúdo em texto|Apenas para aulas do tipo @Page@.|
+
+h4. Upload de arquivos
 
 Em casos casos em que há o upload de arquivos, são necessários os seguintes cabeçalhos HTTP:
 
 1. @Content-Type: multipart/form-data@
-2. @Content-Length: 13951@ (em bytes)
+2. @Content-Length: 13951@ (tamanho do arquivo em bytes)
 
 h4. Exemplo
 
+Em todos os exemplos é utilizado "cURL":http://curl.haxx.se/docs/manpage.html para testar a criação de Lecture.
+
 * Documento (@Document@)
+
+Neste exemplo, uma aula com o type @Document@ será criada a partir do arquivo @pdf_example.pdf@ no diretório atual.
 
 {% highlight sh %}
 curl \
   -H 'Authorization: OAuth AJOBibdmecfKxOpEeRWbdmVVCGujGRU3JKA0jyQM' \
-  -F 'lecture[media]=@spec/fixtures/api/pdf_example.pdf;type=application/pdf' \
+  -F 'lecture[media]=@pdf_example.pdf;type=application/pdf' \
   -F 'lecture[name]=My lecture' \
   -F 'lecture[type]=Document' \
   http://www.redu.com.br/api/subjects/117/lectures -vv
+{% endhighlight %}
+
+* Media (upload)
+
+Neste exemplo, uma aula com o type @Media@ será criada a partir do arquivo @video.avi@ no diretório atual.
+
+{% highlight sh %}
+curl \
+  -H 'Authorization: OAuth AJOBibdmecfKxOpEeRWbdmVVCGujGRU3JKA0jyQM' \
+  -F 'lecture[media]=@video.avit;type=application/pdf' \
+  -F 'lecture[name]=My lecture' \
+  -F 'lecture[type]=Media' \
+  http://www.redu.com.br/api/subjects/117/lectures -vv
+{% endhighlight %}
+
+* Media (YouTube)
+
+Neste exemplo, uma aula com o type @Media@ será criada a partir de um "link":http://www.youtube.com/watch?v=GrV2SZuRPv0 do YouTube.
+
+{% highlight sh %}
+curl \
+  -H 'Authorization: OAuth AJOBibdmecfKxOpEeRWbdmVVCGujGRU3JKA0jyQM' \
+  -H 'Content-type: application/json' \
+  -d '{ "lecture" : { "name" : "Youtube", "media" : "http://www.youtube.com/watch?v=GrV2SZuRPv0", "type" : "Media" } }' \
+  http://redu.com.br/api/subjects/117/lectures -vv
 {% endhighlight %}
 
 * Página (@Page@)
@@ -312,10 +343,9 @@ curl \
 {% highlight sh %}
 curl \
   -H 'Authorization: OAuth AJOBibdmecfKxOpEeRWbdmVVCGujGRU3JKA0jyQM' \
-  -F 'lecture[content]=My <strong>lecture</strong> content.' \
-  -F 'lecture[name]=My lecture' \
-  -F 'lecture[type]=Page' \
-  http://www.redu.com.br/api/subjects/117/lectures -vv
+  -H 'Content-type: application/json' \
+  -d '{ "lecture" : { "name" : "Minha pag", "content" : "<strong>meu conteudo</strong>", "type" : "Page" } }' \
+  http://redu.com.br/api/subjects/117/lectures -vv
 {% endhighlight %}
 
 h2. "DELETE /api/lectures/:id":#delete-lecture
