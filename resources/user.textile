@@ -16,6 +16,8 @@ table(table table-bordered table-striped).
 |*email*|Email cadastrado no Redu.|
 |*first_name*|Primeiro nome.|
 |*last_name*|Último nome.|
+|description|Descrição do usuário.|
+|favorite_quotation|Frase marcante.|
 |localization|Onde mora.|
 |mobile|Telefone celular.|
 |birthday|Data de nascimento.|
@@ -24,6 +26,7 @@ table(table table-bordered table-striped).
 |created_at|Data de criação.|
 |updated_at|Data de atualização.|
 |social_networks|Redes sociais cadastradas.|
+|interested_areas|Áreas de interesse.|
 |thumbnails|Thumbnails do usuário. Tamanhos disponíveis: 24x24, 32x32, 48x48, 90x90, 96x96, 110x110 e 160x160.|
 
 h2. Links
@@ -46,6 +49,8 @@ h2. Representação
     "last_name": "Lucena",
     "first_name": "Juliana",
     "birth_localization": "Recife, Pernambuco",
+    "description": "Graduanda em Ciência da Computação",
+    "favorite_quotation": "Frase marcante"
     "social_networks": [
         {
             "profile": "facebook.com/julianamlucena",
@@ -123,6 +128,17 @@ h2. Representação
         {
             "size": "96x96",
             "href": "http://s3.amazonaws.com/redu_uploads/users/avatars/8/thumb_96/juliana2.png?1351618261"
+        }
+    ],
+    "interested_areas": [
+        {
+            "name": "Web"
+        },
+        {
+            "name": "Educação"
+        },
+        {
+            "name": "informática"
         }
     ],
     "email": "julianalucenaa@gmail.com",
