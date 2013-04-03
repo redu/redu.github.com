@@ -1,0 +1,80 @@
+---
+layout: page
+title: "Links"
+group: navigation
+---
+{% include JB/setup %}
+
+Assim como páginas na Web possuem links para outras páginas, os recursos da nossa API possuem referências para outros recursos associados. Estas referências estão acessíveis através da propriedade @links@ nas representação do recurso.
+
+Esta funcionalidade torna possível que as aplicações que usam a API não precisem conhecer a _priori_ todas as possíveis URLs. Por exemplo, ao pegar a representação do usuário (@GET /api/me@) é possível acessar as matrículas dele através do link cujo @rel@ é @enrollment@:
+
+{% highlight json %}
+{
+    "links": [
+        { "rel": "enrollments",
+          "href": "http://www.redu.com.br/api/users/julianalucena/enrollments" }
+    ]
+}
+{% endhighlight %}
+
+Para mais informações sobre as motivações e os benefícios dos links, é recomendada a leitura "deste":http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven artigo.
+
+Um link **obrigatoriamente** possui os atributos:
+
+1. @rel@: Identifica o link.
+2. @href@: Link do recurso na API REST.
+
+Ele também possui, opcionalmente, os seguintes atributos:
+
+1. @name@: Nome do recurso.
+2. @permalink@: Link do recurso na interface Web.
+
+**Exemplo de links na representação de "Status":/resources/status.html**:
+
+{% highlight json %}
+{
+    "links": [
+        {
+            "name": "Graduação em Ciência da Computação",
+            "href": "http://www.redu.com.br/api/courses/graduacao-em-ciencia-da-computacao",
+            "rel": "course",
+            "permalink": "http://www.redu.com.br/ium/cursos/graduacao-em-ciencia-da-computacao"
+        },
+        {
+            "href": "http://www.redu.com.br/api/statuses/1130/answers",
+            "rel": "answers"
+        },
+        {
+            "href": "http://www.redu.com.br/api/users/alexodrosgomes",
+            "rel": "user"
+        },
+        {
+            "href": "http://www.redu.com.br/api/statuses/1130",
+            "rel": "self"
+        },
+        {
+            "name": "Centro de Informática",
+            "href": "http://www.redu.com.br/api/environments/ium",
+            "rel": "environment",
+            "permalink": "http://www.redu.com.br/ium"
+        },
+        {
+            "name": "if681 - Interface Usuário Máquina",
+            "href": "http://www.redu.com.br/api/spaces/62",
+            "rel": "space",
+            "permalink": "http://www.redu.com.br/espacos/62"
+        },
+        {
+            "href": "http://www.redu.com.br/api/spaces/62",
+            "rel": "statusable"
+        }
+    ],
+    "created_at": "2011-05-12T18:07:31-03:00",
+    "text": "Pessoal,o módulo de orientação do segundo workshop já está criado. Postem suas dúvidas nele que estarei respondendo",
+    "answers_count": 4,
+    "updated_at": "2011-09-22T17:47:24-03:00",
+    "id": 1130,
+    "type": "Activity"
+}
+{% endhighlight %}
