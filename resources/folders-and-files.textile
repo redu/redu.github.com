@@ -116,6 +116,55 @@ table(table table-bordered table-striped).
 |_.Atributo|_.Descrição|_.Restrições|
 |*id*|ID da disciplina.|N/A|
 
+h2. "POST /api/folders/:id/folders":#folder-update
+
+Cria novo diretório dentro do diretório especificado.
+
+h4. Autorização
+
+É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual a disciplina pertence e ser administrador, professor ou tutor no curso.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Atributo|_.Descrição|_.Restrições|
+|*folder[name]*|Novo nome do arquivo|N/A|
+
+h4. Exemplo
+
+O exemplo abaixo foi realizado utilizando o programa "cURL":http://curl.haxx.se/.
+
+{% highlight sh %}
+curl \
+  -H 'Authorization: OAuth us8Jsbsgbc3bb5b56nCuBFirbXni0LpQWI' \
+  -H 'Content-type: application/json' \
+  -X 'POST' \
+  -d '{ "folder" : { "name" : "new folder" } }' \
+  http://redu.com.br/api/folders/31/folders -vv
+{% endhighlight %}
+
+h2. "PUT /api/folders/:id":#folder-update
+
+Atualiza nome de um Folder.
+
+h4. Autorização
+
+É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual a disciplina pertence e ser administrador, professor ou tutor no curso.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Atributo|_.Descrição|_.Restrições|
+|*folder[name]*|Novo nome do arquivo|N/A|
+
+h2. "DELETE /api/folders/:id":#file-delete
+
+Remove a pasta especificada.
+
+h4. Autorização
+
+É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html e ser administrador, professor ou tutor no curso.
+
 h1. File
 
 Representa um arquivo no sistema de arquivos, o qual está contido em uma pasta.
@@ -235,6 +284,7 @@ O uso do Content-type multipart/form-data torna possível que o corpo da requisi
 
 h4. Exemplo
 
+O exemplo abaixo foi realizado utilizando o programa "cURL":http://curl.haxx.se/.
 
 {% highlight sh %}
 curl \
