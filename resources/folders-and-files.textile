@@ -209,3 +209,44 @@ h4. Parâmetros
 table(table table-bordered table-striped).
 |_.Atributo|_.Descrição|_.Restrições|
 |*id*|ID da pasta.|N/A|
+
+h2. "POST /api/folders/:folder_id/files":#file-post
+
+Cria um novo arquivo dentro da pasta especificada.
+
+h4. Autorização
+
+É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html e ser administrador, professor ou tutor no curso.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Atributo|_.Descrição|_.Restrições|
+|*file[content]*|Dados binários do arquivo a ser criado|Tamanho máximo de 100 Mb|
+
+h5. Upload de arquivos
+
+Em casos casos em que há o upload de arquivos, são necessários os seguintes cabeçalhos HTTP:
+
+1. Content-Type: multipart/form-data
+2. Content-Length: 13951 (tamanho do arquivo em bytes)
+
+O uso do Content-type multipart/form-data torna possível que o corpo da requisição HTTP seja composto vários conjuntos de dados, cada qual possuindo seu próprio Content-type. Com isso podemos enviar, além do name e type, os dados binários que compõem uma imagem ou um PDF.
+
+h4. Exemplo
+
+
+{% highlight sh %}
+curl \
+  -H 'Authorization: OAuth us8JsbsgaH32jh3h23g32irbXni0LpQWI' \
+  -F 'file[content]=@spec/fixtures/api/pdf_example.pdf;type=application/pdf' \
+  http://redu.com.br/api/folders/31/files -vv
+{% endhighlight %}
+
+h2. "DELETE /api/files/:id":#file-delete
+
+Remove o arquivo especificado
+
+h4. Autorização
+
+É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html e ser administrador, professor ou tutor no curso.
