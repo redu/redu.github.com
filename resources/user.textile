@@ -319,6 +319,7 @@ table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*space_id*| ID da Disciplina | N/A |
 |*role*| Papel do usuário no curso. | Pode ser um dos seguintes papéis: @member@, @teacher@, @environment_admin@, @tutor@|
+|*partial*| Escolhe uma representação menor para o usuário, mostrando apenas: @id@, @first_name@ e @last_name@ | @true@ |
 
 h4. Exemplo
 
