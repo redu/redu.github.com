@@ -87,6 +87,8 @@ Em geral Logs são utilizados para representar as alterações dos usuários no 
 * Criação de "Módulo":/resources/subject.html (logeable_type @Subject@)
 * Criação de "Curso":/resources/course.html (logeable_type @Course@)
 * "Matrícula":/resources/enrollment.html no Curso (logeable_type @Enrollment@)
+* Modificação do perfil do "Usuário":/resources/user.html no Curso (logeable_type @User@)
+* Requisição de "conexão":/resources/connection.html no Curso (logeable_type @Friendship@)
 
 Além dos atributos que o Activity, Help e Answer possuem, o Log possui um atributo @logeable_type@ que representa o tipo do objeto ao qual o Log está associado. Por exemplo, a criação de uma aula gera um Log cujo o @logeable_type@ é Lecture. Além disso, o Log tem associado a sí um link para o @logeable@. No exemplo dado anteriormente o link @logeable@ conteria o endereço para a aula criada.
 
