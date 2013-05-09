@@ -111,7 +111,7 @@ h4. Parâmetros
 table(table table-bordered table-striped).
 |_.Atributo|_.Descrição|_.Restrições|
 |*lecture_id*|ID da aula.|N/A|
-|*user_id[]*|ID do usuário. Permite filtrar os progressos baseado no(s) usuário(s).|Precisa ser um usuário matriculado no curso ao qual a aula pertence.|
+|users_ids[]|ID do usuário. Permite filtrar os progressos baseado no(s) usuário(s).|Precisa ser um usuário matriculado no curso ao qual a aula pertence.|
 
 h4. Exemplo
 
@@ -161,7 +161,7 @@ h4. Parâmetros
 table(table table-bordered table-striped).
 |_.Atributo|_.Descrição|_.Restrições|
 |*subject_id*|ID da módulo.|N/A|
-|*user_id[]*|ID do usuário. Permite filtrar os progressos baseado no(s) usuário(s).|Precisa ser um usuário matriculado no curso ao qual o módulo pertence.|
+|users_ids[]|ID do usuário. Permite filtrar os progressos baseado no(s) usuário(s).|Precisa ser um usuário matriculado no curso ao qual o módulo pertence.|
 
 h4. Exemplo
 
