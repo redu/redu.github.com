@@ -218,3 +218,53 @@ Resposta:
   },
 ]
 </pre>
+
+h2. "GET /api/users/:user_id/progress/":#progress-users-get
+
+Retorna todos os progressos de um usuário. Pode-se filtrar os progressos de um usuário pela(s) aulas(s) ou módulo(s).
+
+h4. Autorização
+
+Apenas o próprio usuário tem acesso.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Atributo|_.Descrição|_.Restrições|
+|*user_id*|ID do usuário.|N/A|
+|lectures_ids[]|ID da aula. Permite filtrar os progressos baseado na(s) aulas(s).|Precisa ser uma aula pertencente a um curso cujo usuário é matriculado.|
+|subjects_ids[]|ID do módulo. Permite filtrar os progressos baseado no(s) módulos(s).|Precisa ser um módulo pertencente a um curso cujo usuário é matriculado.|
+
+h4. Exemplo
+
+Requisição:
+@GET /api/users/216/progress@
+
+Resposta:
+
+<pre>
+[
+  {
+    "updated_at": "2013-03-26T15:52:53-03:00",
+    "id": 131061,
+    "finalized": false,
+    "links": [
+      { "rel": "self", "href": "http://www.redu.com.br/api/progress/131061" },
+      { "rel": "user", "href": "http://www.redu.com.br/api/users/juliana" },
+      { "rel": "subject", "href": "http://www.redu.com.br/api/subjects/78" },
+      { "rel": "lecture", "href": "http://www.redu.com.br/api/lectures/82" }
+    ]
+  },
+  {
+    "updated_at": "2013-05-02T15:25:01-03:00",
+    "id": 580275,
+    "finalized": false,
+    "links": [
+      { "rel": "self", "href": "http://www.redu.com.br/api/progress/580275" },
+      { "rel": "user", "href": "http://www.redu.com.br/api/users/juliana" },
+      { "rel": "subject", "href": "http://www.redu.com.br/api/subjects/114" },
+      { "rel": "lecture", "href": "http://www.redu.com.br/api/lectures/964" }
+    ]
+  }
+]
+</pre>
