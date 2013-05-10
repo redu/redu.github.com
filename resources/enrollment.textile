@@ -115,7 +115,7 @@ h4. Parâmetros
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*user_id*|ID do USer|N/A|
-|*courses_ids*|IDs dos Cursos. Permite a filtragem de Enrollment por cursos.|N/A|
+|*courses_ids[]*|IDs dos Cursos. Permite a filtragem de Enrollment por cursos.|N/A|
 
 h2. "DELETE /api/enrollments/:id":#delete-enrollments
 
