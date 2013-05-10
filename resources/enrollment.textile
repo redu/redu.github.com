@@ -102,6 +102,21 @@ table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*id*|ID ou path do curso|N/A|
 
+h2. "GET /api/users/:user_id/enrollments":#get-course-enrollments
+
+Listagem de matrículas de um usuário.
+
+h4. Autorização
+
+Para fazer esta requisição é necessário ter direitos administrativos para um User. Ou seja, apenas o próprio user pode ver os seus enrollments.
+
+h4. Parâmetros
+
+table(table table-bordered table-striped).
+|_.Parâmetro|_.Descrição|_.Restrições|
+|*user_id*|ID do USer|N/A|
+|*courses_ids*|IDs dos Cursos. Permite a filtragem de Enrollment por cursos.|N/A|
+
 h2. "DELETE /api/enrollments/:id":#delete-enrollments
 
 Remove a matrícula especificada bem como o usuário associado a mesma (caso exista). O usuário perderá acesso ao curso e às suas disciplinas.
