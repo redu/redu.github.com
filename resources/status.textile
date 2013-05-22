@@ -132,7 +132,7 @@ h4. Parâmetros
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*user_id*| ID do usuário em questão| N/A |
-|*type*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
+|*type* ou *types[]*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@. Mais de um @type@ pode ser requisitado utilizando a opção @types[]@.|
 |*logeable_type*| Deve ser usado em conjunto com o @type@. Permite filtrar Logs baseados no atributo @logeable_type@ |@User@, @Friendship@, @Enrollment@|
 |*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
 
@@ -240,7 +240,7 @@ h4. Parâmetros
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*user_id*| ID do usuário em questão| N/A |
-|*type*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
+|*type* ou *types[]*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@. Mais de um @type@ pode ser requisitado utilizando a opção @types[]@.|
 |*logeable_type*| Deve ser usado em conjunto com o @type@. Permite filtrar Logs baseados no atributo @logeable_type@ |@User@, @Friendship@, @CourseEnrollment@|
 |*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
 
@@ -264,7 +264,7 @@ h4. Parâmetros
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*space_id*| ID do space| N/A |
-|*type*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
+|*type* ou *types[]*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@. Mais de um @type@ pode ser requisitado utilizando a opção @types[]@.|
 |*logeable_type*| Deve ser usado em conjunto com o @type@. Permite filtrar Logs baseados no atributo @logeable_type@ |@User@, @Friendship@, @CourseEnrollment@|
 |*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
 
@@ -277,7 +277,7 @@ h4. Parâmetros
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*space_id*| ID do space| N/A |
-|*type*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
+|*type* ou *types[]*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@. Mais de um @type@ pode ser requisitado utilizando a opção @types[]@.|
 |*logeable_type*| Deve ser usado em conjunto com o @type@. Permite filtrar Logs baseados no atributo @logeable_type@ |@User@, @Friendship@, @CourseEnrollment@|
 |*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
 
@@ -303,7 +303,7 @@ h4. Parâmetros
 table(table table-bordered table-striped).
 |_.Parâmetro|_.Descrição|_.Restrições|
 |*lecture_id*| ID da lecture em questão|N/A|
-|*type*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@|
+|*type* ou *types[]*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@. Mais de um @type@ pode ser requisitado utilizando a opção @types[]@.|
 |*logeable_type*| Deve ser usado em conjunto com o @type@. Permite filtrar Logs baseados no atributo @logeable_type@ |@User@, @Friendship@, @CourseEnrollment@|
 
 h2. "POST /api/lectures/:lecture_id/statuses":#post-lecture-status
