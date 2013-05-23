@@ -74,7 +74,7 @@ h4. Parâmetros
 table(table table-bordered table-striped).
 |_.Atributo|_.Descrição|_.Restrições|
 |*id*|ID do progresso.|N/A|
-|*progress[done]*|Indicativo de que a aula foi finalizada|Deve ser @true@|
+|*progress[finalized]*|Indicativo de que a aula foi finalizada|Deve ser @true@ ou @false@|
 
 h4. Exemplo
 
