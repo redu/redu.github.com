@@ -321,7 +321,7 @@ Este comportamento é descrito em detalhes no "RFC 2388":http://www.ietf.org/rfc
 
 h4. Exemplo
 
-Em todos os exemplos é utilizado "cURL":http://curl.haxx.se/docs/manpage.html para testar a criação de Lecture.
+Em todos os exemplos é utilizado "cURL":http://curl.haxx.se/docs/manpage.html para testar a criação de Lecture. Um exemplo em Java pode ser encontrado "aqui":https://github.com/redu/oauth-consumers/tree/master/java-native/file-upload.
 
 * Documento (@Document@)
 
