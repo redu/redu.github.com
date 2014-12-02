@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{{ page.title }}</title>
+    <title>{% t page.title %}</title>
     {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
     <meta name="author" content="{{ site.author.name }}">
 
@@ -30,7 +30,13 @@
     <div class="navbar">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
+          <div class = "flags">
+            <a class = "flag" href="{{site.baseurl_root}}/" title="Português"/><img src="/assets/images/br.png" /></a>
+            <a class = "flag" href="{{site.baseurl_root}}/en" title="English"/><img src="/assets/images/uk.png" /></a>
+          </div>
+        </div>
+        <div class="container">
+          <a class="brand" href="{{site.baseurl}}/">{% t global.title %}</a>
         </div>
       </div>
     </div>
@@ -41,7 +47,7 @@
         <div class="row">
           <div class="span12">
             <div class="page-header">
-              <h1>{{ page.title }} <small>{{ page.tagline }}</small></h1>
+              <h1>{% t page.title %} <small>{% t page.tagline %}</small></h1>
             </div>
           </div>
         </div>

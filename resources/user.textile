@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Usuário"
+title: titles.user
 group: navigation
 ---
 {% include JB/setup %}

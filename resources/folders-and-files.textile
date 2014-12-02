@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Pastas e Arquivos"
+title: titles.folders_and_files
 group: navigation
 ---
 {% include JB/setup %}

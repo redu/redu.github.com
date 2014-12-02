@@ -1,0 +1,23 @@
+global:
+    title: Redu para desenvolvedores
+    tagline: Documentação da API REST do Redu
+
+titles:
+    index: "Redu para desenvolvedores"
+    canvas: "Canvas"
+    chat: "Chat"
+    connection: "Conexão"
+    course: "Curso"
+    enrollment: "Matrícula"
+    environment: "AVA"
+    folders_and_files: "Pastas e Arquivos"
+    lecture: "Aula"
+    links: "Links"
+    progress: "Progresso"
+    space: "Disciplina"
+    status: "Mural"
+    subject: "Módulo"
+    user: "Usuário"
+
+taglines:
+    index: Documentação da API REST do Redu

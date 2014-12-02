@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Aula"
+title: titles.lecture
 group: navigation
 ---
 {% include JB/setup %}

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Progresso"
+title: titles.progress
 group: navigation
 ---
 {% include JB/setup %}

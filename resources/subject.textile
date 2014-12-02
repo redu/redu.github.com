@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Módulo"
+title: titles.subject
 group: navigation
 ---
 {% include JB/setup %}

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "AVA"
+title: titles.environment
 group: navigation
 ---
 {% include JB/setup %}

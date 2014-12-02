@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Redu para desenvolvedores
-tagline: "Documentação da API REST do Redu"
+title: titles.index
+tagline: taglines.index
 ---
 {% include JB/setup %}
 

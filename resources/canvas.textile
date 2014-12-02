@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Canvas"
+title: titles.canvas
 group: navigation
 ---
 {% include JB/setup %}

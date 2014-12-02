@@ -13,6 +13,7 @@ GEM
       liquid (~> 2.3)
       maruku (~> 0.5)
       pygments.rb (~> 0.3.2)
+    jekyll-multiple-languages-plugin (1.2.6)
     kramdown (0.13.8)
     liquid (2.4.1)
     maruku (0.6.1)
@@ -31,4 +32,5 @@ PLATFORMS
 DEPENDENCIES
   RedCloth
   jekyll
+  jekyll-multiple-languages-plugin
   rake

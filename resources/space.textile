@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Disciplina"
+title: titles.space
 group: navigation
 ---
 {% include JB/setup %}

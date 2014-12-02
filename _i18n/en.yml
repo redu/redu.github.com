@@ -1,0 +1,23 @@
+global:
+    title: Redu for developers
+    tagline: Redu Rest API Documentation
+
+titles:
+    index: "Redu for developers"
+    canvas: "Canvas"
+    chat: "Chat"
+    connection: "Connection"
+    course: "Course"
+    enrollment: "Enrollment"
+    environment: "Environment"
+    folders_and_files: "Folders and Files"
+    lecture: "Lecture"
+    links: "Links"
+    progress: "Progress"
+    space: "Space"
+    status: "Status"
+    subject: "Subject"
+    user: "User"
+
+taglines:
+    index: Redu Rest API Documentation

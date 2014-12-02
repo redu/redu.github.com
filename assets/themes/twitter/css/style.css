@@ -69,3 +69,11 @@ html, body {
 	color:#FFF;
 }
 
+/* flags ==================================================== */
+.flags {
+  margin: 15px 0px 0px 0px;
+}
+
+.flag {
+  margin: 0px 10px 0px 0px;
+}

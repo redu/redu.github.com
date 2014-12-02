@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Conexão"
+title: titles.connection
 group: navigation
 ---
 {% include JB/setup %}
