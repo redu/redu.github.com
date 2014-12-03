@@ -3,21 +3,52 @@ global:
     tagline: Documentação da API REST do Redu
 
 titles:
-    index: "Redu para desenvolvedores"
-    canvas: "Canvas"
-    chat: "Chat"
-    connection: "Conexão"
-    course: "Curso"
-    enrollment: "Matrícula"
-    environment: "AVA"
-    folders_and_files: "Pastas e Arquivos"
-    lecture: "Aula"
-    links: "Links"
-    progress: "Progresso"
-    space: "Disciplina"
-    status: "Mural"
-    subject: "Módulo"
-    user: "Usuário"
+    index: Redu para desenvolvedores
+    canvas: Canvas
+    chat: Chat
+    connection: Conexão
+    course: Curso
+    enrollment: Matrícula
+    environment: AVA
+    folders_and_files: Pastas e Arquivos
+    lecture: Aula
+    links: Links
+    progress: Progresso
+    space: Disciplina
+    status: Mural
+    subject: Módulo
+    user: Usuário
 
 taglines:
     index: Documentação da API REST do Redu
+
+index:
+    introduction:
+        title: Introdução
+        first_paragraph: 'O "Redu":http://www.redu.com.br é uma plataforma de ensino a distância construída sobre uma rede social. Através da API "HTTP":http://en.wikipedia.org/wiki/HTTP "REST":http://en.wikipedia.org/wiki/REST do "Redu":http://www.redu.com.br é possível construir aplicações que acessam os dados dos "usuários":resources/user.html da plataforma.'
+        second_paragraph: 'Dizer que uma API pode ser utilizada via "HTTP":http://en.wikipedia.org/wiki/HTTP implica dizer que não há restrições quanto a linguagem ou tecnologias utilizadas na integração de aplicativos. Por se tratar do protocolo de aplicação da internet, qualquer linguagem moderna é capaz de enviar requisições HTTP.'
+    first_steps:
+        title: Primeiros passos
+        credentials_creation:
+            title: Criação de credenciais
+            first_paragraph: 'Antes de consumir a API é necessário cadastrar o aplicativo. Para cadastrar vá na opção "Aplicativos":http://redu.com.br/aplicativos/criar na sua página incial do Redu. Você precisa informar Nome e URL do seu aplicativo. O nome será mostrado para o usuário quando o aplicativo estiver pedindo autorização para o acesso a dados. A URL também é obrigatória e pode ser ou a página inicial do seu aplicativo ou uma página explicativa do mesmo.'
+            second_paragraph: 'Após informar nome e URL do aplicativo, serão mostrada as credênciais do mesmo. Existem dois tipos de credenciais: a chave do **consumer** e o segredo do **consumer**. A chave do consumer é um identificador único do seu aplicativo que é utilizada para pedir autorização para o usuário ceder seus dados para o aplicativo. Já o segredo do **consumer** é um identificador privado que o Redu utiliza identificar o aplicativo que realiza a requisição da API.'
+        authentication:
+            title: Autenticação
+            first_paragraph: 'O Redu não cede dados do usuários sem a expressa autenticação do mesmo. Para que os aplicativos acessem as informações do usuário é necessário que ele autorize explicitamente este acesso. Para isso, o aplicativo precisa implementar o processo de autenticação do usuário. No Redu utilizamos o protocolo OAuth 2.0 para este fim. Tal protocolo é muito difundido e utilizado pelas APIs Twitter, Facebook e Google.'
+            second_paragraph: 'No fim do processo de autenticação do OAuth 2.0 é gerado mais uma credencial chamada de *aceess token*. Esta credencial identifica unicamente sua aplicação e o usuário que autorizou acesso. Portanto, é necessário enviar o *access token* em todas as requisições feitas em nome do usuário que autorizou. O *access token* pode ser enviado via querystring (@?access_token=TOKEN@) ou pelo cabeçalho @Authorization@ (@Authorization: OAuth TOKEN@) da requisição HTTP.'
+            third_paragraph: 'Este guia não entra em detalhes sobre a implementação da autenticação via OAuth 2.0. Porém temos exemplos em "várias linguagens":https://github.com/redu/oauth-consumers sobre como realizar esta tarefa. Uma lista com clientes OAuth 2 sugeridos é mostrada abaixo:'
+            table:
+                language_framework: Linguagem/Framework
+                project: Projeto
+                official_support: Suporte Oficial
+                yes_option: 'Sim'
+                no_option: 'Não'
+        rest_api_consumption:
+            title: Consumindo a API REST
+            first_paragraph: 'Após cadastrar o aplicativo e pedir autorização para o usuário, será possível utilizar a API REST. Por exemplo, ao realizar uma requisição HTTP com o método GET para a URL @/api/environments/foo@ o recurso retornado seria como o descrito abaixo:'
+            second_paragraph: 'Seguindo a "sugestão":http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven do "Roy Fielding":http://en.wikipedia.org/wiki/Roy_Fielding, pai do REST, todos os recursos retornados pela API do Redu possuem metainformações (hyperlinks) para outros recursos importantes no estado atual da aplicação. Isso faz com que a API possua um único ponto de entrada, por exemplo o AVA.'
+            third_paragraph: 'Note que a representação retornada possui uma propriedade links que denota as URLs que a aplicação cliente precisa conhecer no contexto atual (visualização do ambiente virtual de aprendizagem). Isso quer dizer que, por exemplo, quisessemos visualizar os cursos do AVA em questão, poderíamos faze-lo sem conhecer a priori a URL apropriada.'
+    more_information:
+        title: Mais informações
+        redu_platform: Introdução a plataforma de aplicativos Redu

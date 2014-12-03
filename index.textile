@@ -5,47 +5,47 @@ tagline: taglines.index
 ---
 {% include JB/setup %}
 
-h2. Introdução
+h2. {% t index.introduction.title %}
 
-O "Redu":http://www.redu.com.br é uma plataforma de ensino a distância construída sobre uma rede social. Através da API "HTTP":http://en.wikipedia.org/wiki/HTTP "REST":http://en.wikipedia.org/wiki/REST do "Redu":http://www.redu.com.br é possível construir aplicações que acessam os dados dos "usuários":resources/user.html da plataforma.
+{% t index.introduction.first_paragraph %}
 
-Dizer que uma API pode ser utilizada via "HTTP":http://en.wikipedia.org/wiki/HTTP implica dizer que não há restrições quanto a linguagem ou tecnologias utilizadas na integração de aplicativos. Por se tratar do protocolo de aplicação da internet, qualquer linguagem moderna é capaz de enviar requisições HTTP.
+{% t index.introduction.second_paragraph %}
 
-h2. Primeiros passos
+h2. {% t index.first_steps.title %}
 
-h3. 1. Criação de credenciais
+h3. 1. {% t index.first_steps.credentials_creation.title %}
 
-Antes de consumir a API é necessário cadastrar o aplicativo. Para cadastrar vá na opção "Aplicativos":http://redu.com.br/aplicativos/criar na sua página incial do Redu. Você precisa informar Nome e URL do seu aplicativo. O nome será mostrado para o usuário quando o aplicativo estiver pedindo autorização para o acesso a dados. A URL também é obrigatória e pode ser ou a página incial do seu aplicativo ou uma página explicativa do mesmo.
+{% t index.first_steps.credentials_creation.first_paragraph %}
 
 div(thumbnail){width: 705px; margin: 0 10px 10px 0;}. !assets/images/new-app-local.png!
 
-Após informar nome e URL do aplicativo, serão mostrada as credênciais do mesmo. Existem dois tipos de credenciais a chave do **consumer** e o segredo do **consumer**. A chave do consumer é um identificador único do seu aplicativo que é utilizada para pedir autorização para o usuário ceder seus dados para o aplicativo. Já o segredo do **consumer** é um identificador privado que o Redu utiliza identificar o aplicativo que realiza a requisição da API.
+{% t index.first_steps.credentials_creation.second_paragraph %}
 
 div(thumbnail){width: 705px; margin: 10px 0;}. !assets/images/app-credentials.png!
 
-h3. 2. Autenticação
+h3. 2. {% t index.first_steps.authentication.title %}
 
-O Redu não cede dados do usuários sem a expressa autenticação do mesmo. Para que os aplicativos acessem as informações do usuário é necessário que ele autorize explicitamente este acesso. Para isso, o aplicativo precisa implementar o processo de autenticação do usuário. No Redu utilizamos o protocolo OAuth 2.0 para este fim. Tal protocolo é muito difundido e utilizado pelas APIs Twitter, Facebook e Google.
+{% t index.first_steps.authentication.first_paragraph %}
 
 div(thumbnail){width: 705px; margin: 10px 0;}. !assets/images/oauth-workflow.png!
 
-No fim do processo de autenticação do OAuth 2.0 é gerado mais uma credencial chamada de *aceess token*. Esta credencial identifica unicamente sua aplicação e o usuário que autorizou acesso. Portanto, é necessário enviar o *access token* em todas as requisições feitas em nome do usuário que autorizou. O *access token* pode ser enviado via querystring (@?access_token=TOKEN@) ou pelo cabeçalho @Authorization@ (@Authorization: OAuth TOKEN@) da requisição HTTP.
+{% t index.first_steps.authentication.second_paragraph %}
 
-Este guia não entra em detalhes sobre a implementação da autenticação via OAuth 2.0. Porém temos exemplos em "várias linguagens":https://github.com/redu/oauth-consumers sobre como realizar esta tarefa. Uma lista com clientes OAuth 2 sugeridos é mostrada abaixo:
+{% t index.first_steps.authentication.third_paragraph %}
 
 table(table table-bordered table-striped){clear: both;}.
-|_.Linguagem/Framework|_.Projeto|_.Suporte Oficial?|
-|Ruby On Rails|"omniauth-redu":https://github.com/redu/omniauth-redu |Sim|
-|Python|"ReduPy":https://github.com/redu/redupy |Sim|
-|Java|"jRedu":https://github.com/redu/jredu |Sim|
-|Python|"rauth":https://github.com/litl/rauth |Não|
-|Django|"django-social-auth":https://github.com/omab/django-social-auth |Não|
-|Play!|"play-pack4j":https://github.com/leleuj/play-pac4j |Não|
-| .NET|".NET Open Auth":http://www.dotnetopenauth.net/ |Não|
+|_.{% t index.first_steps.authentication.table.language_framework %}|_.{% t index.first_steps.authentication.table.project%}|_.{% t index.first_steps.authentication.table.official_support %}?|
+|Ruby On Rails|"omniauth-redu":https://github.com/redu/omniauth-redu |{% t index.first_steps.authentication.table.yes_option %}|
+|Python|"ReduPy":https://github.com/redu/redupy |{% t index.first_steps.authentication.table.yes_option %}|
+|Java|"jRedu":https://github.com/redu/jredu |{% t index.first_steps.authentication.table.yes_option %}|
+|Python|"rauth":https://github.com/litl/rauth |{% t index.first_steps.authentication.table.no_option %}|
+|Django|"django-social-auth":https://github.com/omab/django-social-auth |{% t index.first_steps.authentication.table.no_option %}|
+|Play!|"play-pack4j":https://github.com/leleuj/play-pac4j |{% t index.first_steps.authentication.table.no_option %}|
+| .NET|".NET Open Auth":http://www.dotnetopenauth.net/ |{% t index.first_steps.authentication.table.no_option %}|
 
-h3. 3. Consumindo a API REST
+h3. 3. {% t index.first_steps.rest_api_consumption.title %}
 
-Após cadastrar o aplicativo e pedir autorização para o usuário, será possível utilizar a API REST. Por exemplo, ao realizar uma requisição HTTP com o método GET para a URL @/api/environments/foo@ o recurso retornado seria como o descrito abaixo:
+{% t index.first_steps.rest_api_consumption.first_paragraph %}
 
 {% highlight javascript %}
 {
@@ -63,10 +63,10 @@ Após cadastrar o aplicativo e pedir autorização para o usuário, será possí
 
 h4. Hypertext enabled
 
-Seguindo a "sugestão":http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven do "Roy Fielding":http://en.wikipedia.org/wiki/Roy_Fielding, pai do REST, todos os recursos retornados pela API do Redu possuem metainformações (hyperlinks) para outros recursos importantes no estado atual da aplicação. Isso faz com que a API possua um único ponto de entrada, por exemplo o AVA.
+{% t index.first_steps.rest_api_consumption.second_paragraph %}
 
-Note que a representação retornada possui uma propriedade links que denota as URLs que a aplicação cliente precisa conhecer no contexto atual (visualização do ambiente virtual de aprendizagem). Isso quer dizer que, por exemplo, quisessemos visualizar os cursos do AVA em questão, poderíamos faze-lo sem conhecer a priori a URL apropriada.
+{% t index.first_steps.rest_api_consumption.third_paragraph %}
 
-h2. Mais informações
+h2. {% t index.more_information.title %}
 
-<div style="width:705px" id="__ss_13160601"> <strong style="display:block;margin:12px 0 4px"><a href="http://www.slideshare.net/guiocavalcanti/introduo-a-plataforma-de-aplicativos-redu" title="Introdução a plataforma de aplicativos Redu" target="_blank">Introdução a plataforma de aplicativos Redu</a></strong> <object id="__sse13160601" width="705px" height="600px"> <param name="movie" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=platform-101-120601061122-phpapp02&rel=0&stripped_title=introduo-a-plataforma-de-aplicativos-redu&userName=guiocavalcanti" /> <param name="allowFullScreen" value="true"/> <param name="allowScriptAccess" value="always"/> <param name="wmode" value="transparent"/> <embed name="__sse13160601" src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=platform-101-120601061122-phpapp02&rel=0&stripped_title=introduo-a-plataforma-de-aplicativos-redu&userName=guiocavalcanti" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="transparent" width="595" height="497"></embed> </object> <div style="padding:5px 0 12px"> View more <a href="http://www.slideshare.net/" target="_blank">presentations</a> from <a href="http://www.slideshare.net/guiocavalcanti" target="_blank">Guilherme</a> </div> </div>
+<div style="width:705px" id="__ss_13160601"> <strong style="display:block;margin:12px 0 4px"><a href="http://www.slideshare.net/guiocavalcanti/introduo-a-plataforma-de-aplicativos-redu" title="Introdução a plataforma de aplicativos Redu" target="_blank">{% t index.more_information.redu_platform %}</a></strong> <object id="__sse13160601" width="705px" height="600px"> <param name="movie" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=platform-101-120601061122-phpapp02&rel=0&stripped_title=introduo-a-plataforma-de-aplicativos-redu&userName=guiocavalcanti" /> <param name="allowFullScreen" value="true"/> <param name="allowScriptAccess" value="always"/> <param name="wmode" value="transparent"/> <embed name="__sse13160601" src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=platform-101-120601061122-phpapp02&rel=0&stripped_title=introduo-a-plataforma-de-aplicativos-redu&userName=guiocavalcanti" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="transparent" width="595" height="497"></embed> </object> <div style="padding:5px 0 12px"> View more <a href="http://www.slideshare.net/" target="_blank">presentations</a> from <a href="http://www.slideshare.net/guiocavalcanti" target="_blank">Guilherme</a> </div> </div>

@@ -3,21 +3,52 @@ global:
     tagline: Redu Rest API Documentation
 
 titles:
-    index: "Redu for developers"
-    canvas: "Canvas"
-    chat: "Chat"
-    connection: "Connection"
-    course: "Course"
-    enrollment: "Enrollment"
-    environment: "Environment"
-    folders_and_files: "Folders and Files"
-    lecture: "Lecture"
-    links: "Links"
-    progress: "Progress"
-    space: "Space"
-    status: "Status"
-    subject: "Subject"
-    user: "User"
+    index: Redu for developers
+    canvas: Canvas
+    chat: Chat
+    connection: Connection
+    course: Course
+    enrollment: Enrollment
+    environment: Environment
+    folders_and_files: Folders and Files
+    lecture: Lecture
+    links: Links
+    progress: Progress
+    space: Space
+    status: Status
+    subject: Subject
+    user: User
 
 taglines:
     index: Redu Rest API Documentation
+
+index:
+    introduction:
+        title: Introduction
+        first_paragraph: '"Redu":http://www.redu.com.br is a distance learning platform built on a social network. By using "Redu":http://www.redu.com.br "HTTP":http://en.wikipedia.org/wiki/HTTP "REST":http://en.wikipedia.org/wiki/REST API, it is possible to build applications which access user data from the platform.'
+        second_paragraph: 'Declaring that an API can be used via "HTTP":http://en.wikipedia.org/wiki/HTTP implies in saying that there is no restriction regarding languages or tecnologies used in the integration of applications. Since it is an internet application protocol, any modern language can send HTTP requests.'
+    first_steps:
+        title: First steps
+        credentials_creation:
+            title: Creation of credentials
+            first_paragraph: 'Before consuming the API, you need to register the application. Go to "Aplicativos":http://redu.com.br/aplicativos/criar (Applications) on your Redu home page. You need to provide Name and URL for your application. The name will be shown to the user when the application requests access authorization to data. The URL is also required, and it may be either the application home page or a page that explains about it.'
+            second_paragraph: "After providing name and URL for the application, its credentials will be shown. There are two different types of credentials: **consumer** key, and **consumer** secret. The consumer key is a unique identifier of your application, which is used to request authorization to the user to get their data for the application. On the other hand, **consumer** secret is a private identifier which is used by Redu to identify application that makes the API request."
+        authentication:
+            title: Authentication
+            first_paragraph: 'Redu does not give data of users without the authentication of them. To allow applications to access user information, the user needs to authorize such access explicitly. For that, the application must implement the authentication process for the user. In Redu, we use the 0Auth 2.0 protocol for this purpose. This protocol is widespread, and it is used by Twitter, Facebook, and Google APIs.'
+            second_paragraph: 'At the end of the OAuth 2.0 authentication process, one more credential is generated, which is called *access token*. This credential identifies uniquely your application and the user who has authorized access. Therefore, it is necessary to send the *access token* in every single request done on behalf of the user who has authorized. The *access token* can be sent either via querystring (@?access_token=TOKEN@) or through the header @Authorization@ (@Authorization: OAuth TOKEN@) of HTTP request.'
+            third_paragraph: 'This guide does not go into details about the implementation of authentication via OAuth 2.0. However, we have examples in "several languages":https://github.com/redu/oauth-consumers about how to perform this task. A list of suggested OAuth 2.0 clients is shown below:'
+            table:
+                language_framework: Language/Framework
+                project: Project
+                official_support: Official Support
+                yes_option: 'Yes'
+                no_option: 'No'
+        rest_api_consumption:
+            title: Consuming REST API
+            first_paragraph: 'After registering the application and requesting authorization for the user, you will be able to use REST API. For instance, when making a HTTP request with GET method to the URL @/api/environments/foo@, the returned resource would be as follows:'
+            second_paragraph: 'Following the "suggestion":http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven from "Roy Fielding":http://en.wikipedia.org/wiki/Roy_Fielding, father of REST, every resource returned by Redu API has metadata (hyperlinks) to other important resources in the current state of the application. It causes the API to have a single point of entry, such as the Virtual Learning Environment (VLE).'
+            third_paragraph: 'Note that the returned representation has a property named "links" that denotes URLs which the client application needs to know in this context (visualization of virtual learning environment). It means that, for example, if we wanted to visualize the courses in that environment, we could do it without knowing a priori the appropriate URL.'
+    more_information:
+        title: More information
+        redu_platform: Introdution to Redu platform of applications
