@@ -1,6 +1,14 @@
 global:
     title: Redu for developers
     tagline: Redu Rest API Documentation
+    authorization: Authorization
+    parameters: Parameters
+    parameter: Parameter
+    description: Description
+    restrictions: Restrictions
+    example: Example
+    request: Request
+    response: Response
 
 titles:
     index: Redu for developers
@@ -52,3 +60,30 @@ index:
     more_information:
         title: More information
         redu_platform: Introdution to Redu platform of applications
+
+chat:
+    first_paragraph: 'Chat and ChatMessages represent, respectively, a conversation between two users and its messages. At this moment, it is only possible to view these resources via API. The possibility of creating and removing chat messages, as well as the streaming of them, will be available soon.'
+    chat:
+        title: Chat
+        get_id_chats:
+            first_paragraph: 'Return all the chats of the user in question.'
+            second_paragraph: 'You need to have permission for user management.'
+            table:
+                id: 'User ID or login'
+        get_chats_id:
+            first_paragraph: 'Return the chat in question. The Chat resource contains all the messages between two users which were sent by using the Redu chat system.'
+            second_paragraph: 'You need to participate in the chat to view this resource'
+            table:
+                id: 'Chat ID'
+    chat_message:
+        title: Chat message
+        get_id_chat_messages:
+            first_paragraph: 'Return all the messages that belong to a chat.'
+            second_paragraph: 'You need to participate in the chat to view this resource'
+            table:
+                id: 'Chat ID'
+        get_chat_messages_id:
+            first_paragraph: 'Return a chat message.'
+            second_paragraph: 'You need to participate in the chat to view this resource'
+            table:
+                id: 'Message ID'
