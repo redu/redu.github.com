@@ -2,10 +2,12 @@ global:
     title: Redu para desenvolvedores
     tagline: Documentação da API REST do Redu
     authorization: Autorização
+    attribute: Atributo
     parameters: Parâmetros
     parameter: Parâmetro
     description: Descrição
     restrictions: Restrições
+    link: Link
     example: Exemplo
     request: Requisição
     response: Resposta
@@ -40,7 +42,7 @@ index:
         credentials_creation:
             title: Criação de credenciais
             first_paragraph: 'Antes de consumir a API é necessário cadastrar o aplicativo. Para cadastrar vá na opção "Aplicativos":http://redu.com.br/aplicativos/criar na sua página incial do Redu. Você precisa informar Nome e URL do seu aplicativo. O nome será mostrado para o usuário quando o aplicativo estiver pedindo autorização para o acesso a dados. A URL também é obrigatória e pode ser ou a página inicial do seu aplicativo ou uma página explicativa do mesmo.'
-            second_paragraph: 'Após informar nome e URL do aplicativo, serão mostrada as credênciais do mesmo. Existem dois tipos de credenciais: a chave do **consumer** e o segredo do **consumer**. A chave do consumer é um identificador único do seu aplicativo que é utilizada para pedir autorização para o usuário ceder seus dados para o aplicativo. Já o segredo do **consumer** é um identificador privado que o Redu utiliza identificar o aplicativo que realiza a requisição da API.'
+            second_paragraph: 'Após informar nome e URL do aplicativo, serão mostrada as credenciais do mesmo. Existem dois tipos de credenciais: a chave do **consumer** e o segredo do **consumer**. A chave do consumer é um identificador único do seu aplicativo que é utilizada para pedir autorização para o usuário ceder seus dados para o aplicativo. Já o segredo do **consumer** é um identificador privado que o Redu utiliza identificar o aplicativo que realiza a requisição da API.'
         authentication:
             title: Autenticação
             first_paragraph: 'O Redu não cede dados do usuários sem a expressa autenticação do mesmo. Para que os aplicativos acessem as informações do usuário é necessário que ele autorize explicitamente este acesso. Para isso, o aplicativo precisa implementar o processo de autenticação do usuário. No Redu utilizamos o protocolo OAuth 2.0 para este fim. Tal protocolo é muito difundido e utilizado pelas APIs Twitter, Facebook e Google.'
@@ -60,6 +62,158 @@ index:
     more_information:
         title: Mais informações
         redu_platform: Introdução a plataforma de aplicativos Redu
+
+status:
+    first_paragraph: 'O Mural é o cerne da comunicação dentro do Redu. Através dele os usuários podem postar comentários, respostas e pedidos de ajuda. Além disso o Mural é o meio pelo qual as movimentações do sistema são mostradas. No contexto da API, qualquer elemento mostrado no Mural é chamado de @status@.'
+    status_types:
+        title: '"Tipos de status":#get-statuses'
+        first_paragraph: 'O recurso que representa uma movimentação no Redu é o status. Dependendo do tipo de movimentação, o status possui um tipo (diferenciado através do @type@) diferente.'
+        second_paragraph: 'Todos os tipos de Status possuem as seguintes propriedades:'
+        table:
+            id_description: 'Identificador único do Status'
+            type_description: 'Tipo do status'
+            type_example: '@Activity@, @Help@, @Answer@ e @Log@'
+            created_at_description: 'Data de criação do Status'
+            user_description: 'Representação do User que criou o status'
+            user_example: 'Ver "User":/resources/user.html'
+            text_description: 'Texto escrito pelo usuário ou mensagem do sistema'
+            text_example: '@"adicionou a sua rede de contatos"@'
+        activity_type:
+            title: 'Tipo Activity'
+            first_paragraph: 'Status com o tipo Activity são um tipo de movimentação explicitamente criada pelo usuário. Por exemplo, um post no mural da disciplina ou do usuário cria um status do tipo Activity. Este é o tipo mais comum de status.'
+            second_paragraph: 'O Status do tipo Activity pode ser respondido por outras pessoas. Tais respostas estão acessíveis através do link @answers@. Além disso, o Activity se relaciona com @user@ e @statusable@. Ver exemplos abaixo:'
+            table_1:
+                user_description: 'Link para o usuário que criou o status'
+                answers_description: 'Link para respostas do Activity'
+                statusable_description: 'Link para o recurso onde o Activity foi criado'
+                statusable_example: 'http://www.redu.com.br/api/lectures/5874-apresentacao. Pode ser @User@, @Space@ ou @Lecture@'
+                self_description: 'Link para o Activity sendo visualizado'
+            table_2:
+                answers_count: 'Quantidade de resposta'
+        help_type:
+            title: 'Tipo Help'
+            first_paragraph: 'Bem parecido com o Activity, Status do tipo Help representam pedidos de ajuda ou perguntas dos usuários. Eles só podem ser criados nos murais das aulas (lecture). No fim do dia, Status com o tipo Help têm a mesma função do Activity, só há uma restrição dos locais onde eles podem ser criados e a representação na interface (ver figura).'
+            second_paragraph: 'O Status do tipo Help também pode ser respondido por outras pessoas. Tais respostas estão acessíveis através do link @answers@. Além disso, o Help se relaciona com @user@ e @statusable@ através de link. Ver exemplos abaixo:'
+            table_1:
+                user_description: 'Link para o usuário que criou o status'
+                answers_description: 'Link para respostas do Help'
+                statusable_description: 'Link para o recurso onde o Help foi criado'
+                statusable_example: 'http://www.redu.com.br/api/lectures/5874-apresentacao. Pode ser apenas uma @Lecture@'
+                self_description: 'Link para o Help sendo visualizado'
+            table_2:
+                answers_count: 'Quantidade de resposta'
+        answer_type:
+            title: 'Tipo Answer'
+            first_paragraph: 'Como dito acima, os Activity e Help podem ser respondidos por outros usuários. É aí que precisamos do Status do tipo Answer. Eles se relacionam com um Status através do link @in_response_to@. Diferente dos Activity e Help, os Answer não podem ser respondidos.'
+            table_1:
+                user_description: 'Link para o usuário que criou o status'
+                in_response_to_description: 'Link do Activity ou Help que originou esta resposta'
+                self_description: 'Link para o Answer sendo visualizado'
+            table_2:
+                id_description: 'Identificador único do Status'
+                type_description: 'Tipo do status'
+                type_example: '@Activity@, @Help@, @Answer@ e @Log@'
+                created_at_description: 'Data de criação do Status'
+                user_description: 'Representação do User que criou o status'
+                user_example: 'Ver "User":/resources/user.html'
+                text_description: 'Texto escrito pelo usuário ou mensagem do sistema'
+                text_example: '@"adicionou a sua rede de contatos"@'
+        log_type:
+            title: 'Tipo Log'
+            first_paragraph: 'Este é o único tipo de Status que independe da ação do usuário para serem criados. O Status tipo Log são gerados automáticamente pelo Redu quando certos tipos de ações ocorrem. Por exemplo, quando o usuário atualiza seu perfil no Redu, um Log é criado representando esta ação.'
+            second_paragraph: 'Em geral Logs são utilizados para representar as alterações dos usuários no Redu. As ações que criam Logs são:'
+            third_paragraph:
+                item_1: 'Adição de "Aulas":/resources/lecture.html num Módulo (logeable_type @Lecture@)'
+                item_2: 'Criação de "Módulo":/resources/subject.html (logeable_type @Subject@)'
+                item_3: 'Criação de "Curso":/resources/course.html (logeable_type @Course@)'
+                item_4: '"Matrícula":/resources/enrollment.html no Curso (logeable_type @Enrollment@)'
+                item_5: 'Modificação do perfil do "Usuário":/resources/user.html no Curso (logeable_type @User@)'
+                item_6: 'Requisição de "conexão":/resources/connection.html no Curso (logeable_type @Friendship@)'
+            fourth_paragraph: 'Além dos atributos que o Activity, Help e Answer possuem, o Log possui um atributo @logeable_type@ que representa o tipo do objeto ao qual o Log está associado. Por exemplo, a criação de uma aula gera um Log cujo o @logeable_type@ é Lecture. Além disso, o Log tem associado a sí um link para o @logeable@. No exemplo dado anteriormente o link @logeable@ conteria o endereço para a aula criada.'
+    get_status_id:
+        first_paragraph: 'Retorna um @status@ com o ID especificado.'
+        table:
+            status_id_description: 'ID do status'
+    get_status_id_answers:
+        first_paragraph: 'Retorna as respostas de um status. É aplicado aos tipos Help e Activity.'
+        table:
+            status_id_description: 'ID do status'
+    post_status_id_answers:
+        first_paragraph: 'Cria um status do tipo Answer em resposta a um Activity ou Help.'
+        table:
+            status_id_description: 'ID do status em questão'
+            status_id_restrictions: 'Somente do tipo Activity ou Help'
+            status_text_description: 'É uma resposta a um comentário ou um pedido de ajuda'
+            status_text_restrictions: 'Máximo 800 caracteres'
+    get_user_id_statuses:
+        first_paragraph: 'Retorna todos os @status@ do usuário. Também é possível filtrar pelo tipo. Caso @:type@ não seja informado é retornado os status do tipo Activity, Help e Log do usuário.'
+        table:
+            user_id_description: 'ID do usuário em questão'
+            type_description: 'Filtragem pelo tipo de status'
+            type_restrictions: 'Pode ser do tipo @Activity@, @Help@ ou @Log@. Mais de um @type@ pode ser requisitado utilizando a opção @types[]@.'
+            logeable_type_description: 'Deve ser usado em conjunto com o @type@. Permite filtrar Logs baseados no atributo @logeable_type@'
+            page_description: 'Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1'
+            page_restrictions: 'Numérico'
+    get_user_id_statuses_timeline:
+        first_paragraph: 'Retorna todos os @status@ do usuário e dos cursos que o usuário faz parte. Diferente do anterior, aqui são mostradas todas as movimentações que interessam ao usuário. É igual ao que se vê na página inicial do Redu.'
+        table:
+            user_id_description: 'ID do usuário em questão'
+            type_description: 'Filtragem pelo tipo de status'
+            type_restrictions: 'Pode ser do tipo @Activity@, @Help@ ou @Log@. Mais de um @type@ pode ser requisitado utilizando a opção @types[]@.'
+            logeable_type_description: 'Deve ser usado em conjunto com o @type@. Permite filtrar Logs baseados no atributo @logeable_type@'
+            page_description: 'Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1'
+            page_restrictions: 'Numérico'
+    post_user_id_statuses:
+        first_paragraph: 'Cria um status do tipo Activity no Mural do usuário.'
+        table:
+            user_id_description: 'ID do usuário em questão'
+            status_text_description: 'Conteúdo do status'
+            status_text_restrictions: 'Máximo 800 caracteres'
+    get_space_id_statuses_timeline:
+        first_paragraph: 'Retorna todos os @status@ da disciplina e das suas aulas. Diferente do anterior, aqui são agregados tanto as postagens da disciplina quanto as das suas aulas. É igual ao que se vê no mural da disciplina.'
+        table:
+            space_id_description: 'ID do space'
+            type_description: 'Filtragem pelo tipo de status'
+            type_restrictions: 'Pode ser do tipo @Activity@, @Help@ ou @Log@. Mais de um @type@ pode ser requisitado utilizando a opção @types[]@.'
+            logeable_type_description: 'Deve ser usado em conjunto com o @type@. Permite filtrar Logs baseados no atributo @logeable_type@'
+            page_description: 'Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1'
+            page_restrictions: 'Numérico'
+    get_space_id_statuses:
+        first_paragraph: 'Retorna todos os @status@ do mural de uma disciplina. Há possibilidade de filtrar os status da disciplina pelo tipo. É importante perceber que os posts listados aqui se limitam àqueles postado diretamente na disciplina.'
+        table:
+            space_id_description: 'ID do space'
+            type_description: 'Filtragem pelo tipo de status'
+            type_restrictions: 'Pode ser do tipo @Activity@, @Help@ ou @Log@. Mais de um @type@ pode ser requisitado utilizando a opção @types[]@.'
+            logeable_type_description: 'Deve ser usado em conjunto com o @type@. Permite filtrar Logs baseados no atributo @logeable_type@'
+            page_description: 'Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1'
+            page_restrictions: 'Numérico'
+    post_space_id_statuses:
+        first_paragraph: 'Cria um status no Mural da disciplina.'
+        table:
+            space_id_description: 'ID do space em questão'
+            status_text_description: 'Conteúdo do status'
+            status_text_restrictions: 'Máximo 800 caracteres'
+        lecture_statuses:
+            title: 'Mural de uma Aula'
+            get_lecture_id_statuses:
+                first_paragraph: 'Retorna todos os @status@ do mural de uma aula. Pode se filtrar os status de uma aula pelo tipo.'
+                table:
+                    lecture_id_description: 'ID da lecture em questão'
+                    type_description: 'Filtragem pelo tipo de status'
+                    type_restrictions: 'Pode ser do tipo @Activity@, @Help@ ou @Log@. Mais de um @type@ pode ser requisitado utilizando a opção @types[]@.'
+                    logeable_type_description: 'Deve ser usado em conjunto com o @type@. Permite filtrar Logs baseados no atributo @logeable_type@'
+            post_lecture_id_statuses:
+                first_paragraph: 'Cria um status no Mural da aula. Somente neste caso é permitido criar um Help (pedido de ajuda).'
+                table:
+                    lecture_id_description: 'ID da lecture em questão'
+                    status_text_description: 'Conteúdo do status'
+                    status_text_restrictions: 'Máximo 800 caracteres'
+                    status_type_description: 'Tipo do status'
+                    status_type_restrictions: 'Activity ou Help'
+    delete_status_id:
+        first_paragraph: 'Remove o status.'
+        table:
+            status_id_description: 'ID do status'
 
 chat:
     first_paragraph: 'O Chat e ChatMessages representam, respectivamente, uma conversa entre dois usuários e suas mensagens. Atualmente é possível, apenas, visualizar estes recursos através da API. A possibilidade de criação e remoção de mensagens de chat, bem como streaming das mesmas está disponível em breve.'

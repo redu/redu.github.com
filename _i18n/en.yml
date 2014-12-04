@@ -2,10 +2,12 @@ global:
     title: Redu for developers
     tagline: Redu Rest API Documentation
     authorization: Authorization
+    attribute: Attribute
     parameters: Parameters
     parameter: Parameter
     description: Description
     restrictions: Restrictions
+    link: Link
     example: Example
     request: Request
     response: Response
@@ -60,6 +62,158 @@ index:
     more_information:
         title: More information
         redu_platform: Introdution to Redu platform of applications
+
+status:
+    first_paragraph: 'Status - message posted in the timeline - is the core of communication in Redu. By using them, the users can post comments, answers, and help requests. Additionally, statuses are the way in which the transactions on the social network are shown. In the API context, any element in the Redu timeline is called @status@.'
+    status_types:
+        title: '"Types of status":#get-statuses'
+        first_paragraph: 'Status is the resource which represents a transaction in Redu. According to the type of transaction, the status has a different type (specified by @type@).'
+        second_paragraph: 'All types of Status have the following properties:'
+        table:
+            id_description: 'Unique identifier of Status'
+            type_description: 'Type of status'
+            type_example: '@Activity@, @Help@, @Answer@, and @Log@'
+            created_at_description: 'Date of creation for Status'
+            user_description: 'Representation of user who has created the status'
+            user_example: 'See "User":/en/resources/user.html'
+            text_description: 'Text that is written by user or system message'
+            text_example: '@"added to your network of contacts"@'
+        activity_type:
+            title: 'Activity'
+            first_paragraph: 'Activity status are the kind of transaction that are explicitly created by the user. For example, a post on the timeline of a space or user creates a status of Activity type. This one is the most common type of status.'
+            second_paragraph: 'The Activity status can be replied by other people. Such answers are accessible via the link @answers@. Furthermore, the Activity is related to @user@ and @statusable@. See examples below:'
+            table_1:
+                user_description: 'Link to the user who has created the status'
+                answers_description: 'Link to Activity answers'
+                statusable_description: 'Link to resource where the Activity was created'
+                statusable_example: 'http://www.redu.com.br/api/lectures/5874-apresentacao. It may be @User@, @Space@, or @Lecture@'
+                self_description: 'Link to Activity which is being viewed'
+            table_2:
+                answers_count: 'Amount of answer'
+        help_type:
+            title: 'Help'
+            first_paragraph: 'Help status is very similar to the Activity one. It represents help requests or questions from users. They can only be created on timelines of lectures. At the end of the day, a Help status has the same function as an Activity one, but there is only one restriction about the places where they can be created, and the representation in the interface (see image).'
+            second_paragraph: 'Help status can also be replied by other people. Such answers are acessible via the link @answers@. Furthermore, the Activity is related to @user@ and @statusable@ through links. See examples below:'
+            table_1:
+                user_description: 'Link to the user who has created the status'
+                answers_description: 'Link to Help answers'
+                statusable_description: 'Link to resource where Help was created'
+                statusable_example: 'http://www.redu.com.br/api/lectures/5874-apresentacao. It may just be a @Lecture@'
+                self_description: 'Link to Help which is being viewed'
+            table_2:
+                answers_count: 'Amount of answer'
+        answer_type:
+            title: 'Answer'
+            first_paragraph: 'As stated above, Activity and Help statuses can be replied by other users. And it is now that we need the Answer status. They related to a status via the link @in_response_to@. Unlike Activity and Help, Answer statuses cannot be replied.'
+            table_1:
+                user_description: 'Link to the user who has created the status'
+                in_response_to_description: 'Link to the Activity or Help which created that answer'
+                self_description: 'Link to Answer which is being viewed'
+            table_2:
+                id_description: 'Unique identifier of Status'
+                type_description: 'Type of status'
+                type_example: '@Activity@, @Help@, @Answer@, and @Log@'
+                created_at_description: 'Date of creation for Status'
+                user_description: 'Representation of user who has created the status'
+                user_example: 'See "User":/en/resources/user.html'
+                text_description: 'Text that is written by user or system message'
+                text_example: '@"added to your network of contacts"@'
+        log_type:
+            title: 'Log'
+            first_paragraph: 'This is the only type of Status which does not depend on action of user to be created. Log statuses are generated automatically by Redy when certain actions happen. For example, when the user updates their profile on Redu, a log is created representing that action.'
+            second_paragraph: 'Overall, Logs are used to represent changes on Redu users. The actions that create logs are:'
+            third_paragraph:
+                item_1: 'Addition of "Lectures":/en/resources/lecture.html within a Subject (logeable_type @Lecture@)'
+                item_2: 'Creation of "Subject":/en/resources/subject.html (logeable_type @Subject@)'
+                item_3: 'Creation of "Course":/en/resources/course.html (logeable_type @Course@)'
+                item_4: '"Enrollment":/en/resources/enrollment.html in Course (logeable_type @Enrollment@)'
+                item_5: 'Modification of "User":/en/resources/user.html profile in Course (logeable_type @User@)'
+                item_6: '"Connection":/en/resources/connection.html requested in Course (logeable_type @Friendship@)'
+            fourth_paragraph: 'Besides the attributes that Activity, Help, and Answer have, Log has a @logeable_type@ attribute that represents the object type which Log is associate to. For instance, the creation of a lecture generates a Log which @logeable_type@ is Lecture. In addition, the Log has a link associated to itself to the @logeable@ entity. In the previous example, the @logeable@ link would contain the address to the lecture created.'
+    get_status_id:
+        first_paragraph: 'Return a @status@ with the specified ID.'
+        table:
+            status_id_description: 'Status ID'
+    get_status_id_answers:
+        first_paragraph: 'Return answers of a status. It is applied to Help and Activity types.'
+        table:
+            status_id_description: 'Status ID'
+    post_status_id_answers:
+        first_paragraph: 'Create an Answer status in response to an Activity or Help.'
+        table:
+            status_id_description: 'ID of status in question'
+            status_id_restrictions: 'Activity or Help only'
+            status_text_description: 'It is a reply to a comment or help request'
+            status_text_restrictions: 'Maximum 800 characters'
+    get_user_id_statuses:
+        first_paragraph: 'Return all @statuses@ from the user. You can also filter by the type. If @:type@ is not given, the Activity, Help, and Log statuses from the user are returned.'
+        table:
+            user_id_description: 'ID of user in question'
+            type_description: 'Filter by status type'
+            type_restrictions: 'It may be @Activity@, @Help@, or @Log@. More than one @type@ can be specified by using the option @types[]@.'
+            logeable_type_description: 'It must be used together with the @type@. This allows you to filter Logs based on attribute @logeable_type@'
+            page_description: 'Pagination of results. Pages have 25 entries. The default one is 1'
+            page_restrictions: 'Number'
+    get_user_id_statuses_timeline:
+        first_paragraph: 'Return all @statuses@ from the user, and courses which the user belongs to. Unlike the previous one, here we have all transactions of interest to the user. It is the same as you see on the Redu homepage.'
+        table:
+            user_id_description: 'ID of user in question'
+            type_description: 'Filter by status type'
+            type_restrictions: 'It may be @Activity@, @Help@, or @Log@. More than one @type@ can be specified by using the option @types[]@.'
+            logeable_type_description: 'It must be used together with the @type@. This allows you to filter Logs based on attribute @logeable_type@'
+            page_description: 'Pagination of results. Pages have 25 entries. The default one is 1'
+            page_restrictions: 'Number'
+    post_user_id_statuses:
+        first_paragraph: 'Create an Activity status on user timeline.'
+        table:
+            user_id_description: 'ID of user in question'
+            status_text_description: 'Content of status'
+            status_text_restrictions: 'Maximum 800 characters'
+    get_space_id_statuses_timeline:
+        first_paragraph: 'Return all @statuses@ from space and its lectures. Unlike the previous one, here we have both posts of the space and its lectures. It is the same as you see on the space timeline.'
+        table:
+            space_id_description: 'Space ID'
+            type_description: 'Filter by status type'
+            type_restrictions: 'It may be @Activity@, @Help@, or @Log@. More than one @type@ can be specified by using the option @types[]@.'
+            logeable_type_description: 'It must be used together with the @type@. This allows you to filter Logs based on attribute @logeable_type@'
+            page_description: 'Pagination of results. Pages have 25 entries. The default one is 1'
+            page_restrictions: 'Number'
+    get_space_id_statuses:
+        first_paragraph: 'Return all @statuses@ from a space timeline. There is the possibility to filter the status of space by the type. It is important to note that the posts listed here are limited to those posted directly on the space timeline.'
+        table:
+            space_id_description: 'Space ID'
+            type_description: 'Filter by status type'
+            type_restrictions: 'It may be @Activity@, @Help@, or @Log@. More than one @type@ can be specified by using the option @types[]@.'
+            logeable_type_description: 'It must be used together with the @type@. This allows you to filter Logs based on attribute @logeable_type@'
+            page_description: 'Pagination of results. Pages have 25 entries. The default one is 1'
+            page_restrictions: 'Number'
+    post_space_id_statuses:
+        first_paragraph: 'Create a status on the space timeline.'
+        table:
+            space_id_description: 'ID of space in question'
+            status_text_description: 'Content of status'
+            status_text_restrictions: 'Maximum 800 characters'
+        lecture_statuses:
+            title: 'Timeline of a Lecture'
+            get_lecture_id_statuses:
+                first_paragraph: 'Return all @statuses@ from a lecture timeline. You can filter the statuses of a lecture by type.'
+                table:
+                    lecture_id_description: 'ID of lecture in question'
+                    type_description: 'Filter by status type'
+                    type_restrictions: 'It may be @Activity@, @Help@, or @Log@. More than one @type@ can be specified by using the option @types[]@.'
+                    logeable_type_description: 'It must be used together with the @type@. This allows you to filter Logs based on attribute @logeable_type@'
+            post_lecture_id_statuses:
+                first_paragraph: 'Create a status on the lecture timeline. Only in this case, it is allowed to create a Help.'
+                table:
+                    lecture_id_description: 'ID of lecture in question'
+                    status_text_description: 'Content of status'
+                    status_text_restrictions: Maximum 800 characters'
+                    status_type_description: 'Type of status'
+                    status_type_restrictions: 'Activity or Help'
+    delete_status_id:
+        first_paragraph: 'Delete the status.'
+        table:
+            status_id_description: 'Status ID'
 
 chat:
     first_paragraph: 'Chat and ChatMessages represent, respectively, a conversation between two users and its messages. At this moment, it is only possible to view these resources via API. The possibility of creating and removing chat messages, as well as the streaming of them, will be available soon.'

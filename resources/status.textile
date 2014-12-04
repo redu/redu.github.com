@@ -5,144 +5,144 @@ group: navigation
 ---
 {% include JB/setup %}
 
-O Mural é o cerne da comunicação dentro do Redu. Através dele os usuários podem postar comentários, respostas e pedidos de ajuda. Além disso o Mural é o meio pelo qual as movimentações do sistema são mostradas. No contexto da API, qualquer elemento mostrado no Mural é chamado de @status@.
+{% t status.first_paragraph %}
 
 div(thumbnail){width:610px; margin: 0 auto}. !/assets/images/mural-example.png!
 
-h2. "Tipos de status":#get-statuses
+h2. {% t status.status_types.title %}
 
-O recurso de representa uma movimentação no Redu é o status. Dependendo do tipo de movimentação, o status possui um tipo (diferenciado através do @type@) diferente.
+{% t status.status_types.first_paragraph %}
 
-Todos os tipos de Status possuem as seguintes propriedades:
-
-table(table table-bordered table-striped){clear: both;}.
-|_.Atributo|_.Descrição|_.Exemplo|
-|id|Identificador único do Status|1|
-|type|Tipo do status.| @Activity@, @Help@, @Answer@ e @Log@|
-|created_at|Data de criação do Status|@2013-03-13T23:47:25-03:00@|
-|user|Representação do User que criou o status|Ver "User":/resources/usuario.html |
-|text|Texto escrito pelo usuário ou mensagem do sitema|@"adicionou a sua rede de contatos"@|
-
-h3. Tipo Activity
-
-Status com o tipo Activity são um tipo de movimentação explicitamente criada pelo usuário. Por exemplo, um post no mural da disciplina ou do usuário cria um status do tipo Activity. Este é o tipo mais comum de status.
-
-O Status do tipo Activity pode ser respondido por outras pessoas. Tais respostas estão acessíveis através do link @answers@. Além disso, o Activity se relaciona com @user@ e @statusable@. Ver exemplos abaixo:
+{% t status.status_types.second_paragraph %}
 
 table(table table-bordered table-striped){clear: both;}.
-|_.Link|_.Descrição|Exemplo|
-|user|Link para o usuário que criou o status|http://www.redu.com.br/api/users/guiocavalcanti|
-|answers|Link apra respostas do Activity|http://www.redu.com.br/api/statuses/107070/answers|
-|statusable|Link para o recurso onde o Activity foi criado.|http://www.redu.com.br/api/lectures/5874-apresentacao. Pode ser @User@, @Space@ ou @Lecture@|
-|self|Link para o Activity sendo visualizado|http://www.redu.com.br/api/statuses/1212|
+|_.{% t global.attribute %}|_.{% t global.description %}|_.{% t global.example %}|
+|id|{% t status.status_types.table.id_description %}|1|
+|type|{% t status.status_types.table.type_description %}| {% t status.status_types.table.type_example %}|
+|created_at|{% t status.status_types.table.created_at_description %}|@2013-03-13T23:47:25-03:00@|
+|user|{% t status.status_types.table.user_description %}|{% t status.status_types.table.user_example %} |
+|text|{% t status.status_types.table.text_description %}|{% t status.status_types.table.text_example %}|
+
+h3. {% t status.status_types.activity_type.title %}
+
+{% t status.status_types.activity_type.first_paragraph %}
+
+{% t status.status_types.activity_type.second_paragraph %}
 
 table(table table-bordered table-striped){clear: both;}.
-|_.Atributo|_.Descrição|_.Exemplo|
-|answers_count|Quantidade de respostas|3|
+|_.{% t global.link %}|_.{% t global.description %}|_.{% t global.example %}|
+|user|{% t status.status_types.activity_type.table_1.user_description %}|http://www.redu.com.br/api/users/guiocavalcanti|
+|answers|{% t status.status_types.activity_type.table_1.answers_description %}|http://www.redu.com.br/api/statuses/107070/answers|
+|statusable|{% t status.status_types.activity_type.table_1.statusable_description %}|{% t status.status_types.activity_type.table_1.statusable_example %}|
+|self|{% t status.status_types.activity_type.table_1.self_description %}|http://www.redu.com.br/api/statuses/1212|
 
-h3. Tipo Help
+table(table table-bordered table-striped){clear: both;}.
+|_.{% t global.attribute %}|_.{% t global.description %}|_.{% t global.example %}|
+|answers_count|{% t status.status_types.activity_type.table_2.answers_count %}|3|
+
+h3. {% t status.status_types.help_type.title %}
 
 div(thumbnail){margin:10px 0 15px 0;}. !/assets/images/status-help.png!
 
-Bem parecido com o Activity, Status do tipo Help representam pedidos de ajuda ou perguntas dos usuários. Eles só podem ser criados nos murais das aulas (lecture). No fim do dia, Status com o tipo Help têm a mesma função do Activity, só há uma restrição dos locais onde eles podem ser criados e a representaçõa na interface (ver figura).
+{% t status.status_types.help_type.first_paragraph %}
 
-O Status do tipo Help também pode ser respondido por outras pessoas. Tais respostas estão acessíveis através do link @answers@. Além disso, o Help se relaciona com @user@ e @statusable@ através de link. Ver exemplos abaixo:
-
-table(table table-bordered table-striped){clear: both;}.
-|_.Link|_.Descrição|Exemplo|
-|user|Link para o usuário que criou o status|http://www.redu.com.br/api/users/guiocavalcanti|
-|answers|Link apra respostas do Help|http://www.redu.com.br/api/statuses/107070/answers|
-|statusable|Link para o recurso onde o Help foi criado.|http://www.redu.com.br/api/lectures/5874-apresentacao. Pode ser apenas uma @Lecture@|
-|self|Link para o Help sendo visualizado|http://www.redu.com.br/api/statuses/1212|
+{% t status.status_types.help_type.second_paragraph %}
 
 table(table table-bordered table-striped){clear: both;}.
-|_.Atributo|_.Descrição|_.Exemplo|
-|answers_count|Quantidade de respostas|7|
-
-h3. Tipo Answer
-
-Como dito acima, os Activity e Help podem ser respondidos por outros usuários. É aí que precisamos do Status do tipo Answer. Eles se relacionam com um Status através do link @in_response_to@. Diferente dos Activity e Help, os Answer não podem ser respondidos.
-
-table(table table-bordered table-striped){clear: both;}.
-|_.Link|_.Descrição|Exemplo|
-|user|Link para o usuário que criou o status|http://www.redu.com.br/api/users/guiocavalcanti|
-|in_response_to|Link do Activity ou Help que originou esta resposta|http://www.redu.com.br/api/statuses/107070/answers|
-|self|Link para o Answer sendo visualizado|http://www.redu.com.br/api/statuses/1212|
+|_.{% t global.link %}|_.{% t global.description %}|_.{% t global.example %}|
+|user|{% t status.status_types.help_type.table_1.user_description %}|http://www.redu.com.br/api/users/guiocavalcanti|
+|answers|{% t status.status_types.help_type.table_1.answers_description %}|http://www.redu.com.br/api/statuses/107070/answers|
+|statusable|{% t status.status_types.help_type.table_1.statusable_description %}|{% t status.status_types.help_type.table_1.statusable_example %}|
+|self|{% t status.status_types.help_type.table_1.self_description %}|http://www.redu.com.br/api/statuses/1212|
 
 table(table table-bordered table-striped){clear: both;}.
-|_.Atributo|_.Descrição|_.Exemplo|
-|id|Identificador único do Status|1|
-|type|Tipo do status.| @Activity@, @Help@, @Answer@ e @Log@|
-|created_at|Data de criação do Status|@2013-03-13T23:47:25-03:00@|
-|user|Representação do User que criou o status|Ver "User":/resources/usuario.html |
-|text|Texto escrito pelo usuário ou mensagem do sitema|@"adicionou a sua rede de contatos"@|
+|_.{% t global.attribute %}|_.{% t global.description %}|_.{% t global.example %}|
+|answers_count|{% t status.status_types.help_type.table_2.answers_count %}|7|
 
-h3. Tipo Log
+h3. {% t status.status_types.answer_type.title %}
 
-Este é o único tipo de Status que independe da ação do usuário para serem criados. O Status tipo Log são gerados automáticamente pelo Redu quando certos tipos de ações ocorrem. Por exemplo, quando o usuário atualiza seu perfil no Redu, um Log é criado representando esta ação.
+{% t status.status_types.answer_type.first_paragraph %}
 
-Em geral Logs são utilizados para representar as alterações dos usuários no Redu. As ações que criam Logs são:
+table(table table-bordered table-striped){clear: both;}.
+|_.{% t global.link %}|_.{% t global.description %}|_.{% t global.example %}|
+|user|{% t status.status_types.answer_type.table_1.user_description %}|http://www.redu.com.br/api/users/guiocavalcanti|
+|in_response_to|{% t status.status_types.answer_type.table_1.in_response_to_description %}|http://www.redu.com.br/api/statuses/107070/answers|
+|self|{% t status.status_types.answer_type.table_1.self_description %}|http://www.redu.com.br/api/statuses/1212|
 
-* Adição de "Aulas":/resources/lecture.html num Módulo (logeable_type @Lecture@)
-* Criação de "Módulo":/resources/subject.html (logeable_type @Subject@)
-* Criação de "Curso":/resources/course.html (logeable_type @Course@)
-* "Matrícula":/resources/enrollment.html no Curso (logeable_type @Enrollment@)
-* Modificação do perfil do "Usuário":/resources/user.html no Curso (logeable_type @User@)
-* Requisição de "conexão":/resources/connection.html no Curso (logeable_type @Friendship@)
+table(table table-bordered table-striped){clear: both;}.
+|_.{% t global.attribute %}|_.{% t global.description %}|_.{% t global.example %}|
+|id|{% t status.status_types.answer_type.table_2.id_description %}|1|
+|type|{% t status.status_types.answer_type.table_2.type_description %}| {% t status.status_types.answer_type.table_2.type_example %}|
+|created_at|{% t status.status_types.answer_type.table_2.created_at_description %}|@2013-03-13T23:47:25-03:00@|
+|user|{% t status.status_types.answer_type.table_2.user_description %}|{% t status.status_types.answer_type.table_2.user_example %} |
+|text|{% t status.status_types.answer_type.table_2.text_description %}|{% t status.status_types.answer_type.table_2.text_example %}|
 
-Além dos atributos que o Activity, Help e Answer possuem, o Log possui um atributo @logeable_type@ que representa o tipo do objeto ao qual o Log está associado. Por exemplo, a criação de uma aula gera um Log cujo o @logeable_type@ é Lecture. Além disso, o Log tem associado a sí um link para o @logeable@. No exemplo dado anteriormente o link @logeable@ conteria o endereço para a aula criada.
+h3. {% t status.status_types.log_type.title %}
+
+{% t status.status_types.log_type.first_paragraph %}
+
+{% t status.status_types.log_type.second_paragraph %}
+
+* {% t status.status_types.log_type.third_paragraph.item_1 %}
+* {% t status.status_types.log_type.third_paragraph.item_2 %}
+* {% t status.status_types.log_type.third_paragraph.item_3 %}
+* {% t status.status_types.log_type.third_paragraph.item_4 %}
+* {% t status.status_types.log_type.third_paragraph.item_5 %}
+* {% t status.status_types.log_type.third_paragraph.item_6 %}
+
+{% t status.status_types.log_type.fourth_paragraph %}
 
 h2. "GET /api/statuses/:status_id":#get-status
 
-Retorna um @status@ com o ID especificado.
+{% t status.get_status_id.first_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*:status_id*| ID do status|N/A|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*:status_id*| {% t status.get_status_id.table.status_id_description %}|N/A|
 
 h2. "GET /api/statuses/:status_id/answers":#get-answers
 
-Retorna as respostas de um status. É aplicado aos tipos Help e Activity.
+{% t status.get_status_id_answers.first_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*:status_id*| ID do status|N/A|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*:status_id*| {% t status.get_status_id.table.status_id_description %}|N/A|
 
 h2. "POST /api/statuses/:status_id/answers":#post-answer
 
-Cria um status do tipo Answer em resposta a um Activity ou Help.
+{% t status.post_status_id_answers.first_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*status_id*| ID do status em questão|Somente do tipo Activity ou Help|
-|*status[text]*| É uma resposta a um comentário ou um pedido de ajuda|Máximo 800 caracteres|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*status_id*| {% t status.post_status_id_answers.table.status_id_description %}|{% t status.post_status_id_answers.table.status_id_restrictions %}|
+|*status[text]*| {% t status.post_status_id_answers.table.status_text_description %}|{% t status.post_status_id_answers.table.status_text_restrictions %}|
 
 h2. "GET /api/users/:user_id/statuses":#get-user-status
 
-Retorna todos os @status@ do usuário. Também é possível filtrar pelo tipo. Caso @:type@ não seja informado é retornado os status do tipo Activity, Help e Log do usuário.
+{% t status.get_user_id_statuses.first_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*user_id*| ID do usuário em questão| N/A |
-|*type* ou *types[]*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@. Mais de um @type@ pode ser requisitado utilizando a opção @types[]@.|
-|*logeable_type*| Deve ser usado em conjunto com o @type@. Permite filtrar Logs baseados no atributo @logeable_type@ |@User@, @Friendship@, @Enrollment@|
-|*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*user_id*| {% t status.get_user_id_statuses.table.user_id_description %}| N/A |
+|*type* ou *types[]*| {% t status.get_user_id_statuses.table.type_description %} |{% t status.get_user_id_statuses.table.type_restrictions %}|
+|*logeable_type*| {% t status.get_user_id_statuses.table.logeable_type_description %} |@User@, @Friendship@, @Enrollment@|
+|*page*| {% t status.get_user_id_statuses.table.page_description %} | {% t status.get_user_id_statuses.table.page_restrictions %} |
 
-h4. Exemplo
+h4. {% t global.example %}
 
-*Requisição:*
+*{% t global.request %}:*
 
 @GET /api/users/:user_id/statuses?type=Activity@
 
-*Resposta:*
+*{% t global.response %}:*
 
 {% highlight json %}
 [{
@@ -232,98 +232,97 @@ h4. Exemplo
 
 h2. "GET /api/users/:user_id/statuses/timeline":#get-user-timeline
 
-Retorna todos os @status@ do usuário. Também é possível filtrar pelo tipo. Caso @:type@ não seja informado é retornado os status do tipo Activity, Help e Log do usuário.
-Retorna todos os @status@ do usuário e dos cursos que o usuário faz parte. Diferente do anterior, aqui são mostradas todas as movimentações que interessam ao usuário. É igual ao que se vê na página inicial do Redu.
+{% t status.get_user_id_statuses_timeline.first_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*user_id*| ID do usuário em questão| N/A |
-|*type* ou *types[]*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@. Mais de um @type@ pode ser requisitado utilizando a opção @types[]@.|
-|*logeable_type*| Deve ser usado em conjunto com o @type@. Permite filtrar Logs baseados no atributo @logeable_type@ |@User@, @Friendship@, @CourseEnrollment@|
-|*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*user_id*| {% t status.get_user_id_statuses_timeline.table.user_id_description %}| N/A |
+|*type* ou *types[]*| {% t status.get_user_id_statuses_timeline.table.type_description %} |{% t status.get_user_id_statuses_timeline.table.type_restrictions %}|
+|*logeable_type*| {% t status.get_user_id_statuses_timeline.table.logeable_type_description %} |@User@, @Friendship@, @CourseEnrollment@|
+|*page*| {% t status.get_user_id_statuses_timeline.table.page_description %} | {% t status.get_user_id_statuses_timeline.table.page_restrictions %} |
 
 h2. "POST /api/users/:user_id/statuses":#post-user-status
 
-Cria um status do tipo Activity no Mural do usuário.
+{% t status.post_user_id_statuses.first_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*user_id*| ID do usuário em questão|N/A|
-|*status[text]*| Conteúdo do status |Máximo 800 caracteres|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*user_id*| {% t status.post_user_id_statuses.table.user_id_description %}|N/A|
+|*status[text]*| {% t status.post_user_id_statuses.table.status_text_description %} |{% t status.post_user_id_statuses.table.status_text_restrictions %}|
 
 h2. "GET /api/spaces/:space_id/statuses/timeline":#get-space-timeline
 
-Retorna todos os @status@ da disciplina e das suas aulas. Diferente do anterior, aqui são agregados tanto as postagens da disciplina quanto as das suas aulas. É igual ao que se vê no mural da disciplina.
+{% t status.get_space_id_statuses_timeline.first_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*space_id*| ID do space| N/A |
-|*type* ou *types[]*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@. Mais de um @type@ pode ser requisitado utilizando a opção @types[]@.|
-|*logeable_type*| Deve ser usado em conjunto com o @type@. Permite filtrar Logs baseados no atributo @logeable_type@ |@User@, @Friendship@, @CourseEnrollment@|
-|*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*space_id*| {% t status.get_space_id_statuses_timeline.table.space_id_description %}| N/A |
+|*type* ou *types[]*| {% t status.get_space_id_statuses_timeline.table.type_description %} |{% t status.get_space_id_statuses_timeline.table.type_restrictions %}|
+|*logeable_type*| {% t status.get_space_id_statuses_timeline.table.logeable_type_description %} |@User@, @Friendship@, @CourseEnrollment@|
+|*page*| {% t status.get_space_id_statuses_timeline.table.page_description %} | {% t status.get_space_id_statuses_timeline.table.page_restrictions %} |
 
 h2. "GET /api/spaces/:space_id/statuses":#get-space-status
 
-Retorna todos os @status@ do mural de uma disciplina. Há possibilidade de filtrar os status da disciplina pelo tipo. É importante preceber que os posts listados aqui se limitam àqueles postado diretamente na disciplina.
+{% t status.get_space_id_statuses.first_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*space_id*| ID do space| N/A |
-|*type* ou *types[]*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@. Mais de um @type@ pode ser requisitado utilizando a opção @types[]@.|
-|*logeable_type*| Deve ser usado em conjunto com o @type@. Permite filtrar Logs baseados no atributo @logeable_type@ |@User@, @Friendship@, @CourseEnrollment@|
-|*page*| Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1. | Numérico |
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*space_id*| {% t status.get_space_id_statuses.table.space_id_description %}| N/A |
+|*type* ou *types[]*| {% t status.get_space_id_statuses.table.type_description %} |{% t status.get_space_id_statuses.table.type_restrictions %}|
+|*logeable_type*| {% t status.get_space_id_statuses.table.logeable_type_description %} |@User@, @Friendship@, @CourseEnrollment@|
+|*page*| {% t status.get_space_id_statuses.table.page_description %} | {% t status.get_space_id_statuses.table.page_restrictions %} |
 
 h2. "POST /api/spaces/:space_id/statuses":#post-space-status
 
-Cria um status no Mural da disciplina.
+{% t status.post_space_id_statuses.first_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*space_id*| ID do space em questão|N/A|
-|*status[text]*| Conteúdo do status |Máximo 800 caracteres|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*space_id*| {% t status.post_space_id_statuses.table.space_id_description %}|N/A|
+|*status[text]*| {% t status.post_space_id_statuses.table.status_text_description %} |{% t status.post_space_id_statuses.table.status_text_restrictions %}|
 
-h3. Mural de uma Aula
+h3. {% t status.post_space_id_statuses.lecture_statuses.title %}
 
 h2. "GET /api/lectures/:lecture_id/statuses":#get-lecture-status
 
-Retorna todos os @status@ do mural de uma aula. Pode se filtrar os status de uma aula pelo tipo.
+{% t status.post_space_id_statuses.lecture_statuses.get_lecture_id_statuses.first_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*lecture_id*| ID da lecture em questão|N/A|
-|*type* ou *types[]*| Filtragem pelo tipo de status |Pode ser do tipo @Activity@, @Help@ ou @Log@. Mais de um @type@ pode ser requisitado utilizando a opção @types[]@.|
-|*logeable_type*| Deve ser usado em conjunto com o @type@. Permite filtrar Logs baseados no atributo @logeable_type@ |@User@, @Friendship@, @CourseEnrollment@|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*lecture_id*| {% t status.post_space_id_statuses.lecture_statuses.get_lecture_id_statuses.table.lecture_id_description %}|N/A|
+|*type* ou *types[]*| {% t status.post_space_id_statuses.lecture_statuses.get_lecture_id_statuses.table.type_description %} |{% t status.post_space_id_statuses.lecture_statuses.get_lecture_id_statuses.table.type_restrictions %}|
+|*logeable_type*| {% t status.post_space_id_statuses.lecture_statuses.get_lecture_id_statuses.table.logeable_type_description %} |@User@, @Friendship@, @CourseEnrollment@|
 
 h2. "POST /api/lectures/:lecture_id/statuses":#post-lecture-status
 
-Cria um status no Mural da aula. Somente neste caso é permitido criar um Help (pedido de ajuda).
+{% t status.post_space_id_statuses.lecture_statuses.post_lecture_id_statuses.first_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*:lecture_id*| ID da lecture em questão|N/A|
-|*status[text]*| Conteúdo do status |Máximo 800 caracteres|
-|*status[type]*| Tipo do status | Activity ou Help |
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*:lecture_id*| {% t status.post_space_id_statuses.lecture_statuses.post_lecture_id_statuses.table.lecture_id_description %}|N/A|
+|*status[text]*| {% t status.post_space_id_statuses.lecture_statuses.post_lecture_id_statuses.table.status_text_description %} |{% t status.post_space_id_statuses.lecture_statuses.post_lecture_id_statuses.table.status_text_restrictions %}|
+|*status[type]*| {% t status.post_space_id_statuses.lecture_statuses.post_lecture_id_statuses.table.status_type_description %} | {% t status.post_space_id_statuses.lecture_statuses.post_lecture_id_statuses.table.status_type_restrictions %} |
 
 h2. "DELETE /api/statuses/:status_id":#delete-status
 
-Remove o status.
+{% t status.delete_status_id.first_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*:status_id*|ID do status|N/A|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*:status_id*|{% t status.delete_status_id.table.status_id_description %}|N/A|
