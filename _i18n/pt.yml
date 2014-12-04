@@ -63,6 +63,33 @@ index:
         title: Mais informações
         redu_platform: Introdução a plataforma de aplicativos Redu
 
+chat:
+    first_paragraph: 'O Chat e ChatMessages representam, respectivamente, uma conversa entre dois usuários e suas mensagens. Atualmente é possível, apenas, visualizar estes recursos através da API. A possibilidade de criação e remoção de mensagens de chat, bem como streaming das mesmas está disponível em breve.'
+    chat:
+        title: Chat
+        get_id_chats:
+            first_paragraph: 'Retorna todos os chats do usuário em questão.'
+            second_paragraph: 'É necessário ter poder de gerenciamento do usuário.'
+            table:
+                id: 'ID ou login do usuário'
+        get_chats_id:
+            first_paragraph: 'Retorna o chat em questão. O recurso Chat contém todas as mensagens trocadas entre dois usuários utilizando o sistema de chat do Redu.'
+            second_paragraph: 'É necessário ser participante do chat para visualizar este recurso.'
+            table:
+                id: 'ID do chat'
+    chat_message:
+        title: Chat message
+        get_id_chat_messages:
+            first_paragraph: 'Retorna todas as mensagens contidas num chat.'
+            second_paragraph: 'É necessário ser participante do chat para visualizar este recurso.'
+            table:
+                id: 'ID do chat'
+        get_chat_messages_id:
+            first_paragraph: 'Retorna uma mensagem do chat.'
+            second_paragraph: 'É necessário ser participante do chat para visualizar este recurso.'
+            table:
+                id: 'ID da mensagem'
+
 status:
     first_paragraph: 'O Mural é o cerne da comunicação dentro do Redu. Através dele os usuários podem postar comentários, respostas e pedidos de ajuda. Além disso o Mural é o meio pelo qual as movimentações do sistema são mostradas. No contexto da API, qualquer elemento mostrado no Mural é chamado de @status@.'
     status_types:
@@ -214,30 +241,3 @@ status:
         first_paragraph: 'Remove o status.'
         table:
             status_id_description: 'ID do status'
-
-chat:
-    first_paragraph: 'O Chat e ChatMessages representam, respectivamente, uma conversa entre dois usuários e suas mensagens. Atualmente é possível, apenas, visualizar estes recursos através da API. A possibilidade de criação e remoção de mensagens de chat, bem como streaming das mesmas está disponível em breve.'
-    chat:
-        title: Chat
-        get_id_chats:
-            first_paragraph: 'Retorna todos os chats do usuário em questão.'
-            second_paragraph: 'É necessário ter poder de gerenciamento do usuário.'
-            table:
-                id: 'ID ou login do usuário'
-        get_chats_id:
-            first_paragraph: 'Retorna o chat em questão. O recurso Chat contém todas as mensagens trocadas entre dois usuários utilizando o sistema de chat do Redu.'
-            second_paragraph: 'É necessário ser participante do chat para visualizar este recurso.'
-            table:
-                id: 'ID do chat'
-    chat_message:
-        title: Chat message
-        get_id_chat_messages:
-            first_paragraph: 'Retorna todas as mensagens contidas num chat.'
-            second_paragraph: 'É necessário ser participante do chat para visualizar este recurso.'
-            table:
-                id: 'ID do chat'
-        get_chat_messages_id:
-            first_paragraph: 'Retorna uma mensagem do chat.'
-            second_paragraph: 'É necessário ser participante do chat para visualizar este recurso.'
-            table:
-                id: 'ID da mensagem'
