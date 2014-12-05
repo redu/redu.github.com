@@ -11,6 +11,7 @@ global:
     example: Example
     request: Request
     response: Response
+    key: Key
 
 titles:
     index: Redu for developers
@@ -62,6 +63,72 @@ index:
     more_information:
         title: More information
         redu_platform: Introdution to Redu platform of applications
+
+canvas:
+    first_paragraph: 'The canvas applications represent the highest level of integration with Redu. In this type of integration, there is no need to leave the platform to use the application, so the user experience is usually more complete.'
+    second_paragraph: 'Once these applications are integrated to Redu interface, there are some limitations with respect to the dimension of them. Currently, you can add applications of width no more than @720px@. Regarding height, it is only required that it be fixed, i.e., it must be kept from the time the application is loaded.'
+    third_paragraph: 'The canvas itself is an @<iframe>@ which has an address to another server as source. This model is well-established and used in other application platforms, such as Facebook.'
+    fourth_paragraph: 'Going into details, canvas is an "@<iframe>@":https://developer.mozilla.org/en-US/docs/HTML/Element/iframe tag that can be shown in several parts of Redu interface. The @<iframe>@ tag is initialized with an URL to its application, and it receives various information about the context where the canvas will be displayed.'
+    fifth_paragraph: 'At this moment, the canvas can be displayed in Space and Lecture.'
+    canvas_example_subtitle: 'Example of canvas application in Space. It is possible to keep visual identity of Redu by using our "interface components":/ui-components'
+    context_information:
+        title: 'Context information'
+        first_paragraph: 'When displaying the canvas, Redu sends some context information in the "**querystring**":http://en.wikipedia.org/wiki/Query_string format. That is, we can modify the behavior of an application depending on where the canvas is displayed.'
+        second_paragraph: 'Redu sends the following information to the application:'
+        table:
+            meaning: 'Meaning'
+            shown_as: 'Is shown as'
+            container_meaning: 'Type of container. It represents the hierarchy level where the canvas is shown'
+            container_shown_as: 'Always'
+            space_id_meaning: 'Space ID'
+            space_id_shown_as: 'Always'
+            user_id_meaning: 'ID of user who is viewing the canvas in Redu'
+            user_id_shown_as: 'Always'
+            lecture_id_meaning: 'Lecture ID'
+            lecture_id_shown_as: 'Canvas in Lecture'
+        session_expiry:
+            title: 'Detecting session expiry'
+            first_paragraph: 'In Redu, a common practice is to persiste the ID of a user in an application session. However, when it comes to canvas applications, there is no simple way to expire the user session. For example, when the user *logs out* from Redu, we cannot detect this in the context of application.'
+            second_paragraph: 'For that reason, the ID of the user (@user_id@) who is logged on is always sent when displaying a canvas. Your application can compare that ID with the persisted ID in session, and use this information to detect whether the session must be expired or not. This cycle can be seen in the diagram below:'
+    space:
+        title: 'Space'
+        links:
+            title: 'Links'
+            first_paragraph: 'In the representations of canvas, the following links are shown:'
+            table:
+                self_description: 'Canvas in question'
+                self_link_description: 'Link of Web interface to canvas'
+                container_description: 'Link to the canvas container'
+                raw_description: 'Link to the URL shown in the canvas'
+        post_spaces_id_canvas:
+            first_paragraph: 'Create canvas in Space.'
+            table:
+                current_url_description: 'URL that will be shown in canvas'
+                current_url_restrictions: 'It is not required. It must be a valid URL'
+                name_description: 'Name shown in links to the Canvas'
+                name_restrictions: 'Required'
+        get_canvas_id:
+            first_paragraph: 'Return the canvas with the specified ID.'
+            response_example:
+                title: 'Example of response'
+        put_canvas_id:
+            first_paragraph: 'Update information of an existing canvas.'
+        delete_canvas_id:
+            first_paragraph: 'Delete canvas.'
+    lecture:
+        title: 'Lecture'
+        post_subject_id_lectures:
+            first_paragraph: 'Create a new lecture with a canvas within the specified subject.'
+            table:
+                type_description: 'Type of Lecture. In this case, we cant to create a @Canvas@ one.'
+                type_restrictions: 'Required'
+                name_description: 'Name of lecture'
+                name_restrictions: 'Required'
+                current_url_description: 'URL that will be shown in canvas'
+                current_url_restrictions: 'It is not required. It must be a valid URL'
+            second_paragraph: 'The @current_url@ is optional. If it is not given, the main URL of the application will be shown.'
+        get_lectures_id:
+            first_paragraph: 'If it is a Canvas lecture, a representation of that will be returned.'
 
 chat:
     first_paragraph: 'Chat and ChatMessages represent, respectively, a conversation between two users and its messages. At this moment, it is only possible to view these resources via API. The possibility of creating and removing chat messages, as well as the streaming of them, will be available soon.'
