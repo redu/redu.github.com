@@ -3,11 +3,13 @@ global:
     tagline: Documentação da API REST do Redu
     authorization: Autorização
     attribute: Atributo
+    attributes: Atributos
     parameters: Parâmetros
     parameter: Parâmetro
     description: Descrição
     restrictions: Restrições
     link: Link
+    links: Links
     example: Exemplo
     request: Requisição
     response: Resposta
@@ -156,6 +158,95 @@ chat:
             second_paragraph: 'É necessário ser participante do chat para visualizar este recurso.'
             table:
                 id: 'ID da mensagem'
+
+folders_and_files:
+    first_paragraph: 'Pasta e Arquivo são referenciados, respectivamente, como: @folder@ e @file@. Estes compõem a seção de Arquivos de Apoio dispostos em uma "Disciplina":/resources/space.html, onde é possível guardar, organizar e baixar arquivos.'
+    folder:
+        title: 'Folder'
+        first_paragraph: 'Representa uma pasta no sistema de arquivos, a qual pode estar contida em uma pasta e conter várias pastas e arquivos. Uma "disciplina":/resources/space.html pode possuir várias pastas.'
+        table_1:
+            id_description: 'Identificador único do Folder'
+            name_description: 'Nome'
+            created_at_description: 'Data de criação'
+        table_2:
+            self_description: 'Pasta em questão'
+            folder_description: 'Pasta na qual a pasta em questão está contida (pasta pai)'
+            files_description: 'Arquivos contidos'
+            folders_description: 'Pastas contidas'
+            space_description: 'Disciplina onde a pasta se encontra'
+            user_description: 'Usuário criador'
+        get_folders_id:
+            first_paragraph: 'Retorna a pasta em questão.'
+            second_paragraph: 'É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual a pasta pertence (no caso, o curso da disciplina).'
+            table:
+                id_description: 'ID da pasta'
+        get_folders_folder_id_folders:
+            first_paragraph: 'Retorna as pastas contidas na pasta em questão.'
+            second_paragraph: 'É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual a pasta pertence (no caso, o curso da disciplina).'
+            table:
+                id_description: 'ID da pasta pai'
+        get_spaces_space_id_folders:
+            first_paragraph: 'Retorna as pastas contidas na disciplina informada.'
+            second_paragraph: 'É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual a disciplina pertence.'
+            table:
+                id_description: 'ID da disciplina'
+        post_folders_id_folders:
+            first_paragraph: 'Cria novo diretório dentro do diretório especificado.'
+            second_paragraph: 'É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual a disciplina pertence e ser administrador, professor ou tutor no curso.'
+            table:
+                name_description: 'Novo nome do arquivo'
+            third_paragraph: 'O exemplo abaixo foi realizado utilizando o programa "cURL":http://curl.haxx.se/.'
+        put_folders_id:
+            first_paragraph: 'Atualiza nome de um Folder.'
+            second_paragraph: 'É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual a disciplina pertence e ser administrador, professor ou tutor no curso.'
+            table:
+                name_description: 'Novo nome do arquivo'
+        delete_folders_id:
+            first_paragraph: 'Remove a pasta especificada.'
+            second_paragraph: 'É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html e ser administrador, professor ou tutor no curso.'
+    file:
+        title: 'File'
+        first_paragraph: 'Representa um arquivo no sistema de arquivos, o qual está contido em uma pasta.'
+        table_1:
+            id_description: 'Identificador único do File'
+            name_description: 'Nome'
+            mimetype_description: 'Formato do arquivo'
+            size_description: 'Tamanho em _megabytes_'
+            byte_description: 'Tamanho em _bytes_'
+            created_at_description: 'Data de criação'
+        table_2:
+            self_description: 'Arquivo em questão'
+            folder_description: 'Pasta na qual o arquivo está contido (pasta pai)'
+            space_description: 'Disciplina onde a pasta se encontra'
+            user_description: 'Usuário criador'
+            raw_description: 'Endereço do arquivo bruto para download'
+        get_files_id:
+            first_paragraph: 'Retorna o arquivo em questão.'
+            second_paragraph: 'É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual o arquivo pertence (no caso, o curso da disciplina).'
+            table:
+                id_description: 'ID do arquivo'
+        get_folders_folder_id_files:
+            first_paragraph: 'Retorna os arquivos contidos na pasta em questão.'
+            second_paragraph: 'É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual a pasta / o arquivo pertence (no caso, o curso da disciplina).'
+            table:
+                id_description: 'ID da pasta'
+        post_folders_folder_id_files:
+            first_paragraph: 'Cria um novo arquivo dentro da pasta especificada.'
+            second_paragraph: 'É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html e ser administrador, professor ou tutor no curso.'
+            table:
+                content_description: 'Dados binários do arquivo a ser criado'
+                content_restrictions: 'Tamanho máximo de 100 Mb'
+            files_upload:
+                title: 'Upload de arquivos'
+                first_paragraph: 'Em casos casos em que há o upload de arquivos, são necessários os seguintes cabeçalhos HTTP:'
+                second_paragraph:
+                    item_1: 'Content-Type: multipart/form-data'
+                    item_2: 'Content-Length: 13951 (tamanho do arquivo em bytes)'
+                third_paragraph: 'O uso do Content-type multipart/form-data torna possível que o corpo da requisição HTTP seja composto vários conjuntos de dados, cada qual possuindo seu próprio Content-type. Com isso podemos enviar, além do name e type, os dados binários que compõem uma imagem ou um PDF.'
+            third_paragraph: 'O exemplo abaixo foi realizado utilizando o programa "cURL":http://curl.haxx.se/.'
+        delete_files_id:
+            first_paragraph: 'Remove o arquivo especificado'
+            second_paragraph: 'É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html e ser administrador, professor ou tutor no curso.'
 
 status:
     first_paragraph: 'O Mural é o cerne da comunicação dentro do Redu. Através dele os usuários podem postar comentários, respostas e pedidos de ajuda. Além disso o Mural é o meio pelo qual as movimentações do sistema são mostradas. No contexto da API, qualquer elemento mostrado no Mural é chamado de @status@.'

@@ -3,11 +3,13 @@ global:
     tagline: Redu Rest API Documentation
     authorization: Authorization
     attribute: Attribute
+    attributes: Attributes
     parameters: Parameters
     parameter: Parameter
     description: Description
     restrictions: Restrictions
     link: Link
+    links: Links
     example: Example
     request: Request
     response: Response
@@ -156,6 +158,95 @@ chat:
             second_paragraph: 'You need to participate in the chat to view this resource'
             table:
                 id: 'Message ID'
+
+folders_and_files:
+    first_paragraph: 'Folders and files are referred to respectively as: @folder@, and @file@. These resources make up the "Arquivos de Apoio" (Support Files) section, arranged in a "Space":/resources/space.html, where you can save, organize, and download files.'
+    folder:
+        title: 'Folder'
+        first_paragraph: 'It represents a folder in the file system, which can be in a folder and contain multiple folders, and files. A "space":/en/resources/space.html can have multiple folders.'
+        table_1:
+            id_description: 'Unique identifier of Folder'
+            name_description: 'Name'
+            created_at_description: 'Date of creation'
+        table_2:
+            self_description: 'Folder in question'
+            folder_description: 'Folder which contains the folder in question (parent folder)'
+            files_description: 'Contained files'
+            folders_description: 'Contained folders'
+            space_description: 'Space where the folder is'
+            user_description: 'User who has created the folder'
+        get_folders_id:
+            first_paragraph: 'Return the folder in question.'
+            second_paragraph: 'You must be "enrolled":/en/resources/enrollment.html in the "course":/en/resources/course.html to which the folder belongs (in this case, the course of the space).'
+            table:
+                id_description: 'Folder ID'
+        get_folders_folder_id_folders:
+            first_paragraph: 'Return the folders in the folder in question.'
+            second_paragraph: 'You must be "enrolled":/en/resources/enrollment.html in the "course":/en/resources/course.html to which the folder belongs (in this case, the course of the space).'
+            table:
+                id_description: 'Parent folder ID'
+        get_spaces_space_id_folders:
+            first_paragraph: 'Return the folders in the given space.'
+            second_paragraph: 'You must be "enrolled":/en/resources/enrollment.html in the "course":/en/resources/course.html to which the space belongs.'
+            table:
+                id_description: 'Space ID'
+        post_folders_id_folders:
+            first_paragraph: 'Create new directory in the specified directory.'
+            second_paragraph: 'You must be "enrolled":/en/resources/enrollment.html in the "course":/en/resources/course.html to which the space belongs. And you need to be either administrator, professor/teacher or tutor on the course.'
+            table:
+                name_description: 'New name of file'
+            third_paragraph: 'The following example was created by using "cURL":http://curl.haxx.se/.'
+        put_folders_id:
+            first_paragraph: 'Update name of a Folder.'
+            second_paragraph: 'You must be "enrolled":/en/resources/enrollment.html in the "course":/en/resources/course.html to which the space belongs. And you need to be either administrator, professor/teacher or tutor on the course.'
+            table:
+                name_description: 'New name of file'
+        delete_folders_id:
+            first_paragraph: 'Delete the specified folder.'
+            second_paragraph: 'You must be "enrolled":/en/resources/enrollment.html in the "course":/en/resources/course.html. And you need to be either administrator, professor/teacher or tutor on the course.'
+    file:
+        title: 'File'
+        first_paragraph: 'It represents a file in the file system, which is in a folder.'
+        table_1:
+            id_description: 'Unique identifier of File'
+            name_description: 'Name'
+            mimetype_description: 'Format of file'
+            size_description: 'Size in _megabytes_'
+            byte_description: 'Size in _bytes_'
+            created_at_description: 'Date of creation'
+        table_2:
+            self_description: 'File in question'
+            folder_description: 'Folder which contains the file (parent folder)'
+            space_description: 'Space where the folder is'
+            user_description: 'User who has created the file'
+            raw_description: 'Address of the raw file do be downloaded'
+        get_files_id:
+            first_paragraph: 'Return the file in question.'
+            second_paragraph: 'You must be "enrolled":/en/resources/enrollment.html in the "course":/en/resources/course.html to which the file belongs (in this case, the course of the space).'
+            table:
+                id_description: 'File ID'
+        get_folders_folder_id_files:
+            first_paragraph: 'Return the files which are in the folder in question.'
+            second_paragraph: 'You must be "enrolled":/en/resources/enrollment.html in the "course":/en/resources/course.html to which the folder/file belongs (in this case, the course of the space).'
+            table:
+                id_description: 'Folder ID'
+        post_folders_folder_id_files:
+            first_paragraph: 'Create a new file in the specified folder.'
+            second_paragraph: 'You must be "enrolled":/en/resources/enrollment.html in the "course":/en/resources/course.html. And you need to be either administrator, professor/teacher or tutor on the course.'
+            table:
+                content_description: 'Binary data of the file to be created'
+                content_restrictions: 'Maximum size of 100 Mb'
+            files_upload:
+                title: 'Upload files'
+                first_paragraph: 'In cases of uploading a file, the following HTTP headers are required:'
+                second_paragraph:
+                    item_1: 'Content-Type: multipart/form-data'
+                    item_2: 'Content-Length: 13951 (size of file in bytes)'
+                third_paragraph: 'The usage of Content-type multipart/form-data makes possible that the HTTP request body is composed of multiple sets of data, where each one has its own Content-type. In this way, we can send the binary data of an image or PDF file, besides the name and type.'
+            third_paragraph: 'The following example was created by using "cURL":http://curl.haxx.se/.'
+        delete_files_id:
+            first_paragraph: 'Delete the specified file'
+            second_paragraph: 'You must be "enrolled":/en/resources/enrollment.html in the "course":/en/resources/course.html. And you need to be either administrator, professor/teacher or tutor on the course.'
 
 status:
     first_paragraph: 'Status - message posted in the timeline - is the core of communication in Redu. By using them, the users can post comments, answers, and help requests. Additionally, statuses are the way in which the transactions on the social network are shown. In the API context, any element in the Redu timeline is called @status@.'
