@@ -14,6 +14,8 @@ global:
     request: Request
     response: Response
     key: Key
+    state: State
+    states: States
 
 titles:
     index: Redu for developers
@@ -103,24 +105,24 @@ canvas:
                 container_description: 'Link to the canvas container'
                 raw_description: 'Link to the URL shown in the canvas'
         post_spaces_id_canvas:
-            first_paragraph: 'Create canvas in Space.'
+            first_paragraph: 'Creates canvas in Space.'
             table:
                 current_url_description: 'URL that will be shown in canvas'
                 current_url_restrictions: 'It is not required. It must be a valid URL'
                 name_description: 'Name shown in links to the Canvas'
                 name_restrictions: 'Required'
         get_canvas_id:
-            first_paragraph: 'Return the canvas with the specified ID.'
+            first_paragraph: 'Returns the canvas with the specified ID.'
             response_example:
                 title: 'Example of response'
         put_canvas_id:
-            first_paragraph: 'Update information of an existing canvas.'
+            first_paragraph: 'Updates information of an existing canvas.'
         delete_canvas_id:
-            first_paragraph: 'Delete canvas.'
+            first_paragraph: 'Deletes canvas.'
     lecture:
         title: 'Lecture'
         post_subject_id_lectures:
-            first_paragraph: 'Create a new lecture with a canvas within the specified subject.'
+            first_paragraph: 'Creates a new lecture with a canvas within the specified subject.'
             table:
                 type_description: 'Type of Lecture. In this case, we cant to create a @Canvas@ one.'
                 type_restrictions: 'Required'
@@ -137,27 +139,62 @@ chat:
     chat:
         title: Chat
         get_id_chats:
-            first_paragraph: 'Return all the chats of the user in question.'
+            first_paragraph: 'Returns all the chats of the user in question.'
             second_paragraph: 'You need to have permission for user management.'
             table:
                 id: 'User ID or login'
         get_chats_id:
-            first_paragraph: 'Return the chat in question. The Chat resource contains all the messages between two users which were sent by using the Redu chat system.'
+            first_paragraph: 'Returns the chat in question. The Chat resource contains all the messages between two users which were sent by using the Redu chat system.'
             second_paragraph: 'You need to participate in the chat to view this resource'
             table:
                 id: 'Chat ID'
     chat_message:
         title: Chat message
         get_id_chat_messages:
-            first_paragraph: 'Return all the messages that belong to a chat.'
+            first_paragraph: 'Returns all the messages that belong to a chat.'
             second_paragraph: 'You need to participate in the chat to view this resource'
             table:
                 id: 'Chat ID'
         get_chat_messages_id:
-            first_paragraph: 'Return a chat message.'
+            first_paragraph: 'Returns a chat message.'
             second_paragraph: 'You need to participate in the chat to view this resource'
             table:
                 id: 'Message ID'
+
+connection:
+    first_paragraph: '"Redu":http://www.redu.com.br is a social network where members are related to each other through a connection. A user can become a contact of another one via a connection request, which may be accepted or rejected. In the context of API, the relationship between users is called @connection@.'
+    table_1:
+        id_description: 'Unique identifier of contact'
+        status_description: 'Current status of connection. Example: @requested@'
+        user_description: 'User who is receiving connection requests'
+        contact_description: 'Contact of user'
+    second_paragraph: 'When user requests a connection to a contact, the connection goes to state @requested@ for the user, and @pending@ for the contact. When the connection is accepted, both connections go to state @accepted@.'
+    table_2:
+        requested_description: 'User requested the connection'
+        pending_description: 'User has a pending request for the connection'
+        accepted_description: 'Users are contacts'
+    get_users_user_id_connections:
+        first_paragraph: 'Returns a list with all @connections@ of a specific user.'
+        table:
+            user_id_description: 'User ID'
+            status_description: 'Filter by connection state'
+    get_connections_id:
+        first_paragraph: 'Returns the connection in question.'
+        table:
+            id_description: 'Connection ID'
+    post_users_user_id_connections:
+        first_paragraph: 'Creates a new connection with the user.'
+        table:
+            user_id_description: 'ID of user in question'
+            contact_id_description: 'ID of new contact'
+    put_connections_connection_id:
+        first_paragraph: 'Accepts a connection request which is in @pending@ state, turning it into @accepted@.'
+        table:
+            connection_id_description: 'Connection ID'
+    delete_connections_connection_id:
+        first_paragraph: 'Deletes a connection.'
+        table:
+            connection_id_description: 'Connection ID'
 
 folders_and_files:
     first_paragraph: 'Folders and files are referred to respectively as: @folder@, and @file@. These resources make up the "Arquivos de Apoio" (Support Files) section, arranged in a "Space":/resources/space.html, where you can save, organize, and download files.'
@@ -181,32 +218,32 @@ folders_and_files:
             table:
                 id_description: 'Folder ID'
         get_folders_folder_id_folders:
-            first_paragraph: 'Return the folders in the folder in question.'
+            first_paragraph: 'Returns the folders in the folder in question.'
             second_paragraph: 'You must be "enrolled":/en/resources/enrollment.html in the "course":/en/resources/course.html to which the folder belongs (in this case, the course of the space).'
             table:
                 id_description: 'Parent folder ID'
         get_spaces_space_id_folders:
-            first_paragraph: 'Return the folders in the given space.'
+            first_paragraph: 'Returns the folders in the given space.'
             second_paragraph: 'You must be "enrolled":/en/resources/enrollment.html in the "course":/en/resources/course.html to which the space belongs.'
             table:
                 id_description: 'Space ID'
         post_folders_id_folders:
-            first_paragraph: 'Create new directory in the specified directory.'
+            first_paragraph: 'Creates new directory in the specified directory.'
             second_paragraph: 'You must be "enrolled":/en/resources/enrollment.html in the "course":/en/resources/course.html to which the space belongs. And you need to be either administrator, professor/teacher or tutor on the course.'
             table:
                 name_description: 'New name of file'
             third_paragraph: 'The following example was created by using "cURL":http://curl.haxx.se/.'
         put_folders_id:
-            first_paragraph: 'Update name of a Folder.'
+            first_paragraph: 'Updates name of a Folder.'
             second_paragraph: 'You must be "enrolled":/en/resources/enrollment.html in the "course":/en/resources/course.html to which the space belongs. And you need to be either administrator, professor/teacher or tutor on the course.'
             table:
                 name_description: 'New name of file'
         delete_folders_id:
-            first_paragraph: 'Delete the specified folder.'
+            first_paragraph: 'Deletes the specified folder.'
             second_paragraph: 'You must be "enrolled":/en/resources/enrollment.html in the "course":/en/resources/course.html. And you need to be either administrator, professor/teacher or tutor on the course.'
     file:
         title: 'File'
-        first_paragraph: 'It represents a file in the file system, which is in a folder.'
+        first_paragraph: 'Represents a file in the file system, which is in a folder.'
         table_1:
             id_description: 'Unique identifier of File'
             name_description: 'Name'
@@ -221,17 +258,17 @@ folders_and_files:
             user_description: 'User who has created the file'
             raw_description: 'Address of the raw file do be downloaded'
         get_files_id:
-            first_paragraph: 'Return the file in question.'
+            first_paragraph: 'Returns the file in question.'
             second_paragraph: 'You must be "enrolled":/en/resources/enrollment.html in the "course":/en/resources/course.html to which the file belongs (in this case, the course of the space).'
             table:
                 id_description: 'File ID'
         get_folders_folder_id_files:
-            first_paragraph: 'Return the files which are in the folder in question.'
+            first_paragraph: 'Returns the files which are in the folder in question.'
             second_paragraph: 'You must be "enrolled":/en/resources/enrollment.html in the "course":/en/resources/course.html to which the folder/file belongs (in this case, the course of the space).'
             table:
                 id_description: 'Folder ID'
         post_folders_folder_id_files:
-            first_paragraph: 'Create a new file in the specified folder.'
+            first_paragraph: 'Creates a new file in the specified folder.'
             second_paragraph: 'You must be "enrolled":/en/resources/enrollment.html in the "course":/en/resources/course.html. And you need to be either administrator, professor/teacher or tutor on the course.'
             table:
                 content_description: 'Binary data of the file to be created'
@@ -245,7 +282,7 @@ folders_and_files:
                 third_paragraph: 'The usage of Content-type multipart/form-data makes possible that the HTTP request body is composed of multiple sets of data, where each one has its own Content-type. In this way, we can send the binary data of an image or PDF file, besides the name and type.'
             third_paragraph: 'The following example was created by using "cURL":http://curl.haxx.se/.'
         delete_files_id:
-            first_paragraph: 'Delete the specified file'
+            first_paragraph: 'Deletes the specified file'
             second_paragraph: 'You must be "enrolled":/en/resources/enrollment.html in the "course":/en/resources/course.html. And you need to be either administrator, professor/teacher or tutor on the course.'
 
 status:
@@ -316,22 +353,22 @@ status:
                 item_6: '"Connection":/en/resources/connection.html requested in Course (logeable_type @Friendship@)'
             fourth_paragraph: 'Besides the attributes that Activity, Help, and Answer have, Log has a @logeable_type@ attribute that represents the object type which Log is associate to. For instance, the creation of a lecture generates a Log which @logeable_type@ is Lecture. In addition, the Log has a link associated to itself to the @logeable@ entity. In the previous example, the @logeable@ link would contain the address to the lecture created.'
     get_status_id:
-        first_paragraph: 'Return a @status@ with the specified ID.'
+        first_paragraph: 'Returns a @status@ with the specified ID.'
         table:
             status_id_description: 'Status ID'
     get_status_id_answers:
-        first_paragraph: 'Return answers of a status. It is applied to Help and Activity types.'
+        first_paragraph: 'Returns answers of a status. It is applied to Help and Activity types.'
         table:
             status_id_description: 'Status ID'
     post_status_id_answers:
-        first_paragraph: 'Create an Answer status in response to an Activity or Help.'
+        first_paragraph: 'Creates an Answer status in response to an Activity or Help.'
         table:
             status_id_description: 'ID of status in question'
             status_id_restrictions: 'Activity or Help only'
             status_text_description: 'It is a reply to a comment or help request'
             status_text_restrictions: 'Maximum 800 characters'
     get_user_id_statuses:
-        first_paragraph: 'Return all @statuses@ from the user. You can also filter by the type. If @:type@ is not given, the Activity, Help, and Log statuses from the user are returned.'
+        first_paragraph: 'Returns all @statuses@ from the user. You can also filter by the type. If @:type@ is not given, the Activity, Help, and Log statuses from the user are returned.'
         table:
             user_id_description: 'ID of user in question'
             type_description: 'Filter by status type'
@@ -340,7 +377,7 @@ status:
             page_description: 'Pagination of results. Pages have 25 entries. The default one is 1'
             page_restrictions: 'Number'
     get_user_id_statuses_timeline:
-        first_paragraph: 'Return all @statuses@ from the user, and courses which the user belongs to. Unlike the previous one, here we have all transactions of interest to the user. It is the same as you see on the Redu homepage.'
+        first_paragraph: 'Returns all @statuses@ from the user, and courses which the user belongs to. Unlike the previous one, here we have all transactions of interest to the user. It is the same as you see on the Redu homepage.'
         table:
             user_id_description: 'ID of user in question'
             type_description: 'Filter by status type'
@@ -349,13 +386,13 @@ status:
             page_description: 'Pagination of results. Pages have 25 entries. The default one is 1'
             page_restrictions: 'Number'
     post_user_id_statuses:
-        first_paragraph: 'Create an Activity status on user timeline.'
+        first_paragraph: 'Creates an Activity status on user timeline.'
         table:
             user_id_description: 'ID of user in question'
             status_text_description: 'Content of status'
             status_text_restrictions: 'Maximum 800 characters'
     get_space_id_statuses_timeline:
-        first_paragraph: 'Return all @statuses@ from space and its lectures. Unlike the previous one, here we have both posts of the space and its lectures. It is the same as you see on the space timeline.'
+        first_paragraph: 'Returns all @statuses@ from space and its lectures. Unlike the previous one, here we have both posts of the space and its lectures. It is the same as you see on the space timeline.'
         table:
             space_id_description: 'Space ID'
             type_description: 'Filter by status type'
@@ -364,7 +401,7 @@ status:
             page_description: 'Pagination of results. Pages have 25 entries. The default one is 1'
             page_restrictions: 'Number'
     get_space_id_statuses:
-        first_paragraph: 'Return all @statuses@ from a space timeline. There is the possibility to filter the status of space by the type. It is important to note that the posts listed here are limited to those posted directly on the space timeline.'
+        first_paragraph: 'Returns all @statuses@ from a space timeline. There is the possibility to filter the status of space by the type. It is important to note that the posts listed here are limited to those posted directly on the space timeline.'
         table:
             space_id_description: 'Space ID'
             type_description: 'Filter by status type'
@@ -373,7 +410,7 @@ status:
             page_description: 'Pagination of results. Pages have 25 entries. The default one is 1'
             page_restrictions: 'Number'
     post_space_id_statuses:
-        first_paragraph: 'Create a status on the space timeline.'
+        first_paragraph: 'Creates a status on the space timeline.'
         table:
             space_id_description: 'ID of space in question'
             status_text_description: 'Content of status'
@@ -381,14 +418,14 @@ status:
         lecture_statuses:
             title: 'Timeline of a Lecture'
             get_lecture_id_statuses:
-                first_paragraph: 'Return all @statuses@ from a lecture timeline. You can filter the statuses of a lecture by type.'
+                first_paragraph: 'Returns all @statuses@ from a lecture timeline. You can filter the statuses of a lecture by type.'
                 table:
                     lecture_id_description: 'ID of lecture in question'
                     type_description: 'Filter by status type'
                     type_restrictions: 'It may be @Activity@, @Help@, or @Log@. More than one @type@ can be specified by using the option @types[]@.'
                     logeable_type_description: 'It must be used together with the @type@. This allows you to filter Logs based on attribute @logeable_type@'
             post_lecture_id_statuses:
-                first_paragraph: 'Create a status on the lecture timeline. Only in this case, it is allowed to create a Help.'
+                first_paragraph: 'Creates a status on the lecture timeline. Only in this case, it is allowed to create a Help.'
                 table:
                     lecture_id_description: 'ID of lecture in question'
                     status_text_description: 'Content of status'
@@ -396,6 +433,6 @@ status:
                     status_type_description: 'Type of status'
                     status_type_restrictions: 'Activity or Help'
     delete_status_id:
-        first_paragraph: 'Delete the status.'
+        first_paragraph: 'Deletes the status.'
         table:
             status_id_description: 'Status ID'

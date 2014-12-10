@@ -5,57 +5,57 @@ group: navigation
 ---
 {% include JB/setup %}
 
-O "Redu":http://www.redu.com.br é uma rede social, onde seus usuários estão relacionados entre si através de uma Conexão. Um usuário pode ser contato de outro, através de uma solicitação de conexão, que pode ser aceita ou rejeitada. No contexto da API o relacionamento entre usuários será chamado de @connection@.
+{% t connection.first_paragraph %}
 
-h4. Atributos:
+h4. {% t global.attributes %}:
 
 table(table table-bordered table-striped){clear: both;}.
-|_.Link|_.Descrição|
-|id|Identificador único do contato|
-|status|Estado atual da conexão. Exemplo: @requested@|
-|user|Usuário do qual está sendo requisitado as conexões|
-|contact|Contato do usuário|
+|_.{% t global.link %}|_.{% t global.description %}|
+|id|{% t connection.table_1.id_description %}|
+|status|{% t connection.table_1.status_description %}|
+|user|{% t connection.table_1.user_description %}|
+|contact|{% t connection.table_1.contact_description %}|
 
 div(thumbnail). !../assets/images/connection-states.png!
 
-h4. Estados:
+h4. {% t global.states %}:
 
-Usuário requisita uma conexão para um contato, a conexão fica em estado @requested@ para o usuário e @pending@ para o contato. Quando a conexão é aceita os dois passam para o estado de @accepted@
+{% t connection.second_paragraph %}
 
 table(table table-bordered table-striped){clear: both;}.
-|_.Estado|_.Descrição|
-|requested|O usuário requisitou o pedido de conexão|
-|pending|O usuário tem um requisição pendente para a conexão|
-|accepted|Os usuários são contatos|
+|_.{% t global.state %}|_.{% t global.description %}|
+|requested|{% t connection.table_2.requested_description %}|
+|pending|{% t connection.table_2.pending_description %}|
+|accepted|{% t connection.table_2.accepted_description %}|
 
 h2. "GET api/users/:user_id/connections":#get-connections
 
-Retorna uma lista com todas os @connections@ de um usuário específico.
+{% t connection.get_users_user_id_connections.first_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*:user_id*| ID do usuário|N/A|
-|*status*| Filtragem pelo estado da conexão|N/A|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*:user_id*| {% t connection.get_users_user_id_connections.table.user_id_description %}|N/A|
+|*status*| {% t connection.get_users_user_id_connections.table.status_description %}|N/A|
 
 h2. "GET api/connections/:id":#get-connection
 
-Retorna a conexão em questão.
+{% t connection.get_connections_id.first_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*:id*| ID da conexão|N/A|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*:id*| {% t connection.get_connections_id.table.id_description %}|N/A|
 
-h4. Exemplo
+h4. {% t global.example %}
 
-*Requisição*
+*{% t global.request %}*
 
 @GET /api/users/jessicab/connections/12@
 
-*Resposta*
+*{% t global.response %}*
 {% highlight json %}
 {
     "links": [
@@ -103,31 +103,31 @@ h4. Exemplo
 
 h2. "POST /api/users/:user_id/connections":#post-user-connection
 
-Cria uma nova conexão com o usuário.
+{% t connection.post_users_user_id_connections.first_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*:user_id*| ID do usuário em questão|N/A|
-|*connection[contact_id]*| ID do novo contato |N/A|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*:user_id*| {% t connection.post_users_user_id_connections.table.user_id_description %}|N/A|
+|*connection[contact_id]*| {% t connection.post_users_user_id_connections.table.contact_id_description %} |N/A|
 
 h2. "PUT /api/connections/:connection_id":#update-connection
 
-Aceita um pedido de conexão que está no estado @pending@ transformando-o em @accepted@.
+{% t connection.put_connections_connection_id.first_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*:connection_id*| ID da conexão |N/A|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*:connection_id*| {% t connection.put_connections_connection_id.table.connection_id_description %} |N/A|
 
 h2. "DELETE /api/connections/:connection_id":#delete-connection
 
-Remove uma conexão.
+{% t connection.delete_connections_connection_id.first_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*:connection_id*| ID da conexão |N/A|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*:connection_id*| {% t connection.delete_connections_connection_id.table.connection_id_description %} |N/A|

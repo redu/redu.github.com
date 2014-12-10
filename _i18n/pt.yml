@@ -14,6 +14,8 @@ global:
     request: Requisição
     response: Resposta
     key: Chave
+    state: Estado
+    states: Estados
 
 titles:
     index: Redu para desenvolvedores
@@ -158,6 +160,41 @@ chat:
             second_paragraph: 'É necessário ser participante do chat para visualizar este recurso.'
             table:
                 id: 'ID da mensagem'
+
+connection:
+    first_paragraph: 'O "Redu":http://www.redu.com.br é uma rede social, onde seus usuários estão relacionados entre si através de uma Conexão. Um usuário pode ser contato de outro, através de uma solicitação de conexão, que pode ser aceita ou rejeitada. No contexto da API o relacionamento entre usuários será chamado de @connection@.'
+    table_1:
+        id_description: 'Identificador único do contato'
+        status_description: 'Estado atual da conexão. Exemplo: @requested@'
+        user_description: 'Usuário do qual está sendo requisitado as conexões'
+        contact_description: 'Contato do usuário'
+    second_paragraph: 'Usuário requisita uma conexão para um contato, a conexão fica em estado @requested@ para o usuário e @pending@ para o contato. Quando a conexão é aceita os dois passam para o estado de @accepted@.'
+    table_2:
+        requested_description: 'O usuário requisitou o pedido de conexão'
+        pending_description: 'O usuário tem um requisição pendente para a conexão'
+        accepted_description: 'Os usuários são contatos'
+    get_users_user_id_connections:
+        first_paragraph: 'Retorna uma lista com todas os @connections@ de um usuário específico.'
+        table:
+            user_id_description: 'ID do usuário'
+            status_description: 'Filtragem pelo estado da conexão'
+    get_connections_id:
+        first_paragraph: 'Retorna a conexão em questão.'
+        table:
+            id_description: 'ID da conexão'
+    post_users_user_id_connections:
+        first_paragraph: 'Cria uma nova conexão com o usuário.'
+        table:
+            user_id_description: 'ID do usuário em questão'
+            contact_id_description: 'ID do novo contato'
+    put_connections_connection_id:
+        first_paragraph: 'Aceita um pedido de conexão que está no estado @pending@ transformando-o em @accepted@.'
+        table:
+            connection_id_description: 'ID da conexão'
+    delete_connections_connection_id:
+        first_paragraph: 'Remove uma conexão.'
+        table:
+            connection_id_description: 'ID da conexão'
 
 folders_and_files:
     first_paragraph: 'Pasta e Arquivo são referenciados, respectivamente, como: @folder@ e @file@. Estes compõem a seção de Arquivos de Apoio dispostos em uma "Disciplina":/resources/space.html, onde é possível guardar, organizar e baixar arquivos.'
