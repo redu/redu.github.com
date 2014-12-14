@@ -5,29 +5,29 @@ group: navigation
 ---
 {% include JB/setup %}
 
-O AVA (Ambiente Virtual de Aprendizagem) no contexto da API é chamado simplesmente de @environment@. Ele serve como um organizador de cursos e representa a instituição ou empresa que detém estes. Além de uma forma de organizar cursos o AVA detém opções administrativas que fazem sentido ao Gestor de conhecimento ou Gestor de EAD. Por si só não detém conteúdo (aulas, arquivos e posts) nem usuários. Estes estão dentro das disciplinas e cursos, respectivamente.
+{% t environment.first_paragraph %}
 
-h2. Atributos
+h2. {% t global.attributes %}
 
 table(table table-bordered table-striped).
-|_.Atributo|_.Descrição|
-|*ID*|Identificador do ambiente.|
-|*name*|Nome.|
-|*initials*|Iniciais.|
-|*path*|Caminho usado na URL.|
-|description|Descrição.|
-|courses_count|Quantidade de cursos.|
-|thumbnails|Thumbnails do ambiente. Tamanhos disponíveis: 32x32, 48x48, 90x90, 96x96 e 140x140.|
+|_.{% t global.attribute %}|_.{% t global.description %}|
+|*ID*|{% t environment.table_1.id_description %}|
+|*name*|{% t environment.table_1.name_description %}|
+|*initials*|{% t environment.table_1.initials_description %}|
+|*path*|{% t environment.table_1.path_description %}|
+|description|{% t environment.table_1.description_description %}|
+|courses_count|{% t environment.table_1.courses_count_description %}|
+|thumbnails|{% t environment.table_1.thumbnails_description %}|
 
 h2. Links
 
 table(table table-bordered table-striped).
-|_.Link|_.Descrição|
-|self|Ambiente em questão.|
-|courses|Cursos.|
-|user|Usuário criador.|
+|_.Link|_.{% t global.description %}|
+|self|{% t environment.table_2.self_description %}|
+|courses|{% t environment.table_2.courses_description %}|
+|user|{% t environment.table_2.user_description %}|
 
-h2. Representação
+h2. {% t global.representation %}
 
 {% highlight json %}
 {
@@ -79,32 +79,32 @@ h2. Representação
 
 h2. "GET /api/environments/:id":#get-environments
 
-Retorna o AVA especificado. Tanto o ID quanto o path podem ser utilizados aqui, porém o path é passível de modificações pelo usuário, portanto pode não servir como um identificador único.
+{% t environment.get_environments_id.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-O usuário deve fazer parte de pelo menos um curso do AVA ou ser o dono do mesmo.
+{% t environment.get_environments_id.second_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*id*|ID ou path do AVA|N/A|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*id*|{% t environment.get_environments_id.table.id_description %}|N/A|
 
 h2. "POST /api/environments":#post-environments
 
-Cria AVA. Por si só o AVA é apenas uma maneira de organizar um conjunto de cursos dentro do contexto de uma instituição.
+{% t environment.post_environments.first_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*environment[name]*|Nome do ambiente|Máximo 40 caracteres; deve ser único|
-|*environment[path]*|Nome que aparecerá na barra de endereço|Deve respeitar a seguinte regex: @^[-_A-Za-z0-9]*$@ |
-|*environment[initials]*|Abreviação (usado em alguns lugares da interface)|Deve ser único; Máximo de 10 caracteres|
-|environment[description]|Descrição do ambiente|Máximo de 400 caracteres|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*environment[name]*|{% t environment.post_environments.table.environment_name_description %}|{% t environment.post_environments.table.environment_name_restriction %}|
+|*environment[path]*|{% t environment.post_environments.table.environment_path_description %}|{% t environment.post_environments.table.environment_path_restriction %}|
+|*environment[initials]*|{% t environment.post_environments.table.environment_initials_description %}|{% t environment.post_environments.table.environment_initials_restriction %}|
+|environment[description]|{% t environment.post_environments.table.environment_description_description %}|{% t environment.post_environments.table.environment_description_restriction %}|
 
-h4. Exemplo
+h4. {% t global.example %}
 
 @POST /api/environments/23@
 
@@ -120,7 +120,7 @@ h4. Exemplo
 }
 {% endhighlight %}
 
-*Resposta:*
+*{% t global.response %}:*
 
 {% highlight json %}
 {
@@ -148,31 +148,31 @@ h4. Exemplo
 
 h2. "PUT /api/environments/:id":#put-environments
 
-Atualiza informações do AVA em questão.
+{% t environment.put_environments_id.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-O usuário deve ser administrador do AVA.
+{% t environment.put_environments_id.second_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*environment[name]*|Nome do ambiente|Máximo 40 caracteres; deve ser único|
-|*environment[path]*|Nome que aparecerá na barra de endereço|Deve respeitar a seguinte regex: @^[-_A-Za-z0-9]*$@ |
-|*environment[initials]*|Abreviação (usado em alguns lugares da interface)|Deve ser único; Máximo de 10 caracteres|
-|environment[description]|Descrição do ambiente|Máximo de 400 caracteres|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*environment[name]*|{% t environment.post_environments.table.environment_name_description %}|{% t environment.post_environments.table.environment_name_restriction %}|
+|*environment[path]*|{% t environment.post_environments.table.environment_path_description %}|{% t environment.post_environments.table.environment_path_restriction %}|
+|*environment[initials]*|{% t environment.post_environments.table.environment_initials_description %}|{% t environment.post_environments.table.environment_initials_restriction %}|
+|environment[description]|{% t environment.post_environments.table.environment_description_description %}|{% t environment.post_environments.table.environment_description_restriction %}|
 
 h2. "DELETE /api/environments/:id":#delete-environments
 
-Remove o AVA em questão. Todos os cursos, disciplinas, módulos e aulas insteridos neste ambiente serão perdidos e não estarão mais acessíveis aos usuários.
+{% t environment.delete_environments_id.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-O usuário deve ser administrador do AVA.
+{% t environment.delete_environments_id.second_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*id*|ID ou path do AVA|N/A|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*id*|{% t environment.delete_environments_id.table.id_description %}|N/A|

@@ -16,6 +16,7 @@ global:
     key: Chave
     state: Estado
     states: Estados
+    representation: Representação
 
 titles:
     index: Redu para desenvolvedores
@@ -278,6 +279,55 @@ enrollment:
         first_paragraph: 'Remove a matrícula especificada bem como o usuário associado a mesma (caso exista). O usuário perderá acesso ao curso e às suas disciplinas.'
         table:
             id_description: 'ID ou path do curso'
+
+environment:
+    first_paragraph: 'O AVA (Ambiente Virtual de Aprendizagem) no contexto da API é chamado simplesmente de @environment@. Ele serve como um organizador de cursos e representa a instituição ou empresa que detém estes. Além de uma forma de organizar cursos o AVA detém opções administrativas que fazem sentido ao Gestor de conhecimento ou Gestor de EAD. Por si só não detém conteúdo (aulas, arquivos e posts) nem usuários. Estes estão dentro das disciplinas e cursos, respectivamente.'
+    table_1:
+        id_description: 'Identificador do ambiente.'
+        name_description: 'Nome.'
+        initials_description: 'Iniciais.'
+        path_description: 'Caminho usado na URL.'
+        description_description: 'Descrição.'
+        courses_count_description: 'Quantidade de cursos.'
+        thumbnails_description: 'Thumbnails do ambiente. Tamanhos disponíveis: 32x32, 48x48, 90x90, 96x96 e 140x140.'
+    table_2:
+        self_description: 'Ambiente em questão.'
+        courses_description: 'Cursos.'
+        user_description: 'Usuário criador.'
+    get_environments_id:
+        first_paragraph: 'Retorna o AVA especificado. Tanto o ID quanto o path podem ser utilizados aqui, porém o path é passível de modificações pelo usuário, portanto pode não servir como um identificador único.'
+        second_paragraph: 'O usuário deve fazer parte de pelo menos um curso do AVA ou ser o dono do mesmo.'
+        table:
+            id_description: 'ID ou path do AVA'
+    post_environments:
+        first_paragraph: 'Cria AVA. Por si só o AVA é apenas uma maneira de organizar um conjunto de cursos dentro do contexto de uma instituição.'
+        table:
+            environment_name_description: 'Nome do ambiente'
+            environment_name_restriction: 'Máximo 40 caracteres; deve ser único'
+            environment_path_description: 'Nome que aparecerá na barra de endereço'
+            environment_path_restriction: 'Deve respeitar a seguinte regex: @^[-_A-Za-z0-9]*$@'
+            environment_initials_description: 'Abreviação (usado em alguns lugares da interface)'
+            environment_initials_restriction: 'Deve ser único; Máximo de 10 caracteres'
+            environment_description_description: 'Descrição do ambiente'
+            environment_description_restriction: 'Máximo de 400 caracteres'
+    put_environments_id:
+        first_paragraph: 'Atualiza informações do AVA em questão.'
+        second_paragraph: 'O usuário deve ser administrador do AVA.'
+        table:
+            environment_name_description: 'Nome do ambiente'
+            environment_name_restriction: 'Máximo 40 caracteres; deve ser único'
+            environment_path_description: 'Nome que aparecerá na barra de endereço'
+            environment_path_restriction: 'Deve respeitar a seguinte regex: @^[-_A-Za-z0-9]*$@'
+            environment_initials_description: 'Abreviação (usado em alguns lugares da interface)'
+            environment_initials_restriction: 'Deve ser único; Máximo de 10 caracteres'
+            environment_description_description: 'Descrição do ambiente'
+            environment_description_restriction: 'Máximo de 400 caracteres'
+    delete_environments_id:
+        first_paragraph: 'Remove o AVA em questão. Todos os cursos, disciplinas, módulos e aulas insteridos neste ambiente serão perdidos e não estarão mais acessíveis aos usuários.'
+        second_paragraph: 'O usuário deve ser administrador do AVA.'
+        table:
+            id_description: 'ID ou path do AVA'
+
 
 folders_and_files:
     first_paragraph: 'Pasta e Arquivo são referenciados, respectivamente, como: @folder@ e @file@. Estes compõem a seção de Arquivos de Apoio dispostos em uma "Disciplina":/resources/space.html, onde é possível guardar, organizar e baixar arquivos.'
