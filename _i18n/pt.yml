@@ -239,6 +239,45 @@ course:
         table:
             id_description: 'ID ou path do curso'
 
+enrollment:
+    first_paragraph: 'Recurso que representa a matrícula de usuários em cursos. Foi desenvolvido de tal forma que abstrai o fato do usuário estar presente ou não no "Redu":http://www.redu.com.br.'
+    second_paragraph: 'Caso o e-mail não esteja registrado na plataforma um convite será enviado dando a possibilidade de registro e posterior convite para o curso. Possui uma máquina de estado como definida abaixo (propriedade @state@)'
+    table_1:
+        id_description: 'Identificador da matrícula'
+        state_description: 'Estado atual da matrícula. Exemplo: @waiting@'
+        email_description: 'E-mail do usuário a ser convidado. Apenas utilizado quando o usuário ainda não faz parte do Redu'
+        token_description: 'Token de convite do usuário.'
+        role_description: 'Papel do usuário no Curso. Apenas disponível se o usuário já aceitou o convite. Os estados possíveis são: @member@, @teacher@, @environment_admin@ e @tutor@'
+    table_2:
+        waiting_description: 'Nenhuma ação foi realizada'
+        redu_invited_description: 'Quando o e-mail não está cadastrado no "Redu":http://www.redu.com.br e uma mensagem de convite foi enviada'
+        invited_description: 'Quando o e-mail está cadastrado no "Redu":http://www.redu.com.br e o usuário recebe o convite para o curso. Notificação aparecerá na home do usuário'
+        approved_description: 'Usuário aceitou o convite'
+        rejected_description: 'Usuário recusou o convite'
+    get_enrollments_id:
+        first_paragraph: 'Retorna a matrícula em questão.'
+        table:
+            id_description: 'ID da matrícula'
+    post_courses_course_id:
+        first_paragraph: 'Cria uma matrícula no curso em questão. Caso o usuário faça parte do Redu a matrícula irá para o estado @invited@ e uma notificação aparecerá em sua home perguntando se deseja participar do curso. Caso o usuário não faça parte do Redu, antes de ir para o estado @invited@ a matrícula passará para um estado @redu_invited@. Isso significa que um e-mail de convite foi enviado.'
+        table:
+            id_description: 'ID ou path do curso'
+            enrollment_email_description: 'E-mail do usuário que será convidado'
+            enrollment_email_restriction: 'Máximo 40 caracteres; deve ser único'
+    get_courses_course_id:
+        first_paragraph: 'Listagem de matrículas de um curso. É importante perceber que podem existir mais matrículas do que usuários efetivamente cadastrados no curso (estado @redu_invited@ ou @invited@).'
+        table:
+            id_description: 'ID ou path do curso'
+    get_users_user_id:
+        first_paragraph: 'Listagem de matrículas de um usuário.'
+        second_paragraph: 'Para fazer esta requisição é necessário ter direitos administrativos para um User. Ou seja, apenas o próprio user pode ver os seus enrollments.'
+        table:
+            user_id_description: 'ID do USer'
+            courses_ids_description: 'IDs dos Cursos. Permite a filtragem de Enrollment por cursos.'
+    delete_enrollments_id:
+        first_paragraph: 'Remove a matrícula especificada bem como o usuário associado a mesma (caso exista). O usuário perderá acesso ao curso e às suas disciplinas.'
+        table:
+            id_description: 'ID ou path do curso'
 
 folders_and_files:
     first_paragraph: 'Pasta e Arquivo são referenciados, respectivamente, como: @folder@ e @file@. Estes compõem a seção de Arquivos de Apoio dispostos em uma "Disciplina":/resources/space.html, onde é possível guardar, organizar e baixar arquivos.'
