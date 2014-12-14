@@ -196,6 +196,50 @@ connection:
         table:
             connection_id_description: 'ID da conexão'
 
+course:
+    first_paragraph: 'O curso, no contexto da API referenciado como @course@ é a entidade principal da hierarquia do Redu. Ele é uma entidade autocontida de conteúdo e usuários. Ou seja, usuários que têm acesso a um determinado curso terão permissão para visualizar todas suas disciplinas, módulos e aulas.'
+    get_courses_id:
+        first_paragraph: 'Retorna o curso em questão.'
+        second_paragraph: 'É necessário estar "matriculado":/enrollment.html no curso para visualizar este recurso.'
+        table:
+            id_description: 'ID do curso'
+    post_environments_environment_id:
+        first_paragraph: 'Cria um novo curso no "AVA":environment.html especificado. No "Redu":http://www.redu.com.br a "matrícula":resources/enrollment.html é realizada no curso. Ou seja, os usuários que possuem acesso a um curso também podem visualizar suas disciplinas, módulos e aulas.'
+        second_paragraph: 'Para criar um Curso é necessário ter papel administrativo no "AVA":environment.html.'
+        table:
+            environment_id_description: 'ID ou path do AVA'
+            course_name_description: 'Nome do curso'
+            course_name_restriction: 'Máximo 40 caracteres; deve ser único'
+            course_path_description: 'Nome que aparecerá na barra de endereço'
+            course_path_restriction: 'Deve respeitar a seguinte regex: @^[-_A-Za-z0-9]*$@; Deve ser único dentro de um "AVA":environment.html '
+            course_description_description: 'Descrição do curso'
+            course_description_restriction: 'Máximo de 400 caracteres'
+            course_workload_description: 'Carga horária do curso em horas'
+            course_workload_restriction: 'Deve ser numérico'
+    put_courses_id:
+        first_paragraph: 'Atualiza as informações do curso especificado. É importante perceber que não há proteção para a atualização do path. Ou seja, alguma aplicação pode acessar este recurso utilizando o path e, caso o mesmo seja modificado, o códido HTTP 404 (not found) será lançado.'
+        second_paragraph: 'Para criar um Curso é necessário ter papel administrativo no "AVA":environment.html.'
+        table:
+            course_name_description: 'Nome do curso'
+            course_name_restriction: 'Máximo 40 caracteres; deve ser único'
+            course_path_description: 'Nome que aparecerá na barra de endereço'
+            course_path_restriction: 'Deve respeitar a seguinte regex: @^[-_A-Za-z0-9]*$@; Deve ser único dentro de um "AVA":environment.html '
+            course_description_description: 'Descrição do curso'
+            course_description_restriction: 'Máximo de 400 caracteres'
+            course_workload_description: 'Carga horária do curso em horas'
+            course_workload_restriction: 'Deve ser numérico'
+    get_environments_environment_id:
+        first_paragraph: 'Retorna uma lista de cursos criados dentro do AVA em questão.'
+        second_paragraph: 'É necessário estar matriculado em pelo menos um "Curso":curso.html do "AVA":environment.html.'
+        table:
+            environment_id_description: 'ID ou path do AVA'
+    delete_courses_id:
+        first_paragraph: 'Remove o curso em questão. Todos os usuários serão desmatriculados e perderão o acesso ao recurso.'
+        second_paragraph: 'Para criar um Curso é necessário ter papel administrativo no "AVA":environment.html.'
+        table:
+            id_description: 'ID ou path do curso'
+
+
 folders_and_files:
     first_paragraph: 'Pasta e Arquivo são referenciados, respectivamente, como: @folder@ e @file@. Estes compõem a seção de Arquivos de Apoio dispostos em uma "Disciplina":/resources/space.html, onde é possível guardar, organizar e baixar arquivos.'
     folder:
