@@ -11,12 +11,16 @@ global:
     link: Link
     links: Links
     example: Exemplo
+    page: Page
     request: Requisição
     response: Resposta
     key: Chave
     state: Estado
     states: Estados
     representation: Representação
+    media: Media
+    exercise: Exercise
+    document: Document
 
 titles:
     index: Redu para desenvolvedores
@@ -417,6 +421,105 @@ folders_and_files:
         delete_files_id:
             first_paragraph: 'Remove o arquivo especificado'
             second_paragraph: 'É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html e ser administrador, professor ou tutor no curso.'
+
+lecture:
+    first_paragraph: 'No contexto da API, a Aula é referenciada como @lecture@. Uma Aula representa a unidade mínima de conteúdo, como um texto ou vídeo, que possui interações sociais (ver "Mural":/resources/status.html). Várias Aulas podem ser agrupadas e ordenadas em um módulo.'
+    lectures_types:
+        title: '"Tipos de Lecture":#lectures-types'
+        first_paragraph: 'Existem cinco tipos de Aula, são estas'
+        item_1: '*Página:* Conteúdo em "_Rich Text Format_":http://en.wikipedia.org/wiki/Rich_Text_Format.'
+        item_2: '*Documento:* Arquivo de texto (_txt_, _pdf_, _doc_, _docx_, _ppt_, _pptx_, etc).'
+        item_3: '*Mídia:* Arquivo de vídeo (_mov_, _avi_, _mpeg_, _mp4_, etc) ou vídeo hospedado no "Youtube":http://www.youtube.com.'
+        item_4: '*Exercício:* Possui questões a serem respondidas.'
+        item_5: '*Canvas:* Aplicativo.'
+        third_paragraph: 'Abaixo são descritos os atributos de uma Aula'
+        table_1:
+            created_at_description: 'Data de criação.'
+            name_description: 'Nome (título).'
+            position_description: 'Posição na ordenação dentro módulo.'
+            type_description: 'Tipo (_Canvas, Document, Exercise, Page, Media_).'
+            id_description: 'Identificador.'
+            rating_description: 'Avaliação feita pelos usuários'
+            view_count_description: 'Quantidade de vezes que foi visualizada'
+            updated_at_description: 'Data da última atualização.'
+        fourth_paragraph: 'Abaixo são descritos os links presentes na representação de uma Aula'
+        table_2:
+            self_description: 'Aula em questão.'
+            self_link_description: 'Aula no Redu (HTML).'
+            subject_description: 'Módulo onde a Aula se encontra.'
+            space_description: 'Disciplina onde a Aula se encontra.'
+            course_description: 'Curso onde a Aula se encontra.'
+            environment_description: 'Ambiente onde a Aula se encontra.'
+        lessons_types:
+            title: 'Tipos de aulas'
+            first_paragraph: 'Esta aula é simplesmente um conteúdo baseado em "_Rich Text Format_":http://en.wikipedia.org/wiki/Rich_Text_Format , originado pelo "_CKEditor_":http://ckeditor.com/.'
+            table_1:
+                content_description: 'Conteúdo gerado pelo CKEditor. Inclui formatação HTML e CSS.'
+                raw_description: 'Contéudo cru da aula, nem um tipo de formatação e estilo é adicionado.'
+            second_paragraph: 'Este tipo de aula é composto basicamente por um documento, o qual pode ter o formato _txt, pdf, doc, docx, ppt, pptx_, etc.'
+            table_2:
+                mimetype_description: 'Formato do arquivo'
+            third_paragraph: 'Este tipo de aula também possui links, são estes'
+            table_3:
+                raw_description: 'Endereço do arquivo bruto para download.'
+                scribd_description: 'Endereço do arquivo hospedado no Scribd (com player para ser usado _embedded_).'
+            fourth_paragraph: 'Este tipo de Lecture representa arquivos de mídia, podendo ser áudio ou vídeo, inclusive mídias do Youtube.'
+            table_4:
+                mimetype_description: 'MimeType do arquivo de mídia'
+            table_5:
+                raw_description: 'Endereço para download do arquivo'
+            fifth_paragraph: 'Para casos de vídeos do Youtube, o MimeType retornado será @video/x-youtube@. Por exemplo'
+            sixth_paragraph: 'Mais informações podem ser encontradas na "documentação do Canvas":/resources/canvas.html.'
+    get_subjects_id:
+        first_paragraph: 'Lista todas a Lectures presentes no Subject.'
+        second_paragraph: 'É necessário estar matriculado no "Course":/resources/course.html do qual o "Subject":/resources/subject.html faz parte.'
+        table:
+            id_description: 'ID do Subject.'
+    get_lectures_id:
+        first_paragraph: 'Retorna a Aula em questão.'
+        second_paragraph: 'Deve estar matriculado no "Curso":course.html ao qual o módulo pertence (no caso, o curso ao qual a disciplina pertence).'
+        table:
+            id_description: 'ID da Aula'
+        item_1: 'Página (@Page@)'
+        item_2: 'Documento (@Document@)'
+        item_3: 'Exercício (@Exercise@)'
+        item_4: 'Canvas (@Canvas@). "Ver documentação do Canvas":/resources/canvas.html.'
+        item_5: 'Mídia (@Media@)'
+        sub_title_1: 'Para vídeos do YouTube'
+        sub_title_2: 'Para vídeos hospedados no Redu'
+    post_subjects_subject_id:
+        first_paragraph: 'Cria uma aula.'
+        second_paragraph: 'Deve estar matriculado no "Curso":course.html ao qual o módulo pertence (no caso, o curso ao qual a disciplina pertence) e ter o papel de @environment_admin@ ou @teacher@.'
+        table:
+            lecture_name_description: 'Nome da aula'
+            lecture_type_description: 'Tipo'
+            lecture_type_restriction: 'Deve ser @Media@, @Document@ ou @Page@.'
+            lecture_media_description: 'Arquivo ou URL do youtube'
+            lecture_media_restriction: 'Apenas para aulas do tipo @Pedia@ e @Socument@.'
+            content_description: 'Conteúdo em texto'
+            content_restriction: 'Apenas para aulas do tipo @Page@.'
+        update:
+            sub_title: 'Upload de arquivos'
+            first_paragraph: 'Em casos casos em que há o upload de arquivos, são necessários os seguintes cabeçalhos HTTP'
+            file_lenght: 'tamanho do arquivo em bytes'
+            second_paragraph: 'O uso do @Content-type@ @multipart/form-data@ torna possível que o corpo da requisição HTTP seja composto vários conjuntos de dados, cada qual possuindo seu próprio Content-type. Com isso podemos enviar, além do @name@ e @type@, os dados binários que compõem uma imagem ou um PDF.'
+            third_paragraph: 'O Redu é capaz de detectar automaticamente o Content-type para imagens. Porém, ao fazer upload de outros tipos de mídia, é necessário informar o seu Content-type. A maior parte das bibliotecas HTTP possuem esta funcionalidade implementada. Abaixo pode ser visto um exemplo de corpo de uma requisição HTTP para o upload de vídeo com o formato MPEG'
+            fourth_paragraph: 'Este comportamento é descrito em detalhes no "RFC 2388":http://www.ietf.org/rfc/rfc2388.txt'
+        example:
+            first_paragraph: 'Em todos os exemplos é utilizado "cURL":http://curl.haxx.se/docs/manpage.html para testar a criação de Lecture. Um exemplo em Java pode ser encontrado "aqui":https://github.com/redu/oauth-consumers/tree/master/java-native/file-upload.'
+            item_1: 'Documento (@Document@)'
+            second_paragraph: 'Neste exemplo, uma aula com o type @Document@ será criada a partir do arquivo @pdf_example.pdf@ no diretório atual.'
+            item_2: 'Media (upload)'
+            third_paragraph: 'Neste exemplo, uma aula com o type @Media@ será criada a partir do arquivo @video.avi@ no diretório atual.'
+            item_3: 'Media (YouTube)'
+            fourth_paragraph: 'Neste exemplo, uma aula com o type @Media@ será criada a partir de um "link":http://www.youtube.com/watch?v=GrV2SZuRPv0 do YouTube.'
+            item_4: 'Página (@Page@)'
+    delete_lectures_id:
+        first_paragraph: 'Deleta uma aula.'
+        second_paragraph: 'Deve estar matriculado no "Curso":course.html ao qual o módulo pertence (no caso, o curso ao qual a disciplina pertence) e ter o papel de @environment_admin@ ou @teacher@.'
+
+
+
 
 status:
     first_paragraph: 'O Mural é o cerne da comunicação dentro do Redu. Através dele os usuários podem postar comentários, respostas e pedidos de ajuda. Além disso o Mural é o meio pelo qual as movimentações do sistema são mostradas. No contexto da API, qualquer elemento mostrado no Mural é chamado de @status@.'
