@@ -5,9 +5,9 @@ group: navigation
 ---
 {% include JB/setup %}
 
-Assim como páginas na Web possuem links para outras páginas, os recursos da nossa API possuem referências para outros recursos associados. Estas referências estão acessíveis através da propriedade @links@ nas representação do recurso.
+{% t links.first_paragraph %}
 
-Esta funcionalidade torna possível que as aplicações que usam a API não precisem conhecer a _priori_ todas as possíveis URLs. Por exemplo, ao pegar a representação do usuário (@GET /api/me@) é possível acessar as matrículas dele através do link cujo @rel@ é @enrollment@:
+{% t links.second_paragraph %}:
 
 {% highlight json %}
 {
@@ -18,19 +18,19 @@ Esta funcionalidade torna possível que as aplicações que usam a API não prec
 }
 {% endhighlight %}
 
-Para mais informações sobre as motivações e os benefícios dos links, é recomendada a leitura "deste":http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven artigo.
+{% t links.third_paragraph %}
 
-Um link **obrigatoriamente** possui os atributos:
+{% t links.fourth_paragraph %}:
 
-1. @rel@: Identifica o link.
-2. @href@: Link do recurso na API REST.
+1. @rel@: {% t links.item_1 %}
+2. @href@: {% t links.item_2 %}
 
-Ele também possui, opcionalmente, os seguintes atributos:
+{% t links.fifth_paragraph %}:
 
-1. @name@: Nome do recurso.
-2. @permalink@: Link do recurso na interface Web.
+1. @name@: {% t links.item_3 %}
+2. @permalink@: {% t links.item_4 %}
 
-**Exemplo de links na representação de "Status":/resources/status.html**:
+**{% t links.sixth_paragraph %}**:
 
 {% highlight json %}
 {

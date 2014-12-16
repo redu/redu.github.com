@@ -518,8 +518,17 @@ lecture:
         first_paragraph: 'Deleta uma aula.'
         second_paragraph: 'Deve estar matriculado no "Curso":course.html ao qual o módulo pertence (no caso, o curso ao qual a disciplina pertence) e ter o papel de @environment_admin@ ou @teacher@.'
 
-
-
+links:
+    first_paragraph: 'Assim como páginas na Web possuem links para outras páginas, os recursos da nossa API possuem referências para outros recursos associados. Estas referências estão acessíveis através da propriedade @links@ nas representação do recurso.'
+    second_paragraph: 'Esta funcionalidade torna possível que as aplicações que usam a API não precisem conhecer a _priori_ todas as possíveis URLs. Por exemplo, ao pegar a representação do usuário (@GET /api/me@) é possível acessar as matrículas dele através do link cujo @rel@ é @enrollment@'
+    third_paragraph: 'Para mais informações sobre as motivações e os benefícios dos links, é recomendada a leitura "deste":http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven artigo.'
+    fourth_paragraph: 'Um link **obrigatoriamente** possui os atributos'
+    item_1: 'Identifica o link.'
+    item_2: 'Link do recurso na API REST.'
+    fifth_paragraph: 'Ele também possui, opcionalmente, os seguintes atributos'
+    item_3: 'Nome do recurso.'
+    item_4: 'Link do recurso na interface Web.'
+    sixth_paragraph: 'Exemplo de links na representação de "Status":/resources/status.html'
 
 status:
     first_paragraph: 'O Mural é o cerne da comunicação dentro do Redu. Através dele os usuários podem postar comentários, respostas e pedidos de ajuda. Além disso o Mural é o meio pelo qual as movimentações do sistema são mostradas. No contexto da API, qualquer elemento mostrado no Mural é chamado de @status@.'
