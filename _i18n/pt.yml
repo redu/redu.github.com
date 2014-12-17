@@ -577,6 +577,40 @@ progress:
             subjects_ids_description: 'ID do módulo. Permite filtrar os progressos baseado no(s) módulos(s).'
             subjects_ids_restriction: 'Precisa ser um módulo pertencente a um curso cujo usuário é matriculado.'
 
+space:
+    first_paragraph: 'No contexto da API disciplina é referida como @space@. É na disciplina que as interações sociais (ver mural) acontecem e o conteúdo (ver módulo) são postados.'
+    get_spaces_id:
+        first_paragraph: 'Retorna a disiplipla em questão.'
+        second_paragraph: 'Deve estar matriculado no "Curso":course.html ao qual a disciplina pertence.'
+        table:
+            id_description: 'ID da disciplina'
+    put_spaces_id:
+        first_paragraph: 'Atualiza as informações da disciplina.'
+        table:
+            space_name_description: 'Nome do curso'
+            space_name_restriction: 'Máximo 40 caracteres; deve ser único' 
+            space_description_description: 'Descrição do curso'
+            space_description_restriction: 'Máximo de 400 caracteres'
+    post_courses_course_id:
+        first_paragraph: 'Cria uma disciplina no contexto do course especificado por @course_id@.'
+        second_paragraph: 'Deve ser @teacher@ ou @environment_admin@ no curso.'
+        table:
+            course_id_description: 'ID do curso'
+            space_name_description: 'Nome da disciplina '
+            space_name_restriction: 'Máximo 40 caracteres'
+            space_description_description: 'Descrição do curso'
+            space_description_restriction: 'Máximo de 400 caracteres'
+    get_courses_course_id:
+        first_paragraph: 'Retorna uma lista com as disciplinas do curso especificado.'
+        second_paragraph: 'Deve estar matriculado no curso.'
+        table:
+            course_id_description: 'ID ou path do curso'
+    delete_spaces_id:
+        first_paragraph: 'Remove uma disciplina. Os que fazem parte do curso ao qual a disciplina faz parte não terão mais acesso aos módulos e aulas.'
+        second_paragraph: 'Deve ser @teacher@ ou @environment_admin@ no curso.'
+        table:
+            id_description: 'ID da disciplina'
+
 
 status:
     first_paragraph: 'O Mural é o cerne da comunicação dentro do Redu. Através dele os usuários podem postar comentários, respostas e pedidos de ajuda. Além disso o Mural é o meio pelo qual as movimentações do sistema são mostradas. No contexto da API, qualquer elemento mostrado no Mural é chamado de @status@.'
