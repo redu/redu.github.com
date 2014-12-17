@@ -530,6 +530,54 @@ links:
     item_4: 'Link do recurso na interface Web.'
     sixth_paragraph: 'Exemplo de links na representação de "Status":/resources/status.html'
 
+progress:
+    first_paragraph: 'O recurso de Progresso refere-se ao progresso de um usuário em relação a uma "Aula":/resources/lecture.html. Este recurso indica se a aula foi finalizada pelo aluno.'
+    table_1:
+        id_description: 'ID do progresso.'
+        finalized_description: 'Indica se a aula foi finalizada.'
+        updated_at_description: 'Indica quando a aula foi finalizada (se @finalized = true@).'
+    table_2:
+        self_description: 'Progresso em questão.'
+        user_description: 'Usuário responsável pelo progresso na aula.'
+        lecture_description: 'Aula à ser finalizada.'
+        subject_description: 'Módulo ao qual a aula pertence.'
+    get_progress_id:
+        first_paragraph: 'Retorna um progresso com  o ID especificado'
+        second_paragraph: 'É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual a aula pertence e ser o @user@ da entidade Progresso.'
+        table:
+            id_description: 'ID do progresso.'
+    put_progress_id:
+        first_paragraph: 'Atualiza o progresso do usuário logado em relação a uma aula.'
+        second_paragraph: 'É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual a aula pertence e ser o @user@ da entidade Progresso.'
+        table:
+            id_description: 'ID do progresso.'
+            progress_finalized_description: 'Indicativo de que a aula foi finalizada'
+            progress_finalized_restriction: 'Deve ser @true@ ou @false@'
+    get_lectures_lecture_id:
+        first_paragraph: 'Retorna todos os progressos de uma "aula":/resources/lecture.html, ou seja, de todos os usuários relacionados à aula. Pode-se filtrar os progressos de uma aula pelo(s) usuário(s).'
+        second_paragraph: 'É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual a aula pertence como @teacher@ ou @environment_admin@.'
+        table:
+            lecture_id_description: 'ID da aula.'
+            users_ids_description: 'ID do usuário. Permite filtrar os progressos baseado no(s) usuário(s).'
+            users_ids_restriction: 'Precisa ser um usuário matriculado no curso ao qual a aula pertence.'
+    get_subjects_subject_id:
+        first_paragraph: 'Retorna todos os progressos de um "módulo":/resources/subject.html, ou seja, de todos os usuários relacionados ao módulo. Pode-se filtrar os progressos de um módulo pelo(s) usuário(s).'
+        second_paragraph: 'É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual o módulo pertence como @teacher@ ou @environment_admin@.'
+        table:
+            subject_id_description: 'ID da módulo.'
+            users_ids_description: 'ID do usuário. Permite filtrar os progressos baseado no(s) usuário(s).'
+            users_ids_restriction: 'Precisa ser um usuário matriculado no curso ao qual o módulo pertence.'
+    get_users_user_id:
+        first_paragraph: 'Retorna todos os progressos de um usuário. Pode-se filtrar os progressos de um usuário pela(s) aulas(s) ou módulo(s).'
+        second_paragraph: 'Apenas o próprio usuário tem acesso.'
+        table:
+            user_id_description: 'ID do usuário.'
+            lectures_ids_description: 'ID da aula. Permite filtrar os progressos baseado na(s) aulas(s).'
+            lectures_ids_restriction: 'Precisa ser uma aula pertencente a um curso cujo usuário é matriculado.'
+            subjects_ids_description: 'ID do módulo. Permite filtrar os progressos baseado no(s) módulos(s).'
+            subjects_ids_restriction: 'Precisa ser um módulo pertencente a um curso cujo usuário é matriculado.'
+
+
 status:
     first_paragraph: 'O Mural é o cerne da comunicação dentro do Redu. Através dele os usuários podem postar comentários, respostas e pedidos de ajuda. Além disso o Mural é o meio pelo qual as movimentações do sistema são mostradas. No contexto da API, qualquer elemento mostrado no Mural é chamado de @status@.'
     status_types:
