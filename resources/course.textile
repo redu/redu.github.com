@@ -72,10 +72,10 @@ h4. {% t global.parameters %}
 table(table table-bordered table-striped).
 |_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
 |*environment_id*|{% t course.post_environments_environment_id.table.environment_id_description %}|N/A|
-|*course[name]*|{% t course.post_environments_environment_id.table.course_name_description %}|{% t course.post_environments_environment_id.table.course_name_restriction %}|
-|*course[path]*|{% t course.post_environments_environment_id.table.course_path_description %}|{% t course.post_environments_environment_id.table.course_path_restriction %}|
-|course[description]|{% t course.post_environments_environment_id.table.course_description_description %}|{% t course.post_environments_environment_id.table.course_description_restriction %}|
-|course[workload]|{% t course.post_environments_environment_id.table.course_workload_description %}|{% t course.post_environments_environment_id.table.course_workload_restriction %}|
+|*course[name]*|{% t course.post_environments_environment_id.table.course_name_description %}|{% t course.post_environments_environment_id.table.course_name_restrictions %}|
+|*course[path]*|{% t course.post_environments_environment_id.table.course_path_description %}|{% t course.post_environments_environment_id.table.course_path_restrictions %}|
+|course[description]|{% t course.post_environments_environment_id.table.course_description_description %}|{% t course.post_environments_environment_id.table.course_description_restrictions %}|
+|course[workload]|{% t course.post_environments_environment_id.table.course_workload_description %}|{% t course.post_environments_environment_id.table.course_workload_restrictions %}|
 
 h4. {% t global.example %}
 
@@ -136,10 +136,10 @@ h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
 |_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
-|*course[name]*|{% t course.put_courses_id.table.course_name_description %}|{% t course.put_courses_id.table.course_name_restriction %}|
-|*course[path]*|{% t course.put_courses_id.table.course_path_description %}|{% t course.put_courses_id.table.course_path_restriction %}|
-|course[description]|{% t course.put_courses_id.table.course_description_description %}|{% t course.put_courses_id.table.course_description_restriction %}|
-|course[workload]|{% t course.put_courses_id.table.course_workload_description %}|{% t course.put_courses_id.table.course_workload_restriction %}|
+|*course[name]*|{% t course.put_courses_id.table.course_name_description %}|{% t course.put_courses_id.table.course_name_restrictions %}|
+|*course[path]*|{% t course.put_courses_id.table.course_path_description %}|{% t course.put_courses_id.table.course_path_restrictions %}|
+|course[description]|{% t course.put_courses_id.table.course_description_description %}|{% t course.put_courses_id.table.course_description_restrictions %}|
+|course[workload]|{% t course.put_courses_id.table.course_workload_description %}|{% t course.put_courses_id.table.course_workload_restrictions %}|
 
 h2. "GET /api/environments/:environment_id/courses":#get-environment-courses
 

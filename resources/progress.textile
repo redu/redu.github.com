@@ -74,7 +74,7 @@ h4. {% t global.parameters %}
 table(table table-bordered table-striped).
 |_.{% t global.attribute %}|_.{% t global.description %}|_.{% t global.restrictions %}|
 |*id*|{% t progress.put_progress_id.table.id_description %}|N/A|
-|*progress[finalized]*|{% t progress.put_progress_id.table.progress_finalized_description %}|{% t progress.put_progress_id.table.progress_finalized_restriction %}|
+|*progress[finalized]*|{% t progress.put_progress_id.table.progress_finalized_description %}|{% t progress.put_progress_id.table.progress_finalized_restrictions %}|
 
 h4. {% t global.example %}
 
@@ -111,7 +111,7 @@ h4. {% t global.parameters %}
 table(table table-bordered table-striped).
 |_.{% t global.attribute %}|_.{% t global.description %}|_.{% t global.restrictions %}|
 |*lecture_id*|{% t progress.get_lectures_lecture_id.table.lecture_id_description %}|N/A|
-|users_ids[]|{% t progress.get_lectures_lecture_id.table.users_ids_description %}|{% t progress.get_lectures_lecture_id.table.users_ids_restriction %}|
+|users_ids[]|{% t progress.get_lectures_lecture_id.table.users_ids_description %}|{% t progress.get_lectures_lecture_id.table.users_ids_restrictions %}|
 
 h4. {% t global.example %}
 
@@ -161,7 +161,7 @@ h4. {% t global.parameters %}
 table(table table-bordered table-striped).
 |_.{% t global.attribute %}|_.{% t global.description %}|_.{% t global.restrictions %}|
 |*subject_id*|{% t progress.get_subjects_subject_id.table.subject_id_description %}|N/A|
-|users_ids[]|{% t progress.get_subjects_subject_id.table.users_ids_description %}|{% t progress.get_subjects_subject_id.table.users_ids_restriction %}|
+|users_ids[]|{% t progress.get_subjects_subject_id.table.users_ids_description %}|{% t progress.get_subjects_subject_id.table.users_ids_restrictions %}|
 
 h4. {% t global.example %}
 
@@ -232,8 +232,8 @@ h4. {% t global.parameters %}
 table(table table-bordered table-striped).
 |_.{% t global.attribute %}|_.{% t global.description %}|_.{% t global.restrictions %}|
 |*user_id*|{% t progress.get_users_user_id.table.user_id_description %}|N/A|
-|lectures_ids[]|{% t progress.get_users_user_id.table.lectures_ids_description %}|{% t progress.get_users_user_id.table.lectures_ids_restriction %}|
-|subjects_ids[]|{% t progress.get_users_user_id.table.subjects_ids_description %}|{% t progress.get_users_user_id.table.subjects_ids_restriction %}|
+|lectures_ids[]|{% t progress.get_users_user_id.table.lectures_ids_description %}|{% t progress.get_users_user_id.table.lectures_ids_restrictions %}|
+|subjects_ids[]|{% t progress.get_users_user_id.table.subjects_ids_description %}|{% t progress.get_users_user_id.table.subjects_ids_restrictions %}|
 
 h4. {% t global.example %}
 

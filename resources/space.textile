@@ -29,8 +29,8 @@ h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
 |_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
-|*space[name]*|{% t space.put_spaces_id.table.space_name_description %}|{% t space.put_spaces_id.table.space_name_restriction %}|
-|space[description]|{% t space.put_spaces_id.table.space_description_description %}|{% t space.put_spaces_id.table.space_description_restriction %}|
+|*space[name]*|{% t space.put_spaces_id.table.space_name_description %}|{% t space.put_spaces_id.table.space_name_restrictions %}|
+|space[description]|{% t space.put_spaces_id.table.space_description_description %}|{% t space.put_spaces_id.table.space_description_restrictions %}|
 
 h2. "POST /api/courses/:course_id/spaces":#post-course-spaces
 
@@ -45,8 +45,8 @@ h4. {% t global.parameters %}
 table(table table-bordered table-striped).
 |_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
 |*course_id*|{% t space.post_courses_course_id.table.course_id_description %}|N/A|
-|*space[name]*|{% t space.post_courses_course_id.table.space_name_description %}|{% t space.post_courses_course_id.table.space_name_restriction %}|
-|space[description]|{% t space.post_courses_course_id.table.space_description_description %}|{% t space.post_courses_course_id.table.space_description_restriction %}|
+|*space[name]*|{% t space.post_courses_course_id.table.space_name_description %}|{% t space.post_courses_course_id.table.space_name_restrictions %}|
+|space[description]|{% t space.post_courses_course_id.table.space_description_description %}|{% t space.post_courses_course_id.table.space_description_restrictions %}|
 
 h4. {% t global.example %}
 

@@ -51,7 +51,7 @@ h4. {% t global.parameters %}
 table(table table-bordered table-striped).
 |_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
 |*id*|{% t enrollment.post_courses_course_id.table.id_description %}|N/A|
-|*enrollment[email]*|{% t enrollment.post_courses_course_id.table.enrollment_email_description %}|{% t enrollment.post_courses_course_id.table.enrollment_email_restriction %}|
+|*enrollment[email]*|{% t enrollment.post_courses_course_id.table.enrollment_email_description %}|{% t enrollment.post_courses_course_id.table.enrollment_email_restrictions %}|
 
 h4. {% t global.example %}
 

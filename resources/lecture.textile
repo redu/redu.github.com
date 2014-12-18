@@ -285,9 +285,9 @@ h4. {% t global.parameters %}
 table(table table-bordered table-striped).
 |_.{% t global.attribute %}|_.{% t global.description %}|_.{% t global.restrictions %}|
 |*lecture[name]*|{% t lecture.post_subjects_subject_id.table.lecture_name_description %}|N/A|
-|*lecture[type]*|{% t lecture.post_subjects_subject_id.table.lecture_type_description %}|{% t lecture.post_subjects_subject_id.table.lecture_type_restriction %}|
-|*lecture[media]*|{% t lecture.post_subjects_subject_id.table.lecture_media_description %}|{% t lecture.post_subjects_subject_id.table.lecture_media_restriction %}|
-|*lecture[content]*|{% t lecture.post_subjects_subject_id.table.content_description %}|{% t lecture.post_subjects_subject_id.table.content_restriction %}|
+|*lecture[type]*|{% t lecture.post_subjects_subject_id.table.lecture_type_description %}|{% t lecture.post_subjects_subject_id.table.lecture_type_restrictions %}|
+|*lecture[media]*|{% t lecture.post_subjects_subject_id.table.lecture_media_description %}|{% t lecture.post_subjects_subject_id.table.lecture_media_restrictions %}|
+|*lecture[content]*|{% t lecture.post_subjects_subject_id.table.content_description %}|{% t lecture.post_subjects_subject_id.table.content_restrictions %}|
 
 h4. {% t lecture.post_subjects_subject_id.update.sub_title %}
 
