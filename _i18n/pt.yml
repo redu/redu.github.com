@@ -222,7 +222,7 @@ course:
             course_workload_description: 'Carga horária do curso em horas'
             course_workload_restriction: 'Deve ser numérico'
     put_courses_id:
-        first_paragraph: 'Atualiza as informações do curso especificado. É importante perceber que não há proteção para a atualização do path. Ou seja, alguma aplicação pode acessar este recurso utilizando o path e, caso o mesmo seja modificado, o códido HTTP 404 (not found) será lançado.'
+        first_paragraph: 'Atualiza as informações do curso especificado. É importante perceber que não há proteção para a atualização do path. Ou seja, alguma aplicação pode acessar este recurso utilizando o path e, caso o mesmo seja modificado, o código HTTP 404 (not found) será lançado.'
         second_paragraph: 'Para criar um Curso é necessário ter papel administrativo no "AVA":environment.html.'
         table:
             course_name_description: 'Nome do curso'
@@ -251,7 +251,7 @@ enrollment:
         id_description: 'Identificador da matrícula'
         state_description: 'Estado atual da matrícula. Exemplo: @waiting@'
         email_description: 'E-mail do usuário a ser convidado. Apenas utilizado quando o usuário ainda não faz parte do Redu'
-        token_description: 'Token de convite do usuário.'
+        token_description: 'Token de convite do usuário'
         role_description: 'Papel do usuário no Curso. Apenas disponível se o usuário já aceitou o convite. Os estados possíveis são: @member@, @teacher@, @environment_admin@ e @tutor@'
     table_2:
         waiting_description: 'Nenhuma ação foi realizada'
@@ -277,8 +277,8 @@ enrollment:
         first_paragraph: 'Listagem de matrículas de um usuário.'
         second_paragraph: 'Para fazer esta requisição é necessário ter direitos administrativos para um User. Ou seja, apenas o próprio user pode ver os seus enrollments.'
         table:
-            user_id_description: 'ID do USer'
-            courses_ids_description: 'IDs dos Cursos. Permite a filtragem de Enrollment por cursos.'
+            user_id_description: 'ID do User'
+            courses_ids_description: 'IDs dos Cursos. Permite a filtragem de Enrollment por cursos'
     delete_enrollments_id:
         first_paragraph: 'Remove a matrícula especificada bem como o usuário associado a mesma (caso exista). O usuário perderá acesso ao curso e às suas disciplinas.'
         table:
@@ -287,17 +287,17 @@ enrollment:
 environment:
     first_paragraph: 'O AVA (Ambiente Virtual de Aprendizagem) no contexto da API é chamado simplesmente de @environment@. Ele serve como um organizador de cursos e representa a instituição ou empresa que detém estes. Além de uma forma de organizar cursos o AVA detém opções administrativas que fazem sentido ao Gestor de conhecimento ou Gestor de EAD. Por si só não detém conteúdo (aulas, arquivos e posts) nem usuários. Estes estão dentro das disciplinas e cursos, respectivamente.'
     table_1:
-        id_description: 'Identificador do ambiente.'
-        name_description: 'Nome.'
-        initials_description: 'Iniciais.'
-        path_description: 'Caminho usado na URL.'
-        description_description: 'Descrição.'
-        courses_count_description: 'Quantidade de cursos.'
-        thumbnails_description: 'Thumbnails do ambiente. Tamanhos disponíveis: 32x32, 48x48, 90x90, 96x96 e 140x140.'
+        id_description: 'Identificador do ambiente'
+        name_description: 'Nome'
+        initials_description: 'Iniciais'
+        path_description: 'Caminho usado na URL'
+        description_description: 'Descrição'
+        courses_count_description: 'Quantidade de cursos'
+        thumbnails_description: 'Thumbnails do ambiente. Tamanhos disponíveis: 32x32, 48x48, 90x90, 96x96 e 140x140'
     table_2:
-        self_description: 'Ambiente em questão.'
-        courses_description: 'Cursos.'
-        user_description: 'Usuário criador.'
+        self_description: 'Ambiente em questão'
+        courses_description: 'Cursos'
+        user_description: 'Usuário criador'
     get_environments_id:
         first_paragraph: 'Retorna o AVA especificado. Tanto o ID quanto o path podem ser utilizados aqui, porém o path é passível de modificações pelo usuário, portanto pode não servir como um identificador único.'
         second_paragraph: 'O usuário deve fazer parte de pelo menos um curso do AVA ou ser o dono do mesmo.'
@@ -331,7 +331,6 @@ environment:
         second_paragraph: 'O usuário deve ser administrador do AVA.'
         table:
             id_description: 'ID ou path do AVA'
-
 
 folders_and_files:
     first_paragraph: 'Pasta e Arquivo são referenciados, respectivamente, como: @folder@ e @file@. Estes compõem a seção de Arquivos de Apoio dispostos em uma "Disciplina":/resources/space.html, onde é possível guardar, organizar e baixar arquivos.'
@@ -434,35 +433,35 @@ lecture:
         item_5: '*Canvas:* Aplicativo.'
         third_paragraph: 'Abaixo são descritos os atributos de uma Aula'
         table_1:
-            created_at_description: 'Data de criação.'
-            name_description: 'Nome (título).'
-            position_description: 'Posição na ordenação dentro módulo.'
-            type_description: 'Tipo (_Canvas, Document, Exercise, Page, Media_).'
-            id_description: 'Identificador.'
+            created_at_description: 'Data de criação'
+            name_description: 'Nome (título)'
+            position_description: 'Posição na ordenação dentro módulo'
+            type_description: 'Tipo (_Canvas, Document, Exercise, Page, Media_)'
+            id_description: 'Identificador'
             rating_description: 'Avaliação feita pelos usuários'
             view_count_description: 'Quantidade de vezes que foi visualizada'
-            updated_at_description: 'Data da última atualização.'
+            updated_at_description: 'Data da última atualização'
         fourth_paragraph: 'Abaixo são descritos os links presentes na representação de uma Aula'
         table_2:
-            self_description: 'Aula em questão.'
-            self_link_description: 'Aula no Redu (HTML).'
-            subject_description: 'Módulo onde a Aula se encontra.'
-            space_description: 'Disciplina onde a Aula se encontra.'
-            course_description: 'Curso onde a Aula se encontra.'
-            environment_description: 'Ambiente onde a Aula se encontra.'
+            self_description: 'Aula em questão'
+            self_link_description: 'Aula no Redu (HTML)'
+            subject_description: 'Módulo onde a Aula se encontra'
+            space_description: 'Disciplina onde a Aula se encontra'
+            course_description: 'Curso onde a Aula se encontra'
+            environment_description: 'Ambiente onde a Aula se encontra'
         lessons_types:
             title: 'Tipos de aulas'
             first_paragraph: 'Esta aula é simplesmente um conteúdo baseado em "_Rich Text Format_":http://en.wikipedia.org/wiki/Rich_Text_Format , originado pelo "_CKEditor_":http://ckeditor.com/.'
             table_1:
-                content_description: 'Conteúdo gerado pelo CKEditor. Inclui formatação HTML e CSS.'
-                raw_description: 'Contéudo cru da aula, nem um tipo de formatação e estilo é adicionado.'
+                content_description: 'Conteúdo gerado pelo CKEditor. Inclui formatação HTML e CSS'
+                raw_description: 'Contéudo cru da aula, nem um tipo de formatação e estilo é adicionado'
             second_paragraph: 'Este tipo de aula é composto basicamente por um documento, o qual pode ter o formato _txt, pdf, doc, docx, ppt, pptx_, etc.'
             table_2:
                 mimetype_description: 'Formato do arquivo'
             third_paragraph: 'Este tipo de aula também possui links, são estes'
             table_3:
-                raw_description: 'Endereço do arquivo bruto para download.'
-                scribd_description: 'Endereço do arquivo hospedado no Scribd (com player para ser usado _embedded_).'
+                raw_description: 'Endereço do arquivo bruto para download'
+                scribd_description: 'Endereço do arquivo hospedado no Scribd (com player para ser usado _embedded_)'
             fourth_paragraph: 'Este tipo de Lecture representa arquivos de mídia, podendo ser áudio ou vídeo, inclusive mídias do Youtube.'
             table_4:
                 mimetype_description: 'MimeType do arquivo de mídia'
@@ -493,11 +492,11 @@ lecture:
         table:
             lecture_name_description: 'Nome da aula'
             lecture_type_description: 'Tipo'
-            lecture_type_restriction: 'Deve ser @Media@, @Document@ ou @Page@.'
+            lecture_type_restriction: 'Deve ser @Media@, @Document@ ou @Page@'
             lecture_media_description: 'Arquivo ou URL do youtube'
-            lecture_media_restriction: 'Apenas para aulas do tipo @Pedia@ e @Socument@.'
+            lecture_media_restriction: 'Apenas para aulas do tipo @Media@ e @Document@'
             content_description: 'Conteúdo em texto'
-            content_restriction: 'Apenas para aulas do tipo @Page@.'
+            content_restriction: 'Apenas para aulas do tipo @Page@'
         update:
             sub_title: 'Upload de arquivos'
             first_paragraph: 'Em casos casos em que há o upload de arquivos, são necessários os seguintes cabeçalhos HTTP'
@@ -533,63 +532,63 @@ links:
 progress:
     first_paragraph: 'O recurso de Progresso refere-se ao progresso de um usuário em relação a uma "Aula":/resources/lecture.html. Este recurso indica se a aula foi finalizada pelo aluno.'
     table_1:
-        id_description: 'ID do progresso.'
-        finalized_description: 'Indica se a aula foi finalizada.'
-        updated_at_description: 'Indica quando a aula foi finalizada (se @finalized = true@).'
+        id_description: 'ID do progresso'
+        finalized_description: 'Indica se a aula foi finalizada'
+        updated_at_description: 'Indica quando a aula foi finalizada (se @finalized = true@)'
     table_2:
-        self_description: 'Progresso em questão.'
-        user_description: 'Usuário responsável pelo progresso na aula.'
-        lecture_description: 'Aula à ser finalizada.'
-        subject_description: 'Módulo ao qual a aula pertence.'
+        self_description: 'Progresso em questão'
+        user_description: 'Usuário responsável pelo progresso na aula'
+        lecture_description: 'Aula à ser finalizada'
+        subject_description: 'Módulo ao qual a aula pertence'
     get_progress_id:
         first_paragraph: 'Retorna um progresso com  o ID especificado'
         second_paragraph: 'É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual a aula pertence e ser o @user@ da entidade Progresso.'
         table:
-            id_description: 'ID do progresso.'
+            id_description: 'ID do progresso'
     put_progress_id:
         first_paragraph: 'Atualiza o progresso do usuário logado em relação a uma aula.'
         second_paragraph: 'É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual a aula pertence e ser o @user@ da entidade Progresso.'
         table:
-            id_description: 'ID do progresso.'
+            id_description: 'ID do progresso'
             progress_finalized_description: 'Indicativo de que a aula foi finalizada'
             progress_finalized_restriction: 'Deve ser @true@ ou @false@'
     get_lectures_lecture_id:
         first_paragraph: 'Retorna todos os progressos de uma "aula":/resources/lecture.html, ou seja, de todos os usuários relacionados à aula. Pode-se filtrar os progressos de uma aula pelo(s) usuário(s).'
         second_paragraph: 'É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual a aula pertence como @teacher@ ou @environment_admin@.'
         table:
-            lecture_id_description: 'ID da aula.'
-            users_ids_description: 'ID do usuário. Permite filtrar os progressos baseado no(s) usuário(s).'
-            users_ids_restriction: 'Precisa ser um usuário matriculado no curso ao qual a aula pertence.'
+            lecture_id_description: 'ID da aula'
+            users_ids_description: 'ID do usuário. Permite filtrar os progressos baseado no(s) usuário(s)'
+            users_ids_restriction: 'Precisa ser um usuário matriculado no curso ao qual a aula pertence'
     get_subjects_subject_id:
         first_paragraph: 'Retorna todos os progressos de um "módulo":/resources/subject.html, ou seja, de todos os usuários relacionados ao módulo. Pode-se filtrar os progressos de um módulo pelo(s) usuário(s).'
         second_paragraph: 'É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual o módulo pertence como @teacher@ ou @environment_admin@.'
         table:
-            subject_id_description: 'ID da módulo.'
-            users_ids_description: 'ID do usuário. Permite filtrar os progressos baseado no(s) usuário(s).'
-            users_ids_restriction: 'Precisa ser um usuário matriculado no curso ao qual o módulo pertence.'
+            subject_id_description: 'ID da módulo'
+            users_ids_description: 'ID do usuário. Permite filtrar os progressos baseado no(s) usuário(s)'
+            users_ids_restriction: 'Precisa ser um usuário matriculado no curso ao qual o módulo pertence'
     get_users_user_id:
         first_paragraph: 'Retorna todos os progressos de um usuário. Pode-se filtrar os progressos de um usuário pela(s) aulas(s) ou módulo(s).'
         second_paragraph: 'Apenas o próprio usuário tem acesso.'
         table:
-            user_id_description: 'ID do usuário.'
-            lectures_ids_description: 'ID da aula. Permite filtrar os progressos baseado na(s) aulas(s).'
-            lectures_ids_restriction: 'Precisa ser uma aula pertencente a um curso cujo usuário é matriculado.'
-            subjects_ids_description: 'ID do módulo. Permite filtrar os progressos baseado no(s) módulos(s).'
-            subjects_ids_restriction: 'Precisa ser um módulo pertencente a um curso cujo usuário é matriculado.'
+            user_id_description: 'ID do usuário'
+            lectures_ids_description: 'ID da aula. Permite filtrar os progressos baseado na(s) aulas(s)'
+            lectures_ids_restriction: 'Precisa ser uma aula pertencente a um curso cujo usuário é matriculado'
+            subjects_ids_description: 'ID do módulo. Permite filtrar os progressos baseado no(s) módulos(s)'
+            subjects_ids_restriction: 'Precisa ser um módulo pertencente a um curso cujo usuário é matriculado'
 
 space:
     first_paragraph: 'No contexto da API disciplina é referida como @space@. É na disciplina que as interações sociais (ver mural) acontecem e o conteúdo (ver módulo) são postados.'
     get_spaces_id:
-        first_paragraph: 'Retorna a disiplipla em questão.'
+        first_paragraph: 'Retorna a disciplina em questão.'
         second_paragraph: 'Deve estar matriculado no "Curso":course.html ao qual a disciplina pertence.'
         table:
             id_description: 'ID da disciplina'
     put_spaces_id:
         first_paragraph: 'Atualiza as informações da disciplina.'
         table:
-            space_name_description: 'Nome do curso'
+            space_name_description: 'Nome da disciplina'
             space_name_restriction: 'Máximo 40 caracteres; deve ser único' 
-            space_description_description: 'Descrição do curso'
+            space_description_description: 'Descrição da disciplina'
             space_description_restriction: 'Máximo de 400 caracteres'
     post_courses_course_id:
         first_paragraph: 'Cria uma disciplina no contexto do course especificado por @course_id@.'
@@ -598,7 +597,7 @@ space:
             course_id_description: 'ID do curso'
             space_name_description: 'Nome da disciplina '
             space_name_restriction: 'Máximo 40 caracteres'
-            space_description_description: 'Descrição do curso'
+            space_description_description: 'Descrição da disciplina'
             space_description_restriction: 'Máximo de 400 caracteres'
     get_courses_course_id:
         first_paragraph: 'Retorna uma lista com as disciplinas do curso especificado.'
@@ -610,7 +609,6 @@ space:
         second_paragraph: 'Deve ser @teacher@ ou @environment_admin@ no curso.'
         table:
             id_description: 'ID da disciplina'
-
 
 status:
     first_paragraph: 'O Mural é o cerne da comunicação dentro do Redu. Através dele os usuários podem postar comentários, respostas e pedidos de ajuda. Além disso o Mural é o meio pelo qual as movimentações do sistema são mostradas. No contexto da API, qualquer elemento mostrado no Mural é chamado de @status@.'

@@ -11,11 +11,16 @@ global:
     link: Link
     links: Links
     example: Example
+    page: Page
     request: Request
     response: Response
     key: Key
     state: State
     states: States
+    representation: Representation
+    media: Media
+    exercise: Exercise
+    document: Document
 
 titles:
     index: Redu for developers
@@ -196,6 +201,137 @@ connection:
         table:
             connection_id_description: 'Connection ID'
 
+course:
+    first_paragraph: 'In the context of API, the course - which is known as major in US university system - is referred as @course@, is the main entity of Redu hierarchy. It is a self-contained entity of content, and users. That is, users who have access to a course will be allowed to view all of its spaces, subjects, and classes.'
+    get_courses_id:
+        first_paragraph: 'Returns the course in question.'
+        second_paragraph: 'You must be "enrolled":/enrollment.html in the course to view this resource.'
+        table:
+            id_description: 'Course ID'
+    post_environments_environment_id:
+        first_paragraph: 'Creates a new course on the specified "environment":environment.html. In "Redu":http://www.redu.com.br, the "enrollment":resources/enrollment.html is done within the course. That is, users who have access to a course can also view its spaces, subjects, and classes.'
+        second_paragraph: 'To create a Course you need to have administrative role in the "environment":environment.html.'
+        table:
+            environment_id_description: 'ID or path to environment'
+            course_name_description: 'Course name'
+            course_name_restriction: 'Maximum 40 characters; it must be unique'
+            course_path_description: 'Name that will appear in the address bar'
+            course_path_restriction: 'It must fit the following regex: @^[-_A-Za-z0-9]*$@; It must be unique within an "environment":environment.html'
+            course_description_description: 'Course description'
+            course_description_restriction: 'Maximum 400 characters'
+            course_workload_description: 'Workload of the course in hours'
+            course_workload_restriction: 'It must be numeric'
+    put_courses_id:
+        first_paragraph: 'Updates information for the specified course. It is important to notice that there is no protection against path update. That is, some application can access this feature by using the path and, if it is changed, the HTTP code 404 (not found) will be returned.'
+        second_paragraph: 'To create a Course you need to have administrative role in the "environment":environment.html.'
+        table:
+            course_name_description: 'Course name'
+            course_name_restriction: 'Maximum 40 characters; it must be unique'
+            course_path_description: 'Name that will show up in the address bar'
+            course_path_restriction: 'It must fit the following regex: @^[-_A-Za-z0-9]*$@; It must be unique within an "environment":environment.html'
+            course_description_description: 'Course description'
+            course_description_restriction: 'Maximum 400 characters'
+            course_workload_description: 'Workload of the course in hours'
+            course_workload_restriction: 'It must be numeric'
+    get_environments_environment_id:
+        first_paragraph: 'Returns a list of courses created within the environment in question.'
+        second_paragraph: 'You must be enrolled in at least one "Course":curso.html of the "environment":environment.html.'
+        table:
+            environment_id_description: 'ID or path to environment'
+    delete_courses_id:
+        first_paragraph: 'Removes the course in question. All the users will be unregistered, and lose access to the resource.'
+        second_paragraph: 'To create a Course you need to have administrative role in the "environment":environment.html.'
+        table:
+            id_description: 'ID or path to environment'
+
+enrollment:
+    first_paragraph: 'Resource that represents the enrollment of users in courses. It was developed in such a way that abstracts the fact that the user is present or not in "Redu":http://www.redu.com.br.'
+    second_paragraph: 'If the email is not registered in the plataform, an invitation will be sent, allowing the registration, and  subsequent invitation to the course. It has a state machine as defined below (property @state@)'
+    table_1:
+        id_description: 'Enrollment identifier'
+        state_description: 'Current state of enrollment. Example: @waiting@'
+        email_description: 'E-mail of the user who will be invited. Only used when the user does not participate in Redu yet'
+        token_description: 'Token of user invitation'
+        role_description: 'Role of the user in the Course. Only available if the user has already accepted the invitation. The possible states are: @member@, @teacher@, @environment_admin@, and @tutor@'
+    table_2:
+        waiting_description: 'No action was taken'
+        redu_invited_description: 'When the email is not registered in "Redu":http://www.redu.com.br, and an invitation message was sent'
+        invited_description: 'When the email is not registered in "Redu":http://www.redu.com.br, and user receives an invitation to the course. Notification will show up in the home page of the user'
+        approved_description: 'User has accepted the invitation'
+        rejected_description: 'User has rejected the invitation'
+    get_enrollments_id:
+        first_paragraph: 'Returns the enrollment in question.'
+        table:
+            id_description: 'Enrollment ID'
+    post_courses_course_id:
+        first_paragraph: 'Creates an enrollment in the course in question. If the user participates in Redu, the state of the enrollment will go to @invited@, and a notification will show up in their home page, inviting them to participate in the course. Otherwise, the enrollment will go to @redu_invited@ state before going to the @invited@ state. This means that an email invitation was sent.'
+        table:
+            id_description: 'ID or path to course'
+            enrollment_email_description: 'E-mail of user who will be invited'
+            enrollment_email_restriction: 'Maximum 40 characters; it must be unique'
+    get_courses_course_id:
+        first_paragraph: 'Lists enrollments for a course. It is important to notice that there may be more enrollments than registered users in the course (state @redu_invited@, or @invited@).'
+        table:
+            id_description: 'ID or path to course'
+    get_users_user_id:
+        first_paragraph: 'Lists enrollments for a user.'
+        second_paragraph: 'To submit this request you need to have administrative access to a User. In other words, only the user can see their own enrollments.'
+        table:
+            user_id_description: 'User ID'
+            courses_ids_description: 'Course IDs. It allows filtering Enrollment by courses'
+    delete_enrollments_id:
+        first_paragraph: 'Deletes the specified enrollment, as well as the associated user (if any). The user will lose access to the course, and to its spaces.'
+        table:
+            id_description: 'ID or path to course'
+
+environment:
+    first_paragraph: 'In the context of API, the VLE (Virtual Learning Environment) is just called @environment@. It serves as an organizer of courses. An environment represents the institution or company that owns these courses. Besides, the environment holds administrative options that make sense to the Knowledge Manager or DL (Distance Learning) Manager. By itself, it does not have content (lectures, files, and posts) nor users. These are, respectively, in classes and courses.'
+    table_1:
+        id_description: 'Environment ID'
+        name_description: 'Name'
+        initials_description: 'Initials'
+        path_description: 'Path used in URL'
+        description_description: 'Description'
+        courses_count_description: 'Number of courses'
+        thumbnails_description: 'Environment thumbnails. Available dimensions: 32x32, 48x48, 90x90, 96x96, and 140x140'
+    table_2:
+        self_description: 'Environment in question'
+        courses_description: 'Courses'
+        user_description: 'User who has created the environment'
+    get_environments_id:
+        first_paragraph: 'Returns the specified environment. Both ID and path can be used here, but the path is open to modifications by the user, so it can not work as a unique identifier.'
+        second_paragraph: 'The user needs to participate in at least one course from the environment, or be the owner of it.'
+        table:
+            id_description: 'ID or path to environment'
+    post_environments:
+        first_paragraph: 'Creates environment. By itself, environment is just a way to organize a set of courses, in the context of an institution.'
+        table:
+            environment_name_description: 'Environment name'
+            environment_name_restriction: 'Maximum 40 characters; it must be unique'
+            environment_path_description: 'Name that will show up in the address bar'
+            environment_path_restriction: 'It must fit the following regex: @^[-_A-Za-z0-9]*$@'
+            environment_initials_description: 'Abbreviation (used in some places of the interface)'
+            environment_initials_restriction: 'It must be unique; Maximum 40 characters'
+            environment_description_description: 'Environment description'
+            environment_description_restriction: 'Maximum 400 characters'
+    put_environments_id:
+        first_paragraph: 'Updates information for environment in question.'
+        second_paragraph: 'The user needs to be administrator of environment.'
+        table:
+            environment_name_description: 'Environment name'
+            environment_name_restriction: 'Maximum 40 characters; it must be unique'
+            environment_path_description: 'Name that will show up in the address bar'
+            environment_path_restriction: 'It must fit the following regex: @^[-_A-Za-z0-9]*$@'
+            environment_initials_description: 'Abbreviation (used in some places of the interface)'
+            environment_initials_restriction: 'It must be unique; Maximum 40 characters'
+            environment_description_description: 'Environment description'
+            environment_description_restriction: 'Maximum 400 characters'
+    delete_environments_id:
+        first_paragraph: 'Removes the environment in question. All courses, classes, lectures and subjects associated to this environment will be also deleted, and they will no longer be accessible to users.'
+        second_paragraph: 'The user needs to be administrator of environment.'
+        table:
+            id_description: 'ID or path to environment'
+
 folders_and_files:
     first_paragraph: 'Folders and files are referred to respectively as: @folder@, and @file@. These resources make up the "Arquivos de Apoio" (Support Files) section, arranged in a "Space":/resources/space.html, where you can save, organize, and download files.'
     folder:
@@ -285,6 +421,195 @@ folders_and_files:
             first_paragraph: 'Deletes the specified file'
             second_paragraph: 'You must be "enrolled":/en/resources/enrollment.html in the "course":/en/resources/course.html. And you need to be either administrator, professor/teacher or tutor on the course.'
 
+lecture:
+    first_paragraph: 'In the context of API, the Lecture is referred as @lecture@. A Lecture is the minimum unit of content, such as text or video, which has social interactions (see "Status":/resources/status.html). Many lectures can be grouped and sorted into a subject.'
+    lectures_types:
+        title: '"Types of Lecture":#lectures-types'
+        first_paragraph: 'There are five types of lectures:'
+        item_1: '*Page:* Content in "_Rich Text Format_":http://en.wikipedia.org/wiki/Rich_Text_Format.'
+        item_2: '*Document:* Text file (_txt_, _pdf_, _doc_, _docx_, _ppt_, _pptx_, etc).'
+        item_3: '*Media:* Video file (_mov_, _avi_, _mpeg_, _mp4_, etc), or video hosted in "Youtube":http://www.youtube.com.'
+        item_4: '*Exercise:* It has questions to be answered.'
+        item_5: '*Canvas:* Application.'
+        third_paragraph: 'Below are described the attributes of a lecture'
+        table_1:
+            created_at_description: 'Date of creation'
+            name_description: 'Name (title)'
+            position_description: 'Sorted position in the subject'
+            type_description: 'Type (_Canvas, Document, Exercise, Page, Media_)'
+            id_description: 'Identifier'
+            rating_description: 'Evaluation by users'
+            view_count_description: 'Number of views'
+            updated_at_description: 'Last update date'
+        fourth_paragraph: 'Below describes the links on the representation of a lecture'
+        table_2:
+            self_description: 'Lecture in question'
+            self_link_description: 'Lecture in Redu (HTML)'
+            subject_description: 'Subject where the Lecture is'
+            space_description: 'Space where the Lecture is'
+            course_description: 'Course where the Lecture is'
+            environment_description: 'Environment where the Lecture is'
+        lessons_types:
+            title: 'Types of lectures'
+            first_paragraph: 'This lecture is just content based on "_Rich Text Format_":http://en.wikipedia.org/wiki/Rich_Text_Format , originated by "_CKEditor_":http://ckeditor.com/.'
+            table_1:
+                content_description: 'Content generated by CKEditor. It includes HTML and CSS formatting'
+                raw_description: 'Raw content of the lecture. No formatting and style is applied to it'
+            second_paragraph: 'This type of lecture is basically composed of a document, which can be in the format _txt, pdf, doc, docx, ppt, pptx_, etc.'
+            table_2:
+                mimetype_description: 'File format'
+            third_paragraph: 'This type of class also has the following links'
+            table_3:
+                raw_description: 'Download address of raw file'
+                scribd_description: 'Address of file hosted on Scribd (with player to be used _embedded_)'
+            fourth_paragraph: 'This type of Lecture represents media files - audio or video -, including YouTube medias.'
+            table_4:
+                mimetype_description: 'MimeType of media file'
+            table_5:
+                raw_description: 'Download address of file'
+            fifth_paragraph: 'In case of Youtube videos, the MimeType returned will be @video/x-youtube@. For example'
+            sixth_paragraph: 'More information can be found in "Canvas documentation":/resources/canvas.html.'
+    get_subjects_id:
+        first_paragraph: 'Lists all the Lectures that belong to the specified Subject.'
+        second_paragraph: 'You need to be enrolled in the "Course":/resources/course.html to which the "Subject":/resources/subject.html belongs.'
+        table:
+            id_description: 'Subject ID.'
+    get_lectures_id:
+        first_paragraph: 'Returns the Lecture in question.'
+        second_paragraph: 'You need to be enrolled in the "Course":/resources/course.html to which the "Subject":/resources/subject.html belongs (i.e., the course to which the space belongs).'
+        table:
+            id_description: 'Lecture ID'
+        item_1: 'Page'
+        item_2: 'Document'
+        item_3: 'Exercise'
+        item_4: 'Canvas. "See Canvas documentation":/resources/canvas.html.'
+        item_5: 'Media'
+        sub_title_1: 'For Youtube videos'
+        sub_title_2: 'For videos hosted in Redu'
+    post_subjects_subject_id:
+        first_paragraph: 'Creates a lecture.'
+        second_paragraph: 'You need to be enrolled in the "Course":/resources/course.html to which the "Subject":/resources/subject.html belongs (i.e., the course to which the space belongs), and have either @environment_admin@ or @teacher@ role.'
+        table:
+            lecture_name_description: 'Lecture name'
+            lecture_type_description: 'Type'
+            lecture_type_restriction: 'It must be @Media@, @Document@, or @Page@'
+            lecture_media_description: 'File or URL from youtube'
+            lecture_media_restriction: 'Only @Media@, and @Document@ lectures'
+            content_description: 'Text content'
+            content_restriction: 'Only @Page@ lectures'
+        update:
+            sub_title: 'Upload files'
+            first_paragraph: 'In cases of uploading a file, the following HTTP headers are required:'
+            file_lenght: 'size of file in bytes'
+            second_paragraph: 'The usage of Content-type multipart/form-data makes possible that the HTTP request body is composed of multiple sets of data, where each one has its own Content-type. In this way, we can send the binary data of an image or PDF file, besides the name and type.'
+            third_paragraph: 'Redu is able to automatically detect Content-type for images. However, when uploading other types of media, you must tell their Content-type. Most HTTP libraries have this feature implemented. Below you can see an example of body of an HTTP request to upload a video in MPEG format'
+            fourth_paragraph: 'This behavior is described in details in "RFC 2388":http://www.ietf.org/rfc/rfc2388.txt'
+        example:
+            first_paragraph: 'In all the examples, we use "cURL":http://curl.haxx.se/docs/manpage.html to test the creation of Lecture.An Java example can be found "here":https://github.com/redu/oauth-consumers/tree/master/java-native/file-upload.'
+            item_1: 'Document'
+            second_paragraph: 'In this example, a @Document@ lecture will be created from @pdf_example.pdf@ file in the current directory.'
+            item_2: 'Media (upload)'
+            third_paragraph: 'In this example, a @Media@ lecture will be created from @video.avi@ file in the current diretory.'
+            item_3: 'Media (YouTube)'
+            fourth_paragraph: 'In this example, a @Media@ lecture will be created from a Youtube "link":http://www.youtube.com/watch?v=GrV2SZuRPv0.'
+            item_4: 'Page'
+    delete_lectures_id:
+        first_paragraph: 'Deletes a lecture.'
+        second_paragraph: 'You need to be enrolled in the "Course":/resources/course.html to which the "Subject":/resources/subject.html belongs (i.e., the course to which the space belongs), and have either @environment_admin@ or @teacher@ role.'
+
+links:
+    first_paragraph: 'Just as Web pages have links to other pages, resources of our API have references to other related resources. These references are accessible via the property @links@ in the resource representation.'
+    second_paragraph: 'This feature makes possible that applications which use the API do not need to know _previously_ all the possible URLs. For instance, when getting the user representation (@GET /api/me@), it is possible to access their enrollments via the link whose @rel@ is @enrollment@'
+    third_paragraph: 'For more information about the motivations and benefits of links, we recommend you read "this":http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven paper.'
+    fourth_paragraph: 'A link **mandatorily** has the following attributes'
+    item_1: 'Identifies the link.'
+    item_2: 'Link of the resource in REST API.'
+    fifth_paragraph: 'It also has, optionally, the following attributes'
+    item_3: 'Resource name.'
+    item_4: 'Link of resource in the Web interface.'
+    sixth_paragraph: 'Example of links in the "Status":/resources/status.html representation'
+
+progress:
+    first_paragraph: 'The Progress resource refers to the progress of a user with respect to a "Lecture":/resources/lecture.html. This resource indicates whether the lecture was finished by student.'
+    table_1:
+        id_description: 'Progress ID'
+        finalized_description: 'It indicates whether the lecture was finished'
+        updated_at_description: 'It indicates when the lecture was finished (if @finalized = true@)'
+    table_2:
+        self_description: 'Progress in question'
+        user_description: 'User who is responsible for the progress in lecture'
+        lecture_description: 'Lecture to be finished'
+        subject_description: 'Subject to which the lecture belongs'
+    get_progress_id:
+        first_paragraph: 'Returns progress with the specified ID'
+        second_paragraph: 'You need to be "enrolled":/resources/enrollment.html in the "course":/resources/course.html to which the lecture belongs, and be the @user@ of the Progress entity.'
+        table:
+            id_description: 'Progress ID'
+    put_progress_id:
+        first_paragraph: 'Updates the progress of the logged user with respect to a lecture.'
+        second_paragraph: 'You need to be "enrolled":/resources/enrollment.html in the "course":/resources/course.html to which the lecture belongs, and be the @user@ of the Progress entity.'
+        table:
+            id_description: 'Progress ID'
+            progress_finalized_description: 'It indicates that the lecture was finished'
+            progress_finalized_restriction: 'It must be either @true@ or @false@'
+    get_lectures_lecture_id:
+        first_paragraph:  'Returns all the progresses of a "lecture":/resources/lecture.html, i.e., for every user connected to that lecture. You can filter the progress of a lecture by user(s).'
+        second_paragraph: 'You need to be "enrolled":/resources/enrollment.html in the "course":/resources/course.html to which the lecture belongs, as @teacher@ or @environment_admin@.'
+        table:
+            lecture_id_description: 'Lecture ID'
+            users_ids_description: 'User ID. It allows filtering progresses based on the user(s)'
+            users_ids_restriction: 'You need to be a user enrolled in the course to which the lecture belongs'
+    get_subjects_subject_id:
+        first_paragraph: 'Returns all the progresses of a "subject":/resources/subject.html, i.e., for every user connected to that subject. You can filter the progress of a subject by user(s).'
+        second_paragraph: 'You need to be "enrolled":/resources/enrollment.html in the "course":/resources/course.html to which the subject belongs, as @teacher@ or @environment_admin@.'
+        table:
+            subject_id_description: 'Subject ID'
+            users_ids_description: 'User ID. It allows filtering the progresses based on the user(s)'
+            users_ids_restriction: 'You need to be a user enrolled in the course to which the subject belongs'
+    get_users_user_id:
+        first_paragraph: 'Returns all the progresses of a user. You can filter the progresses of a user by lectures or subjects.'
+        second_paragraph: 'Each user has access only to their own progresses.'
+        table:
+            user_id_description: 'User UD'
+            lectures_ids_description: 'Lecture ID. It allows filtering progresses based on the lecture(s)'
+            lectures_ids_restriction: 'It needs to be a lecture that belongs to a course in which the user is enrolled.'
+            subjects_ids_description: 'Subject ID. It allows filtering progresses based on the subject(s).'
+            subjects_ids_restriction: 'It needs to be a subject that belongs to a course in which the user us enrolled.'
+
+space:
+    first_paragraph: 'In the context of API, a discipline - which is known as course in US university system, and module in the UK one - is referred as @space@. The space is where social interactions (see status) happen, and the content (see subject) is posted.'
+    get_spaces_id:
+        first_paragraph: 'Returns the space in question.'
+        second_paragraph: 'You need to be enrolled in the "Course":course.html to which the space belongs.'
+        table:
+            id_description: 'Space ID'
+    put_spaces_id:
+        first_paragraph: 'Updates information of the space.'
+        table:
+            space_name_description: 'Space name'
+            space_name_restriction: 'Maximum 40 characters; it must be unique' 
+            space_description_description: 'Space description'
+            space_description_restriction: 'Maximum 400 characters'
+    post_courses_course_id:
+        first_paragraph: 'Creates a space in the context of the course specified by @course_id@.'
+        second_paragraph: 'You need to be either @teacher@ or @environment_admin@ in the course.'
+        table:
+            course_id_description: 'Course ID'
+            space_name_description: 'Space ID'
+            space_name_restriction: 'Maximum 40 character'
+            space_description_description: 'Space description'
+            space_description_restriction: 'Maximum 400 characters'
+    get_courses_course_id:
+        first_paragraph: 'Returns a list of spaces for the specified course.'
+        second_paragraph: 'You need to be enrolled in the course.'
+        table:
+            course_id_description: 'ID or path to course'
+    delete_spaces_id:
+        first_paragraph: 'Deletes a space. The users who participate in the course to which the space belongs will no longer have access to its subjects and lectures.'
+        second_paragraph: 'You need to be either @teacher@ or @environment_admin@ in the course.'
+        table:
+            id_description: 'Space ID'
+
 status:
     first_paragraph: 'Status - message posted in the timeline - is the core of communication in Redu. By using them, the users can post comments, answers, and help requests. Additionally, statuses are the way in which the transactions on the social network are shown. In the API context, any element in the Redu timeline is called @status@.'
     status_types:
@@ -311,7 +636,7 @@ status:
                 statusable_example: 'http://www.redu.com.br/api/lectures/5874-apresentacao. It may be @User@, @Space@, or @Lecture@'
                 self_description: 'Link to Activity which is being viewed'
             table_2:
-                answers_count: 'Amount of answer'
+                answers_count: 'Number of answer'
         help_type:
             title: 'Help'
             first_paragraph: 'Help status is very similar to the Activity one. It represents help requests or questions from users. They can only be created on timelines of lectures. At the end of the day, a Help status has the same function as an Activity one, but there is only one restriction about the places where they can be created, and the representation in the interface (see image).'
@@ -323,7 +648,7 @@ status:
                 statusable_example: 'http://www.redu.com.br/api/lectures/5874-apresentacao. It may just be a @Lecture@'
                 self_description: 'Link to Help which is being viewed'
             table_2:
-                answers_count: 'Amount of answer'
+                answers_count: 'Number of answer'
         answer_type:
             title: 'Answer'
             first_paragraph: 'As stated above, Activity and Help statuses can be replied by other users. And it is now that we need the Answer status. They related to a status via the link @in_response_to@. Unlike Activity and Help, Answer statuses cannot be replied.'

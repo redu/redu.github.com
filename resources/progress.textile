@@ -154,7 +154,7 @@ h2. "GET /api/subjects/:subject_id/progress/":#progress-subjects-get
 
 h4. {% t global.authorization %}
 
-{% t progress.get_subjects_subject_id.seconde_paragraph %}
+{% t progress.get_subjects_subject_id.second_paragraph %}
 
 h4. {% t global.parameters %}
 
