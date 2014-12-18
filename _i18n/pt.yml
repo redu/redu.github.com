@@ -761,3 +761,33 @@ status:
         first_paragraph: 'Remove o status.'
         table:
             status_id_description: 'ID do status'
+
+subject:
+    first_paragraph: 'No contexto da API, o módulo é referido como @suject@. É um agrupamento de diversas aulas (conteúdos) em um contexto.'
+    get_spaces_space_id_subjects:
+        first_paragraph: 'Retorna os módulos de uma disciplina.'
+        table:
+            space_id_description: 'ID da disciplina'
+    get_subjects_id:
+        first_paragraph: 'Retorna o módulo em questão.'
+        table:
+            id_description: 'ID do módulo'
+    post_spaces_space_id_subjets:
+        first_paragraph: 'Cria um módulo no contexto da disciplina especificada por @space_id@.'
+        table:
+            space_id_description: 'ID da disciplina'
+            subject_name_description: 'Nome do módulo'
+            subject_name_restrictions: 'Máximo 40 caracteres'
+            subject_description_description: 'Descrição do módulo'
+            subject_description_restrictions: 'Máximo 250 caracteres'
+    put_subjects_id:
+        first_paragraph: 'Atualiza as informações do módulo.'
+        table:
+            subject_name_description: 'Nome do módulo'
+            subject_name_restrictions: 'Máximo 40 caracteres'
+            subject_description_description: 'Descrição do módulo'
+            subject_description_restrictions: 'Máximo 250 caracteres'
+    delete_subjects_id:
+        first_paragraph: 'Remove um módulo. Os que fazem parte do módulo não terão mais acesso às aulas.'
+        table:
+            id_description: 'ID do módulo'

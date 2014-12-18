@@ -761,3 +761,33 @@ status:
         first_paragraph: 'Deletes the status.'
         table:
             status_id_description: 'Status ID'
+
+subject:
+    first_paragraph: 'In the context of API, the module is referred as @suject@. It is a group of several lectures (contents) in a context.'
+    get_spaces_space_id_subjects:
+        first_paragraph: 'Returns the subjects of a space.'
+        table:
+            space_id_description: 'Space ID'
+    get_subjects_id:
+        first_paragraph: 'Returns the subject in question.'
+        table:
+            id_description: 'Subject ID'
+    post_spaces_space_id_subjets:
+        first_paragraph: 'Creates a subject in the context of the space specified by @space_id@.'
+        table:
+            space_id_description: 'Space ID'
+            subject_name_description: 'Subject name'
+            subject_name_restrictions: 'Maximum 40 characters'
+            subject_description_description: 'Subject description'
+            subject_description_restrictions: 'Maximum 250 characters'
+    put_subjects_id:
+        first_paragraph: 'Updates information of the subject.'
+        table:
+            subject_name_description: 'Subject name'
+            subject_name_restrictions: 'Maximum 40 characters'
+            subject_description_description: 'Subject description'
+            subject_description_restrictions: 'Maximum 250 characters'
+    delete_subjects_id:
+        first_paragraph: 'Deletes a subject. The users who participate in that subject will no longer have access to its lectures.'
+        table:
+            id_description: 'Subject ID'
