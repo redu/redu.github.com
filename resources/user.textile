@@ -5,43 +5,43 @@ group: navigation
 ---
 {% include JB/setup %}
 
-Representa um usuário cadastrado no Redu.
+{% t user.first_paragraph %}
 
-h2. Atributos
-
-table(table table-bordered table-striped).
-|_.Atributo|_.Descrição|
-|*ID*|Identificador do usuário.|
-|*login*|Login do usuário.|
-|*email*|Email cadastrado no Redu.|
-|*first_name*|Primeiro nome.|
-|*last_name*|Último nome.|
-|description|Descrição do usuário.|
-|favorite_quotation|Frase marcante.|
-|localization|Onde mora.|
-|mobile|Telefone celular.|
-|birthday|Data de nascimento.|
-|birth_localization|Onde nasceu.|
-|friends_count|Quantidade de contatos.|
-|created_at|Data de criação.|
-|updated_at|Data de atualização.|
-|social_networks|Redes sociais cadastradas.|
-|interested_areas|Áreas de interesse.|
-|thumbnails|Thumbnails do usuário. Tamanhos disponíveis: 24x24, 32x32, 48x48, 90x90, 96x96, 110x110 e 160x160.|
-
-h2. Links
+h2. {% t global.attributes %}
 
 table(table table-bordered table-striped).
-|_.Link|_.Descrição|
-|self|Usuário em questão.|
-|enrollments|Matrículas.|
-|statuses|Postagens feitas no mural do usuário.|
-|timeline|_Feed_ de atualizações de todos os murais que tem acesso.|
-|contacts|Contatos.|
-|chats| Conversas com seus contatos.|
-|connections| Conexões com seus contatos.|
+|_.{% t global.attribute %}|_.{% t global.description %}|
+|*ID*|{% t user.attributes.table.id_description %}|
+|*login*|{% t user.attributes.table.login_description %}|
+|*email*|{% t user.attributes.table.email_description %}|
+|*first_name*|{% t user.attributes.table.first_name_description %}|
+|*last_name*|{% t user.attributes.table.last_name_description %}|
+|description|{% t user.attributes.table.description_description %}|
+|favorite_quotation|{% t user.attributes.table.favorite_quotation_description %}|
+|localization|{% t user.attributes.table.localization_description %}|
+|mobile|{% t user.attributes.table.mobile_description %}|
+|birthday|{% t user.attributes.table.birthday_description %}|
+|birth_localization|{% t user.attributes.table.birth_localization_description %}|
+|friends_count|{% t user.attributes.table.friends_count_description %}|
+|created_at|{% t user.attributes.table.created_at_description %}|
+|updated_at|{% t user.attributes.table.updated_at_description %}|
+|social_networks|{% t user.attributes.table.social_networks_description %}|
+|interested_areas|{% t user.attributes.table.interested_areas_description %}|
+|thumbnails|{% t user.attributes.table.thumbnails_description %}|
 
-h2. Representação
+h2. {% t global.links %}
+
+table(table table-bordered table-striped).
+|_.{% t global.link %}|_.{% t global.description %}|
+|self|{% t user.links.table.self_description %}|
+|enrollments|{% t user.links.table.enrollments_description %}|
+|statuses|{% t user.links.table.statuses_description %}|
+|timeline|{% t user.links.table.timeline_description %}|
+|contacts|{% t user.links.table.contacts_description %}|
+|chats| {% t user.links.table.chats_description %}|
+|connections| {% t user.links.table.connections_description %}|
+
+h2. {% t global.representation %}
 
 
 {% highlight json %}
@@ -150,25 +150,25 @@ h2. Representação
 
 h2. "GET /api/users/:id":#get-users
 
-Retorna um único usuário com o ID ou login especificado. Tanto o login quanto o ID servem como identificadores únicos para os usuários, por isso podem ser passados como parâmetro aqui.
+{% t user.get_users_id.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-Para visualizar este recurso é necessário ser contato do usuário em questão.
+{% t user.get_users_id.second_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*id*| ID ou login do usuário em questão|N/A|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*id*| {% t user.get_users_id.table.id_description %}|N/A|
 
-h4. Exemplo
+h4. {% t global.example %}
 
-*Requisição:*
+*{% t global.request %}:*
 
 @GET /api/users/test_user@
 
-*Resposta:*
+*{% t global.response %}:*
 
 {% highlight json %}
 {
@@ -233,15 +233,15 @@ h4. Exemplo
 
 h2. "GET /api/me":#get-me
 
-Retorna uma representação do resource owner. Resource owner é usuário que autorizou a aplicação a utilizar seus dados.
+{% t user.get_me.first_paragraph %}
 
-h4. Exemplo
+h4. {% t global.example %}
 
-*Requisição:*
+*{% t global.request %}:*
 
 @GET /api/me@
 
-*Resposta:*
+*{% t global.response %}:*
 
 {% highlight json %}
 {
@@ -306,28 +306,28 @@ h4. Exemplo
 
 h2. "GET /api/spaces/:space_id/users":#get-space-users
 
-Retorna todos os usuários cuja "matrícula":resourses/enrollment.html tem o estado @approved@ no "curso":resources/course.html ao qual a disciplina está associada. Opcionalmente é possível filtrar os usuários por papeis.
+{% t user.get_spaces_space_id_users.first_paragraph %}
 
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-É necessário estar matriculado no "curso":resources/course.htm.
+{% t user.get_spaces_space_id_users.second_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*space_id*| ID da Disciplina | N/A |
-|*role*| Papel do usuário no curso. | Pode ser um dos seguintes papéis: @member@, @teacher@, @environment_admin@, @tutor@|
-|*partial*| Escolhe uma representação menor para o usuário, mostrando apenas: @id@, @first_name@ e @last_name@ | @true@ |
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*space_id*| {% t user.get_spaces_space_id_users.table.space_id_description %} | N/A |
+|*role*| {% t user.get_spaces_space_id_users.table.role_description %} | {% t user.get_spaces_space_id_users.table.role_restrictions %}|
+|*partial*| {% t user.get_spaces_space_id_users.table.partial_description %} | @true@ |
 
-h4. Exemplo
+h4. {% t global.example %}
 
-*Requisição:*
+*{% t global.request %}:*
 
 @GET /api/space/1/users?role=member@
 
-*Resposta:*
+*{% t global.response %}:*
 
 {% highlight json %}
 [

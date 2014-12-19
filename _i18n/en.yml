@@ -791,3 +791,49 @@ subject:
         first_paragraph: 'Deletes a subject. The users who participate in that subject will no longer have access to its lectures.'
         table:
             id_description: 'Subject ID'
+
+user:
+    first_paragraph: 'Represents a user registered on Redu.'
+    attributes:
+        table:
+            id_description: 'Identifier of user'
+            login_description: 'User login'
+            email_description: 'Email registered on Redu'
+            first_name_description: 'First name'
+            last_name_description: 'Last name'
+            description_description: 'Description of user'
+            favorite_quotation_description: 'Remarkable quotation'
+            localization_description: 'Where the user lives'
+            mobile_description: 'Cell phone'
+            birthday_description: 'Birthday'
+            birth_localization_description: 'Birthplace'
+            friends_count_description: 'Number of contacts'
+            created_at_description: 'Date of creation'
+            updated_at_description: 'Date of update'
+            social_networks_description: 'Registered social networks'
+            interested_areas_description: 'Areas of interest'
+            thumbnails_description: 'User thumbnails. Available dimenstions: 24x24, 32x32, 48x48, 90x90, 96x96, 110x110 e 160x160'
+    links:
+        table:
+            self_description: 'User in question'
+            enrollments_description: 'Enrollments'
+            statuses_description: 'Statuses posted on the user timeline'
+            timeline_description: '_Feed_ of updates from all accessible timelines'
+            contacts_description: 'Contacts'
+            chats_description: 'Conversations with their contacts'
+            connections_description: 'Connections with their contacts'
+    get_users_id:
+        first_paragraph: 'Returns a single user with the specified ID or login. Both login and ID work as unique identifiers for users, so they can be used as parameter here.'
+        second_paragraph: 'You need to be contact of the user in question to access this resource.'
+        table:
+            id_description: 'ID or login of the user in question'
+    get_me:
+        first_paragraph: 'Returns a representation of the resource owner. Resource owner is the user who has authorized the application to use their data.'
+    get_spaces_space_id_users:
+        first_paragraph: 'Returns every user whose "enrollment":resourses/enrollment.html is in the @approved@ state for the "course":resources/course.html to which the space is associated. You can optionally filter users by roles.'
+        second_paragraph: 'You need to be enrolled in the "course":resources/course.htm.'
+        table:
+            space_id_description: 'Space ID'
+            role_description: 'User role in the course'
+            role_restrictions: 'It may be one of these roles: @member@, @teacher@, @environment_admin@, @tutor@'
+            partial_description: 'It chooses a shorter representation for the user, only showing: @id@, @first_name@, and @last_name@'
