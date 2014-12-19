@@ -202,14 +202,14 @@ connection:
             connection_id_description: 'Connection ID'
 
 course:
-    first_paragraph: 'In the context of API, the course - which is known as major in US university system - is referred as @course@, is the main entity of Redu hierarchy. It is a self-contained entity of content, and users. That is, users who have access to a course will be allowed to view all of its spaces, subjects, and classes.'
+    first_paragraph: 'In the context of API, the course - which is known as major in US university system - is referred as @course@. It is the main entity of Redu hierarchy, being a self-contained entity of content and users. That is, users who have access to a course will be allowed to view all of its spaces, subjects, and classes.'
     get_courses_id:
         first_paragraph: 'Returns the course in question.'
         second_paragraph: 'You must be "enrolled":/enrollment.html in the course to view this resource.'
         table:
             id_description: 'Course ID'
     post_environments_environment_id:
-        first_paragraph: 'Creates a new course on the specified "environment":environment.html. In "Redu":http://www.redu.com.br, the "enrollment":resources/enrollment.html is done within the course. That is, users who have access to a course can also view its spaces, subjects, and classes.'
+        first_paragraph: 'Creates a new course in the specified "environment":environment.html. In "Redu":http://www.redu.com.br, the "enrollment":resources/enrollment.html is done within the course. That is, users who have access to a course can also view its spaces, subjects, and classes.'
         second_paragraph: 'To create a Course you need to have administrative role in the "environment":environment.html.'
         table:
             environment_id_description: 'ID or path to environment'
@@ -239,7 +239,7 @@ course:
         table:
             environment_id_description: 'ID or path to environment'
     delete_courses_id:
-        first_paragraph: 'Removes the course in question. All the users will be unregistered, and lose access to the resource.'
+        first_paragraph: 'Deletes the course in question. All the users will be unregistered, and lose access to the resource.'
         second_paragraph: 'To create a Course you need to have administrative role in the "environment":environment.html.'
         table:
             id_description: 'ID or path to environment'
@@ -327,16 +327,16 @@ environment:
             environment_description_description: 'Environment description'
             environment_description_restrictions: 'Maximum 400 characters'
     delete_environments_id:
-        first_paragraph: 'Removes the environment in question. All courses, classes, lectures and subjects associated to this environment will be also deleted, and they will no longer be accessible to users.'
+        first_paragraph: 'Deletes the environment in question. All courses, classes, lectures and subjects associated to this environment will be also deleted, and they will no longer be accessible to users.'
         second_paragraph: 'The user needs to be administrator of environment.'
         table:
             id_description: 'ID or path to environment'
 
 folders_and_files:
-    first_paragraph: 'Folders and files are referred to respectively as: @folder@, and @file@. These resources make up the "Arquivos de Apoio" (Support Files) section, arranged in a "Space":/resources/space.html, where you can save, organize, and download files.'
+    first_paragraph: 'Folders and files are referred, respectively, as: @folder@, and @file@. These resources make up the "Arquivos de Apoio" (Support Files) section, arranged in a "Space":/resources/space.html, where you can save, organize, and download files.'
     folder:
         title: 'Folder'
-        first_paragraph: 'It represents a folder in the file system, which can be in a folder and contain multiple folders, and files. A "space":/en/resources/space.html can have multiple folders.'
+        first_paragraph: 'It represents a folder in the file system, which can be in a folder and contain multiple folders and files. A "space":/en/resources/space.html can have multiple folders.'
         table_1:
             id_description: 'Unique identifier of Folder'
             name_description: 'Name'
@@ -349,7 +349,7 @@ folders_and_files:
             space_description: 'Space where the folder is'
             user_description: 'User who has created the folder'
         get_folders_id:
-            first_paragraph: 'Return the folder in question.'
+            first_paragraph: 'Returns the folder in question.'
             second_paragraph: 'You must be "enrolled":/en/resources/enrollment.html in the "course":/en/resources/course.html to which the folder belongs (in this case, the course of the space).'
             table:
                 id_description: 'Folder ID'
@@ -422,7 +422,7 @@ folders_and_files:
             second_paragraph: 'You must be "enrolled":/en/resources/enrollment.html in the "course":/en/resources/course.html. And you need to be either administrator, professor/teacher or tutor on the course.'
 
 lecture:
-    first_paragraph: 'In the context of API, the Lecture is referred as @lecture@. A Lecture is the minimum unit of content, such as text or video, which has social interactions (see "Status":/resources/status.html). Many lectures can be grouped and sorted into a subject.'
+    first_paragraph: 'In the context of API, the Lecture is referred as @lecture@. A Lecture is the minimum unit of content, such as a text or video, which has social interactions (see "Status":/resources/status.html). Many lectures can be grouped and sorted into a subject.'
     lectures_types:
         title: '"Types of Lecture":#lectures-types'
         first_paragraph: 'There are five types of lectures:'
@@ -441,7 +441,7 @@ lecture:
             rating_description: 'Evaluation by users'
             view_count_description: 'Number of views'
             updated_at_description: 'Last update date'
-        fourth_paragraph: 'Below describes the links on the representation of a lecture'
+        fourth_paragraph: 'Below are described the links that are in the representation of a lecture'
         table_2:
             self_description: 'Lecture in question'
             self_link_description: 'Lecture in Redu (HTML)'
@@ -454,8 +454,8 @@ lecture:
             first_paragraph: 'This lecture is just content based on "_Rich Text Format_":http://en.wikipedia.org/wiki/Rich_Text_Format , originated by "_CKEditor_":http://ckeditor.com/.'
             table_1:
                 content_description: 'Content generated by CKEditor. It includes HTML and CSS formatting'
-                raw_description: 'Raw content of the lecture. No formatting and style is applied to it'
-            second_paragraph: 'This type of lecture is basically composed of a document, which can be in the format _txt, pdf, doc, docx, ppt, pptx_, etc.'
+                raw_description: 'Raw content of the lecture. No formatting and style are applied to it'
+            second_paragraph: 'This type of lecture is basically composed of a document, which can be in one of these formats: _txt, pdf, doc, docx, ppt, pptx_, etc.'
             table_2:
                 mimetype_description: 'File format'
             third_paragraph: 'This type of class also has the following links'
@@ -611,7 +611,7 @@ space:
             id_description: 'Space ID'
 
 status:
-    first_paragraph: 'Status - message posted in the timeline - is the core of communication in Redu. By using them, the users can post comments, answers, and help requests. Additionally, statuses are the way in which the transactions on the social network are shown. In the API context, any element in the Redu timeline is called @status@.'
+    first_paragraph: 'Status - message posted in a timeline - is the core of communication in Redu. By using them, the users can post comments, answers, and help requests. Additionally, statuses are the way in which the transactions on the social network are shown. In the API context, any element in a Redu timeline is called @status@.'
     status_types:
         title: '"Types of status":#get-statuses'
         first_paragraph: 'Status is the resource which represents a transaction in Redu. According to the type of transaction, the status has a different type (specified by @type@).'
@@ -627,7 +627,7 @@ status:
             text_example: '@"added to your network of contacts"@'
         activity_type:
             title: 'Activity'
-            first_paragraph: 'Activity status are the kind of transaction that are explicitly created by the user. For example, a post on the timeline of a space or user creates a status of Activity type. This one is the most common type of status.'
+            first_paragraph: 'Activity statuses are the kind of transaction that are explicitly created by the user. For example, a post on the timeline of a space or user creates a status of Activity type. This one is the most common type of status.'
             second_paragraph: 'The Activity status can be replied by other people. Such answers are accessible via the link @answers@. Furthermore, the Activity is related to @user@ and @statusable@. See examples below:'
             table_1:
                 user_description: 'Link to the user who has created the status'
@@ -636,7 +636,7 @@ status:
                 statusable_example: 'http://www.redu.com.br/api/lectures/5874-apresentacao. It may be @User@, @Space@, or @Lecture@'
                 self_description: 'Link to Activity which is being viewed'
             table_2:
-                answers_count: 'Number of answer'
+                answers_count: 'Number of answers'
         help_type:
             title: 'Help'
             first_paragraph: 'Help status is very similar to the Activity one. It represents help requests or questions from users. They can only be created on timelines of lectures. At the end of the day, a Help status has the same function as an Activity one, but there is only one restriction about the places where they can be created, and the representation in the interface (see image).'
@@ -648,10 +648,10 @@ status:
                 statusable_example: 'http://www.redu.com.br/api/lectures/5874-apresentacao. It may just be a @Lecture@'
                 self_description: 'Link to Help which is being viewed'
             table_2:
-                answers_count: 'Number of answer'
+                answers_count: 'Number of answers'
         answer_type:
             title: 'Answer'
-            first_paragraph: 'As stated above, Activity and Help statuses can be replied by other users. And it is now that we need the Answer status. They related to a status via the link @in_response_to@. Unlike Activity and Help, Answer statuses cannot be replied.'
+            first_paragraph: 'As stated above, Activity and Help statuses can be replied by other users. And it is now that we need the Answer status. They relate to a status via the link @in_response_to@. Unlike Activity and Help, Answer statuses cannot be replied.'
             table_1:
                 user_description: 'Link to the user who has created the status'
                 in_response_to_description: 'Link to the Activity or Help which created that answer'
@@ -830,7 +830,7 @@ user:
     get_me:
         first_paragraph: 'Returns a representation of the resource owner. Resource owner is the user who has authorized the application to use their data.'
     get_spaces_space_id_users:
-        first_paragraph: 'Returns every user whose "enrollment":resourses/enrollment.html is in the @approved@ state for the "course":resources/course.html to which the space is associated. You can optionally filter users by roles.'
+        first_paragraph: 'Returns every user whose "enrollment":resourses/enrollment.html is in the @approved@ state for the "course":resources/course.html to which the space is associated. You can, optionally, filter users by roles.'
         second_paragraph: 'You need to be enrolled in the "course":resources/course.htm.'
         table:
             space_id_description: 'Space ID'
