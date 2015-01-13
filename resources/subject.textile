@@ -1,45 +1,45 @@
 ---
 layout: page
-title: "Módulo"
+title: titles.subject
 group: navigation
 ---
 {% include JB/setup %}
 
-No contexto da API, o módulo é referido como @suject@. É um agrupamento de diversas aulas (conteúdos) em um contexto.
+{% t subject.first_paragraph %}
 
 h2. "GET /api/spaces/:space_id/subjects":#get-space-subjects
 
-Retorna os módulos de uma disciplina.
+{% t subject.get_spaces_space_id_subjects.first_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*space_id*|ID da disciplina|N/A|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*space_id*|{% t subject.get_spaces_space_id_subjects.table.space_id_description %}|N/A|
 
 h2. "GET /api/sujects/:id":#get-subjects
 
-Retorna o módulo em questão.
+{% t subject.get_subjects_id.first_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*id*|ID do módulo|N/A|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*id*|{% t subject.get_subjects_id.table.id_description %}|N/A|
 
 h2. "POST /api/spaces/:space_id/subjects":#post-space-subjects
 
-Cria um módulo no contexto da disciplina especificada por @space_id@.
+{% t subject.post_spaces_space_id_subjets.first_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*space_id*|ID da disciplina|N/A|
-|*subject[name]*|Nome do módulo|Máximo 40 caracteres|
-|subject[description]|Descrição do módulo|Máximo 250 caracteres|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*space_id*|{% t subject.post_spaces_space_id_subjets.table.space_id_description %}|N/A|
+|*subject[name]*|{% t subject.post_spaces_space_id_subjets.table.subject_name_description %}|{% t subject.post_spaces_space_id_subjets.table.subject_name_restrictions %}|
+|subject[description]|{% t subject.post_spaces_space_id_subjets.table.subject_description_description %}|{% t subject.post_spaces_space_id_subjets.table.subject_description_restrictions %}|
 
-h4. Exemplo
+h4. {% t global.example %}
 
 @POST /api/spaces/1/subjects@
 
@@ -54,7 +54,7 @@ h4. Exemplo
 }
 {% endhighlight %}
 
-*Resposta:*
+*{% t global.response %}:*
 
 {% highlight json %}
 {
@@ -86,21 +86,21 @@ h4. Exemplo
 
 h2. "PUT /api/subjects/:id":#put-subjects
 
-Atualiza as informações do módulo.
+{% t subject.put_subjects_id.first_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*subject[nome]*|Nome do módulo|Máximo 40 caracteres|
-|subject[description]|Descrição do módulo|Máximo 250 caracteres|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*subject[name]*|{% t subject.put_subjects_id.table.subject_name_description %}|{% t subject.put_subjects_id.table.subject_name_restrictions %}|
+|subject[description]|{% t subject.put_subjects_id.table.subject_description_description %}|{% t subject.put_subjects_id.table.subject_description_restrictions %}|
 
 h2. "DELETE /api/subjects/:id":#delete-subjects
 
-Remove um módulo. Os que fazem parte do módulo não terão mais acesso às aulas.
+{% t subject.delete_subjects_id.first_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*id*|ID do módulo|N/A|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*id*|{% t subject.delete_subjects_id.table.id_description %}|N/A|

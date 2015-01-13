@@ -1,57 +1,57 @@
 ---
 layout: page
-title: "Pastas e Arquivos"
+title: titles.folders_and_files
 group: navigation
 ---
 {% include JB/setup %}
 
-Pasta e Arquivo são referenciados, respectivamente, como: @folder@ e @file@. Estes compõem a seção de Arquivos de Apoio dispostos em uma "Disciplina":/resources/space.html, onde é possível guardar, organizar e baixar arquivos.
+{% t folders_and_files.first_paragraph %}
 
 div(thumbnail){width:678px; height: 380px; margin: 0 auto;}. !/assets/images/folders-and-files-example.png!
 
-h1. Folder
+h1. {% t folders_and_files.folder.title %}
 
-Representa uma pasta no sistema de arquivos, a qual pode estar contida em uma pasta e conter várias pastas e arquivos. Uma "disciplina":/resources/space.html pode possuir várias pastas.
+{% t folders_and_files.folder.first_paragraph %}
 
-h3. Atributos
-
-table(table table-bordered table-striped).
-|_.Atributo|_.Descrição|
-|ID|Identificador único do Folder.|
-|name|Nome.|
-|created_at|Data de criação.|
-
-h3. Links
+h3. {% t global.attributes %}
 
 table(table table-bordered table-striped).
-|_.Link|_.Descrição|
-|self|Pasta em questão.|
-|folder|Pasta na qual a pasta em questão está contida (pasta pai).|
-|files|Arquivos contidos.|
-|folders|Pastas contidas.|
-|space|Disciplina onde a pasta se encontra.|
-|user| Usuário criador.|
+|_.{% t global.attribute %}|_.{% t global.description %}|
+|ID|{% t folders_and_files.folder.table_1.id_description %}|
+|name|{% t folders_and_files.folder.table_1.name_description %}|
+|created_at|{% t folders_and_files.folder.table_1.created_at_description %}|
+
+h3. {% t global.links %}
+
+table(table table-bordered table-striped).
+|_.{% t global.link %}|_.{% t global.description %}|
+|self|{% t folders_and_files.folder.table_2.self_description %}|
+|folder|{% t folders_and_files.folder.table_2.folder_description %}|
+|files|{% t folders_and_files.folder.table_2.files_description %}|
+|folders|{% t folders_and_files.folder.table_2.folders_description %}|
+|space|{% t folders_and_files.folder.table_2.space_description %}|
+|user| {% t folders_and_files.folder.table_2.user_description %}|
 
 h2. "GET /api/folders/:id":#folder-get
 
-Retorna a pasta em questão.
+{% t folders_and_files.folder.get_folders_id.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual a pasta pertence (no caso, o curso da disciplina).
+{% t folders_and_files.folder.get_folders_id.second_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Atributo|_.Descrição|_.Restrições|
-|*id*|ID da pasta.|N/A|
+|_.{% t global.attribute %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*id*|{% t folders_and_files.folder.get_folders_id.table.id_description %}|N/A|
 
-h4. Exemplo
+h4. {% t global.example %}
 
-Requisição:
+{% t global.request %}:
 @GET /api/folders/4@
 
-Resposta:
+{% t global.response %}:
 
 {% highlight json %}
 {
@@ -90,49 +90,49 @@ Resposta:
 
 h2. "GET /api/folders/:folder_id/folders":#folders-get
 
-Retorna as pastas contidas na pasta em questão.
+{% t folders_and_files.folder.get_folders_folder_id_folders.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual a pasta pertence (no caso, o curso da disciplina).
+{% t folders_and_files.folder.get_folders_folder_id_folders.second_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Atributo|_.Descrição|_.Restrições|
-|*id*|ID da pasta pai.|N/A|
+|_.{% t global.attribute %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*id*|{% t folders_and_files.folder.get_folders_folder_id_folders.table.id_description %}|N/A|
 
 h2. "GET /api/spaces/:space_id/folders":#space-folders-get
 
-Retorna as pastas contidas na disciplina informada.
+{% t folders_and_files.folder.get_spaces_space_id_folders.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual a disciplina pertence.
+{% t folders_and_files.folder.get_spaces_space_id_folders.second_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Atributo|_.Descrição|_.Restrições|
-|*id*|ID da disciplina.|N/A|
+|_.{% t global.attribute %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*id*|{% t folders_and_files.folder.get_spaces_space_id_folders.table.id_description %}|N/A|
 
 h2. "POST /api/folders/:id/folders":#folder-update
 
-Cria novo diretório dentro do diretório especificado.
+{% t folders_and_files.folder.post_folders_id_folders.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual a disciplina pertence e ser administrador, professor ou tutor no curso.
+{% t folders_and_files.folder.post_folders_id_folders.second_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Atributo|_.Descrição|_.Restrições|
-|*folder[name]*|Novo nome do arquivo|N/A|
+|_.{% t global.attribute %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*folder[name]*|{% t folders_and_files.folder.post_folders_id_folders.table.name_description %}|N/A|
 
-h4. Exemplo
+h4. {% t global.example %}
 
-O exemplo abaixo foi realizado utilizando o programa "cURL":http://curl.haxx.se/.
+{% t folders_and_files.folder.post_folders_id_folders.third_paragraph %}
 
 {% highlight sh %}
 curl \
@@ -145,71 +145,71 @@ curl \
 
 h2. "PUT /api/folders/:id":#folder-update
 
-Atualiza nome de um Folder.
+{% t folders_and_files.folder.put_folders_id.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual a disciplina pertence e ser administrador, professor ou tutor no curso.
+{% t folders_and_files.folder.put_folders_id.second_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Atributo|_.Descrição|_.Restrições|
-|*folder[name]*|Novo nome do arquivo|N/A|
+|_.{% t global.attribute %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*folder[name]*|{% t folders_and_files.folder.put_folders_id.table.name_description %}|N/A|
 
 h2. "DELETE /api/folders/:id":#file-delete
 
-Remove a pasta especificada.
+{% t folders_and_files.folder.delete_folders_id.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html e ser administrador, professor ou tutor no curso.
+{% t folders_and_files.folder.delete_folders_id.second_paragraph %}
 
-h1. File
+h1. {% t folders_and_files.file.title %}
 
-Representa um arquivo no sistema de arquivos, o qual está contido em uma pasta.
+{% t folders_and_files.file.first_paragraph %}
 
-h3. Atributos
-
-table(table table-bordered table-striped).
-|_.Atributo|_.Descrição|
-|id|Identificador único do File.|
-|name|Nome.|
-|mimetype|Formato do arquivo.|
-|size|Tamanho em _megabytes_.|
-|byte|Tamanho em _bytes_.|
-|created_at|Data de criação.|
-
-h3. Links
+h3. {% t global.attributes %}
 
 table(table table-bordered table-striped).
-|_.Link|_.Descrição|
-|self|Arquivo em questão.|
-|folder|Pasta na qual o arquivo está contido (pasta pai).|
-|space|Disciplina onde a pasta se encontra.|
-|user| Usuário criador.|
-|raw| Endereço do arquivo bruto para download.|
+|_.{% t global.attribute %}|_.{% t global.description %}|
+|id|{% t folders_and_files.file.table_1.id_description %}|
+|name|{% t folders_and_files.file.table_1.name_description %}|
+|mimetype|{% t folders_and_files.file.table_1.mimetype_description %}|
+|size|{% t folders_and_files.file.table_1.size_description %}|
+|byte|{% t folders_and_files.file.table_1.byte_description %}|
+|created_at|{% t folders_and_files.file.table_1.created_at_description %}|
+
+h3. {% t global.links %}
+
+table(table table-bordered table-striped).
+|_.{% t global.link %}|_.{% t global.description %}|
+|self|{% t folders_and_files.file.table_2.self_description %}|
+|folder|{% t folders_and_files.file.table_2.folder_description %}|
+|space|{% t folders_and_files.file.table_2.space_description %}|
+|user| {% t folders_and_files.file.table_2.user_description %}|
+|raw| {% t folders_and_files.file.table_2.raw_description %}|
 
 h2. "GET /api/files/:id":#file-get
 
-Retorna o arquivo em questão.
+{% t folders_and_files.file.get_files_id.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual o arquivo pertence (no caso, o curso da disciplina).
+{% t folders_and_files.file.get_files_id.second_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Atributo|_.Descrição|_.Restrições|
-|*id*|ID do arquivo.|N/A|
+|_.{% t global.attribute %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*id*|{% t folders_and_files.file.get_files_id.table.id_description %}|N/A|
 
-h4. Exemplo
+h4. {% t global.example %}
 
-Requisição:
+{% t global.request %}:
 @GET /api/files/4@
 
-Resposta:
+{% t global.response %}:
 
 {% highlight json %}
 {
@@ -247,44 +247,44 @@ Resposta:
 
 h2. "GET /api/folders/:folder_id/files":#files-get
 
-Retorna os arquivos contidos na pasta em questão.
+{% t folders_and_files.file.get_folders_folder_id_files.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual a pasta / o arquivo pertence (no caso, o curso da disciplina).
+{% t folders_and_files.file.get_folders_folder_id_files.second_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Atributo|_.Descrição|_.Restrições|
-|*id*|ID da pasta.|N/A|
+|_.{% t global.attribute %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*id*|{% t folders_and_files.file.get_folders_folder_id_files.table.id_description %}|N/A|
 
 h2. "POST /api/folders/:folder_id/files":#file-post
 
-Cria um novo arquivo dentro da pasta especificada.
+{% t folders_and_files.file.post_folders_folder_id_files.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html e ser administrador, professor ou tutor no curso.
+{% t folders_and_files.file.post_folders_folder_id_files.second_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Atributo|_.Descrição|_.Restrições|
-|*file[content]*|Dados binários do arquivo a ser criado|Tamanho máximo de 100 Mb|
+|_.{% t global.attribute %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*file[content]*|{% t folders_and_files.file.post_folders_folder_id_files.table.content_description %}|{% t folders_and_files.file.post_folders_folder_id_files.table.content_restrictions %}|
 
-h5. Upload de arquivos
+h5. {% t folders_and_files.file.post_folders_folder_id_files.files_upload.title %}
 
-Em casos casos em que há o upload de arquivos, são necessários os seguintes cabeçalhos HTTP:
+{% t folders_and_files.file.post_folders_folder_id_files.files_upload.first_paragraph %}
 
-1. Content-Type: multipart/form-data
-2. Content-Length: 13951 (tamanho do arquivo em bytes)
+1. {% t folders_and_files.file.post_folders_folder_id_files.files_upload.second_paragraph.item_1 %}
+2. {% t folders_and_files.file.post_folders_folder_id_files.files_upload.second_paragraph.item_2 %}
 
-O uso do Content-type multipart/form-data torna possível que o corpo da requisição HTTP seja composto vários conjuntos de dados, cada qual possuindo seu próprio Content-type. Com isso podemos enviar, além do name e type, os dados binários que compõem uma imagem ou um PDF.
+{% t folders_and_files.file.post_folders_folder_id_files.files_upload.third_paragraph %}
 
-h4. Exemplo
+h4. {% t global.example %}
 
-O exemplo abaixo foi realizado utilizando o programa "cURL":http://curl.haxx.se/.
+{% t folders_and_files.file.post_folders_folder_id_files.third_paragraph %}
 
 {% highlight sh %}
 curl \
@@ -295,8 +295,8 @@ curl \
 
 h2. "DELETE /api/files/:id":#file-delete
 
-Remove o arquivo especificado
+{% t folders_and_files.file.delete_files_id.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html e ser administrador, professor ou tutor no curso.
+{% t folders_and_files.file.delete_files_id.second_paragraph %}

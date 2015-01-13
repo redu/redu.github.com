@@ -1,33 +1,33 @@
 ---
 layout: page
-title: "Curso"
+title: titles.course
 group: navigation
 ---
 {% include JB/setup %}
 
-O curso, no contexto da API referenciado como @course@ é a entidade principal da hierarquia do Redu. Ele é uma entidade autocontida de conteúdo e usuários. Ou seja, usuários que têm acesso a um determinado curso terão permissão para visualizar todas suas disciplinas, módulos e aulas.
+{% t course.first_paragraph %}
 
 h2. "GET /api/courses/:id":#get-courses
 
-Retorna o curso em questão.
+{% t course.get_courses_id.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-É necessário estar "matriculado":/enrollment.html no curso para visualizar este recurso.
+{% t course.get_courses_id.second_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*id*|ID do curso|N/A|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*id*|{% t course.get_courses_id.table.id_description %}|N/A|
 
-h4. Exemplo
+h4. {% t global.example %}
 
-Requisição:
+{% t global.request %}:
 
 @GET /api/environments/462@
 
-Resposta:
+{% t global.response %}:
 
 {% highlight json %}
 {
@@ -61,25 +61,25 @@ Resposta:
 
 h2. "POST /api/environments/:environment_id/courses":#post-environment-courses
 
-Cria um novo curso no "AVA":environment.html especificado. No "Redu":http://www.redu.com.br a "matrícula":resources/enrollment.html é realizada no curso. Ou seja, os usuários que possuem acesso a um curso também podem visualizar suas disciplinas, módulos e aulas.
+{% t course.post_environments_environment_id.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-Para criar um Curso é necessário ter papel administrativo no "AVA":environment.html.
+{% t course.post_environments_environment_id.second_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*environment_id*|ID ou path do AVA|N/A|
-|*course[name]*|Nome do curso|Máximo 40 caracteres; deve ser único|
-|*course[path]*|Nome que aparecerá na barra de endereço|Deve respeitar a seguinte regex: @^[-_A-Za-z0-9]*$@; Deve ser único dentro de um "AVA":environment.html |
-|course[description]|Descrição do curso|Máximo de 400 caracteres|
-|course[workload]|Carga horária do curso em horas|Deve ser numérico|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*environment_id*|{% t course.post_environments_environment_id.table.environment_id_description %}|N/A|
+|*course[name]*|{% t course.post_environments_environment_id.table.course_name_description %}|{% t course.post_environments_environment_id.table.course_name_restrictions %}|
+|*course[path]*|{% t course.post_environments_environment_id.table.course_path_description %}|{% t course.post_environments_environment_id.table.course_path_restrictions %}|
+|course[description]|{% t course.post_environments_environment_id.table.course_description_description %}|{% t course.post_environments_environment_id.table.course_description_restrictions %}|
+|course[workload]|{% t course.post_environments_environment_id.table.course_workload_description %}|{% t course.post_environments_environment_id.table.course_workload_restrictions %}|
 
-h4. Exemplo
+h4. {% t global.example %}
 
-*Requisição*
+*{% t global.request %}:*
 
 @POST /api/environments/foo/courses@
 
@@ -95,7 +95,7 @@ h4. Exemplo
 }
 {% endhighlight %}
 
-*Resposta:*
+*{% t global.response %}:*
 
 {% highlight json %}
 {
@@ -126,40 +126,40 @@ h4. Exemplo
 
 h2. "PUT /api/courses/:id":#put-courses
 
-Atualiza as informações do curso especificado. É importante perceber que não há proteção para a atualização do path. Ou seja, alguma aplicação pode acessar este recurso utilizando o path e, caso o mesmo seja modificado, o códido HTTP 404 (not found) será lançado.
+{% t course.put_courses_id.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-Para criar um Curso é necessário ter papel administrativo no "AVA":environment.html.
+{% t course.put_courses_id.second_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*course[name]*|Nome do curso|Máximo 40 caracteres; deve ser único|
-|*course[path]*|Nome que aparecerá na barra de endereço|Deve respeitar a seguinte regex: @^[-_A-Za-z0-9]*$@; Deve ser único dentro de um "AVA":environment.html |
-|course[description]|Descrição do curso|Máximo de 400 caracteres|
-|course[workload]|Carga horária do curso em horas|Deve ser numérico|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*course[name]*|{% t course.put_courses_id.table.course_name_description %}|{% t course.put_courses_id.table.course_name_restrictions %}|
+|*course[path]*|{% t course.put_courses_id.table.course_path_description %}|{% t course.put_courses_id.table.course_path_restrictions %}|
+|course[description]|{% t course.put_courses_id.table.course_description_description %}|{% t course.put_courses_id.table.course_description_restrictions %}|
+|course[workload]|{% t course.put_courses_id.table.course_workload_description %}|{% t course.put_courses_id.table.course_workload_restrictions %}|
 
 h2. "GET /api/environments/:environment_id/courses":#get-environment-courses
 
-Retorna uma lista de cursos criados dentro do AVA em questão.
+{% t course.get_environments_environment_id.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-É necessário estar matriculado em pelo menos um "Curso":curso.html do "AVA":environment.html.
+{% t course.get_environments_environment_id.second_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*environment_id*|ID ou path do AVA|N/A|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*environment_id*|{% t course.get_environments_environment_id.table.environment_id_description %}|N/A|
 
-h4. Exemplo
+h4. {% t global.example %}
 
-Requisição: @GET /api/environments/guiocavalcanti/courses@
+{% t global.request %}: @GET /api/environments/guiocavalcanti/courses@
 
-Resposta:
+{% t global.response %}:
 
 {% highlight json %}
 [
@@ -220,14 +220,14 @@ Resposta:
 
 h2. "DELETE /api/courses/:id":#delete-courses
 
-Remove o curso em questão. Todos os usuários serão desmatriculados e perderão o acesso ao recurso.
+{% t course.delete_courses_id.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-Para criar um Curso é necessário ter papel administrativo no "AVA":environment.html.
+{% t course.delete_courses_id.second_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*id*|ID ou path do curso|N/A|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*id*|{% t course.delete_courses_id.table.id_description %}|N/A|

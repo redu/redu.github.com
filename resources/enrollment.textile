@@ -1,59 +1,59 @@
 ---
 layout: page
-title: "Matrícula"
+title: titles.enrollment
 group: navigation
 ---
 {% include JB/setup %}
 
 
-Recurso que representa a matrícula de usuários em cursos. Foi desenvolvido de tal forma que abstrai o fato do usuário estar presente ou não no "Redu":http://www.redu.com.br.
+{% t enrollment.first_paragraph %}
 
-Caso o e-mail não esteja registrado na plataforma um convite será enviado dando a possibilidade de registro e posterior convite para o curso. Possui uma máquina de estado como definida abaixo (propriedade @state@):
+{% t enrollment.second_paragraph %}:
 
-*Atributos:*
+*{% t global.attributes %}:*
 
 table(table table-bordered).
-|_.Atributo|_.Descrição|
-|ID| Identificador da matrícula|
-|state| Estado atual da matrícula. Exemplo: @waiting@|
-|email| E-mail do usuário a ser convidado. Apenas utilizado quando o usuário ainda não faz parte do Redu|
-|token| Token de convite do usuário.|
-|role| Papel do usuário no Curso. Apenas disponível se o usuário já aceitou o convite. Os estados possíveis são: @member@, @teacher@, @environment_admin@ e @tutor@|
+|_.{% t global.attribute %}|_.{% t global.description %}|
+|ID|{% t enrollment.table_1.id_description %}|
+|state|{% t enrollment.table_1.state_description %}|
+|email|{% t enrollment.table_1.email_description %}|
+|token|{% t enrollment.table_1.token_description %}|
+|role|{% t enrollment.table_1.role_description %}|
 
 div(thumbnail). !../assets/images/enrollment-sm.png!
 
-*Estados:*
+*{% t global.states %}:*
 
 table(table table-bordered){width: 500px;}.
-|_.Estado|_.Descrição|
-|waiting|Nenhuma ação foi realizada|
-|redu_invited|Quando o e-mail não está cadastrado no "Redu":http://www.redu.com.br e uma mensagem de convite foi enviada|
-|invited|Quando o e-mail está cadastrado no "Redu":http://www.redu.com.br e o usuário recebe o convite para o curso. Notificação aparecerá na home do usuário|
-|approved|Usuário aceitou o convite|
-|rejected|Usuário recusou o convite|
+|_.{% t global.state %}|_.{% t global.description %}|
+|waiting|{% t enrollment.table_2.waiting_description %}|
+|redu_invited|{% t enrollment.table_2.redu_invited_description %}|
+|invited|{% t enrollment.table_2.invited_description %}|
+|approved|{% t enrollment.table_2.approved_description %}|
+|rejected|{% t enrollment.table_2.rejected_description %}|
 
 h2. "GET /api/enrollments/:id":#get-enrollments
 
-Retorna a matrícula em questão.
+{% t enrollment.get_enrollments_id.first_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*id*|ID da matrícula|N/A|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*id*|{% t enrollment.get_enrollments_id.table.id_description %}|N/A|
 
 h2. "POST /api/courses/:course_id/enrollments":#post-course-enrollments
 
-Cria uma matrícula no curso em questão. Caso o usuário faça parte do Redu a matrícula irá para o estado @invited@ e uma notificação aparecerá em sua home perguntando se deseja participar do curso. Caso o usuário não faça parte do Redu, antes de ir para o estado @invited@ a matrícula passará para um estado @redu_invited@. Isso significa que um e-mail de convite foi enviado.
+{% t enrollment.post_courses_course_id.first_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*id*|ID ou path do curso|N/A|
-|*enrollment[email]*|E-mail do usuário que será convidado |Máximo 40 caracteres; deve ser único|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*id*|{% t enrollment.post_courses_course_id.table.id_description %}|N/A|
+|*enrollment[email]*|{% t enrollment.post_courses_course_id.table.enrollment_email_description %}|{% t enrollment.post_courses_course_id.table.enrollment_email_restrictions %}|
 
-h4. Exemplo
+h4. {% t global.example %}
 
 @POST /api/courses/foo/enrollments@
 
@@ -67,7 +67,7 @@ h4. Exemplo
 }
 {% endhighlight %}
 
-*Resposta:*
+*{% t global.response %}:*
 
 {% highlight json %}
 {
@@ -94,30 +94,30 @@ h4. Exemplo
 
 h2. "GET /api/courses/:course_id/enrollments":#get-course-enrollments
 
-Listagem de matrículas de um curso. É importante perceber que podem existir mais matrículas do que usuários efetivamente cadastrados no curso (estado @redu_invited@ ou @invited@).
+{% t enrollment.get_courses_course_id.first_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*id*|ID ou path do curso|N/A|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*id*|{% t enrollment.get_courses_course_id.table.id_description %}|N/A|
 
 h2. "GET /api/users/:user_id/enrollments":#get-course-enrollments
 
-Listagem de matrículas de um usuário.
+{% t enrollment.get_users_user_id.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-Para fazer esta requisição é necessário ter direitos administrativos para um User. Ou seja, apenas o próprio user pode ver os seus enrollments.
+{% t enrollment.get_users_user_id.second_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*user_id*|ID do USer|N/A|
-|*courses_ids[]*|IDs dos Cursos. Permite a filtragem de Enrollment por cursos.|N/A|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*user_id*|{% t enrollment.get_users_user_id.table.user_id_description %}|N/A|
+|*courses_ids[]*|{% t enrollment.get_users_user_id.table.courses_ids_description %}|N/A|
 
-*Exemplo:*
+*{% t global.example %}:*
 
 @GET /api/users/4/enrollments?courses_ids[]=50&courses_ids[]=81@
 
@@ -155,10 +155,10 @@ table(table table-bordered table-striped).
 
 h2. "DELETE /api/enrollments/:id":#delete-enrollments
 
-Remove a matrícula especificada bem como o usuário associado a mesma (caso exista). O usuário perderá acesso ao curso e às suas disciplinas.
+{% t enrollment.delete_enrollments_id.first_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*id*|ID ou path do curso|N/A|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*id*|{% t enrollment.delete_enrollments_id.table.id_description %}|N/A|

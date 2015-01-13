@@ -1,77 +1,77 @@
 ---
 layout: page
-title: "Canvas"
+title: titles.canvas
 group: navigation
 ---
 {% include JB/setup %}
 
-Os aplicativos de tipo canvas representam o maior nível de integração com o Redu. Neste tipo de integração não há a necessidade de deixar a plataforma para utilizar o aplicativo, por isso a experiência para o usuário é, em geral, mais completa.
+{% t canvas.first_paragraph %}
 
-Uma vez que estes aplicativos são integrados a interface do Redu, existem alguma limitações a respeito das dimensões do mesmo. Atualmente é possível inserir aplicações de até @720px@ de largura. Em relação a altura só é necessária que ela seja fixa, ou seja, que se mantenha a mesma durante desde o momento em que ela é carregada.
+{% t canvas.second_paragraph %}
 
-O canvas propriamente dito é um @<iframe>@ que tem como fonte um endereço em outro servidor. Este modelo já é bem estabelecido e utilizado em outras plataformas de aplicativos, como o Facebook.
+{% t canvas.third_paragraph %}
 
-Entrando em detalhes, o canvas é uma tag "@<iframe>@":https://developer.mozilla.org/en-US/docs/HTML/Element/iframe que pode ser mostrada em diversos pontos da interface do Redu. O @<iframe>@ é inicializado com uma URL da sua aplicação e receve diversas informações sobre o contexto de onde o canvas será mostrado.
+{% t canvas.fourth_paragraph %}
 
-Atualmente o canvas pode ser mostrado na Disciplina e na Aula.
+{% t canvas.fifth_paragraph %}
 
 <div class="thumbnail" style="width: 701px;">
   !/assets/images/canvas-example.png!
   <div class="caption">
-  <small>Exemplo de aplicativo tipo canvas na Disciplina. É possível manter a identidade visual do Redu utilizando os nossos "componentes de interface":/ui-components.</small>
+  <small>{% t canvas.canvas_example_subtitle %}</small>
   </div>
 </div>
 
-h2. Informações de contexto
+h2. {% t canvas.context_information.title %}
 
-Ao exibir o canvas, o Redu envia algumas informações de contexto no formato "**querystring**":http://en.wikipedia.org/wiki/Query_string. Ou seja, é possível modificar o comportamento da aplicação dependendo de onde o canvas é exibido.
+{% t canvas.context_information.first_paragraph %}
 
-O Redu envia as seguintes informações para a aplicação:
+{% t canvas.context_information.second_paragraph %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|Significado|Quando é mostrado|
-|@redu_container@|Tipo do container. Representa o nível da hierarquia onde o canvas é mostrado|Sempre|
-|@redu_space_id@|ID do Space (Disciplina)|Sempre|
-|@redu_user_id@|ID do usuário que está visualizando o canvas no Redu|Sempre|
-|@redu_lecture_id@|ID da Lecture (Aula)|Canvas da Aula|
+|_.{% t global.parameter %}|{% t canvas.context_information.table.meaning %}|{% t canvas.context_information.table.shown_as %}|
+|@redu_container@|{% t canvas.context_information.table.container_meaning %}|{% t canvas.context_information.table.container_shown_as %}|
+|@redu_space_id@|{% t canvas.context_information.table.space_id_meaning %}|{% t canvas.context_information.table.space_id_shown_as %}|
+|@redu_user_id@|{% t canvas.context_information.table.user_id_meaning %}|{% t canvas.context_information.table.user_id_shown_as %}|
+|@redu_lecture_id@|{% t canvas.context_information.table.lecture_id_meaning %}|{% t canvas.context_information.table.lecture_id_shown_as %}|
 
-h3. Detectando encerramento da sessão
+h3. {% t canvas.context_information.session_expiry.title %}
 
-Uma prática comum é persistir o ID do usuário do Redu na sessão da aplicação. Porém, quando se trata de aplicativos tipo canvas, não há uma forma simples de expirar a sessão do usuário. Por exemplo, quando ele faz *logout* do Redu não há como detectar isso no contexto da aplicação.
+{% t canvas.context_information.session_expiry.first_paragraph %}
 
-Por este motivo sempre é enviado o ID do usuário (@redu_user_id@) que está logado ao mostrar um canvas. Sua aplicação pode comparar este ID com o ID persistido em sessão e utilizar isto para detectar se a sessão deve ser expirada ou não. Este ciclo pode ser visto do diagrama abaixo:
+{% t canvas.context_information.session_expiry.second_paragraph %}
 
 div(thumbnail){margin: 0 auto;}. !/assets/images/sessao.png!
 
-h2. Disciplina
+h2. {% t canvas.space.title %}
 
-h3. Links
+h3. {% t canvas.space.links.title %}
 
-Nas representações do canvas os seguintes links são mostrados:
+{% t canvas.space.links.first_paragraph %}
 
 table(table table-bordered table-striped).
-|_.Link|_.Descrição|
-|self|Canvas em questão|
-|self_link|Link da interface Web para o canvas|
-|container|Link para o container do canvas|
-|raw|Link para a URL exibida no canvas|
+|_.{% t global.link %}|_.{% t global.description %}|
+|self|{% t canvas.space.links.table.self_description %}|
+|self_link|{% t canvas.space.links.table.self_link_description %}|
+|container|{% t canvas.space.links.table.container_description %}|
+|raw|{% t canvas.space.links.table.raw_description %}|
 
 h3. POST /api/spaces/:id/canvas
 
-Cria canvas na Disciplina.
+{% t canvas.space.post_spaces_id_canvas.first_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Chave|_.Descrição|Restrições|
-|canvas[current_url]|URL que será exibida no canvas.|Não é obrigatório. Deve ser uma URL válida|
-|canvas[name]|Nome mostrado nos links para o Canvas|Obrigatório|
+|_.{% t global.key %}|_.{% t global.description %}|{% t global.restrictions %}|
+|canvas[current_url]|{% t canvas.space.post_spaces_id_canvas.table.current_url_description %}|{% t canvas.space.post_spaces_id_canvas.table.current_url_restrictions %}|
+|canvas[name]|{% t canvas.space.post_spaces_id_canvas.table.name_description %}|{% t canvas.space.post_spaces_id_canvas.table.name_restrictions %}|
 
 h3. GET /api/canvas/:id
 
-Retorna o canvas com o ID especificado.
+{% t canvas.space.get_canvas_id.first_paragraph %}
 
-h4. Exemplo de resposta
+h4. {% t canvas.space.get_canvas_id.response_example.title %}
 
 {% highlight json %}
 {
@@ -92,33 +92,33 @@ h4. Exemplo de resposta
 
 h3. PUT /api/canvas/:id
 
-Atualiza informações de um canvas existente.
+{% t canvas.space.put_canvas_id.first_paragraph %}
 
 h3. DELETE /api/canvas/:id
 
-Remove canvas.
+{% t canvas.space.delete_canvas_id.first_paragraph %}
 
-h2. Aula
+h2. {% t canvas.lecture.title %}
 
 h3. "POST /api/subject/:subject_id/lectures":#post-lectures
 
-Cria uma nova aula com um canvas dentro do módulo especificado.
+{% t canvas.lecture.post_subject_id_lectures.first_paragraph %}
 
 h4. Parâmetros
 
 table(table table-bordered table-striped).
 |_.Chave|_.Descrição|Restrições|
-|lecture[type]|Tipo da Aula. Nesta caso queremos criar com o tipo @Canvas@|Obrigatório|
-|lecture[name]|Nome de aula|Obrigatório|
-|lecture[current_url]|URL que será exibida no canvas.|Não é obrigatório. Deve ser uma URL válida|
+|lecture[type]|{% t canvas.lecture.post_subject_id_lectures.table.type_description %}|{% t canvas.lecture.post_subject_id_lectures.table.type_restrictions %}|
+|lecture[name]|{% t canvas.lecture.post_subject_id_lectures.table.name_description %}|{% t canvas.lecture.post_subject_id_lectures.table.name_restrictions %}|
+|lecture[current_url]|{% t canvas.lecture.post_subject_id_lectures.table.current_url_description %}|{% t canvas.lecture.post_subject_id_lectures.table.current_url_restrictions %}|
 
-O @current_url@ é opcional e, caso omitido, a URL principal da aplicação será mostrada.
+{% t canvas.lecture.post_subject_id_lectures.second_paragraph %}
 
-h4. Exemplo
+h4. {% t global.example %}
 
-Requisição: @POST /api/subject/12/lectures@
+{% t global.request %}: @POST /api/subject/12/lectures@
 
-Resposta:
+{% t global.response %}:
 
 {% highlight json %}
 {
@@ -149,11 +149,11 @@ Resposta:
 
 h3. "GET /api/lectures/:id":#get-lectures
 
-Caso seja uma aula tipo Canvas, uma representação da mesma é retornada.
+{% t canvas.lecture.get_lectures_id.first_paragraph %}
 
-Requisição: @GET /api/lectures/107@
+{% t global.request %}: @GET /api/lectures/107@
 
-Resposta:
+{% t global.response %}:
 
 {% highlight json %}
 {

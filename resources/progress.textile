@@ -1,51 +1,51 @@
 ---
 layout: page
-title: "Progresso"
+title: titles.progress
 group: navigation
 ---
 {% include JB/setup %}
 
-O recurso de Progresso refere-se ao progresso de um usuário em relação a uma "Aula":/resources/lecture.html. Este recurso indica se a aula foi finalizada pelo aluno.
+{% t progress.first_paragraph %}
 
 div(thumbnail){width:318px; margin: 0 auto;}. !/assets/images/progress-example.png!
 
-h3. Atributos
+h3. {% t global.attributes %}
 
 table(table table-bordered table-striped).
-|_.Atributo|_.Descrição|
-|id|ID do progresso.|
-|finalized|Indica se a aula foi finalizada.|
-|updated_at|Indica quando a aula foi finalizada (se @finalized = true@).|
+|_.{% t global.attribute %}|_.{% t global.description %}|
+|id|{% t progress.table_1.id_description %}|
+|finalized|{% t progress.table_1.finalized_description %}|
+|updated_at|{% t progress.table_1.updated_at_description %}|
 
-h3. Links
+h3. {% t global.links %}
 
 table(table table-bordered table-striped).
-|_.Link|_.Descrição|
-|self|Progresso em questão.|
-|user|Usuário responsável pelo progresso na aula.|
-|lecture|Aula à ser finalizada.|
-|subject|Módulo ao qual a aula pertence.|
+|_.{% t global.link %}|_.{% t global.description %}|
+|self|{% t progress.table_2.self_description %}|
+|user|{% t progress.table_2.user_description %}|
+|lecture|{% t progress.table_2.lecture_description %}|
+|subject|{% t progress.table_2.subject_description %}|
 
 h2. "GET /api/progress/:id":#progress-get
 
-Retorna um progresso com  o ID especificado.
+{% t progress.get_progress_id.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual a aula pertence e ser o @user@ da entidade Progresso.
+{% t progress.get_progress_id.second_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Atributo|_.Descrição|_.Restrições|
-|*id*|ID do progresso.|N/A|
+|_.{% t global.attribute %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*id*|{% t progress.get_progress_id.table.id_description %}|N/A|
 
-h4. Exemplo
+h4. {% t global.example %}
 
-Requisição:
+{% t global.request %}:
 @GET /api/progress/4@
 
-Resposta:
+{% t global.response %}:
 
 <pre>
 {
@@ -63,25 +63,25 @@ Resposta:
 
 h2. "PUT /api/progress/:id":#progress-put
 
-Atualiza o progresso do usuário logado em relação a uma aula.
+{% t progress.put_progress_id.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual a aula pertence e ser o @user@ da entidade Progresso.
+{% t progress.put_progress_id.second_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Atributo|_.Descrição|_.Restrições|
-|*id*|ID do progresso.|N/A|
-|*progress[finalized]*|Indicativo de que a aula foi finalizada|Deve ser @true@ ou @false@|
+|_.{% t global.attribute %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*id*|{% t progress.put_progress_id.table.id_description %}|N/A|
+|*progress[finalized]*|{% t progress.put_progress_id.table.progress_finalized_description %}|{% t progress.put_progress_id.table.progress_finalized_restrictions %}|
 
-h4. Exemplo
+h4. {% t global.example %}
 
-Requisição:
+{% t global.request %}:
 @PUT /api/progress/4@
 
-Resposta:
+{% t global.response %}:
 
 <pre>
 {
@@ -100,25 +100,25 @@ Resposta:
 
 h2. "GET /api/lectures/:lecture_id/progress/":#progress-lectures-get
 
-Retorna todos os progressos de uma "aula":/resources/lecture.html, ou seja, de todos os usuários relacionados à aula. Pode-se filtrar os progressos de uma aula pelo(s) usuário(s).
+{% t progress.get_lectures_lecture_id.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual a aula pertence como @teacher@ ou @environment_admin@.
+{% t progress.get_lectures_lecture_id.second_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Atributo|_.Descrição|_.Restrições|
-|*lecture_id*|ID da aula.|N/A|
-|users_ids[]|ID do usuário. Permite filtrar os progressos baseado no(s) usuário(s).|Precisa ser um usuário matriculado no curso ao qual a aula pertence.|
+|_.{% t global.attribute %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*lecture_id*|{% t progress.get_lectures_lecture_id.table.lecture_id_description %}|N/A|
+|users_ids[]|{% t progress.get_lectures_lecture_id.table.users_ids_description %}|{% t progress.get_lectures_lecture_id.table.users_ids_restrictions %}|
 
-h4. Exemplo
+h4. {% t global.example %}
 
-Requisição:
+{% t global.request %}:
 @GET /api/lectures/25/progress@
 
-Resposta:
+{% t global.response %}:
 
 <pre>
 [
@@ -150,25 +150,25 @@ Resposta:
 
 h2. "GET /api/subjects/:subject_id/progress/":#progress-subjects-get
 
-Retorna todos os progressos de um "módulo":/resources/subject.html, ou seja, de todos os usuários relacionados ao módulo. Pode-se filtrar os progressos de um módulo pelo(s) usuário(s).
+{% t progress.get_subjects_subject_id.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-É necessário estar "matriculado":/resources/enrollment.html no "curso":/resources/course.html ao qual o módulo pertence como @teacher@ ou @environment_admin@.
+{% t progress.get_subjects_subject_id.second_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Atributo|_.Descrição|_.Restrições|
-|*subject_id*|ID da módulo.|N/A|
-|users_ids[]|ID do usuário. Permite filtrar os progressos baseado no(s) usuário(s).|Precisa ser um usuário matriculado no curso ao qual o módulo pertence.|
+|_.{% t global.attribute %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*subject_id*|{% t progress.get_subjects_subject_id.table.subject_id_description %}|N/A|
+|users_ids[]|{% t progress.get_subjects_subject_id.table.users_ids_description %}|{% t progress.get_subjects_subject_id.table.users_ids_restrictions %}|
 
-h4. Exemplo
+h4. {% t global.example %}
 
-Requisição:
+{% t global.request %}:
 @GET /api/subjects/74/progress@
 
-Resposta:
+{% t global.response %}:
 
 <pre>
 [
@@ -221,26 +221,26 @@ Resposta:
 
 h2. "GET /api/users/:user_id/progress/":#progress-users-get
 
-Retorna todos os progressos de um usuário. Pode-se filtrar os progressos de um usuário pela(s) aulas(s) ou módulo(s).
+{% t progress.get_users_user_id.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-Apenas o próprio usuário tem acesso.
+{% t progress.get_users_user_id.second_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Atributo|_.Descrição|_.Restrições|
-|*user_id*|ID do usuário.|N/A|
-|lectures_ids[]|ID da aula. Permite filtrar os progressos baseado na(s) aulas(s).|Precisa ser uma aula pertencente a um curso cujo usuário é matriculado.|
-|subjects_ids[]|ID do módulo. Permite filtrar os progressos baseado no(s) módulos(s).|Precisa ser um módulo pertencente a um curso cujo usuário é matriculado.|
+|_.{% t global.attribute %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*user_id*|{% t progress.get_users_user_id.table.user_id_description %}|N/A|
+|lectures_ids[]|{% t progress.get_users_user_id.table.lectures_ids_description %}|{% t progress.get_users_user_id.table.lectures_ids_restrictions %}|
+|subjects_ids[]|{% t progress.get_users_user_id.table.subjects_ids_description %}|{% t progress.get_users_user_id.table.subjects_ids_restrictions %}|
 
-h4. Exemplo
+h4. {% t global.example %}
 
-Requisição:
+{% t global.request %}:
 @GET /api/users/216/progress@
 
-Resposta:
+{% t global.response %}:
 
 <pre>
 [

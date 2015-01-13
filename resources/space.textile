@@ -1,54 +1,54 @@
 ---
 layout: page
-title: "Disciplina"
+title: titles.space
 group: navigation
 ---
 {% include JB/setup %}
 
-No contexto da API disciplina é referida como @space@. É na disciplina que as interações sociais (ver mural) acontecem e o conteúdo (ver módulo) são postados.
+{% t space.first_paragraph %}
 
 h2. "GET /api/spaces/:id":#get-spaces
 
-Retorna a disiplipla em questão.
+{% t space.get_spaces_id.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-Deve estar matriculado no "Curso":course.html ao qual a disciplina pertence.
+{% t space.get_spaces_id.second_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*id*|ID da disciplina|N/A|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*id*|{% t space.get_spaces_id.table.id_description %}|N/A|
 
 h2. "PUT /api/spaces/:id":#put-spaces
 
-Atualiza as informações da disciplina.
+{% t space.put_spaces_id.first_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*space[name]*|Nome do curso|Máximo 40 caracteres; deve ser único|
-|space[description]|Descrição do curso|Máximo de 400 caracteres|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*space[name]*|{% t space.put_spaces_id.table.space_name_description %}|{% t space.put_spaces_id.table.space_name_restrictions %}|
+|space[description]|{% t space.put_spaces_id.table.space_description_description %}|{% t space.put_spaces_id.table.space_description_restrictions %}|
 
 h2. "POST /api/courses/:course_id/spaces":#post-course-spaces
 
-Cria uma disciplina no contexto do course especificado por @course_id@.
+{% t space.post_courses_course_id.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-Deve ser @teacher@ ou @environment_admin@ no curso.
+{% t space.post_courses_course_id.second_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*course_id*|ID do curso|N/A|
-|*space[name]*|Nome da disciplina |Máximo 40 caracteres|
-|space[description]|Descrição do curso|Máximo de 400 caracteres|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*course_id*|{% t space.post_courses_course_id.table.course_id_description %}|N/A|
+|*space[name]*|{% t space.post_courses_course_id.table.space_name_description %}|{% t space.post_courses_course_id.table.space_name_restrictions %}|
+|space[description]|{% t space.post_courses_course_id.table.space_description_description %}|{% t space.post_courses_course_id.table.space_description_restrictions %}|
 
-h4. Exemplo
+h4. {% t global.example %}
 
 @POST /api/courses/foo/spaces@
 
@@ -62,7 +62,7 @@ h4. Exemplo
 }
 {% endhighlight %}
 
-*Resposta:*
+*{% t global.response %}:*
 
 {% highlight json %}
 {
@@ -105,28 +105,28 @@ h4. Exemplo
 
 h2. "GET /api/courses/:course_id/spaces":#get-course-spaces
 
-Retorna uma lista com as disciplinas do curso especificado.
+{% t space.get_courses_course_id.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-Deve estar matriculado no curso.
+{% t space.get_courses_course_id.second_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*course_id*|ID ou path do curso|N/A|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*course_id*|{% t space.get_courses_course_id.table.course_id_description %}|N/A|
 
 h2. "DELETE /api/spaces/:id":#delete-spaces
 
-Remove uma disciplina. Os que fazem parte do curso ao qual a disciplina faz parte não terão mais acesso aos módulos e aulas.
+{% t space.delete_spaces_id.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-Deve ser @teacher@ ou @environment_admin@ no curso.
+{% t space.delete_spaces_id.second_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*id*|ID da disciplina|N/A|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*id*|{% t space.delete_spaces_id.table.id_description %}|N/A|

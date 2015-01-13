@@ -1,35 +1,35 @@
 ---
 layout: page
-title: "Chat"
+title: titles.chat
 group: navigation
 ---
 {% include JB/setup %}
 
-O Chat e ChatMessages representam, respectivament, uma conversa entre dois usuários e suas mensagens. Atualmente é possível, apenas, visualizar estes recursos através da API. A possibilidade de criação e remoção de mensagens de chat, bem como streaming das mesmas está disponível em breve.
+{% t chat.first_paragraph %}
 
-h1. Chat
+h1. {% t chat.chat.title %}
 
 h2. "GET /api/users/:id/chats":#get-chats
 
-Retorna todos os chats do usuário em questão.
+{% t chat.chat.get_id_chats.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-É necessário ter poder de gerenciamento do usuário.
+{% t chat.chat.get_id_chats.second_paragraph %}
 
-h4. Parâmentros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*id*|ID ou login do usuário|N/A|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*id*|{% t chat.chat.get_id_chats.table.id %}|N/A|
 
-h4. Exemplo
+h4. {% t global.example %}
 
-Requisição:
+{% t global.request %}:
 
 @GET /api/users/guiocavalcanti/chats12@
 
-Resposta:
+{% t global.response %}:
 
 {% highlight json %}
 [ {
@@ -82,25 +82,25 @@ Resposta:
 
 h2. "GET /api/chats/:id":#get-chats
 
-Retorna o chat em questão. O recurso Chat contém todas as mensagens trocadas entre dois usuários utilizando o sistema de chat do Redu.
+{% t chat.chat.get_chats_id.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-É necessário ser participante do chat para visualizar este recurso.
+{% t chat.chat.get_chats_id.second_paragraph %}
 
-h4. Parâmentros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*id*|ID do chat|N/A|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*id*|{% t chat.chat.get_chats_id.table.id %}|N/A|
 
-h4. Exemplo
+h4. {% t global.example %}
 
-Requisição:
+{% t global.request %}:
 
 @GET /api/chats/1475@
 
-Resposta:
+{% t global.response %}:
 
 {% highlight json %}
 {
@@ -129,29 +129,29 @@ Resposta:
 {% endhighlight %}
 
 
-h1. Chat message
+h1. {% t chat.chat_message.title %}
 
 h2. "GET /api/chats/:id/chat_messages":#index-chat-messages
 
-Retorna todas as mensagens contidas num chat.
+{% t chat.chat_message.get_id_chat_messages.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-É necessário ser participante do chat para visualizar este recurso.
+{% t chat.chat_message.get_id_chat_messages.second_paragraph %}
 
-h4. Parâmentros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*id*|ID do chat|N/A|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*id*|{% t chat.chat_message.get_id_chat_messages.table.id %}|N/A|
 
-h4. Exemplo
+h4. {% t global.example %}
 
-Requisição:
+{% t global.request %}:
 
 @GET /api/chats/1475/chat_messages@
 
-Resposta:
+{% t global.response %}:
 
 {% highlight json %}
 [
@@ -216,25 +216,25 @@ Resposta:
 
 h2. "GET /api/chat_messages/:id":#get-chat-messages
 
-Retorna uma mensagem do chat.
+{% t chat.chat_message.get_chat_messages_id.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-É necessário ser participante do chat para visualizar este recurso.
+{% t chat.chat_message.get_chat_messages_id.second_paragraph %}
 
-h4. Parâmentros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*id*|ID da mensagem|N/A|
+|_.{% t global.parameter %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*id*|{% t chat.chat_message.get_chat_messages_id.table.id %}|N/A|
 
-h4. Exemplo
+h4. {% t global.example %}
 
-Requisição:
+{% t global.request %}:
 
 @GET /api/chat_messages/169@
 
-Resposta:
+{% t global.response %}:
 
 {% highlight json %}
 {

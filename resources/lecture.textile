@@ -1,119 +1,119 @@
 ---
 layout: page
-title: "Aula"
+title: titles.lecture
 group: navigation
 ---
 {% include JB/setup %}
 
-No contexto da API, a Aula é referenciada como @lecture@. Uma Aula representa a unidade mínima de conteúdo, como um texto ou vídeo, que possui interações sociais (ver "Mural":/resources/status.html). Várias Aulas podem ser agrupadas e ordenadas em um módulo.
+{% t lecture.first_paragraph %}
 
 div(thumbnail){width:678px; height: 291px; margin: 0 auto;}. !/assets/images/subject-example.png!
 
-h2. "Tipos de Lecture":#lectures-types
+h2. {% t lecture.lectures_types.title %}
 
-Existem cinco tipos de Aula, são estas:
+{% t lecture.lectures_types.first_paragraph %}
 
-* *Página:* Conteúdo em "_Rich Text Format_":http://en.wikipedia.org/wiki/Rich_Text_Format.
-* *Documento:* Arquivo de texto (_txt_, _pdf_, _doc_, _docx_, _ppt_, _pptx_, etc).
-* *Mídia:* Arquivo de vídeo (_mov_, _avi_, _mpeg_, _mp4_, etc) ou vídeo hospedado no "Youtube":http://www.youtube.com.
-* *Exercício:* Possui questões a serem respondidas.
-* *Canvas:* Aplicativo.
+* {% t lecture.lectures_types.item_1 %}
+* {% t lecture.lectures_types.item_2 %}
+* {% t lecture.lectures_types.item_3 %}
+* {% t lecture.lectures_types.item_4 %}
+* {% t lecture.lectures_types.item_5 %}
 
 div(thumbnail){width:450px; margin: 20px}. !/assets/images/lecture-classes.png!
 
-h3. Atributos
+h3. {% t global.attributes %}
 
-Abaixo são descritos os atributos de uma Aula:
-
-table(table table-bordered table-striped){clear: both;}.
-|_.Atributo|_.Descrição|
-|created_at|Data de criação.|
-|name|Nome (título).|
-|position|Posição na ordenação dentro módulo.|
-|type|Tipo (_Canvas, Document, Exercise, Page, Media_).|
-|id|Identificador.|
-|rating|Avaliação feita pelos usuários|
-|view_count|Quantidade de vezes que foi visualizada|
-|updated_at|Data da última atualização.|
-
-h3. Links
-
-Abaixo são descritos os links presentes na representação de uma Aula:
+{% t lecture.lectures_types.third_paragraph %}:
 
 table(table table-bordered table-striped){clear: both;}.
-|_.Link|_.Descrição|
-|self|Aula em questão.|
-|self_link|Aula no Redu (HTML).|
-|subject|Módulo onde a Aula se encontra.|
-|space|Disciplina onde a Aula se encontra.|
-|course|Curso onde a Aula se encontra.|
-|environment|Ambiente onde a Aula se encontra.|
+|_.{% t global.attribute %}|_.{% t global.description %}|
+|created_at|{% t lecture.lectures_types.table_1.created_at_description %}|
+|name|{% t lecture.lectures_types.table_1.name_description %}|
+|position|{% t lecture.lectures_types.table_1.position_description %}|
+|type|{% t lecture.lectures_types.table_1.type_description %}|
+|id|{% t lecture.lectures_types.table_1.id_description %}|
+|rating|{% t lecture.lectures_types.table_1.rating_description %}|
+|view_count|{% t lecture.lectures_types.table_1.view_count_description %}|
+|updated_at|{% t lecture.lectures_types.table_1.updated_at_description %}|
 
-h3. Tipos de aulas
+h3. {% t global.links %}
 
-h4. Page
+{% t lecture.lectures_types.fourth_paragraph %}:
 
-Esta aula é simplesmente um conteúdo baseado em "_Rich Text Format_":http://en.wikipedia.org/wiki/Rich_Text_Format , originado pelo "_CKEditor_":http://ckeditor.com/.
+table(table table-bordered table-striped){clear: both;}.
+|_.{% t global.link %}|_.{% t global.description %}|
+|self|{% t lecture.lectures_types.table_2.self_description %}|
+|self_link|{% t lecture.lectures_types.table_2.self_link_description %}|
+|subject|{% t lecture.lectures_types.table_2.subject_description %}|
+|space|{% t lecture.lectures_types.table_2.space_description %}|
+|course|{% t lecture.lectures_types.table_2.course_description %}|
+|environment|{% t lecture.lectures_types.table_2.environment_description %}|
 
-table(table table-bordered table-striped).
-|_.Chave|_.Descrição|
-|content|Conteúdo gerado pelo CKEditor. Inclui formatação HTML e CSS.|
-|raw|Contéudo cru da aula, nem um tipo de formatação e estilo é adicionado.|
+h3. {% t lecture.lectures_types.lessons_types.title %}
 
-h4. Document
+h4. {% t global.page %}
 
-Este tipo de aula é composto basicamente por um documento, o qual pode ter o formato _txt, pdf, doc, docx, ppt, pptx_, etc.
-
-table(table table-bordered table-striped).
-|_.Chave|_.Descrição|
-|mimetype|Formato do arquivo|
-
-Este tipo de aula também possui links, são estes:
-
-table(table table-bordered table-striped).
-|_.Link|_.Descrição|
-|raw|Endereço do arquivo bruto para download.|
-|scribd|Endereço do arquivo hospedado no Scribd (com player para ser usado _embedded_). |
-
-h4. Media
-
-Este tipo de Lecture representa arquivos de mídia, podendo ser áudio ou vídeo, inclusive mídias do Youtube.
+{% t lecture.lectures_types.lessons_types.first_paragraph %}
 
 table(table table-bordered table-striped).
-|_.Chave|_.Descrição|
-|mimetype|MimeType do arquivo de mídia|
+|_.{% t global.key %}|_.{% t global.description %}|
+|content|{% t lecture.lectures_types.lessons_types.table_1.content_description %}|
+|raw|{% t lecture.lectures_types.lessons_types.table_1.raw_description %}|
+
+h4. {% t global.document %}
+
+{% t lecture.lectures_types.lessons_types.second_paragraph %}
 
 table(table table-bordered table-striped).
-|_.Link|_.Descrição|
-|raw|Endereço para download do arquivo|
+|_.{% t global.key %}|_.{% t global.description %}|
+|mimetype|{% t lecture.lectures_types.lessons_types.table_2.mimetype_description %}|
 
-Para casos de vídeos do Youtube, o MimeType retornado será @video/x-youtube@. Por exemplo:
+{% t lecture.lectures_types.lessons_types.third_paragraph %}:
 
-h4. Exercise
+table(table table-bordered table-striped).
+|_.{% t global.link %}|_.{% t global.description %}|
+|raw|{% t lecture.lectures_types.lessons_types.table_3.raw_description %}|
+|scribd|{% t lecture.lectures_types.lessons_types.table_3.scribd_description %}|
 
-h4. Canvas
+h4. {% t global.media %}
 
-Mais informações podem ser encontradas na "documentação do Canvas":/resources/canvas.html.
+{% t lecture.lectures_types.lessons_types.fourth_paragraph %}
+
+table(table table-bordered table-striped).
+|_.{% t global.key %}|_.{% t global.description %}|
+|mimetype|{% t lecture.lectures_types.lessons_types.table_4.mimetype_description %}|
+
+table(table table-bordered table-striped).
+|_.{% t global.link %}|_.{% t global.description %}|
+|raw|{% t lecture.lectures_types.lessons_types.table_5.raw_description %}|
+
+{% t lecture.lectures_types.lessons_types.fifth_paragraph %}:
+
+h4. {% t global.exercise %}
+
+h4. {% t titles.canvas %}
+
+{% t lecture.lectures_types.lessons_types.sixth_paragraph %}
 
 h2. "GET /api/subjects/:id/lectures":#index-lectures
 
-Lista todas a Lectures presentes no Subject.
+{% t lecture.get_subjects_id.first_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.authorization %}
+
+{% t lecture.get_subjects_id.second_paragraph %}
+
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Atributo|_.Descrição|_.Restrições|
-|*id*|ID do Subject.|N/A|
+|_.{% t global.attribute %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*id*|{% t lecture.get_subjects_id.table.id_description %}|N/A|
 
-h4. Autorização
+h4. {% t global.example %}
 
-É necessário estar matriculado no "Course":/resources/course.html do qual o "Subject":/resources/subject.html faz parte.
+{% t global.request %}: @GET /api/spaces/12/lectures@
 
-h4. Exemplo
-
-Requisição: @GET /api/spaces/12/lectures@
-
-Resposta:
+{% t global.response %}:
 
 {% highlight json %}
 [{
@@ -141,25 +141,25 @@ Resposta:
 
 h2. "GET /api/lectures/:id":#get-lectures
 
-Retorna a Aula em questão.
+{% t lecture.get_lectures_id.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-Deve estar matriculado no "Curso":course.html ao qual o módulo pertence (no caso, o curso ao qual a disciplina pertence).
+{% t lecture.get_lectures_id.second_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Parâmetro|_.Descrição|_.Restrições|
-|*id*|ID da Aula|N/A|
+|_.Parâmetro|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*id*|{% t lecture.get_lectures_id.table.id_description %}|N/A|
 
-h4. Exemplo
+h4. {% t global.example %}
 
-@GET /api/lectures/1@
+{% t global.request %}: @GET /api/lectures/1@
 
-*Resposta:*
+*{% t global.response %}:*
 
-* Página (@Page@)
+* {% t lecture.get_lectures_id.item_1 %}
 
 {% highlight json %}
 {
@@ -186,7 +186,7 @@ h4. Exemplo
 }
 {% endhighlight %}
 
-* Documento (@Document@)
+* {% t lecture.get_lectures_id.item_2 %}
 
 {% highlight json %}
 {
@@ -214,13 +214,13 @@ h4. Exemplo
 {% endhighlight %}
 
 
-* Exercício (@Exercise@)
+* {% t lecture.get_lectures_id.item_3 %}
 
-* Canvas (@Canvas@). "Ver documentação do Canvas":/resources/canvas.html.
+* {% t lecture.get_lectures_id.item_4 %}
 
-* Mídia (@Media@)
+* {% t lecture.get_lectures_id.item_5 %}
 
-**Para vídeos do YouTube**:
+**{% t lecture.get_lectures_id.sub_title_1 %}**:
 
 {% highlight json %}
 {
@@ -246,7 +246,7 @@ h4. Exemplo
 }
 {% endhighlight %}
 
-**Para vídeos hospedados no Redu**:
+**{% t lecture.get_lectures_id.sub_title_2 %}**:
 
 {% highlight json %}
 {
@@ -274,31 +274,31 @@ h4. Exemplo
 
 h2. "POST /api/subjects/:subject_id/lectures":#post-lectures
 
-Cria uma aula.
+{% t lecture.post_subjects_subject_id.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-Deve estar matriculado no "Curso":course.html ao qual o módulo pertence (no caso, o curso ao qual a disciplina pertence) e ter o papel de @environment_admin@ ou @teacher@.
+{% t lecture.post_subjects_subject_id.second_paragraph %}
 
-h4. Parâmetros
+h4. {% t global.parameters %}
 
 table(table table-bordered table-striped).
-|_.Atributo|_.Descrição|_.Restrições|
-|*lecture[name]*|Nome da aula|N/A|
-|*lecture[type]*|Tipo|Deve ser @Media@, @Document@ ou @Page@.|
-|*lecture[media]*|Arquivo ou URL do youtube|Apenas para aulas do tipo @Pedia@ e @Socument@.|
-|*lecture[content]*|Conteúdo em texto|Apenas para aulas do tipo @Page@.|
+|_.{% t global.attribute %}|_.{% t global.description %}|_.{% t global.restrictions %}|
+|*lecture[name]*|{% t lecture.post_subjects_subject_id.table.lecture_name_description %}|N/A|
+|*lecture[type]*|{% t lecture.post_subjects_subject_id.table.lecture_type_description %}|{% t lecture.post_subjects_subject_id.table.lecture_type_restrictions %}|
+|*lecture[media]*|{% t lecture.post_subjects_subject_id.table.lecture_media_description %}|{% t lecture.post_subjects_subject_id.table.lecture_media_restrictions %}|
+|*lecture[content]*|{% t lecture.post_subjects_subject_id.table.content_description %}|{% t lecture.post_subjects_subject_id.table.content_restrictions %}|
 
-h4. Upload de arquivos
+h4. {% t lecture.post_subjects_subject_id.update.sub_title %}
 
-Em casos casos em que há o upload de arquivos, são necessários os seguintes cabeçalhos HTTP:
+{% t lecture.post_subjects_subject_id.update.first_paragraph %}:
 
 1. @Content-Type: multipart/form-data@
-2. @Content-Length: 13951@ (tamanho do arquivo em bytes)
+2. @Content-Length: 13951@ ({% t lecture.post_subjects_subject_id.update.file_lenght %})
 
-O uso do @Content-type@ @multipart/form-data@ torna possível que o corpo da requisição HTTP seja composto vários conjuntos de dados, cada qual possuindo seu próprio Content-type. Com isso podemos enviar, além do @name@ e @type@, os dados binários que compõem uma imagem ou um PDF.
+{% t lecture.post_subjects_subject_id.update.second_paragraph %}
 
-O Redu é capaz de detectar automaticamente o Content-type para imagens. Porém, ao fazer upload de outros tipos de mídia, é necessário informar o seu Content-type. A maior parte das bibliotecas HTTP possuem esta funcionalidade implementada. Abaixo pode ser visto um exemplo de corpo de uma requisição HTTP para o upload de vídeo com o formato MPEG:
+{% t lecture.post_subjects_subject_id.update.third_paragraph %}:
 
 {% highlight sh %}
 ------------------------------17c3f87d4b40
@@ -317,15 +317,15 @@ Content-Disposition: form-data; name="lecture[type]"
 Media
 {% endhighlight %}
 
-Este comportamento é descrito em detalhes no "RFC 2388":http://www.ietf.org/rfc/rfc2388.txt
+{% t lecture.post_subjects_subject_id.update.fourth_paragraph %}
 
-h4. Exemplo
+h4. {% t global.example %}
 
-Em todos os exemplos é utilizado "cURL":http://curl.haxx.se/docs/manpage.html para testar a criação de Lecture. Um exemplo em Java pode ser encontrado "aqui":https://github.com/redu/oauth-consumers/tree/master/java-native/file-upload.
+{% t lecture.post_subjects_subject_id.example.first_paragraph %}
 
-* Documento (@Document@)
+* {% t lecture.post_subjects_subject_id.example.item_1 %}
 
-Neste exemplo, uma aula com o type @Document@ será criada a partir do arquivo @pdf_example.pdf@ no diretório atual.
+{% t lecture.post_subjects_subject_id.example.second_paragraph %}
 
 {% highlight sh %}
 curl \
@@ -336,9 +336,9 @@ curl \
   http://www.redu.com.br/api/subjects/117/lectures -vv
 {% endhighlight %}
 
-* Media (upload)
+* {% t lecture.post_subjects_subject_id.example.item_2 %}
 
-Neste exemplo, uma aula com o type @Media@ será criada a partir do arquivo @video.avi@ no diretório atual.
+{% t lecture.post_subjects_subject_id.example.third_paragraph %}
 
 {% highlight sh %}
 curl \
@@ -349,9 +349,9 @@ curl \
   http://www.redu.com.br/api/subjects/117/lectures -vv
 {% endhighlight %}
 
-* Media (YouTube)
+* {% t lecture.post_subjects_subject_id.example.item_3 %}
 
-Neste exemplo, uma aula com o type @Media@ será criada a partir de um "link":http://www.youtube.com/watch?v=GrV2SZuRPv0 do YouTube.
+{% t lecture.post_subjects_subject_id.example.fourth_paragraph %}
 
 {% highlight sh %}
 curl \
@@ -361,7 +361,7 @@ curl \
   http://redu.com.br/api/subjects/117/lectures -vv
 {% endhighlight %}
 
-* Página (@Page@)
+* {% t lecture.post_subjects_subject_id.example.item_4 %}
 
 {% highlight sh %}
 curl \
@@ -373,8 +373,8 @@ curl \
 
 h2. "DELETE /api/lectures/:id":#delete-lecture
 
-Deleta uma aula.
+{% t lecture.delete_lectures_id.first_paragraph %}
 
-h4. Autorização
+h4. {% t global.authorization %}
 
-Deve estar matriculado no "Curso":course.html ao qual o módulo pertence (no caso, o curso ao qual a disciplina pertence) e ter o papel de @environment_admin@ ou @teacher@.
+{% t lecture.delete_lectures_id.second_paragraph %}
