@@ -1,0 +1,745 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Mural</title>
+    
+    <meta name="author" content="Redu Educational Technologies">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/twitter/css/highlight.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class = "flags">
+            <a class = "flag" href="/" title="Português"/><img src="/assets/images/br.png" /></a>
+            <a class = "flag" href="/en" title="English"/><img src="/assets/images/uk.png" /></a>
+          </div>
+        </div>
+        <div class="container">
+          <a class="brand" href="/">Redu para desenvolvedores</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="content">
+
+        <div class="row">
+          <div class="span12">
+            <div class="page-header">
+              <h1>Mural <small></small></h1>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="span3">
+            <ul class="nav nav-list affix-top">
+              
+              
+              
+
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    	
+    	<li><a href="/resources/progress.html">Progresso</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/course.html">Curso</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/canvas.html">Canvas</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/space.html">Disciplina</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/links.html">Links</a></li>
+    	
+    
+  
+    
+    	
+    	<li class="active"><a href="/resources/status.html" class="active">Mural</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/user.html">Usuário</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/environment.html">AVA</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/chat.html">Chat</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/enrollment.html">Matrícula</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/subject.html">Módulo</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/folders-and-files.html">Pastas e Arquivos</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/lecture.html">Aula</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/connection.html">Conexão</a></li>
+    	
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+            </ul>
+          </div>
+
+          <div class="span9">
+            
+<a href="https://github.com/redu/redu.github.com"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+
+<p>O Mural é o cerne da comunicação dentro do Redu. Através dele os usuários podem postar comentários, respostas e pedidos de ajuda. Além disso o Mural é o meio pelo qual as movimentações do sistema são mostradas. No contexto da <span class="caps">API</span>, qualquer elemento mostrado no Mural é chamado de <code>status</code>.</p>
+<div style="width:610px; margin: 0 auto;" class="thumbnail"><img src="/assets/images/mural-example.png" alt="" /></div>
+<h2><a href="#get-statuses">Tipos de status</a></h2>
+<p>O recurso que representa uma movimentação no Redu é o status. Dependendo do tipo de movimentação, o status possui um tipo (diferenciado através do <code>type</code>) diferente.</p>
+<p>Todos os tipos de Status possuem as seguintes propriedades:</p>
+<table style="clear: both;" class="table table-bordered table-striped">
+	<tr>
+		<th>Atributo</th>
+		<th>Descrição</th>
+		<th>Exemplo</th>
+	</tr>
+	<tr>
+		<td>id</td>
+		<td>Identificador único do Status</td>
+		<td>1</td>
+	</tr>
+	<tr>
+		<td>type</td>
+		<td>Tipo do status</td>
+		<td> <code>Activity</code>, <code>Help</code>, <code>Answer</code> e <code>Log</code></td>
+	</tr>
+	<tr>
+		<td>created_at</td>
+		<td>Data de criação do Status</td>
+		<td><code>2013-03-13T23:47:25-03:00</code></td>
+	</tr>
+	<tr>
+		<td>user</td>
+		<td>Representação do User que criou o status</td>
+		<td>Ver <a href="/resources/user.html">User</a> </td>
+	</tr>
+	<tr>
+		<td>text</td>
+		<td>Texto escrito pelo usuário ou mensagem do sistema</td>
+		<td><code>"adicionou a sua rede de contatos"</code></td>
+	</tr>
+</table>
+<h3>Tipo Activity</h3>
+<p>Status com o tipo Activity são um tipo de movimentação explicitamente criada pelo usuário. Por exemplo, um post no mural da disciplina ou do usuário cria um status do tipo Activity. Este é o tipo mais comum de status.</p>
+<p>O Status do tipo Activity pode ser respondido por outras pessoas. Tais respostas estão acessíveis através do link <code>answers</code>. Além disso, o Activity se relaciona com <code>user</code> e <code>statusable</code>. Ver exemplos abaixo:</p>
+<table style="clear: both;" class="table table-bordered table-striped">
+	<tr>
+		<th>Link</th>
+		<th>Descrição</th>
+		<th>Exemplo</th>
+	</tr>
+	<tr>
+		<td>user</td>
+		<td>Link para o usuário que criou o status</td>
+		<td>http://www.redu.com.br/api/users/guiocavalcanti</td>
+	</tr>
+	<tr>
+		<td>answers</td>
+		<td>Link para respostas do Activity</td>
+		<td>http://www.redu.com.br/api/statuses/107070/answers</td>
+	</tr>
+	<tr>
+		<td>statusable</td>
+		<td>Link para o recurso onde o Activity foi criado</td>
+		<td>http://www.redu.com.br/api/lectures/5874-apresentacao. Pode ser <code>User</code>, <code>Space</code> ou <code>Lecture</code></td>
+	</tr>
+	<tr>
+		<td>self</td>
+		<td>Link para o Activity sendo visualizado</td>
+		<td>http://www.redu.com.br/api/statuses/1212</td>
+	</tr>
+</table>
+<table style="clear: both;" class="table table-bordered table-striped">
+	<tr>
+		<th>Atributo</th>
+		<th>Descrição</th>
+		<th>Exemplo</th>
+	</tr>
+	<tr>
+		<td>answers_count</td>
+		<td>Quantidade de resposta</td>
+		<td>3</td>
+	</tr>
+</table>
+<h3>Tipo Help</h3>
+<div style="margin:10px 0 15px 0;" class="thumbnail"><img src="/assets/images/status-help.png" alt="" /></div>
+<p>Bem parecido com o Activity, Status do tipo Help representam pedidos de ajuda ou perguntas dos usuários. Eles só podem ser criados nos murais das aulas (lecture). No fim do dia, Status com o tipo Help têm a mesma função do Activity, só há uma restrição dos locais onde eles podem ser criados e a representação na interface (ver figura).</p>
+<p>O Status do tipo Help também pode ser respondido por outras pessoas. Tais respostas estão acessíveis através do link <code>answers</code>. Além disso, o Help se relaciona com <code>user</code> e <code>statusable</code> através de link. Ver exemplos abaixo:</p>
+<table style="clear: both;" class="table table-bordered table-striped">
+	<tr>
+		<th>Link</th>
+		<th>Descrição</th>
+		<th>Exemplo</th>
+	</tr>
+	<tr>
+		<td>user</td>
+		<td>Link para o usuário que criou o status</td>
+		<td>http://www.redu.com.br/api/users/guiocavalcanti</td>
+	</tr>
+	<tr>
+		<td>answers</td>
+		<td>Link para respostas do Help</td>
+		<td>http://www.redu.com.br/api/statuses/107070/answers</td>
+	</tr>
+	<tr>
+		<td>statusable</td>
+		<td>Link para o recurso onde o Help foi criado</td>
+		<td>http://www.redu.com.br/api/lectures/5874-apresentacao. Pode ser apenas uma <code>Lecture</code></td>
+	</tr>
+	<tr>
+		<td>self</td>
+		<td>Link para o Help sendo visualizado</td>
+		<td>http://www.redu.com.br/api/statuses/1212</td>
+	</tr>
+</table>
+<table style="clear: both;" class="table table-bordered table-striped">
+	<tr>
+		<th>Atributo</th>
+		<th>Descrição</th>
+		<th>Exemplo</th>
+	</tr>
+	<tr>
+		<td>answers_count</td>
+		<td>Quantidade de resposta</td>
+		<td>7</td>
+	</tr>
+</table>
+<h3>Tipo Answer</h3>
+<p>Como dito acima, os Activity e Help podem ser respondidos por outros usuários. É aí que precisamos do Status do tipo Answer. Eles se relacionam com um Status através do link <code>in_response_to</code>. Diferente dos Activity e Help, os Answer não podem ser respondidos.</p>
+<table style="clear: both;" class="table table-bordered table-striped">
+	<tr>
+		<th>Link</th>
+		<th>Descrição</th>
+		<th>Exemplo</th>
+	</tr>
+	<tr>
+		<td>user</td>
+		<td>Link para o usuário que criou o status</td>
+		<td>http://www.redu.com.br/api/users/guiocavalcanti</td>
+	</tr>
+	<tr>
+		<td>in_response_to</td>
+		<td>Link do Activity ou Help que originou esta resposta</td>
+		<td>http://www.redu.com.br/api/statuses/107070/answers</td>
+	</tr>
+	<tr>
+		<td>self</td>
+		<td>Link para o Answer sendo visualizado</td>
+		<td>http://www.redu.com.br/api/statuses/1212</td>
+	</tr>
+</table>
+<table style="clear: both;" class="table table-bordered table-striped">
+	<tr>
+		<th>Atributo</th>
+		<th>Descrição</th>
+		<th>Exemplo</th>
+	</tr>
+	<tr>
+		<td>id</td>
+		<td>Identificador único do Status</td>
+		<td>1</td>
+	</tr>
+	<tr>
+		<td>type</td>
+		<td>Tipo do status</td>
+		<td> <code>Activity</code>, <code>Help</code>, <code>Answer</code> e <code>Log</code></td>
+	</tr>
+	<tr>
+		<td>created_at</td>
+		<td>Data de criação do Status</td>
+		<td><code>2013-03-13T23:47:25-03:00</code></td>
+	</tr>
+	<tr>
+		<td>user</td>
+		<td>Representação do User que criou o status</td>
+		<td>Ver <a href="/resources/user.html">User</a> </td>
+	</tr>
+	<tr>
+		<td>text</td>
+		<td>Texto escrito pelo usuário ou mensagem do sistema</td>
+		<td><code>"adicionou a sua rede de contatos"</code></td>
+	</tr>
+</table>
+<h3>Tipo Log</h3>
+<p>Este é o único tipo de Status que independe da ação do usuário para serem criados. O Status tipo Log são gerados automáticamente pelo Redu quando certos tipos de ações ocorrem. Por exemplo, quando o usuário atualiza seu perfil no Redu, um Log é criado representando esta ação.</p>
+<p>Em geral Logs são utilizados para representar as alterações dos usuários no Redu. As ações que criam Logs são:</p>
+<ul>
+	<li>Adição de <a href="/resources/lecture.html">Aulas</a> num Módulo (logeable_type <code>Lecture</code>)</li>
+	<li>Criação de <a href="/resources/subject.html">Módulo</a> (logeable_type <code>Subject</code>)</li>
+	<li>Criação de <a href="/resources/course.html">Curso</a> (logeable_type <code>Course</code>)</li>
+	<li><a href="/resources/enrollment.html">Matrícula</a> no Curso (logeable_type <code>Enrollment</code>)</li>
+	<li>Modificação do perfil do <a href="/resources/user.html">Usuário</a> no Curso (logeable_type <code>User</code>)</li>
+	<li>Requisição de <a href="/resources/connection.html">conexão</a> no Curso (logeable_type <code>Friendship</code>)</li>
+</ul>
+<p>Além dos atributos que o Activity, Help e Answer possuem, o Log possui um atributo <code>logeable_type</code> que representa o tipo do objeto ao qual o Log está associado. Por exemplo, a criação de uma aula gera um Log cujo o <code>logeable_type</code> é Lecture. Além disso, o Log tem associado a sí um link para o <code>logeable</code>. No exemplo dado anteriormente o link <code>logeable</code> conteria o endereço para a aula criada.</p>
+<h2><a href="#get-status"><span class="caps">GET</span> /api/statuses/:status_id</a></h2>
+<p>Retorna um <code>status</code> com o ID especificado.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parâmetro</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>:status_id</strong></td>
+		<td> ID do status</td>
+		<td>N/A</td>
+	</tr>
+</table>
+<h2><a href="#get-answers"><span class="caps">GET</span> /api/statuses/:status_id/answers</a></h2>
+<p>Retorna as respostas de um status. É aplicado aos tipos Help e Activity.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parâmetro</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>:status_id</strong></td>
+		<td> ID do status</td>
+		<td>N/A</td>
+	</tr>
+</table>
+<h2><a href="#post-answer"><span class="caps">POST</span> /api/statuses/:status_id/answers</a></h2>
+<p>Cria um status do tipo Answer em resposta a um Activity ou Help.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parâmetro</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>status_id</strong></td>
+		<td> ID do status em questão</td>
+		<td>Somente do tipo Activity ou Help</td>
+	</tr>
+	<tr>
+		<td><strong>status[text]</strong></td>
+		<td> É uma resposta a um comentário ou um pedido de ajuda</td>
+		<td>Máximo 800 caracteres</td>
+	</tr>
+</table>
+<h2><a href="#get-user-status"><span class="caps">GET</span> /api/users/:user_id/statuses</a></h2>
+<p>Retorna todos os <code>status</code> do usuário. Também é possível filtrar pelo tipo. Caso <code>:type</code> não seja informado é retornado os status do tipo Activity, Help e Log do usuário.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parâmetro</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>user_id</strong></td>
+		<td> ID do usuário em questão</td>
+		<td> N/A </td>
+	</tr>
+	<tr>
+		<td><strong>type</strong> ou <strong>types[]</strong></td>
+		<td> Filtragem pelo tipo de status </td>
+		<td>Pode ser do tipo <code>Activity</code>, <code>Help</code> ou <code>Log</code>. Mais de um <code>type</code> pode ser requisitado utilizando a opção <code>types[]</code>.</td>
+	</tr>
+	<tr>
+		<td><strong>logeable_type</strong></td>
+		<td> Deve ser usado em conjunto com o <code>type</code>. Permite filtrar Logs baseados no atributo <code>logeable_type</code> </td>
+		<td><code>User</code>, <code>Friendship</code>, <code>Enrollment</code></td>
+	</tr>
+	<tr>
+		<td><strong>page</strong></td>
+		<td> Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1 </td>
+		<td> Numérico </td>
+	</tr>
+</table>
+<h4>Exemplo</h4>
+<p><strong>Requisição:</strong></p>
+<p><code>GET /api/users/:user_id/statuses?type=Activity</code></p>
+<p><strong>Resposta:</strong></p>
+<div class="highlight"><pre><code class="json"><span class="p">[{</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Activity&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/statuses/34676&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;statusable&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/spaces/521&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/guiocavalcanti&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;answers&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/statuses/34676/answers&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+    <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;social_networks&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;facebook&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;profile&quot;</span><span class="p">:</span> <span class="s2">&quot;www.facebook.com/guiocavalcanti&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;linkedin&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;profile&quot;</span><span class="p">:</span> <span class="s2">&quot;br.linkedin.com/in/guiocavalcanti&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;twitter&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;profile&quot;</span><span class="p">:</span> <span class="s2">&quot;www.twitter.com/guiocavalcanti&quot;</span>
+      <span class="p">}</span>
+      <span class="p">],</span>
+        <span class="nt">&quot;thumbnails&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://s3.amazonaws.com/redu_uploads/users/avatars/4/thumb_32/Guilherme3x4%20copy.jpg?1323711306&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;32x32&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://s3.amazonaws.com/redu_uploads/users/avatars/4/thumb_110/Guilherme3x4%20copy.jpg?1323711306&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;110x110&quot;</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+        <span class="nt">&quot;birthday&quot;</span><span class="p">:</span> <span class="s2">&quot;1987-11-24&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;localization&quot;</span><span class="p">:</span> <span class="s2">&quot;Recife, Brasil&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Guilherme&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;guilhermec@redu.com.br&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/guiocavalcanti&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;enrollments&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/guiocavalcanti/enrollments&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;statuses&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/guiocavalcanti/statuses&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;timeline&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/guiocavalcanti/statuses/timeline&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;contacts&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/guiocavalcanti/contacts&quot;</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+        <span class="nt">&quot;mobile&quot;</span><span class="p">:</span> <span class="s2">&quot;+55 (81) 3333-3333&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;friends_count&quot;</span><span class="p">:</span> <span class="mi">98</span><span class="p">,</span>
+        <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Cavalcanti&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;login&quot;</span><span class="p">:</span> <span class="s2">&quot;guiocavalcanti&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="nt">&quot;birth_localization&quot;</span><span class="p">:</span> <span class="s2">&quot;Recife, Brasil&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">34676</span><span class="p">,</span>
+    <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-07-02T13:53:50-03:00&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Todos os componentes da interface do Redu agora são opensource!\r\n\r\nVocês são livres para utilizar os CSS e JavaScript dentro nas suas aplicações. Para incluir e utilizar basta ir em: http://developers.redu.com.br/ui-components\r\n\r\nNo canto superior direito tem um índice de todos os elementos e sobre como cria-los.&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;answers_count&quot;</span><span class="p">:</span> <span class="mi">6</span>
+<span class="p">}]</span>
+</code></pre></div><h2><a href="#get-user-timeline"><span class="caps">GET</span> /api/users/:user_id/statuses/timeline</a></h2>
+<p>Retorna todos os <code>status</code> do usuário e dos cursos que o usuário faz parte. Diferente do anterior, aqui são mostradas todas as movimentações que interessam ao usuário. É igual ao que se vê na página inicial do Redu.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parâmetro</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>user_id</strong></td>
+		<td> ID do usuário em questão</td>
+		<td> N/A </td>
+	</tr>
+	<tr>
+		<td><strong>type</strong> ou <strong>types[]</strong></td>
+		<td> Filtragem pelo tipo de status </td>
+		<td>Pode ser do tipo <code>Activity</code>, <code>Help</code> ou <code>Log</code>. Mais de um <code>type</code> pode ser requisitado utilizando a opção <code>types[]</code>.</td>
+	</tr>
+	<tr>
+		<td><strong>logeable_type</strong></td>
+		<td> Deve ser usado em conjunto com o <code>type</code>. Permite filtrar Logs baseados no atributo <code>logeable_type</code> </td>
+		<td><code>User</code>, <code>Friendship</code>, <code>CourseEnrollment</code></td>
+	</tr>
+	<tr>
+		<td><strong>page</strong></td>
+		<td> Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1 </td>
+		<td> Numérico </td>
+	</tr>
+</table>
+<h2><a href="#post-user-status"><span class="caps">POST</span> /api/users/:user_id/statuses</a></h2>
+<p>Cria um status do tipo Activity no Mural do usuário.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parâmetro</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>user_id</strong></td>
+		<td> ID do usuário em questão</td>
+		<td>N/A</td>
+	</tr>
+	<tr>
+		<td><strong>status[text]</strong></td>
+		<td> Conteúdo do status </td>
+		<td>Máximo 800 caracteres</td>
+	</tr>
+</table>
+<h2><a href="#get-space-timeline"><span class="caps">GET</span> /api/spaces/:space_id/statuses/timeline</a></h2>
+<p>Retorna todos os <code>status</code> da disciplina e das suas aulas. Diferente do anterior, aqui são agregados tanto as postagens da disciplina quanto as das suas aulas. É igual ao que se vê no mural da disciplina.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parâmetro</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>space_id</strong></td>
+		<td> ID do space</td>
+		<td> N/A </td>
+	</tr>
+	<tr>
+		<td><strong>type</strong> ou <strong>types[]</strong></td>
+		<td> Filtragem pelo tipo de status </td>
+		<td>Pode ser do tipo <code>Activity</code>, <code>Help</code> ou <code>Log</code>. Mais de um <code>type</code> pode ser requisitado utilizando a opção <code>types[]</code>.</td>
+	</tr>
+	<tr>
+		<td><strong>logeable_type</strong></td>
+		<td> Deve ser usado em conjunto com o <code>type</code>. Permite filtrar Logs baseados no atributo <code>logeable_type</code> </td>
+		<td><code>User</code>, <code>Friendship</code>, <code>CourseEnrollment</code></td>
+	</tr>
+	<tr>
+		<td><strong>page</strong></td>
+		<td> Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1 </td>
+		<td> Numérico </td>
+	</tr>
+</table>
+<h2><a href="#get-space-status"><span class="caps">GET</span> /api/spaces/:space_id/statuses</a></h2>
+<p>Retorna todos os <code>status</code> do mural de uma disciplina. Há possibilidade de filtrar os status da disciplina pelo tipo. É importante perceber que os posts listados aqui se limitam àqueles postado diretamente na disciplina.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parâmetro</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>space_id</strong></td>
+		<td> ID do space</td>
+		<td> N/A </td>
+	</tr>
+	<tr>
+		<td><strong>type</strong> ou <strong>types[]</strong></td>
+		<td> Filtragem pelo tipo de status </td>
+		<td>Pode ser do tipo <code>Activity</code>, <code>Help</code> ou <code>Log</code>. Mais de um <code>type</code> pode ser requisitado utilizando a opção <code>types[]</code>.</td>
+	</tr>
+	<tr>
+		<td><strong>logeable_type</strong></td>
+		<td> Deve ser usado em conjunto com o <code>type</code>. Permite filtrar Logs baseados no atributo <code>logeable_type</code> </td>
+		<td><code>User</code>, <code>Friendship</code>, <code>CourseEnrollment</code></td>
+	</tr>
+	<tr>
+		<td><strong>page</strong></td>
+		<td> Paginação dos resultados. As páginas possuem 25 entradas. Padrão é 1 </td>
+		<td> Numérico </td>
+	</tr>
+</table>
+<h2><a href="#post-space-status"><span class="caps">POST</span> /api/spaces/:space_id/statuses</a></h2>
+<p>Cria um status no Mural da disciplina.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parâmetro</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>space_id</strong></td>
+		<td> ID do space em questão</td>
+		<td>N/A</td>
+	</tr>
+	<tr>
+		<td><strong>status[text]</strong></td>
+		<td> Conteúdo do status </td>
+		<td>Máximo 800 caracteres</td>
+	</tr>
+</table>
+<h3>Mural de uma Aula</h3>
+<h2><a href="#get-lecture-status"><span class="caps">GET</span> /api/lectures/:lecture_id/statuses</a></h2>
+<p>Retorna todos os <code>status</code> do mural de uma aula. Pode se filtrar os status de uma aula pelo tipo.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parâmetro</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>lecture_id</strong></td>
+		<td> ID da lecture em questão</td>
+		<td>N/A</td>
+	</tr>
+	<tr>
+		<td><strong>type</strong> ou <strong>types[]</strong></td>
+		<td> Filtragem pelo tipo de status </td>
+		<td>Pode ser do tipo <code>Activity</code>, <code>Help</code> ou <code>Log</code>. Mais de um <code>type</code> pode ser requisitado utilizando a opção <code>types[]</code>.</td>
+	</tr>
+	<tr>
+		<td><strong>logeable_type</strong></td>
+		<td> Deve ser usado em conjunto com o <code>type</code>. Permite filtrar Logs baseados no atributo <code>logeable_type</code> </td>
+		<td><code>User</code>, <code>Friendship</code>, <code>CourseEnrollment</code></td>
+	</tr>
+</table>
+<h2><a href="#post-lecture-status"><span class="caps">POST</span> /api/lectures/:lecture_id/statuses</a></h2>
+<p>Cria um status no Mural da aula. Somente neste caso é permitido criar um Help (pedido de ajuda).</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parâmetro</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>:lecture_id</strong></td>
+		<td> ID da lecture em questão</td>
+		<td>N/A</td>
+	</tr>
+	<tr>
+		<td><strong>status[text]</strong></td>
+		<td> Conteúdo do status </td>
+		<td>Máximo 800 caracteres</td>
+	</tr>
+	<tr>
+		<td><strong>status[type]</strong></td>
+		<td> Tipo do status </td>
+		<td> Activity ou Help </td>
+	</tr>
+</table>
+<h2><a href="#delete-status"><span class="caps">DELETE</span> /api/statuses/:status_id</a></h2>
+<p>Remove o status.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parâmetro</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>:status_id</strong></td>
+		<td>ID do status</td>
+		<td>N/A</td>
+	</tr>
+</table>
+
+
+          </div>
+        </div>
+      </div>
+
+
+      <footer>
+        <p>&copy; Redu Educational Technologies 2012
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

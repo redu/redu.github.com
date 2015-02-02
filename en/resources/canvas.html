@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Canvas</title>
+    
+    <meta name="author" content="Redu Educational Technologies">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/twitter/css/highlight.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class = "flags">
+            <a class = "flag" href="/" title="Português"/><img src="/assets/images/br.png" /></a>
+            <a class = "flag" href="/en" title="English"/><img src="/assets/images/uk.png" /></a>
+          </div>
+        </div>
+        <div class="container">
+          <a class="brand" href="/en/">Redu for developers</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="content">
+
+        <div class="row">
+          <div class="span12">
+            <div class="page-header">
+              <h1>Canvas <small></small></h1>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="span3">
+            <ul class="nav nav-list affix-top">
+              
+              
+              
+
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    	
+    	<li><a href="/en/resources/progress.html">Progress</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/course.html">Course</a></li>
+    	
+    
+  
+    
+    	
+    	<li class="active"><a href="/en/resources/canvas.html" class="active">Canvas</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/space.html">Space</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/links.html">Links</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/status.html">Status</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/user.html">User</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/environment.html">Environment</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/chat.html">Chat</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/enrollment.html">Enrollment</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/subject.html">Subject</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/folders-and-files.html">Folders and Files</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/lecture.html">Lecture</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/connection.html">Connection</a></li>
+    	
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+            </ul>
+          </div>
+
+          <div class="span9">
+            
+<a href="https://github.com/redu/redu.github.com"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+
+<p>The canvas applications represent the highest level of integration with Redu. In this type of integration, there is no need to leave the platform to use the application, so the user experience is usually more complete.</p>
+<p>Once these applications are integrated to Redu interface, there are some limitations with respect to the dimension of them. Currently, you can add applications of width no more than <code>720px</code>. Regarding height, it is only required that it be fixed, i.e., it must be kept from the time the application is loaded.</p>
+<p>The canvas itself is an <code>&lt;iframe&gt;</code> which has an address to another server as source. This model is well-established and used in other application platforms, such as Facebook.</p>
+<p>Going into details, canvas is an <a href="https://developer.mozilla.org/en-US/docs/HTML/Element/iframe"><code>&lt;iframe&gt;</code></a> tag that can be shown in several parts of Redu interface. The <code>&lt;iframe&gt;</code> tag is initialized with an <span class="caps">URL</span> to its application, and it receives various information about the context where the canvas will be displayed.</p>
+<p>At this moment, the canvas can be displayed in Space and Lecture.</p>
+<div class="thumbnail" style="width: 701px;">
+<img src="/assets/images/canvas-example.png" alt="" />
+<div class="caption">
+<small>Example of canvas application in Space. It is possible to keep visual identity of Redu by using our <a href="/ui-components">interface components</a></small>
+</div>
+</div>
+<h2>Context information</h2>
+<p>When displaying the canvas, Redu sends some context information in the <a href="http://en.wikipedia.org/wiki/Query_string"><b>querystring</b></a> format. That is, we can modify the behavior of an application depending on where the canvas is displayed.</p>
+<p>Redu sends the following information to the application:</p>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parameter</th>
+		<td>Meaning</td>
+		<td>Is shown as</td>
+	</tr>
+	<tr>
+		<td><code>redu_container</code></td>
+		<td>Type of container. It represents the hierarchy level where the canvas is shown</td>
+		<td>Always</td>
+	</tr>
+	<tr>
+		<td><code>redu_space_id</code></td>
+		<td>Space ID</td>
+		<td>Always</td>
+	</tr>
+	<tr>
+		<td><code>redu_user_id</code></td>
+		<td>ID of user who is viewing the canvas in Redu</td>
+		<td>Always</td>
+	</tr>
+	<tr>
+		<td><code>redu_lecture_id</code></td>
+		<td>Lecture ID</td>
+		<td>Canvas in Lecture</td>
+	</tr>
+</table>
+<h3>Detecting session expiry</h3>
+<p>In Redu, a common practice is to persiste the ID of a user in an application session. However, when it comes to canvas applications, there is no simple way to expire the user session. For example, when the user <strong>logs out</strong> from Redu, we cannot detect this in the context of application.</p>
+<p>For that reason, the ID of the user (<code>user_id</code>) who is logged on is always sent when displaying a canvas. Your application can compare that ID with the persisted ID in session, and use this information to detect whether the session must be expired or not. This cycle can be seen in the diagram below:</p>
+<div style="margin: 0 auto;" class="thumbnail"><img src="/assets/images/sessao.png" alt="" /></div>
+<h2>Space</h2>
+<h3>Links</h3>
+<p>In the representations of canvas, the following links are shown:</p>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Link</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>self</td>
+		<td>Canvas in question</td>
+	</tr>
+	<tr>
+		<td>self_link</td>
+		<td>Link of Web interface to canvas</td>
+	</tr>
+	<tr>
+		<td>container</td>
+		<td>Link to the canvas container</td>
+	</tr>
+	<tr>
+		<td>raw</td>
+		<td>Link to the <span class="caps">URL</span> shown in the canvas</td>
+	</tr>
+</table>
+<h3><span class="caps">POST</span> /api/spaces/:id/canvas</h3>
+<p>Creates canvas in Space.</p>
+<h4>Parameters</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Key</th>
+		<th>Description</th>
+		<td>Restrictions</td>
+	</tr>
+	<tr>
+		<td>canvas[current_url]</td>
+		<td><span class="caps">URL</span> that will be shown in canvas</td>
+		<td>It is not required. It must be a valid <span class="caps">URL</span></td>
+	</tr>
+	<tr>
+		<td>canvas[name]</td>
+		<td>Name shown in links to the Canvas</td>
+		<td>Required</td>
+	</tr>
+</table>
+<h3><span class="caps">GET</span> /api/canvas/:id</h3>
+<p>Returns the canvas with the specified ID.</p>
+<h4>Example of response</h4>
+<div class="highlight"><pre><code class="json"><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">107</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Minha aula&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;container_type&quot;</span><span class="p">:</span> <span class="s2">&quot;Space&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;current_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://meu-app.com.br/recurso&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://google.com&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;raw&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/spaces/27&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;container&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/canvas/359&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/espacos/27/canvas/359&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self_link&quot;</span> <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2011-11-22T22:56:59-02:00&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2011-02-21T10:11:05-03:00&quot;</span>
+<span class="p">}</span>
+</code></pre></div><h3><span class="caps">PUT</span> /api/canvas/:id</h3>
+<p>Updates information of an existing canvas.</p>
+<h3><span class="caps">DELETE</span> /api/canvas/:id</h3>
+<p>Deletes canvas.</p>
+<h2>Lecture</h2>
+<h3><a href="#post-lectures"><span class="caps">POST</span> /api/subject/:subject_id/lectures</a></h3>
+<p>Creates a new lecture with a canvas within the specified subject.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Chave</th>
+		<th>Descrição</th>
+		<td>Restrições</td>
+	</tr>
+	<tr>
+		<td>lecture[type]</td>
+		<td>Type of Lecture. In this case, we cant to create a <code>Canvas</code> one.</td>
+		<td>Required</td>
+	</tr>
+	<tr>
+		<td>lecture[name]</td>
+		<td>Name of lecture</td>
+		<td>Required</td>
+	</tr>
+	<tr>
+		<td>lecture[current_url]</td>
+		<td><span class="caps">URL</span> that will be shown in canvas</td>
+		<td>It is not required. It must be a valid <span class="caps">URL</span></td>
+	</tr>
+</table>
+<p>The <code>current_url</code> is optional. If it is not given, the main <span class="caps">URL</span> of the application will be shown.</p>
+<h4>Example</h4>
+<p>Request: <code>POST /api/subject/12/lectures</code></p>
+<p>Response:</p>
+<div class="highlight"><pre><code class="json"><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Minha aula&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;rating&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Canvas&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;current_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://meu-app.com.br/recurso&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;next_lecture&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/lectures/105-conheca-o-seu-cliente&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;course&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/courses/recife&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;environment&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/environments/www&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;subject&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/subjects/114&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/lectures/107-aula-youtube&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;raw&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://meu-app.com.br/recurso&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self_link&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/espacos/27/modulos/114/aulas/107-minha-aula&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;space&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/spaces/27&quot;</span> <span class="p">}</span>
+    <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/spaces/27&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;container&quot;</span> <span class="p">},</span>
+  <span class="p">],</span>
+    <span class="nt">&quot;container_type&quot;</span><span class="p">:</span> <span class="s2">&quot;Lecture&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;view_count&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+    <span class="nt">&quot;mimetype&quot;</span><span class="p">:</span> <span class="s2">&quot;application/x-canvas&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2011-11-22T22:56:59-02:00&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">107</span><span class="p">,</span>
+    <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2011-02-21T10:11:05-03:00&quot;</span>
+<span class="p">}</span>
+</code></pre></div><h3><a href="#get-lectures"><span class="caps">GET</span> /api/lectures/:id</a></h3>
+<p>If it is a Canvas lecture, a representation of that will be returned.</p>
+<p>Request: <code>GET /api/lectures/107</code></p>
+<p>Response:</p>
+<div class="highlight"><pre><code class="json"><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Minha aula&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;rating&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Canvas&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;current_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://meu-app.com.br/recurso&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;next_lecture&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/lectures/105-conheca-o-seu-cliente&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;course&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/courses/recife&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;environment&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/environments/www&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;subject&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/subjects/114&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/lectures/107-aula-canvas&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;raw&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://meu-app.com.br/recurso&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self_link&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/espacos/27/modulos/114/aulas/107-aula-canvas&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;space&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/spaces/27&quot;</span> <span class="p">}</span>
+  <span class="p">],</span>
+    <span class="nt">&quot;view_count&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+    <span class="nt">&quot;mimetype&quot;</span><span class="p">:</span> <span class="s2">&quot;application/x-canvas&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2011-11-22T22:56:59-02:00&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">107</span><span class="p">,</span>
+    <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2011-02-21T10:11:05-03:00&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+          </div>
+        </div>
+      </div>
+
+
+      <footer>
+        <p>&copy; Redu Educational Technologies 2012
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

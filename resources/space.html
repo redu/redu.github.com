@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Disciplina</title>
+    
+    <meta name="author" content="Redu Educational Technologies">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/twitter/css/highlight.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class = "flags">
+            <a class = "flag" href="/" title="Português"/><img src="/assets/images/br.png" /></a>
+            <a class = "flag" href="/en" title="English"/><img src="/assets/images/uk.png" /></a>
+          </div>
+        </div>
+        <div class="container">
+          <a class="brand" href="/">Redu para desenvolvedores</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="content">
+
+        <div class="row">
+          <div class="span12">
+            <div class="page-header">
+              <h1>Disciplina <small></small></h1>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="span3">
+            <ul class="nav nav-list affix-top">
+              
+              
+              
+
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    	
+    	<li><a href="/resources/progress.html">Progresso</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/course.html">Curso</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/canvas.html">Canvas</a></li>
+    	
+    
+  
+    
+    	
+    	<li class="active"><a href="/resources/space.html" class="active">Disciplina</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/links.html">Links</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/status.html">Mural</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/user.html">Usuário</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/environment.html">AVA</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/chat.html">Chat</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/enrollment.html">Matrícula</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/subject.html">Módulo</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/folders-and-files.html">Pastas e Arquivos</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/lecture.html">Aula</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/connection.html">Conexão</a></li>
+    	
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+            </ul>
+          </div>
+
+          <div class="span9">
+            
+<a href="https://github.com/redu/redu.github.com"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+
+<p>No contexto da <span class="caps">API</span> disciplina é referida como <code>space</code>. É na disciplina que as interações sociais (ver mural) acontecem e o conteúdo (ver módulo) são postados.</p>
+<h2><a href="#get-spaces"><span class="caps">GET</span> /api/spaces/:id</a></h2>
+<p>Retorna a disciplina em questão.</p>
+<h4>Autorização</h4>
+<p>Deve estar matriculado no <a href="course.html">Curso</a> ao qual a disciplina pertence.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parâmetro</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>id</strong></td>
+		<td>ID da disciplina</td>
+		<td>N/A</td>
+	</tr>
+</table>
+<h2><a href="#put-spaces"><span class="caps">PUT</span> /api/spaces/:id</a></h2>
+<p>Atualiza as informações da disciplina.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parâmetro</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>space[name]</strong></td>
+		<td>Nome da disciplina</td>
+		<td>Máximo 40 caracteres; deve ser único</td>
+	</tr>
+	<tr>
+		<td>space[description]</td>
+		<td>Descrição da disciplina</td>
+		<td>Máximo de 400 caracteres</td>
+	</tr>
+</table>
+<h2><a href="#post-course-spaces"><span class="caps">POST</span> /api/courses/:course_id/spaces</a></h2>
+<p>Cria uma disciplina no contexto do course especificado por <code>course_id</code>.</p>
+<h4>Autorização</h4>
+<p>Deve ser <code>teacher</code> ou <code>environment_admin</code> no curso.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parâmetro</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>course_id</strong></td>
+		<td>ID do curso</td>
+		<td>N/A</td>
+	</tr>
+	<tr>
+		<td><strong>space[name]</strong></td>
+		<td>Nome da disciplina </td>
+		<td>Máximo 40 caracteres</td>
+	</tr>
+	<tr>
+		<td>space[description]</td>
+		<td>Descrição da disciplina</td>
+		<td>Máximo de 400 caracteres</td>
+	</tr>
+</table>
+<h4>Exemplo</h4>
+<p><code>POST /api/courses/foo/spaces</code></p>
+<p><strong>Payload:</strong></p>
+<div class="highlight"><pre><code class="json"><span class="p">{</span>
+  <span class="nt">&quot;space&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;minha nova disciplina&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p><strong>Resposta:</strong></p>
+<div class="highlight"><pre><code class="json"><span class="p">{</span>
+  <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/spaces/1626&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/courses/meu-novo-curso&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;course&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/environments/www&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;environment&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/spaces/1626/users&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;users&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/spaces/1626/subjects&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;subjects&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/spaces/1626/statuses&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;statuses&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/spaces/1626/statuses/timeline&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;timeline&quot;</span>
+  <span class="p">}</span>
+  <span class="p">],</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;minha nova disciplina&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-09-10T09:51:23-03:00&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1626</span>
+<span class="p">}</span>
+</code></pre></div><h2><a href="#get-course-spaces"><span class="caps">GET</span> /api/courses/:course_id/spaces</a></h2>
+<p>Retorna uma lista com as disciplinas do curso especificado.</p>
+<h4>Autorização</h4>
+<p>Deve estar matriculado no curso.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parâmetro</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>course_id</strong></td>
+		<td>ID ou path do curso</td>
+		<td>N/A</td>
+	</tr>
+</table>
+<h2><a href="#delete-spaces"><span class="caps">DELETE</span> /api/spaces/:id</a></h2>
+<p>Remove uma disciplina. Os que fazem parte do curso ao qual a disciplina faz parte não terão mais acesso aos módulos e aulas.</p>
+<h4>Autorização</h4>
+<p>Deve ser <code>teacher</code> ou <code>environment_admin</code> no curso.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parâmetro</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>id</strong></td>
+		<td>ID da disciplina</td>
+		<td>N/A</td>
+	</tr>
+</table>
+
+
+          </div>
+        </div>
+      </div>
+
+
+      <footer>
+        <p>&copy; Redu Educational Technologies 2012
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

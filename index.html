@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Redu para desenvolvedores</title>
+    
+    <meta name="author" content="Redu Educational Technologies">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/twitter/css/highlight.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class = "flags">
+            <a class = "flag" href="/" title="Português"/><img src="/assets/images/br.png" /></a>
+            <a class = "flag" href="/en" title="English"/><img src="/assets/images/uk.png" /></a>
+          </div>
+        </div>
+        <div class="container">
+          <a class="brand" href="/">Redu para desenvolvedores</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="content">
+
+        <div class="row">
+          <div class="span12">
+            <div class="page-header">
+              <h1>Redu para desenvolvedores <small>Documentação da API REST do Redu</small></h1>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="span3">
+            <ul class="nav nav-list affix-top">
+              
+              
+              
+
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    	
+    	<li><a href="/resources/progress.html">Progresso</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/course.html">Curso</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/canvas.html">Canvas</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/space.html">Disciplina</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/links.html">Links</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/status.html">Mural</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/user.html">Usuário</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/environment.html">AVA</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/chat.html">Chat</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/enrollment.html">Matrícula</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/subject.html">Módulo</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/folders-and-files.html">Pastas e Arquivos</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/lecture.html">Aula</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/connection.html">Conexão</a></li>
+    	
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+            </ul>
+          </div>
+
+          <div class="span9">
+            
+<a href="https://github.com/redu/redu.github.com"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+
+<h2>Introdução</h2>
+<p>O <a href="http://www.redu.com.br">Redu</a> é uma plataforma de ensino a distância construída sobre uma rede social. Através da <span class="caps">API</span> <a href="http://en.wikipedia.org/wiki/HTTP"><span class="caps">HTTP</span></a> <a href="http://en.wikipedia.org/wiki/REST"><span class="caps">REST</span></a> do <a href="http://www.redu.com.br">Redu</a> é possível construir aplicações que acessam os dados dos <a href="resources/user.html">usuários</a> da plataforma.</p>
+<p>Dizer que uma <span class="caps">API</span> pode ser utilizada via <a href="http://en.wikipedia.org/wiki/HTTP"><span class="caps">HTTP</span></a> implica dizer que não há restrições quanto a linguagem ou tecnologias utilizadas na integração de aplicativos. Por se tratar do protocolo de aplicação da internet, qualquer linguagem moderna é capaz de enviar requisições <span class="caps">HTTP</span>.</p>
+<h2>Primeiros passos</h2>
+<h3>1. Criação de credenciais</h3>
+<p>Antes de consumir a <span class="caps">API</span> é necessário cadastrar o aplicativo. Para cadastrar vá na opção <a href="http://redu.com.br/aplicativos/criar">Aplicativos</a> na sua página incial do Redu. Você precisa informar Nome e <span class="caps">URL</span> do seu aplicativo. O nome será mostrado para o usuário quando o aplicativo estiver pedindo autorização para o acesso a dados. A <span class="caps">URL</span> também é obrigatória e pode ser ou a página inicial do seu aplicativo ou uma página explicativa do mesmo.</p>
+<div style="width: 705px; margin: 0 10px 10px 0;" class="thumbnail"><img src="assets/images/new-app-local.png" alt="" /></div>
+<p>Após informar nome e <span class="caps">URL</span> do aplicativo, serão mostrada as credenciais do mesmo. Existem dois tipos de credenciais: a chave do <b>consumer</b> e o segredo do <b>consumer</b>. A chave do consumer é um identificador único do seu aplicativo que é utilizada para pedir autorização para o usuário ceder seus dados para o aplicativo. Já o segredo do <b>consumer</b> é um identificador privado que o Redu utiliza identificar o aplicativo que realiza a requisição da <span class="caps">API</span>.</p>
+<div style="width: 705px; margin: 10px 0;" class="thumbnail"><img src="assets/images/app-credentials.png" alt="" /></div>
+<h3>2. Autenticação</h3>
+<p>O Redu não cede dados do usuários sem a expressa autenticação do mesmo. Para que os aplicativos acessem as informações do usuário é necessário que ele autorize explicitamente este acesso. Para isso, o aplicativo precisa implementar o processo de autenticação do usuário. No Redu utilizamos o protocolo OAuth 2.0 para este fim. Tal protocolo é muito difundido e utilizado pelas APIs Twitter, Facebook e Google.</p>
+<div style="width: 705px; margin: 10px 0;" class="thumbnail"><img src="assets/images/oauth-workflow.png" alt="" /></div>
+<p>No fim do processo de autenticação do OAuth 2.0 é gerado mais uma credencial chamada de <strong>aceess token</strong>. Esta credencial identifica unicamente sua aplicação e o usuário que autorizou acesso. Portanto, é necessário enviar o <strong>access token</strong> em todas as requisições feitas em nome do usuário que autorizou. O <strong>access token</strong> pode ser enviado via querystring (<code>?access_token=TOKEN</code>) ou pelo cabeçalho <code>Authorization</code> (<code>Authorization: OAuth TOKEN</code>) da requisição <span class="caps">HTTP</span>.</p>
+<p>Este guia não entra em detalhes sobre a implementação da autenticação via OAuth 2.0. Porém temos exemplos em <a href="https://github.com/redu/oauth-consumers">várias linguagens</a> sobre como realizar esta tarefa. Uma lista com clientes OAuth 2 sugeridos é mostrada abaixo:</p>
+<table style="clear: both;" class="table table-bordered table-striped">
+	<tr>
+		<th>Linguagem/Framework</th>
+		<th>Projeto</th>
+		<th>Suporte Oficial?</th>
+	</tr>
+	<tr>
+		<td>Ruby On Rails</td>
+		<td><a href="https://github.com/redu/omniauth-redu">omniauth-redu</a> </td>
+		<td>Sim</td>
+	</tr>
+	<tr>
+		<td>Python</td>
+		<td><a href="https://github.com/redu/redupy">ReduPy</a> </td>
+		<td>Sim</td>
+	</tr>
+	<tr>
+		<td>Java</td>
+		<td><a href="https://github.com/redu/jredu">jRedu</a> </td>
+		<td>Sim</td>
+	</tr>
+	<tr>
+		<td>Python</td>
+		<td><a href="https://github.com/litl/rauth">rauth</a> </td>
+		<td>Não</td>
+	</tr>
+	<tr>
+		<td>Django</td>
+		<td><a href="https://github.com/omab/django-social-auth">django-social-auth</a> </td>
+		<td>Não</td>
+	</tr>
+	<tr>
+		<td>Play!</td>
+		<td><a href="https://github.com/leleuj/play-pac4j">play-pack4j</a> </td>
+		<td>Não</td>
+	</tr>
+	<tr>
+		<td> .<span class="caps">NET</span></td>
+		<td><a href="http://www.dotnetopenauth.net/">.<span class="caps">NET</span> Open Auth</a> </td>
+		<td>Não</td>
+	</tr>
+</table>
+<h3>3. Consumindo a <span class="caps">API</span> <span class="caps">REST</span></h3>
+<p>Após cadastrar o aplicativo e pedir autorização para o usuário, será possível utilizar a <span class="caps">API</span> <span class="caps">REST</span>. Por exemplo, ao realizar uma requisição <span class="caps">HTTP</span> com o método <span class="caps">GET</span> para a <span class="caps">URL</span> <code>/api/environments/foo</code> o recurso retornado seria como o descrito abaixo:</p>
+<div class="highlight"><pre><code class="javascript"><span class="p">{</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">,</span>
+  <span class="nx">created_at</span><span class="o">:</span> <span class="s2">&quot;2010-12-17T16:37:40-02:00&quot;</span><span class="p">,</span>
+  <span class="nx">initials</span><span class="o">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span>
+  <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span>
+  <span class="nx">links</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="nx">href</span><span class="o">:</span> <span class="s2">&quot;http://redu.com.br/api/environments/foo&quot;</span><span class="p">,</span> <span class="nx">rel</span><span class="o">:</span> <span class="s2">&quot;self&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nx">href</span><span class="o">:</span> <span class="s2">&quot;http://redu.com.br/api/environments/foo/courses&quot;</span><span class="p">,</span> <span class="nx">rel</span><span class="o">:</span> <span class="s2">&quot;courses&quot;</span> <span class="p">}</span>
+    <span class="p">{</span> <span class="nx">href</span><span class="o">:</span> <span class="s2">&quot;http://redu.com.br/api/environments/foo/users&quot;</span><span class="p">,</span> <span class="nx">rel</span><span class="o">:</span> <span class="s2">&quot;users&quot;</span> <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div><h4>Hypertext enabled</h4>
+<p>Seguindo a <a href="http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven">sugestão</a> do <a href="http://en.wikipedia.org/wiki/Roy_Fielding">Roy Fielding</a>, pai do <span class="caps">REST</span>, todos os recursos retornados pela <span class="caps">API</span> do Redu possuem metainformações (hyperlinks) para outros recursos importantes no estado atual da aplicação. Isso faz com que a <span class="caps">API</span> possua um único ponto de entrada, por exemplo o <span class="caps">AVA</span>.</p>
+<p>Note que a representação retornada possui uma propriedade links que denota as URLs que a aplicação cliente precisa conhecer no contexto atual (visualização do ambiente virtual de aprendizagem). Isso quer dizer que, por exemplo, quisessemos visualizar os cursos do <span class="caps">AVA</span> em questão, poderíamos faze-lo sem conhecer a priori a <span class="caps">URL</span> apropriada.</p>
+<h2>Mais informações</h2>
+<div style="width:705px" id="__ss_13160601"> <strong style="display:block;margin:12px 0 4px"><a href="http://www.slideshare.net/guiocavalcanti/introduo-a-plataforma-de-aplicativos-redu" title="Introdução a plataforma de aplicativos Redu" target="_blank">Introdução a plataforma de aplicativos Redu</a></strong> <object id="__sse13160601" width="705px" height="600px"> <param name="movie" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=platform-101-120601061122-phpapp02&rel=0&stripped_title=introduo-a-plataforma-de-aplicativos-redu&userName=guiocavalcanti" /> <param name="allowFullScreen" value="true"/> <param name="allowScriptAccess" value="always"/> <param name="wmode" value="transparent"/> <embed name="__sse13160601" src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=platform-101-120601061122-phpapp02&rel=0&stripped_title=introduo-a-plataforma-de-aplicativos-redu&userName=guiocavalcanti" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="transparent" width="595" height="497"></embed> </object> <div style="padding:5px 0 12px"> View more <a href="http://www.slideshare.net/" target="_blank">presentations</a> from <a href="http://www.slideshare.net/guiocavalcanti" target="_blank">Guilherme</a> </div> </div>
+
+
+          </div>
+        </div>
+      </div>
+
+
+      <footer>
+        <p>&copy; Redu Educational Technologies 2012
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

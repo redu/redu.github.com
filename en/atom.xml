@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>Redu para desenvolvedores</title>
+ <link href="http://developers.redu.com.br/atom.xml" rel="self"/>
+ <link href="http://developers.redu.com.br"/>
+ <updated>2015-02-02T08:34:27-06:00</updated>
+ <id>http://developers.redu.com.br</id>
+ <author>
+   <name>Redu Educational Technologies</name>
+   <email>contato@redu.com.br</email>
+ </author>
+
+ 
+ 
+</feed>

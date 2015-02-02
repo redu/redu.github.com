@@ -1,0 +1,492 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Progresso</title>
+    
+    <meta name="author" content="Redu Educational Technologies">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/twitter/css/highlight.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class = "flags">
+            <a class = "flag" href="/" title="Português"/><img src="/assets/images/br.png" /></a>
+            <a class = "flag" href="/en" title="English"/><img src="/assets/images/uk.png" /></a>
+          </div>
+        </div>
+        <div class="container">
+          <a class="brand" href="/">Redu para desenvolvedores</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="content">
+
+        <div class="row">
+          <div class="span12">
+            <div class="page-header">
+              <h1>Progresso <small></small></h1>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="span3">
+            <ul class="nav nav-list affix-top">
+              
+              
+              
+
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    	
+    	<li class="active"><a href="/resources/progress.html" class="active">Progresso</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/course.html">Curso</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/canvas.html">Canvas</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/space.html">Disciplina</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/links.html">Links</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/status.html">Mural</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/user.html">Usuário</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/environment.html">AVA</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/chat.html">Chat</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/enrollment.html">Matrícula</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/subject.html">Módulo</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/folders-and-files.html">Pastas e Arquivos</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/lecture.html">Aula</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/connection.html">Conexão</a></li>
+    	
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+            </ul>
+          </div>
+
+          <div class="span9">
+            
+<a href="https://github.com/redu/redu.github.com"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+
+<p>O recurso de Progresso refere-se ao progresso de um usuário em relação a uma <a href="/resources/lecture.html">Aula</a>. Este recurso indica se a aula foi finalizada pelo aluno.</p>
+<div style="width:318px; margin: 0 auto;" class="thumbnail"><img src="/assets/images/progress-example.png" alt="" /></div>
+<h3>Atributos</h3>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Atributo</th>
+		<th>Descrição</th>
+	</tr>
+	<tr>
+		<td>id</td>
+		<td>ID do progresso</td>
+	</tr>
+	<tr>
+		<td>finalized</td>
+		<td>Indica se a aula foi finalizada</td>
+	</tr>
+	<tr>
+		<td>updated_at</td>
+		<td>Indica quando a aula foi finalizada (se <code>finalized = true</code>)</td>
+	</tr>
+</table>
+<h3>Links</h3>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Link</th>
+		<th>Descrição</th>
+	</tr>
+	<tr>
+		<td>self</td>
+		<td>Progresso em questão</td>
+	</tr>
+	<tr>
+		<td>user</td>
+		<td>Usuário responsável pelo progresso na aula</td>
+	</tr>
+	<tr>
+		<td>lecture</td>
+		<td>Aula à ser finalizada</td>
+	</tr>
+	<tr>
+		<td>subject</td>
+		<td>Módulo ao qual a aula pertence</td>
+	</tr>
+</table>
+<h2><a href="#progress-get"><span class="caps">GET</span> /api/progress/:id</a></h2>
+<p>Retorna um progresso com  o ID especificado</p>
+<h4>Autorização</h4>
+<p>É necessário estar <a href="/resources/enrollment.html">matriculado</a> no <a href="/resources/course.html">curso</a> ao qual a aula pertence e ser o <code>user</code> da entidade Progresso.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Atributo</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>id</strong></td>
+		<td>ID do progresso</td>
+		<td>N/A</td>
+	</tr>
+</table>
+<h4>Exemplo</h4>
+<p>Requisição:<br />
+<code>GET /api/progress/4</code></p>
+<p>Resposta:</p>
+<pre>
+{
+  "id" : 4,
+  "finalized" : false,
+  "updated_at" : "2012-01-13T12:11:22-02:00",
+  "links" : [
+    { "rel" : "self", "href" : "http://www.redu.com.br/api/progress/1" },
+    { "rel" : "user", "href" : "http://www.redu.com.br/api/users/4" },
+    { "rel" : "lecture", "href" : "http://www.redu.com.br/api/lectures/8" },
+    { "rel" : "subject", "href" : "http://www.redu.com.br/api/subjects/5" }
+  ]
+}
+</pre>
+<h2><a href="#progress-put"><span class="caps">PUT</span> /api/progress/:id</a></h2>
+<p>Atualiza o progresso do usuário logado em relação a uma aula.</p>
+<h4>Autorização</h4>
+<p>É necessário estar <a href="/resources/enrollment.html">matriculado</a> no <a href="/resources/course.html">curso</a> ao qual a aula pertence e ser o <code>user</code> da entidade Progresso.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Atributo</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>id</strong></td>
+		<td>ID do progresso</td>
+		<td>N/A</td>
+	</tr>
+	<tr>
+		<td><strong>progress[finalized]</strong></td>
+		<td>Indicativo de que a aula foi finalizada</td>
+		<td>Deve ser <code>true</code> ou <code>false</code></td>
+	</tr>
+</table>
+<h4>Exemplo</h4>
+<p>Requisição:<br />
+<code>PUT /api/progress/4</code></p>
+<p>Resposta:</p>
+<pre>
+{
+  "id" : 4,
+  "finalized" : true,
+  "updated_at" : "2012-01-15T12:11:22-02:00",
+  "links" : [
+    { "rel" : "self", "href" : "http://www.redu.com.br/api/progress/1" },
+    { "rel" : "user", "href" : "http://www.redu.com.br/api/users/4" },
+    { "rel" : "lecture", "href" : "http://www.redu.com.br/api/lectures/8" },
+    { "rel" : "subject", "href" : "http://www.redu.com.br/api/subjects/5" }
+  ]
+}
+</pre>
+<h2><a href="#progress-lectures-get"><span class="caps">GET</span> /api/lectures/:lecture_id/progress/</a></h2>
+<p>Retorna todos os progressos de uma <a href="/resources/lecture.html">aula</a>, ou seja, de todos os usuários relacionados à aula. Pode-se filtrar os progressos de uma aula pelo(s) usuário(s).</p>
+<h4>Autorização</h4>
+<p>É necessário estar <a href="/resources/enrollment.html">matriculado</a> no <a href="/resources/course.html">curso</a> ao qual a aula pertence como <code>teacher</code> ou <code>environment_admin</code>.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Atributo</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>lecture_id</strong></td>
+		<td>ID da aula</td>
+		<td>N/A</td>
+	</tr>
+	<tr>
+		<td>users_ids[]</td>
+		<td>ID do usuário. Permite filtrar os progressos baseado no(s) usuário(s)</td>
+		<td>Precisa ser um usuário matriculado no curso ao qual a aula pertence</td>
+	</tr>
+</table>
+<h4>Exemplo</h4>
+<p>Requisição:<br />
+<code>GET /api/lectures/25/progress</code></p>
+<p>Resposta:</p>
+<pre>
+[
+  {
+    "id" : 1,
+    "finalized" : true,
+    "updated_at" : "2012-01-15T12:11:22-02:00",
+    "links" : [
+      { "rel" : "self", "href" : "http://www.redu.com.br/api/progress/1" },
+      { "rel" : "user", "href" : "http://www.redu.com.br/api/users/4" },
+      { "rel" : "lecture", "href" : "http://www.redu.com.br/api/lectures/25" },
+      { "rel" : "subject", "href" : "http://www.redu.com.br/api/subjects/5" }
+    ]
+  },
+  {
+    "id" : 9,
+    "finalized" : false,
+    "updated_at" : "2012-01-07T12:11:22-02:00",
+    "links" : [
+      { "rel" : "self", "href" : "http://www.redu.com.br/api/progress/9" },
+      { "rel" : "user", "href" : "http://www.redu.com.br/api/users/23" },
+      { "rel" : "lecture", "href" : "http://www.redu.com.br/api/lectures/25" },
+      { "rel" : "subject", "href" : "http://www.redu.com.br/api/subjects/5" }
+    ]
+  },
+]
+</pre>
+<h2><a href="#progress-subjects-get"><span class="caps">GET</span> /api/subjects/:subject_id/progress/</a></h2>
+<p>Retorna todos os progressos de um <a href="/resources/subject.html">módulo</a>, ou seja, de todos os usuários relacionados ao módulo. Pode-se filtrar os progressos de um módulo pelo(s) usuário(s).</p>
+<h4>Autorização</h4>
+<p>É necessário estar <a href="/resources/enrollment.html">matriculado</a> no <a href="/resources/course.html">curso</a> ao qual o módulo pertence como <code>teacher</code> ou <code>environment_admin</code>.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Atributo</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>subject_id</strong></td>
+		<td>ID da módulo</td>
+		<td>N/A</td>
+	</tr>
+	<tr>
+		<td>users_ids[]</td>
+		<td>ID do usuário. Permite filtrar os progressos baseado no(s) usuário(s)</td>
+		<td>Precisa ser um usuário matriculado no curso ao qual o módulo pertence</td>
+	</tr>
+</table>
+<h4>Exemplo</h4>
+<p>Requisição:<br />
+<code>GET /api/subjects/74/progress</code></p>
+<p>Resposta:</p>
+<pre>
+[
+  {
+    "id" : 1,
+    "finalized" : true,
+    "updated_at" : "2012-01-15T12:11:22-02:00",
+    "links" : [
+      { "rel" : "self", "href" : "http://www.redu.com.br/api/progress/1" },
+      { "rel" : "user", "href" : "http://www.redu.com.br/api/users/4" },
+      { "rel" : "lecture", "href" : "http://www.redu.com.br/api/lectures/25" },
+      { "rel" : "subject", "href" : "http://www.redu.com.br/api/subjects/5" }
+    ]
+  },
+  {
+    "id" : 9,
+    "finalized" : false,
+    "updated_at" : "2012-01-07T12:11:22-02:00",
+    "links" : [
+      { "rel" : "self", "href" : "http://www.redu.com.br/api/progress/9" },
+      { "rel" : "user", "href" : "http://www.redu.com.br/api/users/23" },
+      { "rel" : "lecture", "href" : "http://www.redu.com.br/api/lectures/25" },
+      { "rel" : "subject", "href" : "http://www.redu.com.br/api/subjects/5" }
+    ]
+  },
+  {
+    "id" : 2,
+    "finalized" : true,
+    "updated_at" : "2012-01-15T12:11:22-02:00",
+    "links" : [
+      { "rel" : "self", "href" : "http://www.redu.com.br/api/progress/2" },
+      { "rel" : "user", "href" : "http://www.redu.com.br/api/users/4" },
+      { "rel" : "lecture", "href" : "http://www.redu.com.br/api/lectures/48" },
+      { "rel" : "subject", "href" : "http://www.redu.com.br/api/subjects/7" }
+    ]
+  },
+  {
+    "id" : 10,
+    "finalized" : true,
+    "updated_at" : "2012-01-07T12:11:22-02:00",
+    "links" : [
+      { "rel" : "self", "href" : "http://www.redu.com.br/api/progress/10" },
+      { "rel" : "user", "href" : "http://www.redu.com.br/api/users/23" },
+      { "rel" : "lecture", "href" : "http://www.redu.com.br/api/lectures/48" },
+      { "rel" : "subject", "href" : "http://www.redu.com.br/api/subjects/7" }
+    ]
+  },
+]
+</pre>
+<h2><a href="#progress-users-get"><span class="caps">GET</span> /api/users/:user_id/progress/</a></h2>
+<p>Retorna todos os progressos de um usuário. Pode-se filtrar os progressos de um usuário pela(s) aulas(s) ou módulo(s).</p>
+<h4>Autorização</h4>
+<p>Apenas o próprio usuário tem acesso.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Atributo</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>user_id</strong></td>
+		<td>ID do usuário</td>
+		<td>N/A</td>
+	</tr>
+	<tr>
+		<td>lectures_ids[]</td>
+		<td>ID da aula. Permite filtrar os progressos baseado na(s) aulas(s)</td>
+		<td>Precisa ser uma aula pertencente a um curso cujo usuário é matriculado</td>
+	</tr>
+	<tr>
+		<td>subjects_ids[]</td>
+		<td>ID do módulo. Permite filtrar os progressos baseado no(s) módulos(s)</td>
+		<td>Precisa ser um módulo pertencente a um curso cujo usuário é matriculado</td>
+	</tr>
+</table>
+<h4>Exemplo</h4>
+<p>Requisição:<br />
+<code>GET /api/users/216/progress</code></p>
+<p>Resposta:</p>
+<pre>
+[
+  {
+    "updated_at": "2013-03-26T15:52:53-03:00",
+    "id": 131061,
+    "finalized": false,
+    "links": [
+      { "rel": "self", "href": "http://www.redu.com.br/api/progress/131061" },
+      { "rel": "user", "href": "http://www.redu.com.br/api/users/juliana" },
+      { "rel": "subject", "href": "http://www.redu.com.br/api/subjects/78" },
+      { "rel": "lecture", "href": "http://www.redu.com.br/api/lectures/82" }
+    ]
+  },
+  {
+    "updated_at": "2013-05-02T15:25:01-03:00",
+    "id": 580275,
+    "finalized": false,
+    "links": [
+      { "rel": "self", "href": "http://www.redu.com.br/api/progress/580275" },
+      { "rel": "user", "href": "http://www.redu.com.br/api/users/juliana" },
+      { "rel": "subject", "href": "http://www.redu.com.br/api/subjects/114" },
+      { "rel": "lecture", "href": "http://www.redu.com.br/api/lectures/964" }
+    ]
+  }
+]
+</pre>
+
+
+          </div>
+        </div>
+      </div>
+
+
+      <footer>
+        <p>&copy; Redu Educational Technologies 2012
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

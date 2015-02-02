@@ -1,0 +1,752 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>User</title>
+    
+    <meta name="author" content="Redu Educational Technologies">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/twitter/css/highlight.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class = "flags">
+            <a class = "flag" href="/" title="Português"/><img src="/assets/images/br.png" /></a>
+            <a class = "flag" href="/en" title="English"/><img src="/assets/images/uk.png" /></a>
+          </div>
+        </div>
+        <div class="container">
+          <a class="brand" href="/en/">Redu for developers</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="content">
+
+        <div class="row">
+          <div class="span12">
+            <div class="page-header">
+              <h1>User <small></small></h1>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="span3">
+            <ul class="nav nav-list affix-top">
+              
+              
+              
+
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    	
+    	<li><a href="/en/resources/progress.html">Progress</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/course.html">Course</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/canvas.html">Canvas</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/space.html">Space</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/links.html">Links</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/status.html">Status</a></li>
+    	
+    
+  
+    
+    	
+    	<li class="active"><a href="/en/resources/user.html" class="active">User</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/environment.html">Environment</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/chat.html">Chat</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/enrollment.html">Enrollment</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/subject.html">Subject</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/folders-and-files.html">Folders and Files</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/lecture.html">Lecture</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/connection.html">Connection</a></li>
+    	
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+            </ul>
+          </div>
+
+          <div class="span9">
+            
+<a href="https://github.com/redu/redu.github.com"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+
+<p>Represents a user registered on Redu.</p>
+<h2>Attributes</h2>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Attribute</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><strong>ID</strong></td>
+		<td>Identifier of user</td>
+	</tr>
+	<tr>
+		<td><strong>login</strong></td>
+		<td>User login</td>
+	</tr>
+	<tr>
+		<td><strong>email</strong></td>
+		<td>Email registered on Redu</td>
+	</tr>
+	<tr>
+		<td><strong>first_name</strong></td>
+		<td>First name</td>
+	</tr>
+	<tr>
+		<td><strong>last_name</strong></td>
+		<td>Last name</td>
+	</tr>
+	<tr>
+		<td>description</td>
+		<td>Description of user</td>
+	</tr>
+	<tr>
+		<td>favorite_quotation</td>
+		<td>Remarkable quotation</td>
+	</tr>
+	<tr>
+		<td>localization</td>
+		<td>Where the user lives</td>
+	</tr>
+	<tr>
+		<td>mobile</td>
+		<td>Cell phone</td>
+	</tr>
+	<tr>
+		<td>birthday</td>
+		<td>Birthday</td>
+	</tr>
+	<tr>
+		<td>birth_localization</td>
+		<td>Birthplace</td>
+	</tr>
+	<tr>
+		<td>friends_count</td>
+		<td>Number of contacts</td>
+	</tr>
+	<tr>
+		<td>created_at</td>
+		<td>Date of creation</td>
+	</tr>
+	<tr>
+		<td>updated_at</td>
+		<td>Date of update</td>
+	</tr>
+	<tr>
+		<td>social_networks</td>
+		<td>Registered social networks</td>
+	</tr>
+	<tr>
+		<td>interested_areas</td>
+		<td>Areas of interest</td>
+	</tr>
+	<tr>
+		<td>thumbnails</td>
+		<td>User thumbnails. Available dimenstions: 24&#215;24, 32&#215;32, 48&#215;48, 90&#215;90, 96&#215;96, 110&#215;110 e 160&#215;160</td>
+	</tr>
+</table>
+<h2>Links</h2>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Link</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>self</td>
+		<td>User in question</td>
+	</tr>
+	<tr>
+		<td>enrollments</td>
+		<td>Enrollments</td>
+	</tr>
+	<tr>
+		<td>statuses</td>
+		<td>Statuses posted on the user timeline</td>
+	</tr>
+	<tr>
+		<td>timeline</td>
+		<td><em>Feed</em> of updates from all accessible timelines</td>
+	</tr>
+	<tr>
+		<td>contacts</td>
+		<td>Contacts</td>
+	</tr>
+	<tr>
+		<td>chats</td>
+		<td> Conversations with their contacts</td>
+	</tr>
+	<tr>
+		<td>connections</td>
+		<td> Connections with their contacts</td>
+	</tr>
+</table>
+<h2>Representation</h2>
+<div class="highlight"><pre><code class="json"><span class="p">{</span>
+    <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Lucena&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Juliana&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;birth_localization&quot;</span><span class="p">:</span> <span class="s2">&quot;Recife, Pernambuco&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Graduanda em Ciência da Computação&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;favorite_quotation&quot;</span><span class="p">:</span> <span class="s2">&quot;Frase marcante&quot;</span>
+    <span class="s2">&quot;social_networks&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;profile&quot;</span><span class="p">:</span> <span class="s2">&quot;facebook.com/julianamlucena&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;facebook&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;profile&quot;</span><span class="p">:</span> <span class="s2">&quot;linkedin.com/in/julianalucena&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;linkedin&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;profile&quot;</span><span class="p">:</span> <span class="s2">&quot;twitter.com/#!/julianalucenaa&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;twitter&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/julianalucena/enrollments&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;enrollments&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/julianalucena/statuses&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;statuses&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/julianalucena&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/julianalucena/chats&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;chats&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/julianalucena/statuses/timeline&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;timeline&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/julianalucena/contacts&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;contacts&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/julianalucena/connections&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;connections&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2010-09-14T19:25:17-03:00&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;friends_count&quot;</span><span class="p">:</span> <span class="mi">118</span><span class="p">,</span>
+    <span class="nt">&quot;birthday&quot;</span><span class="p">:</span> <span class="s2">&quot;1989-05-29&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;localization&quot;</span><span class="p">:</span> <span class="s2">&quot;Recife, Pernambuco&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;login&quot;</span><span class="p">:</span> <span class="s2">&quot;julianalucena&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;thumbnails&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;24x24&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://s3.amazonaws.com/redu_uploads/users/avatars/8/thumb_24/juliana2.png?1351618261&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;110x110&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://s3.amazonaws.com/redu_uploads/users/avatars/8/thumb_110/juliana2.png?1351618261&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;32x32&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://s3.amazonaws.com/redu_uploads/users/avatars/8/thumb_32/juliana2.png?1351618261&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;160x160&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://s3.amazonaws.com/redu_uploads/users/avatars/8/thumb_160/juliana2.png?1351618261&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;90x90&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://s3.amazonaws.com/redu_uploads/users/avatars/8/thumb_90/juliana2.png?1351618261&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;48x48&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://s3.amazonaws.com/redu_uploads/users/avatars/8/thumb_48/juliana2.png?1351618261&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;96x96&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://s3.amazonaws.com/redu_uploads/users/avatars/8/thumb_96/juliana2.png?1351618261&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;interested_areas&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Web&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Educação&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;informática&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;julianalucenaa@gmail.com&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-03-26T15:57:57-03:00&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+    <span class="nt">&quot;mobile&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+<span class="p">}</span>
+</code></pre></div><h2><a href="#get-users"><span class="caps">GET</span> /api/users/:id</a></h2>
+<p>Returns a single user with the specified ID or login. Both login and ID work as unique identifiers for users, so they can be used as parameter here.</p>
+<h4>Authorization</h4>
+<p>You need to be contact of the user in question to access this resource.</p>
+<h4>Parameters</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+		<th>Restrictions</th>
+	</tr>
+	<tr>
+		<td><strong>id</strong></td>
+		<td> ID or login of the user in question</td>
+		<td>N/A</td>
+	</tr>
+</table>
+<h4>Example</h4>
+<p><strong>Request:</strong></p>
+<p><code>GET /api/users/test_user</code></p>
+<p><strong>Response:</strong></p>
+<div class="highlight"><pre><code class="json"><span class="p">{</span>
+  <span class="nt">&quot;login&quot;</span><span class="p">:</span> <span class="s2">&quot;guiocavalcanti&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Guilherme&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/guiocavalcanti&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/guiocavalcanti/enrollments&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;enrollments&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/guiocavalcanti/statuses&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;statuses&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/guiocavalcanti/statuses/timeline&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;timeline&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/guiocavalcanti/contacts&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;contacts&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+    <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;contato@redu.com.br&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;birthday&quot;</span><span class="p">:</span> <span class="s2">&quot;1987-11-24&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Cavalcanti&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;friends_count&quot;</span><span class="p">:</span> <span class="mi">132</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="nt">&quot;mobile&quot;</span><span class="p">:</span> <span class="s2">&quot;+55 (81) 3224-2994&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;thumbnails&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://s3.amazonaws.com/redu_uploads/users/avatars/4/thumb_32/Guilherme3x4%20copy.jpg?1323711306&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;32x32&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://s3.amazonaws.com/redu_uploads/users/avatars/4/thumb_110/Guilherme3x4%20copy.jpg?1323711306&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;110x110&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+    <span class="nt">&quot;social_networks&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;profile&quot;</span><span class="p">:</span> <span class="s2">&quot;www.facebook.com/guiocavalcanti&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;facebook&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;profile&quot;</span><span class="p">:</span> <span class="s2">&quot;br.linkedin.com/in/guiocavalcanti&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;linkedin&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;profile&quot;</span><span class="p">:</span> <span class="s2">&quot;www.twitter.com/guiocavalcanti&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;twitter&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+    <span class="nt">&quot;localization&quot;</span><span class="p">:</span> <span class="s2">&quot;Recife, Brasil&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;birth_localization&quot;</span><span class="p">:</span> <span class="s2">&quot;Recife, Brasil&quot;</span>
+<span class="p">}</span>
+</code></pre></div><h2><a href="#get-me"><span class="caps">GET</span> /api/me</a></h2>
+<p>Returns a representation of the resource owner. Resource owner is the user who has authorized the application to use their data.</p>
+<h4>Example</h4>
+<p><strong>Request:</strong></p>
+<p><code>GET /api/me</code></p>
+<p><strong>Response:</strong></p>
+<div class="highlight"><pre><code class="json"><span class="p">{</span>
+  <span class="nt">&quot;login&quot;</span><span class="p">:</span> <span class="s2">&quot;guiocavalcanti&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Guilherme&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/guiocavalcanti&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/guiocavalcanti/enrollments&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;enrollments&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/guiocavalcanti/statuses&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;statuses&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/guiocavalcanti/statuses/timeline&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;timeline&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/guiocavalcanti/contacts&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;contacts&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+    <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;contato@redu.com.br&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;birthday&quot;</span><span class="p">:</span> <span class="s2">&quot;1987-11-24&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Cavalcanti&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;friends_count&quot;</span><span class="p">:</span> <span class="mi">132</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="nt">&quot;mobile&quot;</span><span class="p">:</span> <span class="s2">&quot;+55 (81) 3224-2994&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;thumbnails&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://s3.amazonaws.com/redu_uploads/users/avatars/4/thumb_32/Guilherme3x4%20copy.jpg?1323711306&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;32x32&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://s3.amazonaws.com/redu_uploads/users/avatars/4/thumb_110/Guilherme3x4%20copy.jpg?1323711306&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;110x110&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+    <span class="nt">&quot;social_networks&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;profile&quot;</span><span class="p">:</span> <span class="s2">&quot;www.facebook.com/guiocavalcanti&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;facebook&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;profile&quot;</span><span class="p">:</span> <span class="s2">&quot;br.linkedin.com/in/guiocavalcanti&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;linkedin&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;profile&quot;</span><span class="p">:</span> <span class="s2">&quot;www.twitter.com/guiocavalcanti&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;twitter&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+    <span class="nt">&quot;localization&quot;</span><span class="p">:</span> <span class="s2">&quot;Recife, Brasil&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;birth_localization&quot;</span><span class="p">:</span> <span class="s2">&quot;Recife, Brasil&quot;</span>
+<span class="p">}</span>
+</code></pre></div><h2><a href="#get-space-users"><span class="caps">GET</span> /api/spaces/:space_id/users</a></h2>
+<p>Returns every user whose <a href="resourses/enrollment.html">enrollment</a> is in the <code>approved</code> state for the <a href="resources/course.html">course</a> to which the space is associated. You can, optionally, filter users by roles.</p>
+<h4>Authorization</h4>
+<p>You need to be enrolled in the <a href="resources/course.htm">course</a>.</p>
+<h4>Parameters</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+		<th>Restrictions</th>
+	</tr>
+	<tr>
+		<td><strong>space_id</strong></td>
+		<td> Space ID </td>
+		<td> N/A </td>
+	</tr>
+	<tr>
+		<td><strong>role</strong></td>
+		<td> User role in the course </td>
+		<td> It may be one of these roles: <code>member</code>, <code>teacher</code>, <code>environment_admin</code>, <code>tutor</code></td>
+	</tr>
+	<tr>
+		<td><strong>partial</strong></td>
+		<td> It chooses a shorter representation for the user, only showing: <code>id</code>, <code>first_name</code>, and <code>last_name</code> </td>
+		<td> <code>true</code> </td>
+	</tr>
+</table>
+<h4>Example</h4>
+<p><strong>Request:</strong></p>
+<p><code>GET /api/space/1/users?role=member</code></p>
+<p><strong>Response:</strong></p>
+<div class="highlight"><pre><code class="json"><span class="p">[</span>
+<span class="p">{</span>
+  <span class="nt">&quot;login&quot;</span><span class="p">:</span> <span class="s2">&quot;guiocavalcanti&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Guilherme&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/guiocavalcanti&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/guiocavalcanti/enrollments&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;enrollments&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/guiocavalcanti/statuses&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;statuses&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/guiocavalcanti/statuses/timeline&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;timeline&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/guiocavalcanti/contacts&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;contacts&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+    <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;guilhermec@redu.com.br&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;birthday&quot;</span><span class="p">:</span> <span class="s2">&quot;1987-11-24&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Cavalcanti&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;friends_count&quot;</span><span class="p">:</span> <span class="mi">132</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="nt">&quot;mobile&quot;</span><span class="p">:</span> <span class="s2">&quot;+55 (81) 3224-2994&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;thumbnails&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://s3.amazonaws.com/redu_uploads/users/avatars/4/thumb_32/Guilherme3x4%20copy.jpg?1323711306&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;32x32&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://s3.amazonaws.com/redu_uploads/users/avatars/4/thumb_110/Guilherme3x4%20copy.jpg?1323711306&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;110x110&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+    <span class="nt">&quot;social_networks&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;profile&quot;</span><span class="p">:</span> <span class="s2">&quot;www.facebook.com/guiocavalcanti&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;facebook&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;profile&quot;</span><span class="p">:</span> <span class="s2">&quot;br.linkedin.com/in/guiocavalcanti&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;linkedin&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;profile&quot;</span><span class="p">:</span> <span class="s2">&quot;www.twitter.com/guiocavalcanti&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;twitter&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+    <span class="nt">&quot;localization&quot;</span><span class="p">:</span> <span class="s2">&quot;Recife, Brasil&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;birth_localization&quot;</span><span class="p">:</span> <span class="s2">&quot;Recife, Brasil&quot;</span>
+<span class="p">},</span>
+<span class="p">{</span>
+  <span class="nt">&quot;login&quot;</span><span class="p">:</span> <span class="s2">&quot;julianalucena&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Juliana&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/julianalucena&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/julianalucena/enrollments&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;enrollments&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/julianalucena/statuses&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;statuses&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/julianalucena/statuses/timeline&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;timeline&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/julianalucena/contacts&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;contacts&quot;</span>
+  <span class="p">}</span>
+  <span class="p">],</span>
+    <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;juliana@redu.com.br&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;birthday&quot;</span><span class="p">:</span> <span class="s2">&quot;1989-05-29&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Lucena&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;friends_count&quot;</span><span class="p">:</span> <span class="mi">84</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+    <span class="nt">&quot;mobile&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;thumbnails&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://s3.amazonaws.com/redu_uploads/users/avatars/8/thumb_32/twitter2_bigger.png?1297096068&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;32x32&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://s3.amazonaws.com/redu_uploads/users/avatars/8/thumb_110/twitter2_bigger.png?1297096068&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;110x110&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+    <span class="nt">&quot;social_networks&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;profile&quot;</span><span class="p">:</span> <span class="s2">&quot;facebook.com/julianamlucena&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;facebook&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;profile&quot;</span><span class="p">:</span> <span class="s2">&quot;linkedin.com/in/julianalucena&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;linkedin&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;profile&quot;</span><span class="p">:</span> <span class="s2">&quot;twitter.com/#!/julianalucenaa&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;twitter&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+    <span class="nt">&quot;localization&quot;</span><span class="p">:</span> <span class="s2">&quot;Recife, Pernambuco&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;birth_localization&quot;</span><span class="p">:</span> <span class="s2">&quot;Recife, Pernambuco&quot;</span>
+<span class="p">},</span>
+<span class="p">{</span>
+  <span class="nt">&quot;login&quot;</span><span class="p">:</span> <span class="s2">&quot;jessicab&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Jéssica&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/jessicab&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/jessicab/enrollments&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;enrollments&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/jessicab/statuses&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;statuses&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/jessicab/statuses/timeline&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;timeline&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/jessicab/contacts&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;contacts&quot;</span>
+  <span class="p">}</span>
+  <span class="p">],</span>
+    <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;jessica@redu.com.br&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;birthday&quot;</span><span class="p">:</span> <span class="s2">&quot;1991-01-10&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Barbalho&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;friends_count&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">443</span><span class="p">,</span>
+    <span class="nt">&quot;mobile&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;thumbnails&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://s3.amazonaws.com/redu_uploads/users/avatars/443/thumb_32/J%C3%A9ssica.jpg?1334865750&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;32x32&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://s3.amazonaws.com/redu_uploads/users/avatars/443/thumb_110/J%C3%A9ssica.jpg?1334865750&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;110x110&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+    <span class="nt">&quot;social_networks&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;profile&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.facebook.com/jessicabarbalho1&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;facebook&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;profile&quot;</span><span class="p">:</span> <span class="s2">&quot;https://twitter.com/#!/jessicabarbalho&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;twitter&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+    <span class="nt">&quot;localization&quot;</span><span class="p">:</span> <span class="s2">&quot;Recife, PE&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;birth_localization&quot;</span><span class="p">:</span> <span class="s2">&quot;Recife, PE&quot;</span>
+<span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+
+
+          </div>
+        </div>
+      </div>
+
+
+      <footer>
+        <p>&copy; Redu Educational Technologies 2012
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

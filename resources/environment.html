@@ -1,0 +1,421 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>AVA</title>
+    
+    <meta name="author" content="Redu Educational Technologies">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/twitter/css/highlight.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class = "flags">
+            <a class = "flag" href="/" title="Português"/><img src="/assets/images/br.png" /></a>
+            <a class = "flag" href="/en" title="English"/><img src="/assets/images/uk.png" /></a>
+          </div>
+        </div>
+        <div class="container">
+          <a class="brand" href="/">Redu para desenvolvedores</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="content">
+
+        <div class="row">
+          <div class="span12">
+            <div class="page-header">
+              <h1>AVA <small></small></h1>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="span3">
+            <ul class="nav nav-list affix-top">
+              
+              
+              
+
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    	
+    	<li><a href="/resources/progress.html">Progresso</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/course.html">Curso</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/canvas.html">Canvas</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/space.html">Disciplina</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/links.html">Links</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/status.html">Mural</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/user.html">Usuário</a></li>
+    	
+    
+  
+    
+    	
+    	<li class="active"><a href="/resources/environment.html" class="active">AVA</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/chat.html">Chat</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/enrollment.html">Matrícula</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/subject.html">Módulo</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/folders-and-files.html">Pastas e Arquivos</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/lecture.html">Aula</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/connection.html">Conexão</a></li>
+    	
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+            </ul>
+          </div>
+
+          <div class="span9">
+            
+<a href="https://github.com/redu/redu.github.com"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+
+<p>O <span class="caps">AVA</span> (Ambiente Virtual de Aprendizagem) no contexto da <span class="caps">API</span> é chamado simplesmente de <code>environment</code>. Ele serve como um organizador de cursos e representa a instituição ou empresa que detém estes. Além de uma forma de organizar cursos o <span class="caps">AVA</span> detém opções administrativas que fazem sentido ao Gestor de conhecimento ou Gestor de <span class="caps">EAD</span>. Por si só não detém conteúdo (aulas, arquivos e posts) nem usuários. Estes estão dentro das disciplinas e cursos, respectivamente.</p>
+<h2>Atributos</h2>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Atributo</th>
+		<th>Descrição</th>
+	</tr>
+	<tr>
+		<td><strong>ID</strong></td>
+		<td>Identificador do ambiente</td>
+	</tr>
+	<tr>
+		<td><strong>name</strong></td>
+		<td>Nome</td>
+	</tr>
+	<tr>
+		<td><strong>initials</strong></td>
+		<td>Iniciais</td>
+	</tr>
+	<tr>
+		<td><strong>path</strong></td>
+		<td>Caminho usado na <span class="caps">URL</span></td>
+	</tr>
+	<tr>
+		<td>description</td>
+		<td>Descrição</td>
+	</tr>
+	<tr>
+		<td>courses_count</td>
+		<td>Quantidade de cursos</td>
+	</tr>
+	<tr>
+		<td>thumbnails</td>
+		<td>Thumbnails do ambiente. Tamanhos disponíveis: 32&#215;32, 48&#215;48, 90&#215;90, 96&#215;96 e 140&#215;140</td>
+	</tr>
+</table>
+<h2>Links</h2>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Link</th>
+		<th>Descrição</th>
+	</tr>
+	<tr>
+		<td>self</td>
+		<td>Ambiente em questão</td>
+	</tr>
+	<tr>
+		<td>courses</td>
+		<td>Cursos</td>
+	</tr>
+	<tr>
+		<td>user</td>
+		<td>Usuário criador</td>
+	</tr>
+</table>
+<h2>Representação</h2>
+<div class="highlight"><pre><code class="json"><span class="p">{</span>
+    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Ambiente de MOOCs (Massive Open Online Courses, ou Cursos Online Abertos Massivos), organizados pela ABMES (Associação Brasileira de Mantenedoras de Ensino Superior) e coordenados por João Mattar e o GPTED-TIDD (Grupo de Pesquisa em Tecnologias Educacionais do Programa de Pós-Graduação em Tecnologias da Inteligência e Design Digital da PUC-SP).&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/Anderson&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/environments/moocs&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/environments/moocs/courses&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;courses&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;MOOCs&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-02-23T12:09:56-03:00&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;moocs&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-03-16T16:09:00-03:00&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;initials&quot;</span><span class="p">:</span> <span class="s2">&quot;MOOCs&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1362</span><span class="p">,</span>
+    <span class="nt">&quot;thumbnails&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;140x140&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://s3.amazonaws.com/redu_uploads/environments/avatars/1362/thumb_140/logo_abmes_90_90.jpg?1362484765&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;32x32&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://s3.amazonaws.com/redu_uploads/environments/avatars/1362/thumb_32/logo_abmes_90_90.jpg?1362484765&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;90x90&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://s3.amazonaws.com/redu_uploads/environments/avatars/1362/thumb_90/logo_abmes_90_90.jpg?1362484765&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;48x48&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://s3.amazonaws.com/redu_uploads/environments/avatars/1362/thumb_48/logo_abmes_90_90.jpg?1362484765&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;96x96&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://s3.amazonaws.com/redu_uploads/environments/avatars/1362/thumb_96/logo_abmes_90_90.jpg?1362484765&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+<span class="p">}</span>
+</code></pre></div><h2><a href="#get-environments"><span class="caps">GET</span> /api/environments/:id</a></h2>
+<p>Retorna o <span class="caps">AVA</span> especificado. Tanto o ID quanto o path podem ser utilizados aqui, porém o path é passível de modificações pelo usuário, portanto pode não servir como um identificador único.</p>
+<h4>Autorização</h4>
+<p>O usuário deve fazer parte de pelo menos um curso do <span class="caps">AVA</span> ou ser o dono do mesmo.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parâmetro</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>id</strong></td>
+		<td>ID ou path do <span class="caps">AVA</span></td>
+		<td>N/A</td>
+	</tr>
+</table>
+<h2><a href="#post-environments"><span class="caps">POST</span> /api/environments</a></h2>
+<p>Cria <span class="caps">AVA</span>. Por si só o <span class="caps">AVA</span> é apenas uma maneira de organizar um conjunto de cursos dentro do contexto de uma instituição.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parâmetro</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>environment[name]</strong></td>
+		<td>Nome do ambiente</td>
+		<td>Máximo 40 caracteres; deve ser único</td>
+	</tr>
+	<tr>
+		<td><strong>environment[path]</strong></td>
+		<td>Nome que aparecerá na barra de endereço</td>
+		<td>Deve respeitar a seguinte regex: <code>^[-_A-Za-z0-9]*$</code></td>
+	</tr>
+	<tr>
+		<td><strong>environment[initials]</strong></td>
+		<td>Abreviação (usado em alguns lugares da interface)</td>
+		<td>Deve ser único; Máximo de 10 caracteres</td>
+	</tr>
+	<tr>
+		<td>environment[description]</td>
+		<td>Descrição do ambiente</td>
+		<td>Máximo de 400 caracteres</td>
+	</tr>
+</table>
+<h4>Exemplo</h4>
+<p><code>POST /api/environments/23</code></p>
+<p><strong>Payload (<span class="caps">JSON</span>):</strong></p>
+<div class="highlight"><pre><code class="json"><span class="p">{</span>
+  <span class="nt">&quot;environment&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;meu novo ambiente&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;path&quot;</span> <span class="p">:</span> <span class="s2">&quot;meu-novo-ambiente&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;initials&quot;</span> <span class="p">:</span> <span class="s2">&quot;mna&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p><strong>Resposta:</strong></p>
+<div class="highlight"><pre><code class="json"><span class="p">{</span>
+  <span class="nt">&quot;initials&quot;</span><span class="p">:</span> <span class="s2">&quot;mna&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/environments/meu-novo-ambiente&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/environments/meu-novo-ambiente/courses&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;courses&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/guiocavalcanti&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;meu novo ambiente&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-09-10T09:42:00-03:00&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;meu-novo-ambiente&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">909</span>
+<span class="p">}</span>
+</code></pre></div><h2><a href="#put-environments"><span class="caps">PUT</span> /api/environments/:id</a></h2>
+<p>Atualiza informações do <span class="caps">AVA</span> em questão.</p>
+<h4>Autorização</h4>
+<p>O usuário deve ser administrador do <span class="caps">AVA</span>.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parâmetro</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>environment[name]</strong></td>
+		<td>Nome do ambiente</td>
+		<td>Máximo 40 caracteres; deve ser único</td>
+	</tr>
+	<tr>
+		<td><strong>environment[path]</strong></td>
+		<td>Nome que aparecerá na barra de endereço</td>
+		<td>Deve respeitar a seguinte regex: <code>^[-_A-Za-z0-9]*$</code></td>
+	</tr>
+	<tr>
+		<td><strong>environment[initials]</strong></td>
+		<td>Abreviação (usado em alguns lugares da interface)</td>
+		<td>Deve ser único; Máximo de 10 caracteres</td>
+	</tr>
+	<tr>
+		<td>environment[description]</td>
+		<td>Descrição do ambiente</td>
+		<td>Máximo de 400 caracteres</td>
+	</tr>
+</table>
+<h2><a href="#delete-environments"><span class="caps">DELETE</span> /api/environments/:id</a></h2>
+<p>Remove o <span class="caps">AVA</span> em questão. Todos os cursos, disciplinas, módulos e aulas insteridos neste ambiente serão perdidos e não estarão mais acessíveis aos usuários.</p>
+<h4>Autorização</h4>
+<p>O usuário deve ser administrador do <span class="caps">AVA</span>.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parâmetro</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>id</strong></td>
+		<td>ID ou path do <span class="caps">AVA</span></td>
+		<td>N/A</td>
+	</tr>
+</table>
+
+
+          </div>
+        </div>
+      </div>
+
+
+      <footer>
+        <p>&copy; Redu Educational Technologies 2012
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

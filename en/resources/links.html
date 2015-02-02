@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Links</title>
+    
+    <meta name="author" content="Redu Educational Technologies">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/twitter/css/highlight.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class = "flags">
+            <a class = "flag" href="/" title="Português"/><img src="/assets/images/br.png" /></a>
+            <a class = "flag" href="/en" title="English"/><img src="/assets/images/uk.png" /></a>
+          </div>
+        </div>
+        <div class="container">
+          <a class="brand" href="/en/">Redu for developers</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="content">
+
+        <div class="row">
+          <div class="span12">
+            <div class="page-header">
+              <h1>Links <small></small></h1>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="span3">
+            <ul class="nav nav-list affix-top">
+              
+              
+              
+
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    	
+    	<li><a href="/en/resources/progress.html">Progress</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/course.html">Course</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/canvas.html">Canvas</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/space.html">Space</a></li>
+    	
+    
+  
+    
+    	
+    	<li class="active"><a href="/en/resources/links.html" class="active">Links</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/status.html">Status</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/user.html">User</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/environment.html">Environment</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/chat.html">Chat</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/enrollment.html">Enrollment</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/subject.html">Subject</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/folders-and-files.html">Folders and Files</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/lecture.html">Lecture</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/connection.html">Connection</a></li>
+    	
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+            </ul>
+          </div>
+
+          <div class="span9">
+            
+<a href="https://github.com/redu/redu.github.com"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+
+<p>Just as Web pages have links to other pages, resources of our <span class="caps">API</span> have references to other related resources. These references are accessible via the property <code>links</code> in the resource representation.</p>
+<p>This feature makes possible that applications which use the <span class="caps">API</span> do not need to know <em>previously</em> all the possible URLs. For instance, when getting the user representation (<code>GET /api/me</code>), it is possible to access their enrollments via the link whose <code>rel</code> is <code>enrollment</code>:</p>
+<div class="highlight"><pre><code class="json"><span class="p">{</span>
+    <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;enrollments&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/julianalucena/enrollments&quot;</span> <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div><p>For more information about the motivations and benefits of links, we recommend you read <a href="http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven">this</a> paper.</p>
+<p>A link <b>mandatorily</b> has the following attributes:</p>
+<p>1. <code>rel</code>: Identifies the link.<br />
+2. <code>href</code>: Link of the resource in <span class="caps">REST</span> <span class="caps">API</span>.</p>
+<p>It also has, optionally, the following attributes:</p>
+<p>1. <code>name</code>: Resource name.<br />
+2. <code>permalink</code>: Link of resource in the Web interface.</p>
+<p><b>Example of links in the <a href="/resources/status.html">Status</a> representation</b>:</p>
+<div class="highlight"><pre><code class="json"><span class="p">{</span>
+    <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Graduação em Ciência da Computação&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/courses/graduacao-em-ciencia-da-computacao&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;course&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;permalink&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/ium/cursos/graduacao-em-ciencia-da-computacao&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/statuses/1130/answers&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;answers&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/alexodrosgomes&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/statuses/1130&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Centro de Informática&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/environments/ium&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;environment&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;permalink&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/ium&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;if681 - Interface Usuário Máquina&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/spaces/62&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;space&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;permalink&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/espacos/62&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/spaces/62&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;statusable&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2011-05-12T18:07:31-03:00&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Pessoal,o módulo de orientação do segundo workshop já está criado. Postem suas dúvidas nele que estarei respondendo&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;answers_count&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2011-09-22T17:47:24-03:00&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1130</span><span class="p">,</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Activity&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+          </div>
+        </div>
+      </div>
+
+
+      <footer>
+        <p>&copy; Redu Educational Technologies 2012
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

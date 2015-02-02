@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Conexão</title>
+    
+    <meta name="author" content="Redu Educational Technologies">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/twitter/css/highlight.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class = "flags">
+            <a class = "flag" href="/" title="Português"/><img src="/assets/images/br.png" /></a>
+            <a class = "flag" href="/en" title="English"/><img src="/assets/images/uk.png" /></a>
+          </div>
+        </div>
+        <div class="container">
+          <a class="brand" href="/">Redu para desenvolvedores</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="content">
+
+        <div class="row">
+          <div class="span12">
+            <div class="page-header">
+              <h1>Conexão <small></small></h1>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="span3">
+            <ul class="nav nav-list affix-top">
+              
+              
+              
+
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    	
+    	<li><a href="/resources/progress.html">Progresso</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/course.html">Curso</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/canvas.html">Canvas</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/space.html">Disciplina</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/links.html">Links</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/status.html">Mural</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/user.html">Usuário</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/environment.html">AVA</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/chat.html">Chat</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/enrollment.html">Matrícula</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/subject.html">Módulo</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/folders-and-files.html">Pastas e Arquivos</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/lecture.html">Aula</a></li>
+    	
+    
+  
+    
+    	
+    	<li class="active"><a href="/resources/connection.html" class="active">Conexão</a></li>
+    	
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+            </ul>
+          </div>
+
+          <div class="span9">
+            
+<a href="https://github.com/redu/redu.github.com"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+
+<p>O <a href="http://www.redu.com.br">Redu</a> é uma rede social, onde seus usuários estão relacionados entre si através de uma Conexão. Um usuário pode ser contato de outro, através de uma solicitação de conexão, que pode ser aceita ou rejeitada. No contexto da <span class="caps">API</span> o relacionamento entre usuários será chamado de <code>connection</code>.</p>
+<h4>Atributos:</h4>
+<table style="clear: both;" class="table table-bordered table-striped">
+	<tr>
+		<th>Link</th>
+		<th>Descrição</th>
+	</tr>
+	<tr>
+		<td>id</td>
+		<td>Identificador único do contato</td>
+	</tr>
+	<tr>
+		<td>status</td>
+		<td>Estado atual da conexão. Exemplo: <code>requested</code></td>
+	</tr>
+	<tr>
+		<td>user</td>
+		<td>Usuário do qual está sendo requisitado as conexões</td>
+	</tr>
+	<tr>
+		<td>contact</td>
+		<td>Contato do usuário</td>
+	</tr>
+</table>
+<div class="thumbnail"><img src="../assets/images/connection-states.png" alt="" /></div>
+<h4>Estados:</h4>
+<p>Usuário requisita uma conexão para um contato, a conexão fica em estado <code>requested</code> para o usuário e <code>pending</code> para o contato. Quando a conexão é aceita os dois passam para o estado de <code>accepted</code>.</p>
+<table style="clear: both;" class="table table-bordered table-striped">
+	<tr>
+		<th>Estado</th>
+		<th>Descrição</th>
+	</tr>
+	<tr>
+		<td>requested</td>
+		<td>O usuário requisitou o pedido de conexão</td>
+	</tr>
+	<tr>
+		<td>pending</td>
+		<td>O usuário tem um requisição pendente para a conexão</td>
+	</tr>
+	<tr>
+		<td>accepted</td>
+		<td>Os usuários são contatos</td>
+	</tr>
+</table>
+<h2><a href="#get-connections"><span class="caps">GET</span> api/users/:user_id/connections</a></h2>
+<p>Retorna uma lista com todas os <code>connections</code> de um usuário específico.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parâmetro</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>:user_id</strong></td>
+		<td> ID do usuário</td>
+		<td>N/A</td>
+	</tr>
+	<tr>
+		<td><strong>status</strong></td>
+		<td> Filtragem pelo estado da conexão</td>
+		<td>N/A</td>
+	</tr>
+</table>
+<h2><a href="#get-connection"><span class="caps">GET</span> api/connections/:id</a></h2>
+<p>Retorna a conexão em questão.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parâmetro</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>:id</strong></td>
+		<td> ID da conexão</td>
+		<td>N/A</td>
+	</tr>
+</table>
+<h4>Exemplo</h4>
+<p><strong>Requisição</strong></p>
+<p><code>GET /api/users/jessicab/connections/12</code></p>
+<p><strong>Resposta</strong><br />
+<div class="highlight"><pre><code class="json"><span class="p">{</span>
+    <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://redu.com.br/api/connections/6501&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://redu.com.br/api/users/jessicab&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;contact&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://redu.com.br/api/users/julianalucena&quot;</span> <span class="p">}],</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">6501</span><span class="p">,</span>
+    <span class="nt">&quot;contact&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;chats&quot;</span><span class="p">,</span><span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://redu.com.br/api/users/julianalucena/chats&quot;</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;connections&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://redu.com.br/api/users/julianalucena/connections&quot;</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;contacts&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://redu.com.br/api/users/julianalucena/contacts&quot;</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://redu.com.br/api/users/julianalucena&quot;</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;statuses&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://redu.com.br/api/users/julianalucena/statuses&quot;</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;timeline&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://redu.com.br/api/users/julianalucena/statuses/timeline&quot;</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;enrollments&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://redu.com.br/api/users/julianalucena/enrollments&quot;</span> <span class="p">}],</span>
+        <span class="nt">&quot;thumbnails&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://s3.amazonaws.com/redu_uploads/users/avatars/8/thumb_32/2012-10-14_14.09.33.jpg?1355925772&quot;</span><span class="p">,</span> <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;32x32&quot;</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://s3.amazonaws.com/redu_uploads/users/avatars/8/thumb_110/2012-10-14_14.09.33.jpg?1355925772&quot;</span><span class="p">,</span> <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;110x110&quot;</span> <span class="p">}],</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+        <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Lucena&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;login&quot;</span><span class="p">:</span> <span class="s2">&quot;julianalucena&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Juliana&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;chats&quot;</span><span class="p">,</span><span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://redu.com.br/api/users/jessicab/chats&quot;</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;connections&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://redu.com.br/api/users/jessicab/connections&quot;</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;contacts&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://redu.com.br/api/users/jessicab/contacts&quot;</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://redu.com.br/api/users/jessicab&quot;</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;statuses&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://redu.com.br/api/users/jessicab/statuses&quot;</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;timeline&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://redu.com.br/api/users/jessicab/statuses/timeline&quot;</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;enrollments&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://redu.com.br/api/users/jessicab/enrollments&quot;</span> <span class="p">}],</span>
+        <span class="nt">&quot;thumbnails&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://s3.amazonaws.com/redu_uploads/users/avatars/443/thumb_32/J%C3%A9ssica.jpg?1334865750&quot;</span><span class="p">,</span> <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;32x32&quot;</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://s3.amazonaws.com/redu_uploads/users/avatars/443/thumb_110/J%C3%A9ssica.jpg?1334865750&quot;</span><span class="p">,</span> <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;110x110&quot;</span> <span class="p">}],</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">443</span><span class="p">,</span>
+        <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Barbalho&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;login&quot;</span><span class="p">:</span> <span class="s2">&quot;jessicab&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Jéssica&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;accepted&quot;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h2><a href="#post-user-connection"><span class="caps">POST</span> /api/users/:user_id/connections</a></h2>
+<p>Cria uma nova conexão com o usuário.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parâmetro</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>:user_id</strong></td>
+		<td> ID do usuário em questão</td>
+		<td>N/A</td>
+	</tr>
+	<tr>
+		<td><strong>connection[contact_id]</strong></td>
+		<td> ID do novo contato </td>
+		<td>N/A</td>
+	</tr>
+</table>
+<h2><a href="#update-connection"><span class="caps">PUT</span> /api/connections/:connection_id</a></h2>
+<p>Aceita um pedido de conexão que está no estado <code>pending</code> transformando-o em <code>accepted</code>.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parâmetro</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>:connection_id</strong></td>
+		<td> ID da conexão </td>
+		<td>N/A</td>
+	</tr>
+</table>
+<h2><a href="#delete-connection"><span class="caps">DELETE</span> /api/connections/:connection_id</a></h2>
+<p>Remove uma conexão.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parâmetro</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>:connection_id</strong></td>
+		<td> ID da conexão </td>
+		<td>N/A</td>
+	</tr>
+</table>
+
+
+          </div>
+        </div>
+      </div>
+
+
+      <footer>
+        <p>&copy; Redu Educational Technologies 2012
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

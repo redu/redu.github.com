@@ -1,0 +1,606 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Lecture</title>
+    
+    <meta name="author" content="Redu Educational Technologies">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/twitter/css/highlight.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class = "flags">
+            <a class = "flag" href="/" title="Português"/><img src="/assets/images/br.png" /></a>
+            <a class = "flag" href="/en" title="English"/><img src="/assets/images/uk.png" /></a>
+          </div>
+        </div>
+        <div class="container">
+          <a class="brand" href="/en/">Redu for developers</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="content">
+
+        <div class="row">
+          <div class="span12">
+            <div class="page-header">
+              <h1>Lecture <small></small></h1>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="span3">
+            <ul class="nav nav-list affix-top">
+              
+              
+              
+
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    	
+    	<li><a href="/en/resources/progress.html">Progress</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/course.html">Course</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/canvas.html">Canvas</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/space.html">Space</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/links.html">Links</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/status.html">Status</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/user.html">User</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/environment.html">Environment</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/chat.html">Chat</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/enrollment.html">Enrollment</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/subject.html">Subject</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/folders-and-files.html">Folders and Files</a></li>
+    	
+    
+  
+    
+    	
+    	<li class="active"><a href="/en/resources/lecture.html" class="active">Lecture</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/connection.html">Connection</a></li>
+    	
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+            </ul>
+          </div>
+
+          <div class="span9">
+            
+<a href="https://github.com/redu/redu.github.com"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+
+<p>In the context of <span class="caps">API</span>, the Lecture is referred as <code>lecture</code>. A Lecture is the minimum unit of content, such as a text or video, which has social interactions (see <a href="/resources/status.html">Status</a>). Many lectures can be grouped and sorted into a subject.</p>
+<div style="width:678px; height: 291px; margin: 0 auto;" class="thumbnail"><img src="/assets/images/subject-example.png" alt="" /></div>
+<h2><a href="#lectures-types">Types of Lecture</a></h2>
+<p>There are five types of lectures:</p>
+<ul>
+	<li><strong>Page:</strong> Content in <a href="http://en.wikipedia.org/wiki/Rich_Text_Format"><em>Rich Text Format</em></a>.</li>
+	<li><strong>Document:</strong> Text file (<em>txt</em>, <em>pdf</em>, <em>doc</em>, <em>docx</em>, <em>ppt</em>, <em>pptx</em>, etc).</li>
+	<li><strong>Media:</strong> Video file (<em>mov</em>, <em>avi</em>, <em>mpeg</em>, <em>mp4</em>, etc), or video hosted in <a href="http://www.youtube.com">Youtube</a>.</li>
+	<li><strong>Exercise:</strong> It has questions to be answered.</li>
+	<li><strong>Canvas:</strong> Application.</li>
+</ul>
+<div style="width:450px; margin: 20px;" class="thumbnail"><img src="/assets/images/lecture-classes.png" alt="" /></div>
+<h3>Attributes</h3>
+<p>Below are described the attributes of a lecture:</p>
+<table style="clear: both;" class="table table-bordered table-striped">
+	<tr>
+		<th>Attribute</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>created_at</td>
+		<td>Date of creation</td>
+	</tr>
+	<tr>
+		<td>name</td>
+		<td>Name (title)</td>
+	</tr>
+	<tr>
+		<td>position</td>
+		<td>Sorted position in the subject</td>
+	</tr>
+	<tr>
+		<td>type</td>
+		<td>Type (<em>Canvas, Document, Exercise, Page, Media</em>)</td>
+	</tr>
+	<tr>
+		<td>id</td>
+		<td>Identifier</td>
+	</tr>
+	<tr>
+		<td>rating</td>
+		<td>Evaluation by users</td>
+	</tr>
+	<tr>
+		<td>view_count</td>
+		<td>Number of views</td>
+	</tr>
+	<tr>
+		<td>updated_at</td>
+		<td>Last update date</td>
+	</tr>
+</table>
+<h3>Links</h3>
+<p>Below are described the links that are in the representation of a lecture:</p>
+<table style="clear: both;" class="table table-bordered table-striped">
+	<tr>
+		<th>Link</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>self</td>
+		<td>Lecture in question</td>
+	</tr>
+	<tr>
+		<td>self_link</td>
+		<td>Lecture in Redu (<span class="caps">HTML</span>)</td>
+	</tr>
+	<tr>
+		<td>subject</td>
+		<td>Subject where the Lecture is</td>
+	</tr>
+	<tr>
+		<td>space</td>
+		<td>Space where the Lecture is</td>
+	</tr>
+	<tr>
+		<td>course</td>
+		<td>Course where the Lecture is</td>
+	</tr>
+	<tr>
+		<td>environment</td>
+		<td>Environment where the Lecture is</td>
+	</tr>
+</table>
+<h3>Types of lectures</h3>
+<h4>Page</h4>
+<p>This lecture is just content based on <a href="http://en.wikipedia.org/wiki/Rich_Text_Format"><em>Rich Text Format</em></a> , originated by <a href="http://ckeditor.com/"><em>CKEditor</em></a>.</p>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Key</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>content</td>
+		<td>Content generated by CKEditor. It includes <span class="caps">HTML</span> and <span class="caps">CSS</span> formatting</td>
+	</tr>
+	<tr>
+		<td>raw</td>
+		<td>Raw content of the lecture. No formatting and style are applied to it</td>
+	</tr>
+</table>
+<h4>Document</h4>
+<p>This type of lecture is basically composed of a document, which can be in one of these formats: <em>txt, pdf, doc, docx, ppt, pptx</em>, etc.</p>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Key</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>mimetype</td>
+		<td>File format</td>
+	</tr>
+</table>
+<p>This type of class also has the following links:</p>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Link</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>raw</td>
+		<td>Download address of raw file</td>
+	</tr>
+	<tr>
+		<td>scribd</td>
+		<td>Address of file hosted on Scribd (with player to be used <em>embedded</em>)</td>
+	</tr>
+</table>
+<h4>Media</h4>
+<p>This type of Lecture represents media files &#8211; audio or video -, including YouTube medias.</p>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Key</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>mimetype</td>
+		<td>MimeType of media file</td>
+	</tr>
+</table>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Link</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>raw</td>
+		<td>Download address of file</td>
+	</tr>
+</table>
+<p>In case of Youtube videos, the MimeType returned will be <code>video/x-youtube</code>. For example:</p>
+<h4>Exercise</h4>
+<h4>Canvas</h4>
+<p>More information can be found in <a href="/resources/canvas.html">Canvas documentation</a>.</p>
+<h2><a href="#index-lectures"><span class="caps">GET</span> /api/subjects/:id/lectures</a></h2>
+<p>Lists all the Lectures that belong to the specified Subject.</p>
+<h4>Authorization</h4>
+<p>You need to be enrolled in the <a href="/resources/course.html">Course</a> to which the <a href="/resources/subject.html">Subject</a> belongs.</p>
+<h4>Parameters</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Attribute</th>
+		<th>Description</th>
+		<th>Restrictions</th>
+	</tr>
+	<tr>
+		<td><strong>id</strong></td>
+		<td>Subject ID.</td>
+		<td>N/A</td>
+	</tr>
+</table>
+<h4>Example</h4>
+<p>Request: <code>GET /api/spaces/12/lectures</code></p>
+<p>Response:</p>
+<div class="highlight"><pre><code class="json"><span class="p">[{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Aula youtube&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;rating&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Media&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;next_lecture&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/lectures/105-conheca-o-seu-cliente&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;course&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/courses/recife&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;environment&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/environments/www&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;subject&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/subjects/114&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/lectures/107-aula-youtube&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;raw&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.youtube.com/watch?v=GrV2SZuRPv0&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self_link&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/espacos/27/modulos/114/aulas/107-aula-youtube&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;space&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/spaces/27&quot;</span> <span class="p">}</span>
+  <span class="p">],</span>
+    <span class="nt">&quot;view_count&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+    <span class="nt">&quot;mimetype&quot;</span><span class="p">:</span> <span class="s2">&quot;video/x-youtube&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2011-11-22T22:56:59-02:00&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">107</span><span class="p">,</span>
+    <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2011-02-21T10:11:05-03:00&quot;</span>
+<span class="p">}]</span>
+</code></pre></div><h2><a href="#get-lectures"><span class="caps">GET</span> /api/lectures/:id</a></h2>
+<p>Returns the Lecture in question.</p>
+<h4>Authorization</h4>
+<p>You need to be enrolled in the <a href="/resources/course.html">Course</a> to which the <a href="/resources/subject.html">Subject</a> belongs (i.e., the course to which the space belongs).</p>
+<h4>Parameters</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parâmetro</th>
+		<th>Description</th>
+		<th>Restrictions</th>
+	</tr>
+	<tr>
+		<td><strong>id</strong></td>
+		<td>Lecture ID</td>
+		<td>N/A</td>
+	</tr>
+</table>
+<h4>Example</h4>
+<p>Request: <code>GET /api/lectures/1</code></p>
+<p><strong>Response:</strong></p>
+<ul>
+	<li>Page</li>
+</ul>
+<div class="highlight"><pre><code class="json"><span class="p">{</span>
+  <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-01-16T10:28:23-02:00&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Nome da aula&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/lectures/4877-novo&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/espacos/1412/modulos/3111/aulas/4877-novo&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self_link&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/subjects/3111&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;subject&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/spaces/1412&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;space&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/courses/curso-de-exemplo&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;course&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/environments/ambiente-de-exemplo-api&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;environment&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/lectures/4877/statuses&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;statuses&quot;</span> <span class="p">},</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;html&gt;&lt;/html&gt;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;raw&quot;</span><span class="p">:</span> <span class="s2">&quot;lorem lipsum&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Page&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;mimetype&quot;</span><span class="p">:</span> <span class="s2">&quot;text/html&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4877</span><span class="p">,</span>
+  <span class="nt">&quot;rating&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nt">&quot;view_count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-01-16T10:28:23-02:00&quot;</span>
+<span class="p">}</span>
+</code></pre></div><ul>
+	<li>Document</li>
+</ul>
+<div class="highlight"><pre><code class="json"><span class="p">{</span>
+  <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-01-16T10:28:23-02:00&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Nome da aula&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/lectures/4877-novo&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self&quot;</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/espacos/1412/modulos/3111/aulas/4877-novo&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self_link&quot;</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/subjects/3111&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;subject&quot;</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/spaces/1412&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;space&quot;</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/courses/curso-de-exemplo&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;course&quot;</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/environments/ambiente-de-exemplo-api&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;environment&quot;</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/lectures/4877/statuses&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;statuses&quot;</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://s3.amazonaws.com/redu_uploads/documents/attachments/1837/original/04-platform-101.pdf?1358254757&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span> <span class="p">:</span> <span class="s2">&quot;raw&quot;</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.scribd.com/embeds/120454644/content?start_page=1&amp;view_mode=list&amp;access_key=key-1k5p2ziz2wckhlhjsm9n&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span> <span class="p">:</span> <span class="s2">&quot;scribd&quot;</span> <span class="p">},</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;mimetype&quot;</span><span class="p">:</span> <span class="s2">&quot;application/pdf&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Document&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4877</span><span class="p">,</span>
+    <span class="nt">&quot;rating&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;view_count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-01-16T10:28:23-02:00&quot;</span>
+<span class="p">}</span>
+</code></pre></div><ul>
+	<li>Exercise</li>
+</ul>
+<ul>
+	<li>Canvas. <a href="/resources/canvas.html">See Canvas documentation</a>.</li>
+</ul>
+<ul>
+	<li>Media</li>
+</ul>
+<p><b>For Youtube videos</b>:</p>
+<div class="highlight"><pre><code class="json"><span class="p">{</span>
+  <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-01-16T10:28:23-02:00&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Nome da aula&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/lectures/4877-novo&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self&quot;</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/espacos/1412/modulos/3111/aulas/4877-novo&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self_link&quot;</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/subjects/3111&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;subject&quot;</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/spaces/1412&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;space&quot;</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/courses/curso-de-exemplo&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;course&quot;</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/environments/ambiente-de-exemplo-api&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;environment&quot;</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/lectures/4877/statuses&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;statuses&quot;</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.youtube.com/watch?v=zm5GcMjPFOU&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;raw&quot;</span> <span class="p">}</span>
+    <span class="p">]</span>
+    <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;mimetype&quot;</span><span class="p">:</span> <span class="s2">&quot;video/x-youtube&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Media&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4877</span><span class="p">,</span>
+    <span class="nt">&quot;rating&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;view_count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-01-16T10:28:23-02:00&quot;</span>
+<span class="p">}</span>
+</code></pre></div><p><b>For videos hosted in Redu</b>:</p>
+<div class="highlight"><pre><code class="json"><span class="p">{</span>
+  <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-01-16T10:28:23-02:00&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Nome da aula&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/lectures/4877-novo&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/espacos/1412/modulos/3111/aulas/4877-novo&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self_link&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/subjects/3111&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;subject&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/spaces/1412&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;space&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/courses/curso-de-exemplo&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;course&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/environments/ambiente-de-exemplo-api&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;environment&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/lectures/4877/statuses&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;statuses&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://s3.amazonaws.com/redu/video-name.mpg&quot;</span><span class="p">,</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;raw&quot;</span> <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nt">&quot;mimetype&quot;</span><span class="p">:</span> <span class="s2">&quot;video/mpeg&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Media&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4877</span><span class="p">,</span>
+  <span class="nt">&quot;rating&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nt">&quot;view_count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-01-16T10:28:23-02:00&quot;</span>
+<span class="p">}</span>
+</code></pre></div><h2><a href="#post-lectures"><span class="caps">POST</span> /api/subjects/:subject_id/lectures</a></h2>
+<p>Creates a lecture.</p>
+<h4>Authorization</h4>
+<p>You need to be enrolled in the <a href="/resources/course.html">Course</a> to which the <a href="/resources/subject.html">Subject</a> belongs (i.e., the course to which the space belongs), and have either <code>environment_admin</code> or <code>teacher</code> role.</p>
+<h4>Parameters</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Attribute</th>
+		<th>Description</th>
+		<th>Restrictions</th>
+	</tr>
+	<tr>
+		<td><strong>lecture[name]</strong></td>
+		<td>Lecture name</td>
+		<td>N/A</td>
+	</tr>
+	<tr>
+		<td><strong>lecture[type]</strong></td>
+		<td>Type</td>
+		<td>It must be <code>Media</code>, <code>Document</code>, or <code>Page</code></td>
+	</tr>
+	<tr>
+		<td><strong>lecture[media]</strong></td>
+		<td>File or <span class="caps">URL</span> from youtube</td>
+		<td>Only <code>Media</code>, and <code>Document</code> lectures</td>
+	</tr>
+	<tr>
+		<td><strong>lecture[content]</strong></td>
+		<td>Text content</td>
+		<td>Only <code>Page</code> lectures</td>
+	</tr>
+</table>
+<h4>Upload files</h4>
+<p>In cases of uploading a file, the following <span class="caps">HTTP</span> headers are required::</p>
+<p>1. <code>Content-Type: multipart/form-data</code><br />
+2. <code>Content-Length: 13951</code> (size of file in bytes)</p>
+<p>The usage of Content-type multipart/form-data makes possible that the <span class="caps">HTTP</span> request body is composed of multiple sets of data, where each one has its own Content-type. In this way, we can send the binary data of an image or <span class="caps">PDF</span> file, besides the name and type.</p>
+<p>Redu is able to automatically detect Content-type for images. However, when uploading other types of media, you must tell their Content-type. Most <span class="caps">HTTP</span> libraries have this feature implemented. Below you can see an example of body of an <span class="caps">HTTP</span> request to upload a video in <span class="caps">MPEG</span> format:</p>
+<div class="highlight"><pre><code class="sh">------------------------------17c3f87d4b40
+Content-Disposition: form-data; <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;lecture[media]&quot;</span>; <span class="nv">filename</span><span class="o">=</span>
+<span class="s2">&quot;video_example.avi&quot;</span>
+Content-Type: video/mpeg
+
+&lt;dados binários&gt;
+------------------------------17c3f87d4b40
+Content-Disposition: form-data; <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;lecture[name]&quot;</span>
+
+testando_upload_de_aula
+------------------------------17c3f87d4b40
+Content-Disposition: form-data; <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;lecture[type]&quot;</span>
+
+Media
+</code></pre></div><p>This behavior is described in details in <a href="http://www.ietf.org/rfc/rfc2388.txt"><span class="caps">RFC</span> 2388</a></p>
+<h4>Example</h4>
+<p>In all the examples, we use <a href="http://curl.haxx.se/docs/manpage.html">cURL</a> to test the creation of Lecture.An Java example can be found <a href="https://github.com/redu/oauth-consumers/tree/master/java-native/file-upload">here</a>.</p>
+<ul>
+	<li>Document</li>
+</ul>
+<p>In this example, a <code>Document</code> lecture will be created from <code>pdf_example.pdf</code> file in the current directory.</p>
+<div class="highlight"><pre><code class="sh">curl <span class="se">\</span>
+  -H <span class="s1">&#39;Authorization: OAuth AJOBibdmecfKxOpEeRWbdmVVCGujGRU3JKA0jyQM&#39;</span> <span class="se">\</span>
+  -F <span class="s1">&#39;lecture[media]=@pdf_example.pdf;type=application/pdf&#39;</span> <span class="se">\</span>
+  -F <span class="s1">&#39;lecture[name]=My lecture&#39;</span> <span class="se">\</span>
+  -F <span class="s1">&#39;lecture[type]=Document&#39;</span> <span class="se">\</span>
+  http://www.redu.com.br/api/subjects/117/lectures -vv
+</code></pre></div><ul>
+	<li>Media (upload)</li>
+</ul>
+<p>In this example, a <code>Media</code> lecture will be created from <code>video.avi</code> file in the current diretory.</p>
+<div class="highlight"><pre><code class="sh">curl <span class="se">\</span>
+  -H <span class="s1">&#39;Authorization: OAuth AJOBibdmecfKxOpEeRWbdmVVCGujGRU3JKA0jyQM&#39;</span> <span class="se">\</span>
+  -F <span class="s1">&#39;lecture[media]=@video.avi;type=video/mpeg&#39;</span> <span class="se">\</span>
+  -F <span class="s1">&#39;lecture[name]=My lecture&#39;</span> <span class="se">\</span>
+  -F <span class="s1">&#39;lecture[type]=Media&#39;</span> <span class="se">\</span>
+  http://www.redu.com.br/api/subjects/117/lectures -vv
+</code></pre></div><ul>
+	<li>Media (YouTube)</li>
+</ul>
+<p>In this example, a <code>Media</code> lecture will be created from a Youtube <a href="http://www.youtube.com/watch?v=GrV2SZuRPv0">link</a>.</p>
+<div class="highlight"><pre><code class="sh">curl <span class="se">\</span>
+  -H <span class="s1">&#39;Authorization: OAuth AJOBibdmecfKxOpEeRWbdmVVCGujGRU3JKA0jyQM&#39;</span> <span class="se">\</span>
+  -H <span class="s1">&#39;Content-type: application/json&#39;</span> <span class="se">\</span>
+  -d <span class="s1">&#39;{ &quot;lecture&quot; : { &quot;name&quot; : &quot;Youtube&quot;, &quot;media&quot; : &quot;http://www.youtube.com/watch?v=GrV2SZuRPv0&quot;, &quot;type&quot; : &quot;Media&quot; } }&#39;</span> <span class="se">\</span>
+  http://redu.com.br/api/subjects/117/lectures -vv
+</code></pre></div><ul>
+	<li>Page</li>
+</ul>
+<div class="highlight"><pre><code class="sh">curl <span class="se">\</span>
+  -H <span class="s1">&#39;Authorization: OAuth AJOBibdmecfKxOpEeRWbdmVVCGujGRU3JKA0jyQM&#39;</span> <span class="se">\</span>
+  -H <span class="s1">&#39;Content-type: application/json&#39;</span> <span class="se">\</span>
+  -d <span class="s1">&#39;{ &quot;lecture&quot; : { &quot;name&quot; : &quot;Minha pag&quot;, &quot;content&quot; : &quot;&lt;strong&gt;meu conteudo&lt;/strong&gt;&quot;, &quot;type&quot; : &quot;Page&quot; } }&#39;</span> <span class="se">\</span>
+  http://redu.com.br/api/subjects/117/lectures -vv
+</code></pre></div><h2><a href="#delete-lecture"><span class="caps">DELETE</span> /api/lectures/:id</a></h2>
+<p>Deletes a lecture.</p>
+<h4>Authorization</h4>
+<p>You need to be enrolled in the <a href="/resources/course.html">Course</a> to which the <a href="/resources/subject.html">Subject</a> belongs (i.e., the course to which the space belongs), and have either <code>environment_admin</code> or <code>teacher</code> role.</p>
+
+
+          </div>
+        </div>
+      </div>
+
+
+      <footer>
+        <p>&copy; Redu Educational Technologies 2012
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,538 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Pastas e Arquivos</title>
+    
+    <meta name="author" content="Redu Educational Technologies">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/twitter/css/highlight.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class = "flags">
+            <a class = "flag" href="/" title="Português"/><img src="/assets/images/br.png" /></a>
+            <a class = "flag" href="/en" title="English"/><img src="/assets/images/uk.png" /></a>
+          </div>
+        </div>
+        <div class="container">
+          <a class="brand" href="/">Redu para desenvolvedores</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="content">
+
+        <div class="row">
+          <div class="span12">
+            <div class="page-header">
+              <h1>Pastas e Arquivos <small></small></h1>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="span3">
+            <ul class="nav nav-list affix-top">
+              
+              
+              
+
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    	
+    	<li><a href="/resources/progress.html">Progresso</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/course.html">Curso</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/canvas.html">Canvas</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/space.html">Disciplina</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/links.html">Links</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/status.html">Mural</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/user.html">Usuário</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/environment.html">AVA</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/chat.html">Chat</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/enrollment.html">Matrícula</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/subject.html">Módulo</a></li>
+    	
+    
+  
+    
+    	
+    	<li class="active"><a href="/resources/folders-and-files.html" class="active">Pastas e Arquivos</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/lecture.html">Aula</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/resources/connection.html">Conexão</a></li>
+    	
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+            </ul>
+          </div>
+
+          <div class="span9">
+            
+<a href="https://github.com/redu/redu.github.com"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+
+<p>Pasta e Arquivo são referenciados, respectivamente, como: <code>folder</code> e <code>file</code>. Estes compõem a seção de Arquivos de Apoio dispostos em uma <a href="/resources/space.html">Disciplina</a>, onde é possível guardar, organizar e baixar arquivos.</p>
+<div style="width:678px; height: 380px; margin: 0 auto;" class="thumbnail"><img src="/assets/images/folders-and-files-example.png" alt="" /></div>
+<h1>Folder</h1>
+<p>Representa uma pasta no sistema de arquivos, a qual pode estar contida em uma pasta e conter várias pastas e arquivos. Uma <a href="/resources/space.html">disciplina</a> pode possuir várias pastas.</p>
+<h3>Atributos</h3>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Atributo</th>
+		<th>Descrição</th>
+	</tr>
+	<tr>
+		<td>ID</td>
+		<td>Identificador único do Folder</td>
+	</tr>
+	<tr>
+		<td>name</td>
+		<td>Nome</td>
+	</tr>
+	<tr>
+		<td>created_at</td>
+		<td>Data de criação</td>
+	</tr>
+</table>
+<h3>Links</h3>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Link</th>
+		<th>Descrição</th>
+	</tr>
+	<tr>
+		<td>self</td>
+		<td>Pasta em questão</td>
+	</tr>
+	<tr>
+		<td>folder</td>
+		<td>Pasta na qual a pasta em questão está contida (pasta pai)</td>
+	</tr>
+	<tr>
+		<td>files</td>
+		<td>Arquivos contidos</td>
+	</tr>
+	<tr>
+		<td>folders</td>
+		<td>Pastas contidas</td>
+	</tr>
+	<tr>
+		<td>space</td>
+		<td>Disciplina onde a pasta se encontra</td>
+	</tr>
+	<tr>
+		<td>user</td>
+		<td> Usuário criador</td>
+	</tr>
+</table>
+<h2><a href="#folder-get"><span class="caps">GET</span> /api/folders/:id</a></h2>
+<p>Retorna a pasta em questão.</p>
+<h4>Autorização</h4>
+<p>É necessário estar <a href="/resources/enrollment.html">matriculado</a> no <a href="/resources/course.html">curso</a> ao qual a pasta pertence (no caso, o curso da disciplina).</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Atributo</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>id</strong></td>
+		<td>ID da pasta</td>
+		<td>N/A</td>
+	</tr>
+</table>
+<h4>Exemplo</h4>
+<p>Requisição:<br />
+<code>GET /api/folders/4</code></p>
+<p>Resposta:</p>
+<div class="highlight"><pre><code class="json"><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;My Folder&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;created_at&quot;</span> <span class="s2">&quot;2012-01-13T12:11:22-02:00…&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;links&quot;</span> <span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span> <span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/folders/4&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span> <span class="p">:</span> <span class="s2">&quot;self&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span> <span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/folders/2&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span> <span class="p">:</span> <span class="s2">&quot;folder&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span> <span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/folders/4/files&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span> <span class="p">:</span> <span class="s2">&quot;files&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span> <span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/folders/4/folders&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span> <span class="p">:</span> <span class="s2">&quot;folders&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span> <span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/spaces/1626&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span> <span class="p">:</span> <span class="s2">&quot;space&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span> <span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/julianalucena&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span> <span class="p">:</span> <span class="s2">&quot;user&quot;</span>
+    <span class="p">},</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div><h2><a href="#folders-get"><span class="caps">GET</span> /api/folders/:folder_id/folders</a></h2>
+<p>Retorna as pastas contidas na pasta em questão.</p>
+<h4>Autorização</h4>
+<p>É necessário estar <a href="/resources/enrollment.html">matriculado</a> no <a href="/resources/course.html">curso</a> ao qual a pasta pertence (no caso, o curso da disciplina).</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Atributo</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>id</strong></td>
+		<td>ID da pasta pai</td>
+		<td>N/A</td>
+	</tr>
+</table>
+<h2><a href="#space-folders-get"><span class="caps">GET</span> /api/spaces/:space_id/folders</a></h2>
+<p>Retorna as pastas contidas na disciplina informada.</p>
+<h4>Autorização</h4>
+<p>É necessário estar <a href="/resources/enrollment.html">matriculado</a> no <a href="/resources/course.html">curso</a> ao qual a disciplina pertence.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Atributo</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>id</strong></td>
+		<td>ID da disciplina</td>
+		<td>N/A</td>
+	</tr>
+</table>
+<h2><a href="#folder-update"><span class="caps">POST</span> /api/folders/:id/folders</a></h2>
+<p>Cria novo diretório dentro do diretório especificado.</p>
+<h4>Autorização</h4>
+<p>É necessário estar <a href="/resources/enrollment.html">matriculado</a> no <a href="/resources/course.html">curso</a> ao qual a disciplina pertence e ser administrador, professor ou tutor no curso.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Atributo</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>folder[name]</strong></td>
+		<td>Novo nome do arquivo</td>
+		<td>N/A</td>
+	</tr>
+</table>
+<h4>Exemplo</h4>
+<p>O exemplo abaixo foi realizado utilizando o programa <a href="http://curl.haxx.se/">cURL</a>.</p>
+<div class="highlight"><pre><code class="sh">curl <span class="se">\</span>
+  -H <span class="s1">&#39;Authorization: OAuth us8Jsbsgbc3bb5b56nCuBFirbXni0LpQWI&#39;</span> <span class="se">\</span>
+  -H <span class="s1">&#39;Content-type: application/json&#39;</span> <span class="se">\</span>
+  -X <span class="s1">&#39;POST&#39;</span> <span class="se">\</span>
+  -d <span class="s1">&#39;{ &quot;folder&quot; : { &quot;name&quot; : &quot;new folder&quot; } }&#39;</span> <span class="se">\</span>
+  http://redu.com.br/api/folders/31/folders -vv
+</code></pre></div><h2><a href="#folder-update"><span class="caps">PUT</span> /api/folders/:id</a></h2>
+<p>Atualiza nome de um Folder.</p>
+<h4>Autorização</h4>
+<p>É necessário estar <a href="/resources/enrollment.html">matriculado</a> no <a href="/resources/course.html">curso</a> ao qual a disciplina pertence e ser administrador, professor ou tutor no curso.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Atributo</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>folder[name]</strong></td>
+		<td>Novo nome do arquivo</td>
+		<td>N/A</td>
+	</tr>
+</table>
+<h2><a href="#file-delete"><span class="caps">DELETE</span> /api/folders/:id</a></h2>
+<p>Remove a pasta especificada.</p>
+<h4>Autorização</h4>
+<p>É necessário estar <a href="/resources/enrollment.html">matriculado</a> no <a href="/resources/course.html">curso</a> e ser administrador, professor ou tutor no curso.</p>
+<h1>File</h1>
+<p>Representa um arquivo no sistema de arquivos, o qual está contido em uma pasta.</p>
+<h3>Atributos</h3>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Atributo</th>
+		<th>Descrição</th>
+	</tr>
+	<tr>
+		<td>id</td>
+		<td>Identificador único do File</td>
+	</tr>
+	<tr>
+		<td>name</td>
+		<td>Nome</td>
+	</tr>
+	<tr>
+		<td>mimetype</td>
+		<td>Formato do arquivo</td>
+	</tr>
+	<tr>
+		<td>size</td>
+		<td>Tamanho em <em>megabytes</em></td>
+	</tr>
+	<tr>
+		<td>byte</td>
+		<td>Tamanho em <em>bytes</em></td>
+	</tr>
+	<tr>
+		<td>created_at</td>
+		<td>Data de criação</td>
+	</tr>
+</table>
+<h3>Links</h3>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Link</th>
+		<th>Descrição</th>
+	</tr>
+	<tr>
+		<td>self</td>
+		<td>Arquivo em questão</td>
+	</tr>
+	<tr>
+		<td>folder</td>
+		<td>Pasta na qual o arquivo está contido (pasta pai)</td>
+	</tr>
+	<tr>
+		<td>space</td>
+		<td>Disciplina onde a pasta se encontra</td>
+	</tr>
+	<tr>
+		<td>user</td>
+		<td> Usuário criador</td>
+	</tr>
+	<tr>
+		<td>raw</td>
+		<td> Endereço do arquivo bruto para download</td>
+	</tr>
+</table>
+<h2><a href="#file-get"><span class="caps">GET</span> /api/files/:id</a></h2>
+<p>Retorna o arquivo em questão.</p>
+<h4>Autorização</h4>
+<p>É necessário estar <a href="/resources/enrollment.html">matriculado</a> no <a href="/resources/course.html">curso</a> ao qual o arquivo pertence (no caso, o curso da disciplina).</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Atributo</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>id</strong></td>
+		<td>ID do arquivo</td>
+		<td>N/A</td>
+	</tr>
+</table>
+<h4>Exemplo</h4>
+<p>Requisição:<br />
+<code>GET /api/files/4</code></p>
+<p>Resposta:</p>
+<div class="highlight"><pre><code class="json"><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;My File&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;mimetype&quot;</span> <span class="p">:</span> <span class="s2">&quot;application/pdf&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;size&quot;</span> <span class="p">:</span> <span class="s2">&quot;132Mb&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;byte&quot;</span> <span class="p">:</span> <span class="s2">&quot;12213&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;created_at&quot;</span> <span class="s2">&quot;2012-01-13T12:11:22-02:00…&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;links&quot;</span> <span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span> <span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/files/4&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span> <span class="p">:</span> <span class="s2">&quot;self&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span> <span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/folders/2&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span> <span class="p">:</span> <span class="s2">&quot;folder&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span> <span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/spaces/1626&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span> <span class="p">:</span> <span class="s2">&quot;space&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span> <span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/julianalucena&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span> <span class="p">:</span> <span class="s2">&quot;user&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span> <span class="p">:</span> <span class="s2">&quot;http://s3.amazonaws.com/redu_files/myfiles/attachments/309/original/01_intro.pdf?AWSAccessKeyId=AKIAIRKVQDTWT2NN4J4Q&amp;Expires=1358789646&amp;Signature=AoV34rkOyu9PFNxMxxAqQlDTBzA%3D&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span> <span class="p">:</span> <span class="s2">&quot;raw&quot;</span>
+    <span class="p">},</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div><h2><a href="#files-get"><span class="caps">GET</span> /api/folders/:folder_id/files</a></h2>
+<p>Retorna os arquivos contidos na pasta em questão.</p>
+<h4>Autorização</h4>
+<p>É necessário estar <a href="/resources/enrollment.html">matriculado</a> no <a href="/resources/course.html">curso</a> ao qual a pasta / o arquivo pertence (no caso, o curso da disciplina).</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Atributo</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>id</strong></td>
+		<td>ID da pasta</td>
+		<td>N/A</td>
+	</tr>
+</table>
+<h2><a href="#file-post"><span class="caps">POST</span> /api/folders/:folder_id/files</a></h2>
+<p>Cria um novo arquivo dentro da pasta especificada.</p>
+<h4>Autorização</h4>
+<p>É necessário estar <a href="/resources/enrollment.html">matriculado</a> no <a href="/resources/course.html">curso</a> e ser administrador, professor ou tutor no curso.</p>
+<h4>Parâmetros</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Atributo</th>
+		<th>Descrição</th>
+		<th>Restrições</th>
+	</tr>
+	<tr>
+		<td><strong>file[content]</strong></td>
+		<td>Dados binários do arquivo a ser criado</td>
+		<td>Tamanho máximo de 100 Mb</td>
+	</tr>
+</table>
+<h5>Upload de arquivos</h5>
+<p>Em casos casos em que há o upload de arquivos, são necessários os seguintes cabeçalhos <span class="caps">HTTP</span>:</p>
+<p>1. Content-Type: multipart/form-data<br />
+2. Content-Length: 13951 (tamanho do arquivo em bytes)</p>
+<p>O uso do Content-type multipart/form-data torna possível que o corpo da requisição <span class="caps">HTTP</span> seja composto vários conjuntos de dados, cada qual possuindo seu próprio Content-type. Com isso podemos enviar, além do name e type, os dados binários que compõem uma imagem ou um <span class="caps">PDF</span>.</p>
+<h4>Exemplo</h4>
+<p>O exemplo abaixo foi realizado utilizando o programa <a href="http://curl.haxx.se/">cURL</a>.</p>
+<div class="highlight"><pre><code class="sh">curl <span class="se">\</span>
+  -H <span class="s1">&#39;Authorization: OAuth us8JsbsgaH32jh3h23g32irbXni0LpQWI&#39;</span> <span class="se">\</span>
+  -F <span class="s1">&#39;file[content]=@spec/fixtures/api/pdf_example.pdf;type=application/pdf&#39;</span> <span class="se">\</span>
+  http://redu.com.br/api/folders/31/files -vv
+</code></pre></div><h2><a href="#file-delete"><span class="caps">DELETE</span> /api/files/:id</a></h2>
+<p>Remove o arquivo especificado</p>
+<h4>Autorização</h4>
+<p>É necessário estar <a href="/resources/enrollment.html">matriculado</a> no <a href="/resources/course.html">curso</a> e ser administrador, professor ou tutor no curso.</p>
+
+
+          </div>
+        </div>
+      </div>
+
+
+      <footer>
+        <p>&copy; Redu Educational Technologies 2012
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

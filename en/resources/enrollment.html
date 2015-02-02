@@ -1,0 +1,394 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Enrollment</title>
+    
+    <meta name="author" content="Redu Educational Technologies">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/twitter/css/highlight.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class = "flags">
+            <a class = "flag" href="/" title="Português"/><img src="/assets/images/br.png" /></a>
+            <a class = "flag" href="/en" title="English"/><img src="/assets/images/uk.png" /></a>
+          </div>
+        </div>
+        <div class="container">
+          <a class="brand" href="/en/">Redu for developers</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="content">
+
+        <div class="row">
+          <div class="span12">
+            <div class="page-header">
+              <h1>Enrollment <small></small></h1>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="span3">
+            <ul class="nav nav-list affix-top">
+              
+              
+              
+
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    	
+    	<li><a href="/en/resources/progress.html">Progress</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/course.html">Course</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/canvas.html">Canvas</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/space.html">Space</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/links.html">Links</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/status.html">Status</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/user.html">User</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/environment.html">Environment</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/chat.html">Chat</a></li>
+    	
+    
+  
+    
+    	
+    	<li class="active"><a href="/en/resources/enrollment.html" class="active">Enrollment</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/subject.html">Subject</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/folders-and-files.html">Folders and Files</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/lecture.html">Lecture</a></li>
+    	
+    
+  
+    
+    	
+    	<li><a href="/en/resources/connection.html">Connection</a></li>
+    	
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+            </ul>
+          </div>
+
+          <div class="span9">
+            
+<a href="https://github.com/redu/redu.github.com"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+
+<p>Resource that represents the enrollment of users in courses. It was developed in such a way that abstracts the fact that the user is present or not in <a href="http://www.redu.com.br">Redu</a>.</p>
+<p>If the email is not registered in the plataform, an invitation will be sent, allowing the registration, and  subsequent invitation to the course. It has a state machine as defined below (property <code>state</code>):</p>
+<p><strong>Attributes:</strong></p>
+<table class="table table-bordered">
+	<tr>
+		<th>Attribute</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>ID</td>
+		<td>Enrollment identifier</td>
+	</tr>
+	<tr>
+		<td>state</td>
+		<td>Current state of enrollment. Example: <code>waiting</code></td>
+	</tr>
+	<tr>
+		<td>email</td>
+		<td>E-mail of the user who will be invited. Only used when the user does not participate in Redu yet</td>
+	</tr>
+	<tr>
+		<td>token</td>
+		<td>Token of user invitation</td>
+	</tr>
+	<tr>
+		<td>role</td>
+		<td>Role of the user in the Course. Only available if the user has already accepted the invitation. The possible states are: <code>member</code>, <code>teacher</code>, <code>environment_admin</code>, and <code>tutor</code></td>
+	</tr>
+</table>
+<div class="thumbnail"><img src="../assets/images/enrollment-sm.png" alt="" /></div>
+<p><strong>States:</strong></p>
+<table style="width: 500px;" class="table table-bordered">
+	<tr>
+		<th>State</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>waiting</td>
+		<td>No action was taken</td>
+	</tr>
+	<tr>
+		<td>redu_invited</td>
+		<td>When the email is not registered in <a href="http://www.redu.com.br">Redu</a>, and an invitation message was sent</td>
+	</tr>
+	<tr>
+		<td>invited</td>
+		<td>When the email is not registered in <a href="http://www.redu.com.br">Redu</a>, and user receives an invitation to the course. Notification will show up in the home page of the user</td>
+	</tr>
+	<tr>
+		<td>approved</td>
+		<td>User has accepted the invitation</td>
+	</tr>
+	<tr>
+		<td>rejected</td>
+		<td>User has rejected the invitation</td>
+	</tr>
+</table>
+<h2><a href="#get-enrollments"><span class="caps">GET</span> /api/enrollments/:id</a></h2>
+<p>Returns the enrollment in question.</p>
+<h4>Parameters</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+		<th>Restrictions</th>
+	</tr>
+	<tr>
+		<td><strong>id</strong></td>
+		<td>Enrollment ID</td>
+		<td>N/A</td>
+	</tr>
+</table>
+<h2><a href="#post-course-enrollments"><span class="caps">POST</span> /api/courses/:course_id/enrollments</a></h2>
+<p>Creates an enrollment in the course in question. If the user participates in Redu, the state of the enrollment will go to <code>invited</code>, and a notification will show up in their home page, inviting them to participate in the course. Otherwise, the enrollment will go to <code>redu_invited</code> state before going to the <code>invited</code> state. This means that an email invitation was sent.</p>
+<h4>Parameters</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+		<th>Restrictions</th>
+	</tr>
+	<tr>
+		<td><strong>id</strong></td>
+		<td>ID or path to course</td>
+		<td>N/A</td>
+	</tr>
+	<tr>
+		<td><strong>enrollment[email]</strong></td>
+		<td>E-mail of user who will be invited</td>
+		<td>Maximum 40 characters; it must be unique</td>
+	</tr>
+</table>
+<h4>Example</h4>
+<p><code>POST /api/courses/foo/enrollments</code></p>
+<p><strong>Payload:</strong></p>
+<div class="highlight"><pre><code class="json"><span class="p">{</span>
+  <span class="nt">&quot;enrollment&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;email&quot;</span> <span class="p">:</span> <span class="s2">&quot;foo@bar.com&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p><strong>Response:</strong></p>
+<div class="highlight"><pre><code class="json"><span class="p">{</span>
+  <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-03-05T07:38:06-03:00&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;18EM2oxY37g&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">[{</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/enrollments/4&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/courses/course-name&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;course&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+      <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/courses/environment-name&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;environment&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+      <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span>
+    <span class="p">}],</span>
+    <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;redu_invited&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;foo@bar.com&quot;</span>
+<span class="p">}</span>
+</code></pre></div><h2><a href="#get-course-enrollments"><span class="caps">GET</span> /api/courses/:course_id/enrollments</a></h2>
+<p>Lists enrollments for a course. It is important to notice that there may be more enrollments than registered users in the course (state <code>redu_invited</code>, or <code>invited</code>).</p>
+<h4>Parameters</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+		<th>Restrictions</th>
+	</tr>
+	<tr>
+		<td><strong>id</strong></td>
+		<td>ID or path to course</td>
+		<td>N/A</td>
+	</tr>
+</table>
+<h2><a href="#get-course-enrollments"><span class="caps">GET</span> /api/users/:user_id/enrollments</a></h2>
+<p>Lists enrollments for a user.</p>
+<h4>Authorization</h4>
+<p>To submit this request you need to have administrative access to a User. In other words, only the user can see their own enrollments.</p>
+<h4>Parameters</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+		<th>Restrictions</th>
+	</tr>
+	<tr>
+		<td><strong>user_id</strong></td>
+		<td>User ID</td>
+		<td>N/A</td>
+	</tr>
+	<tr>
+		<td><strong>courses_ids[]</strong></td>
+		<td>Course IDs. It allows filtering Enrollment by courses</td>
+		<td>N/A</td>
+	</tr>
+</table>
+<p><strong>Example:</strong></p>
+<p><code>GET /api/users/4/enrollments?courses_ids[]=50&amp;courses_ids[]=81</code></p>
+<div class="highlight"><pre><code class="json"><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;environment&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/courses/www&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;course&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/courses/recife&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/guiocavalcanti&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/enrollments/5939&quot;</span> <span class="p">}</span>
+    <span class="p">],</span>
+      <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;approved&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">5939</span><span class="p">,</span>
+      <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-04-09T20:01:19-03:00&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;member&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-04-08T04:06:58-03:00&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;environment&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/courses/ium&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;course&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/courses/graduacao-em-ciencia-da-computacao&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/users/guiocavalcanti&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">&quot;rel&quot;</span><span class="p">:</span> <span class="s2">&quot;self&quot;</span><span class="p">,</span> <span class="nt">&quot;href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.redu.com.br/api/enrollments/5264&quot;</span> <span class="p">}</span>
+    <span class="p">],</span>
+      <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;approved&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">5264</span><span class="p">,</span>
+      <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-03-21T23:56:07-03:00&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;environment_admin&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-01-24T08:12:39-02:00&quot;</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div><h2><a href="#delete-enrollments"><span class="caps">DELETE</span> /api/enrollments/:id</a></h2>
+<p>Deletes the specified enrollment, as well as the associated user (if any). The user will lose access to the course, and to its spaces.</p>
+<h4>Parameters</h4>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+		<th>Restrictions</th>
+	</tr>
+	<tr>
+		<td><strong>id</strong></td>
+		<td>ID or path to course</td>
+		<td>N/A</td>
+	</tr>
+</table>
+
+
+          </div>
+        </div>
+      </div>
+
+
+      <footer>
+        <p>&copy; Redu Educational Technologies 2012
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+
