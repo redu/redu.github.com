@@ -36,6 +36,14 @@ Para cada link da navegação global há um arquivo correspondente dentro do dir
 4. Dê push nas modificações (`git push origin my-new-feature`)
 5. Envie um pull request
 
+## Publicando
+
+Após qualquer mudança em arquivos .textile do site, é necessário executar o seguinte comando para gerar as páginas estáticas localmente e publicar o novo site em produção:
+
+    $ rake publish
+
+O usuário deve ter privilégios de commiter, além de possuir uma [SSH key no computador associada à respectiva conta](https://help.github.com/articles/generating-ssh-keys/).
+
 <img src="https://github.com/downloads/redu/redupy/redutech-marca.png" alt="Redu Educational Technologies" width="300">
 
 Este projeto é financiado e mantido pelo [Redu Educational Techologies](http://tech.redu.com.br).
