@@ -100,7 +100,7 @@ h3. DELETE /api/canvas/:id
 
 h2. {% t canvas.lecture.title %}
 
-h3. "POST /api/subject/:subject_id/lectures":#post-lectures
+h3. "POST /api/subjects/:subject_id/lectures":#post-lectures
 
 {% t canvas.lecture.post_subject_id_lectures.first_paragraph %}
 
@@ -116,7 +116,7 @@ table(table table-bordered table-striped).
 
 h4. {% t global.example %}
 
-{% t global.request %}: @POST /api/subject/12/lectures@
+{% t global.request %}: @POST /api/subjects/12/lectures@
 
 {% t global.response %}:
 
